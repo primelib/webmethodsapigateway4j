@@ -1,0 +1,10 @@
+{
+	"generatorName": "prime-client-java-feign",
+	"invokerPackage": "io.github.primelib.webmethodsapigateway4j",
+	"apiPackage" : "io.github.primelib.webmethodsapigateway4j.api",
+	"modelPackage" : "io.github.primelib.webmethodsapigateway4j.model",
+	"enablePostProcessFile": true,
+	"additionalProperties": {
+		"projectName": "webmethodsapigateway4j"
+	}
+}
