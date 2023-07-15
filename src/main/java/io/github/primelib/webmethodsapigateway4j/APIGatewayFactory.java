@@ -48,7 +48,7 @@ public class APIGatewayFactory {
             .configure(SerializationFeature.FAIL_ON_EMPTY_BEANS, false)
             .build();
 
-    public static <T> T build(Consumer<APIGatewayFactorySpec<T>> spec) {
+    public static <T> T create(Consumer<APIGatewayFactorySpec<T>> spec) {
         APIGatewayFactorySpec<T> config = new APIGatewayFactorySpec<>(spec);
 
         if (config.api().isInterface()) {
@@ -66,8 +66,8 @@ public class APIGatewayFactory {
         }
     }
 
-    public static APIGatewayApi build() {
-        return build(spec -> spec.api(APIGatewayApi.class));
+    public static APIGatewayApi create() {
+        return create(spec -> spec.api(APIGatewayApi.class));
     }
 
     private static <T> T buildClient(Consumer<APIGatewayFactorySpec<T>> spec) {
