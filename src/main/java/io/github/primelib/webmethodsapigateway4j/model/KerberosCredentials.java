@@ -58,18 +58,15 @@ public class KerberosCredentials {
     private ServicePrincipalNameFormEnum servicePrincipalNameForm;
 
 
-public enum ServicePrincipalNameFormEnum {
-        HOSTBASED("hostbased"), // the format in which you want to specify the principal name of the service that is registered with the principal database
-        USERNAME("username"); // the format in which you want to specify the principal name of the service that is registered with the principal database
-    
-    private final String text;
-
     /**
-     * @param text
+     * the format in which you want to specify the principal name of the service that is registered with the principal database
      */
-    ServicePrincipalNameFormEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum ServicePrincipalNameFormEnum {
+        HOSTBASED("hostbased"),
+        USERNAME("username");
+
+        private final String value;
     }
 
-}
 }

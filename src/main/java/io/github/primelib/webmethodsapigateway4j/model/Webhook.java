@@ -50,25 +50,22 @@ public class Webhook {
     private String id;
 
 
-public enum EventsEnum {
-        MIGRATION_QUIESCE_DESIGNTIME_COMPLETED("migration:quiesce:designtime:completed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_QUIESCE_ALL_COMPLETED("migration:quiesce:all:completed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_REINDEX_CORE_COMPLETED("migration:reindex:core:completed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_REINDEX_LOGSEVENTS_COMPLETED("migration:reindex:logsevents:completed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_REINDEX_ANALYTICSANDLOGS_COMPLETED("migration:reindex:analyticsandlogs:completed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_REINDEX_ALL_COMPLETED("migration:reindex:all:completed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_TRANSFORM_ASSETS_COMPETED("migration:transform:assets:competed"), // The list of interested events this webhook is subscribed for
-        MIGRATION_CLEAN_DATASTORE_COMPLETED("migration:clean:datastore:completed"), // The list of interested events this webhook is subscribed for
-        APIGATEWAY_SERVER_STARTED("apigateway:server:started"); // The list of interested events this webhook is subscribed for
-    
-    private final String text;
-
     /**
-     * @param text
+     * The list of interested events this webhook is subscribed for
      */
-    EventsEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum EventsEnum {
+        MIGRATION_QUIESCE_DESIGNTIME_COMPLETED("migration:quiesce:designtime:completed"),
+        MIGRATION_QUIESCE_ALL_COMPLETED("migration:quiesce:all:completed"),
+        MIGRATION_REINDEX_CORE_COMPLETED("migration:reindex:core:completed"),
+        MIGRATION_REINDEX_LOGSEVENTS_COMPLETED("migration:reindex:logsevents:completed"),
+        MIGRATION_REINDEX_ANALYTICSANDLOGS_COMPLETED("migration:reindex:analyticsandlogs:completed"),
+        MIGRATION_REINDEX_ALL_COMPLETED("migration:reindex:all:completed"),
+        MIGRATION_TRANSFORM_ASSETS_COMPETED("migration:transform:assets:competed"),
+        MIGRATION_CLEAN_DATASTORE_COMPLETED("migration:clean:datastore:completed"),
+        APIGATEWAY_SERVER_STARTED("apigateway:server:started");
+
+        private final String value;
     }
 
-}
 }

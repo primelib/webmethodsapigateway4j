@@ -107,82 +107,67 @@ public class OutboundProxySettings {
     private String username;
 
 
-public enum FtpTypeEnum {
-        _0("0"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _1("1"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _2("2"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _3("3"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _4("4"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _5("5"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _6("6"), // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-        _7("7"); // The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
-    
-    private final String text;
-
     /**
-     * @param text
+     * The type of the FTP proxy server. Applicable only if protocol value is FTP. Indicated by a number in the range 0 to 7. 0 - No proxy, 1 - ftp_user@ftp_host no proxy auth, 2 - ftp_user@ftp_host proxy auth, 3 - site command, 4 - open command, 5 - ftp_user@proxy_user@ftp_host, 6 - proxy_user@ftp_host, 7 - ftp_user@ftp_host proxy_user
      */
-    FtpTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum FtpTypeEnum {
+        _0("0"),
+        _1("1"),
+        _2("2"),
+        _3("3"),
+        _4("4"),
+        _5("5"),
+        _6("6"),
+        _7("7");
+
+        private final String value;
     }
 
-}
-public enum IsDefaultEnum {
-        Y("Y"), // Indicates whether this proxy server alias is the default for the corresponding protocol. There can be only one default proxy server alias for a given protocol. Y denotes Yes and N denotes No.
-        N("N"); // Indicates whether this proxy server alias is the default for the corresponding protocol. There can be only one default proxy server alias for a given protocol. Y denotes Yes and N denotes No.
-    
-    private final String text;
-
     /**
-     * @param text
+     * Indicates whether this proxy server alias is the default for the corresponding protocol. There can be only one default proxy server alias for a given protocol. Y denotes Yes and N denotes No.
      */
-    IsDefaultEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum IsDefaultEnum {
+        Y("Y"),
+        N("N");
+
+        private final String value;
     }
 
-}
-public enum ProtocolEnum {
-        HTTP("HTTP"), // The protocol for which the proxy server is created.
-        HTTPS("HTTPS"), // The protocol for which the proxy server is created.
-        SOCKS("SOCKS"), // The protocol for which the proxy server is created.
-        FTP("FTP"); // The protocol for which the proxy server is created.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The protocol for which the proxy server is created.
      */
-    ProtocolEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum ProtocolEnum {
+        HTTP("HTTP"),
+        HTTPS("HTTPS"),
+        SOCKS("SOCKS"),
+        FTP("FTP");
+
+        private final String value;
     }
 
-}
-public enum SocksVersionEnum {
-        _4("4"), // The SOCKS version of the proxy server. Applicable only if protocol value is SOCKS. A value of 4 indicates SOCKS protocol version 4 and a value of 5 indicates SOCKS protocol version 5. SOCKS protocol version 4 does not support authentication and hence username/password cannot be specified if socksVersion = 4.
-        _5("5"); // The SOCKS version of the proxy server. Applicable only if protocol value is SOCKS. A value of 4 indicates SOCKS protocol version 4 and a value of 5 indicates SOCKS protocol version 5. SOCKS protocol version 4 does not support authentication and hence username/password cannot be specified if socksVersion = 4.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The SOCKS version of the proxy server. Applicable only if protocol value is SOCKS. A value of 4 indicates SOCKS protocol version 4 and a value of 5 indicates SOCKS protocol version 5. SOCKS protocol version 4 does not support authentication and hence username/password cannot be specified if socksVersion = 4.
      */
-    SocksVersionEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum SocksVersionEnum {
+        _4("4"),
+        _5("5");
+
+        private final String value;
     }
 
-}
-public enum StatusEnum {
-        ENABLED("Enabled"), // Indicates whether the particular proxy server alias is enabled or disabled.
-        DISABLED("Disabled"); // Indicates whether the particular proxy server alias is enabled or disabled.
-    
-    private final String text;
-
     /**
-     * @param text
+     * Indicates whether the particular proxy server alias is enabled or disabled.
      */
-    StatusEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum StatusEnum {
+        ENABLED("Enabled"),
+        DISABLED("Disabled");
+
+        private final String value;
     }
 
-}
 }

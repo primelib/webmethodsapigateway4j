@@ -37,25 +37,22 @@ public class ServiceRegistryCommunication {
     private String path;
 
 
-public enum HttpMethodEnum {
-        GET("GET"), // HttpMethod that is used while communicating with the service registry
-        POST("POST"), // HttpMethod that is used while communicating with the service registry
-        PUT("PUT"), // HttpMethod that is used while communicating with the service registry
-        DELETE("DELETE"), // HttpMethod that is used while communicating with the service registry
-        HEAD("HEAD"), // HttpMethod that is used while communicating with the service registry
-        PATCH("PATCH"), // HttpMethod that is used while communicating with the service registry
-        OPTIONS("OPTIONS"), // HttpMethod that is used while communicating with the service registry
-        TRACE("TRACE"), // HttpMethod that is used while communicating with the service registry
-        CUSTOM("CUSTOM"); // HttpMethod that is used while communicating with the service registry
-    
-    private final String text;
-
     /**
-     * @param text
+     * HttpMethod that is used while communicating with the service registry
      */
-    HttpMethodEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum HttpMethodEnum {
+        GET("GET"),
+        POST("POST"),
+        PUT("PUT"),
+        DELETE("DELETE"),
+        HEAD("HEAD"),
+        PATCH("PATCH"),
+        OPTIONS("OPTIONS"),
+        TRACE("TRACE"),
+        CUSTOM("CUSTOM");
+
+        private final String value;
     }
 
-}
 }

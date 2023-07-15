@@ -37,19 +37,16 @@ public class GatewayEndpoints {
     private StatusEnum status;
 
 
-public enum StatusEnum {
-        NEW("NEW"), // Status of the API endpoint.
-        PUBLISHED("PUBLISHED"), // Status of the API endpoint.
-        OBSELETE("OBSELETE"); // Status of the API endpoint.
-    
-    private final String text;
-
     /**
-     * @param text
+     * Status of the API endpoint.
      */
-    StatusEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum StatusEnum {
+        NEW("NEW"),
+        PUBLISHED("PUBLISHED"),
+        OBSELETE("OBSELETE");
+
+        private final String value;
     }
 
-}
 }

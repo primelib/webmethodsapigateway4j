@@ -59,48 +59,39 @@ public class QuiesceMode {
     private StatusEnum status;
 
 
-public enum BlockEnum {
-        DESIGNTIME("designtime"), // Specifies the type of blocking for quiesce mode in API Gateway
-        ALL("all"); // Specifies the type of blocking for quiesce mode in API Gateway
-    
-    private final String text;
-
     /**
-     * @param text
+     * Specifies the type of blocking for quiesce mode in API Gateway
      */
-    BlockEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum BlockEnum {
+        DESIGNTIME("designtime"),
+        ALL("all");
+
+        private final String value;
     }
 
-}
-public enum FlushEnum {
-        LICENSE_METRICS("license_metrics"), // Specifies the types of data that need to be flushed when quiesce mode for all is enabled in API Gateway
-        PERFORMANCE_METRICS("performance_metrics"), // Specifies the types of data that need to be flushed when quiesce mode for all is enabled in API Gateway
-        SUBSCRIPTION_QUOTA("subscription_quota"); // Specifies the types of data that need to be flushed when quiesce mode for all is enabled in API Gateway
-    
-    private final String text;
-
     /**
-     * @param text
+     * Specifies the types of data that need to be flushed when quiesce mode for all is enabled in API Gateway
      */
-    FlushEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum FlushEnum {
+        LICENSE_METRICS("license_metrics"),
+        PERFORMANCE_METRICS("performance_metrics"),
+        SUBSCRIPTION_QUOTA("subscription_quota");
+
+        private final String value;
     }
 
-}
-public enum StatusEnum {
-        SUCCESS("success"), // Specifies the current status of the last quiesce mode operation. A null value means that the quiesce mode action is still in progress and the status is not yet known
-        FAILURE("failure"), // Specifies the current status of the last quiesce mode operation. A null value means that the quiesce mode action is still in progress and the status is not yet known
-        IN_PROGRESS("in progress"); // Specifies the current status of the last quiesce mode operation. A null value means that the quiesce mode action is still in progress and the status is not yet known
-    
-    private final String text;
-
     /**
-     * @param text
+     * Specifies the current status of the last quiesce mode operation. A null value means that the quiesce mode action is still in progress and the status is not yet known
      */
-    StatusEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum StatusEnum {
+        SUCCESS("success"),
+        FAILURE("failure"),
+        IN_PROGRESS("in progress");
+
+        private final String value;
     }
 
-}
 }

@@ -51,20 +51,17 @@ public class PortalCommunities {
     private StatusEnum status;
 
 
-public enum StatusEnum {
-        NEW("NEW"), // Staus of the API Portal community.
-        PUBLISHED("PUBLISHED"), // Staus of the API Portal community.
-        PUBLISHED_PACKAGE("PUBLISHED_PACKAGE"), // Staus of the API Portal community.
-        OBSELETE("OBSELETE"); // Staus of the API Portal community.
-    
-    private final String text;
-
     /**
-     * @param text
+     * Staus of the API Portal community.
      */
-    StatusEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum StatusEnum {
+        NEW("NEW"),
+        PUBLISHED("PUBLISHED"),
+        PUBLISHED_PACKAGE("PUBLISHED_PACKAGE"),
+        OBSELETE("OBSELETE");
+
+        private final String value;
     }
 
-}
 }

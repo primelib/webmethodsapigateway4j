@@ -116,18 +116,15 @@ public class ServiceRegistryModel extends Alias {
     private String username;
 
 
-public enum ServiceRegistryTypeEnum {
-        SERVICE_CONSUL("SERVICE_CONSUL"), // It contains the information about the type of service registry
-        EUREKA("EUREKA"); // It contains the information about the type of service registry
-    
-    private final String text;
-
     /**
-     * @param text
+     * It contains the information about the type of service registry
      */
-    ServiceRegistryTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum ServiceRegistryTypeEnum {
+        SERVICE_CONSUL("SERVICE_CONSUL"),
+        EUREKA("EUREKA");
+
+        private final String value;
     }
 
-}
 }

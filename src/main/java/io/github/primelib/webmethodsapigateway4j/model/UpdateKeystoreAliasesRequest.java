@@ -95,32 +95,26 @@ public class UpdateKeystoreAliasesRequest {
     private String isPwdBase64Encoded;
 
 
-public enum KeyStoreTypeEnum {
-        JKS("JKS"), // The certificate file format of the keystore.
-        PKCS12("PKCS12"); // The certificate file format of the keystore.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The certificate file format of the keystore.
      */
-    KeyStoreTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum KeyStoreTypeEnum {
+        JKS("JKS"),
+        PKCS12("PKCS12");
+
+        private final String value;
     }
 
-}
-public enum KeyStoreProviderEnum {
-        SUN("SUN"), // The provider that is used for the keystore type. The default is SUN for JKS type and SunJSSE for PKCS12 type.
-        SUNJSSE("SunJSSE"); // The provider that is used for the keystore type. The default is SUN for JKS type and SunJSSE for PKCS12 type.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The provider that is used for the keystore type. The default is SUN for JKS type and SunJSSE for PKCS12 type.
      */
-    KeyStoreProviderEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum KeyStoreProviderEnum {
+        SUN("SUN"),
+        SUNJSSE("SunJSSE");
+
+        private final String value;
     }
 
-}
 }

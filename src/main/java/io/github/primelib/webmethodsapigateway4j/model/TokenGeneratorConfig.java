@@ -65,19 +65,16 @@ public class TokenGeneratorConfig {
     private Long expiry;
 
 
-public enum AlgorithmEnum {
-        RS256("RS256"), // Type of algorithm that needs to be used for signing the JWT
-        RS384("RS384"), // Type of algorithm that needs to be used for signing the JWT
-        RS512("RS512"); // Type of algorithm that needs to be used for signing the JWT
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of algorithm that needs to be used for signing the JWT
      */
-    AlgorithmEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum AlgorithmEnum {
+        RS256("RS256"),
+        RS384("RS384"),
+        RS512("RS512");
+
+        private final String value;
     }
 
-}
 }

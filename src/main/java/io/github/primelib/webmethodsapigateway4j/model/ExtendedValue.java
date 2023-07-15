@@ -44,24 +44,21 @@ public class ExtendedValue {
     private String value;
 
 
-public enum EndpointTypeEnum {
-        CLIENT_REGISTRATION("CLIENT_REGISTRATION"), // Type of endpoint for which the additional header needs to sent
-        CLIENT_UPDATE("CLIENT_UPDATE"), // Type of endpoint for which the additional header needs to sent
-        CLIENT_DELETE("CLIENT_DELETE"), // Type of endpoint for which the additional header needs to sent
-        CLIENT_READ("CLIENT_READ"), // Type of endpoint for which the additional header needs to sent
-        SCOPE_CREATE("SCOPE_CREATE"), // Type of endpoint for which the additional header needs to sent
-        SCOPE_READ("SCOPE_READ"), // Type of endpoint for which the additional header needs to sent
-        SCOPE_DELETE("SCOPE_DELETE"), // Type of endpoint for which the additional header needs to sent
-        SCOPE_UPDATE("SCOPE_UPDATE"); // Type of endpoint for which the additional header needs to sent
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of endpoint for which the additional header needs to sent
      */
-    EndpointTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum EndpointTypeEnum {
+        CLIENT_REGISTRATION("CLIENT_REGISTRATION"),
+        CLIENT_UPDATE("CLIENT_UPDATE"),
+        CLIENT_DELETE("CLIENT_DELETE"),
+        CLIENT_READ("CLIENT_READ"),
+        SCOPE_CREATE("SCOPE_CREATE"),
+        SCOPE_READ("SCOPE_READ"),
+        SCOPE_DELETE("SCOPE_DELETE"),
+        SCOPE_UPDATE("SCOPE_UPDATE");
+
+        private final String value;
     }
 
-}
 }

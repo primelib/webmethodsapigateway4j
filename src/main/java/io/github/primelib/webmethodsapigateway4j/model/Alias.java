@@ -66,28 +66,25 @@ public class Alias {
     private TypeEnum type;
 
 
-public enum TypeEnum {
-        SIMPLE("simple"), // Type of the alias
-        ENDPOINT("endpoint"), // Type of the alias
-        HTTPTRANSPORTSECURITYALIAS("httpTransportSecurityAlias"), // Type of the alias
-        SOAPMESSAGESECURITYALIAS("soapMessageSecurityAlias"), // Type of the alias
-        SAMLISSUERALIAS("samlIssuerAlias"), // Type of the alias
-        AUTHSERVERALIAS("authServerAlias"), // Type of the alias
-        WEBMETHODSALIAS("webmethodsAlias"), // Type of the alias
-        TRANSFORMATIONALIAS("transformationAlias"), // Type of the alias
-        SERVICEREGISTRYALIAS("serviceRegistryAlias"), // Type of the alias
-        CLIENTMETADATAMAPPING("clientMetadataMapping"), // Type of the alias
-        AWSCONFIGURATIONALIAS("awsConfigurationAlias"), // Type of the alias
-        ISCONFIGURATIONALIAS("isConfigurationAlias"); // Type of the alias
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of the alias
      */
-    TypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum TypeEnum {
+        SIMPLE("simple"),
+        ENDPOINT("endpoint"),
+        HTTPTRANSPORTSECURITYALIAS("httpTransportSecurityAlias"),
+        SOAPMESSAGESECURITYALIAS("soapMessageSecurityAlias"),
+        SAMLISSUERALIAS("samlIssuerAlias"),
+        AUTHSERVERALIAS("authServerAlias"),
+        WEBMETHODSALIAS("webmethodsAlias"),
+        TRANSFORMATIONALIAS("transformationAlias"),
+        SERVICEREGISTRYALIAS("serviceRegistryAlias"),
+        CLIENTMETADATAMAPPING("clientMetadataMapping"),
+        AWSCONFIGURATIONALIAS("awsConfigurationAlias"),
+        ISCONFIGURATIONALIAS("isConfigurationAlias");
+
+        private final String value;
     }
 
-}
 }

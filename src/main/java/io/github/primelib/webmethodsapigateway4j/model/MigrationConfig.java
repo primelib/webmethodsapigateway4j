@@ -50,34 +50,28 @@ public class MigrationConfig {
     private ElasticsearchConfig sourceElasticsearch;
 
 
-public enum ActionEnum {
-        CLEAN("clean"), // The type of migration action to be performed
-        REINDEX("reindex"), // The type of migration action to be performed
-        TRANSFORM("transform"), // The type of migration action to be performed
-        BACKUP("backup"); // The type of migration action to be performed
-    
-    private final String text;
-
     /**
-     * @param text
+     * The type of migration action to be performed
      */
-    ActionEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum ActionEnum {
+        CLEAN("clean"),
+        REINDEX("reindex"),
+        TRANSFORM("transform"),
+        BACKUP("backup");
+
+        private final String value;
     }
 
-}
-public enum IndicesTypeEnum {
-        CORE("core"), // The type of indices to be reindexed for reindex action
-        ANALYTICSANDLOGS("analyticsandlogs"); // The type of indices to be reindexed for reindex action
-    
-    private final String text;
-
     /**
-     * @param text
+     * The type of indices to be reindexed for reindex action
      */
-    IndicesTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum IndicesTypeEnum {
+        CORE("core"),
+        ANALYTICSANDLOGS("analyticsandlogs");
+
+        private final String value;
     }
 
-}
 }

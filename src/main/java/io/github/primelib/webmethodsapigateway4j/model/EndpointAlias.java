@@ -81,19 +81,16 @@ public class EndpointAlias extends Alias {
     private String truststoreAlias;
 
 
-public enum OptimizationTechniqueEnum {
-        NONE("None"), // Type of optimization technique used for SOAP messages
-        MTOM("MTOM"), // Type of optimization technique used for SOAP messages
-        SWA("SwA"); // Type of optimization technique used for SOAP messages
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of optimization technique used for SOAP messages
      */
-    OptimizationTechniqueEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum OptimizationTechniqueEnum {
+        NONE("None"),
+        MTOM("MTOM"),
+        SWA("SwA");
+
+        private final String value;
     }
 
-}
 }

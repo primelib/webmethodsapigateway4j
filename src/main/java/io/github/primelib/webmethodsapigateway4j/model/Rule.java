@@ -87,17 +87,14 @@ public class Rule {
     private RuleTypeEnum ruleType;
 
 
-public enum RuleTypeEnum {
-        TEAMASSIGNMENTRULE("teamAssignmentRule"); // Type of the rule
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of the rule
      */
-    RuleTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum RuleTypeEnum {
+        TEAMASSIGNMENTRULE("teamAssignmentRule");
+
+        private final String value;
     }
 
-}
 }

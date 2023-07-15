@@ -84,19 +84,16 @@ public class AuthServerAlias extends Alias {
     private TokenGeneratorConfig tokenGeneratorConfig;
 
 
-public enum AuthServerTypeEnum {
-        LOCAL_IS("LOCAL_IS"), // Type of the authorization server
-        REMOTE_IS("REMOTE_IS"), // Type of the authorization server
-        EXTERNAL("EXTERNAL"); // Type of the authorization server
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of the authorization server
      */
-    AuthServerTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum AuthServerTypeEnum {
+        LOCAL_IS("LOCAL_IS"),
+        REMOTE_IS("REMOTE_IS"),
+        EXTERNAL("EXTERNAL");
+
+        private final String value;
     }
 
-}
 }

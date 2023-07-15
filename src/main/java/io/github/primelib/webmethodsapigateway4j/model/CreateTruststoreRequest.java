@@ -73,17 +73,14 @@ public class CreateTruststoreRequest {
     private String isPwdBase64Encoded;
 
 
-public enum KeyStoreTypeEnum {
-        JKS("JKS"); // The certificate file format of the truststore.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The certificate file format of the truststore.
      */
-    KeyStoreTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum KeyStoreTypeEnum {
+        JKS("JKS");
+
+        private final String value;
     }
 
-}
 }

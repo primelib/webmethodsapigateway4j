@@ -54,44 +54,38 @@ public class HTTPTransportSecurityAlias extends Alias {
     private String oauth2Token;
 
 
-public enum AuthModeEnum {
-        NEW("NEW"), // Mode of authentication that needs to be used
-        INCOMING_HTTP_BASIC_AUTH("INCOMING_HTTP_BASIC_AUTH"), // Mode of authentication that needs to be used
-        INCOMING_WSS_USER("INCOMING_WSS_USER"), // Mode of authentication that needs to be used
-        INCOMING_X509("INCOMING_X509"), // Mode of authentication that needs to be used
-        DELEGATE_INCOMING("DELEGATE_INCOMING"), // Mode of authentication that needs to be used
-        INCOMING_OAUTH_TOKEN("INCOMING_OAUTH_TOKEN"), // Mode of authentication that needs to be used
-        INCOMING_JWT("INCOMING_JWT"), // Mode of authentication that needs to be used
-        TRANSPARENT("TRANSPARENT"), // Mode of authentication that needs to be used
-        INCOMING_KERBEROS("INCOMING_KERBEROS"); // Mode of authentication that needs to be used
-    
-    private final String text;
-
     /**
-     * @param text
+     * Mode of authentication that needs to be used
      */
-    AuthModeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum AuthModeEnum {
+        NEW("NEW"),
+        INCOMING_HTTP_BASIC_AUTH("INCOMING_HTTP_BASIC_AUTH"),
+        INCOMING_WSS_USER("INCOMING_WSS_USER"),
+        INCOMING_X509("INCOMING_X509"),
+        DELEGATE_INCOMING("DELEGATE_INCOMING"),
+        INCOMING_OAUTH_TOKEN("INCOMING_OAUTH_TOKEN"),
+        INCOMING_JWT("INCOMING_JWT"),
+        TRANSPARENT("TRANSPARENT"),
+        INCOMING_KERBEROS("INCOMING_KERBEROS");
+
+        private final String value;
     }
 
-}
-public enum AuthTypeEnum {
-        HTTP_BASIC("HTTP_BASIC"), // type of authentication you want to use while communicating with the native API
-        NTLM("NTLM"), // type of authentication you want to use while communicating with the native API
-        OAUTH2("OAUTH2"), // type of authentication you want to use while communicating with the native API
-        KERBEROS("KERBEROS"), // type of authentication you want to use while communicating with the native API
-        JWT("JWT"), // type of authentication you want to use while communicating with the native API
-        ALIAS("ALIAS"), // type of authentication you want to use while communicating with the native API
-        REMOVE_INCOMING_HTTP_HEADERS("REMOVE_INCOMING_HTTP_HEADERS"); // type of authentication you want to use while communicating with the native API
-    
-    private final String text;
-
     /**
-     * @param text
+     * type of authentication you want to use while communicating with the native API
      */
-    AuthTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum AuthTypeEnum {
+        HTTP_BASIC("HTTP_BASIC"),
+        NTLM("NTLM"),
+        OAUTH2("OAUTH2"),
+        KERBEROS("KERBEROS"),
+        JWT("JWT"),
+        ALIAS("ALIAS"),
+        REMOVE_INCOMING_HTTP_HEADERS("REMOVE_INCOMING_HTTP_HEADERS");
+
+        private final String value;
     }
 
-}
 }

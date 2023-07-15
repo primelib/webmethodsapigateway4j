@@ -44,19 +44,16 @@ public class WssCredentials {
     private String userName;
 
 
-public enum PasswordTypeEnum {
-        NONE("NONE"), // type of password
-        TEXT("TEXT"), // type of password
-        DIGEST("DIGEST"); // type of password
-    
-    private final String text;
-
     /**
-     * @param text
+     * type of password
      */
-    PasswordTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum PasswordTypeEnum {
+        NONE("NONE"),
+        TEXT("TEXT"),
+        DIGEST("DIGEST");
+
+        private final String value;
     }
 
-}
 }

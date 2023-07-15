@@ -119,18 +119,15 @@ public class KeyStore {
     private String uploadFileName;
 
 
-public enum KeyStoreTypeEnum {
-        JKS("JKS"), // The certificate file format of the keystore.
-        PKCS12("PKCS12"); // The certificate file format of the keystore.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The certificate file format of the keystore.
      */
-    KeyStoreTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum KeyStoreTypeEnum {
+        JKS("JKS"),
+        PKCS12("PKCS12");
+
+        private final String value;
     }
 
-}
 }

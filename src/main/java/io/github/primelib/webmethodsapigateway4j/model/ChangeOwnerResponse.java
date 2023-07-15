@@ -37,18 +37,12 @@ public class ChangeOwnerResponse {
     private StatusEnum status;
 
 
-public enum StatusEnum {
+    @AllArgsConstructor
+    public enum StatusEnum {
         PENDING_APPROVAL("PENDING_APPROVAL"),
         OK("OK");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    StatusEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
 }

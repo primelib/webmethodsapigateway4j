@@ -58,43 +58,37 @@ public class SOAPMessageSecurityAlias extends Alias {
     private WssCredentials wssCredentials;
 
 
-public enum AuthModeEnum {
-        NEW("NEW"), // Mode of authentication
-        INCOMING_HTTP_BASIC_AUTH("INCOMING_HTTP_BASIC_AUTH"), // Mode of authentication
-        INCOMING_WSS_USER("INCOMING_WSS_USER"), // Mode of authentication
-        INCOMING_X509("INCOMING_X509"), // Mode of authentication
-        DELEGATE_INCOMING("DELEGATE_INCOMING"), // Mode of authentication
-        INCOMING_OAUTH_TOKEN("INCOMING_OAUTH_TOKEN"), // Mode of authentication
-        INCOMING_JWT("INCOMING_JWT"), // Mode of authentication
-        TRANSPARENT("TRANSPARENT"), // Mode of authentication
-        INCOMING_KERBEROS("INCOMING_KERBEROS"); // Mode of authentication
-    
-    private final String text;
-
     /**
-     * @param text
+     * Mode of authentication
      */
-    AuthModeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum AuthModeEnum {
+        NEW("NEW"),
+        INCOMING_HTTP_BASIC_AUTH("INCOMING_HTTP_BASIC_AUTH"),
+        INCOMING_WSS_USER("INCOMING_WSS_USER"),
+        INCOMING_X509("INCOMING_X509"),
+        DELEGATE_INCOMING("DELEGATE_INCOMING"),
+        INCOMING_OAUTH_TOKEN("INCOMING_OAUTH_TOKEN"),
+        INCOMING_JWT("INCOMING_JWT"),
+        TRANSPARENT("TRANSPARENT"),
+        INCOMING_KERBEROS("INCOMING_KERBEROS");
+
+        private final String value;
     }
 
-}
-public enum AuthTypeEnum {
-        WSS_USERNAME("WSS_USERNAME"), // Type of authentication that needs to be used
-        SAML("SAML"), // Type of authentication that needs to be used
-        KERBEROS("KERBEROS"), // Type of authentication that needs to be used
-        ALIAS("ALIAS"), // Type of authentication that needs to be used
-        REMOVE_WSS_HEADERS("REMOVE_WSS_HEADERS"), // Type of authentication that needs to be used
-        NONE("NONE"); // Type of authentication that needs to be used
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of authentication that needs to be used
      */
-    AuthTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum AuthTypeEnum {
+        WSS_USERNAME("WSS_USERNAME"),
+        SAML("SAML"),
+        KERBEROS("KERBEROS"),
+        ALIAS("ALIAS"),
+        REMOVE_WSS_HEADERS("REMOVE_WSS_HEADERS"),
+        NONE("NONE");
+
+        private final String value;
     }
 
-}
 }

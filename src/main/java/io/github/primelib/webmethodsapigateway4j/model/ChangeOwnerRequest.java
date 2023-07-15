@@ -73,18 +73,15 @@ public class ChangeOwnerRequest {
     private OwnerTypeEnum ownerType;
 
 
-public enum OwnerTypeEnum {
-        USER("user"), // Type of the new owner of the APIGateway asset. By default, it is user. Possible values are user and team.
-        TEAM("team"); // Type of the new owner of the APIGateway asset. By default, it is user. Possible values are user and team.
-    
-    private final String text;
-
     /**
-     * @param text
+     * Type of the new owner of the APIGateway asset. By default, it is user. Possible values are user and team.
      */
-    OwnerTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum OwnerTypeEnum {
+        USER("user"),
+        TEAM("team");
+
+        private final String value;
     }
 
-}
 }

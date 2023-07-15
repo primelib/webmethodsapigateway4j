@@ -73,30 +73,24 @@ public class UpdateTruststoreRequest {
     private String isPwdBase64Encoded;
 
 
-public enum KeyStoreTypeEnum {
-        JKS("JKS"); // The certificate file format of the truststore.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The certificate file format of the truststore.
      */
-    KeyStoreTypeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum KeyStoreTypeEnum {
+        JKS("JKS");
+
+        private final String value;
     }
 
-}
-public enum KeyStoreProviderEnum {
-        SUN("SUN"); // The provider that is used for the truststore type.
-    
-    private final String text;
-
     /**
-     * @param text
+     * The provider that is used for the truststore type.
      */
-    KeyStoreProviderEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum KeyStoreProviderEnum {
+        SUN("SUN");
+
+        private final String value;
     }
 
-}
 }

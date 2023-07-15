@@ -51,18 +51,15 @@ public class Shutdown {
     private Integer timeout;
 
 
-public enum OptionEnum {
-        FORCE("force"), // Specifies whether to shutdown API Gateway server immediately or after all client sessions are ended. A value of 'force' would shutdown the server immediately and 'drain' would wait for a maximum period of time for all the client sessions to end before shutdown.
-        DRAIN("drain"); // Specifies whether to shutdown API Gateway server immediately or after all client sessions are ended. A value of 'force' would shutdown the server immediately and 'drain' would wait for a maximum period of time for all the client sessions to end before shutdown.
-    
-    private final String text;
-
     /**
-     * @param text
+     * Specifies whether to shutdown API Gateway server immediately or after all client sessions are ended. A value of 'force' would shutdown the server immediately and 'drain' would wait for a maximum period of time for all the client sessions to end before shutdown.
      */
-    OptionEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum OptionEnum {
+        FORCE("force"),
+        DRAIN("drain");
+
+        private final String value;
     }
 
-}
 }

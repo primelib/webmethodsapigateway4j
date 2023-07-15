@@ -106,83 +106,68 @@ public class SAMLIssuerAlias extends Alias {
     private WssCredentials wssCredentials;
 
 
-public enum IssuerAuthModeEnum {
-        NEW("NEW"), // Mode of communication
-        INCOMING_HTTP_BASIC_AUTH("INCOMING_HTTP_BASIC_AUTH"), // Mode of communication
-        INCOMING_WSS_USER("INCOMING_WSS_USER"), // Mode of communication
-        INCOMING_X509("INCOMING_X509"), // Mode of communication
-        DELEGATE_INCOMING("DELEGATE_INCOMING"), // Mode of communication
-        INCOMING_OAUTH_TOKEN("INCOMING_OAUTH_TOKEN"), // Mode of communication
-        INCOMING_JWT("INCOMING_JWT"), // Mode of communication
-        TRANSPARENT("TRANSPARENT"), // Mode of communication
-        INCOMING_KERBEROS("INCOMING_KERBEROS"); // Mode of communication
-    
-    private final String text;
-
     /**
-     * @param text
+     * Mode of communication
      */
-    IssuerAuthModeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum IssuerAuthModeEnum {
+        NEW("NEW"),
+        INCOMING_HTTP_BASIC_AUTH("INCOMING_HTTP_BASIC_AUTH"),
+        INCOMING_WSS_USER("INCOMING_WSS_USER"),
+        INCOMING_X509("INCOMING_X509"),
+        DELEGATE_INCOMING("DELEGATE_INCOMING"),
+        INCOMING_OAUTH_TOKEN("INCOMING_OAUTH_TOKEN"),
+        INCOMING_JWT("INCOMING_JWT"),
+        TRANSPARENT("TRANSPARENT"),
+        INCOMING_KERBEROS("INCOMING_KERBEROS");
+
+        private final String value;
     }
 
-}
-public enum IssuerAuthSchemeEnum {
-        BASIC_AUTH("BASIC_AUTH"), // The authentication type used for communicating to STS
-        WSS_USERNAME("WSS_USERNAME"), // The authentication type used for communicating to STS
-        KERBEROS("KERBEROS"), // The authentication type used for communicating to STS
-        X509("X509"); // The authentication type used for communicating to STS
-    
-    private final String text;
-
     /**
-     * @param text
+     * The authentication type used for communicating to STS
      */
-    IssuerAuthSchemeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum IssuerAuthSchemeEnum {
+        BASIC_AUTH("BASIC_AUTH"),
+        WSS_USERNAME("WSS_USERNAME"),
+        KERBEROS("KERBEROS"),
+        X509("X509");
+
+        private final String value;
     }
 
-}
-public enum IssuerCommunicationModeEnum {
-        NORMAL_CLIENT("NORMAL_CLIENT"), // Mode of communication to the STS
-        ACT_AS_DELEGATION("ACT_AS_DELEGATION"); // Mode of communication to the STS
-    
-    private final String text;
-
     /**
-     * @param text
+     * Mode of communication to the STS
      */
-    IssuerCommunicationModeEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum IssuerCommunicationModeEnum {
+        NORMAL_CLIENT("NORMAL_CLIENT"),
+        ACT_AS_DELEGATION("ACT_AS_DELEGATION");
+
+        private final String value;
     }
 
-}
-public enum SamlVersionEnum {
-        SAML1_1("SAML1_1"), // SAML version to be used for authentication
-        SAML_2_0("SAML_2_0"); // SAML version to be used for authentication
-    
-    private final String text;
-
     /**
-     * @param text
+     * SAML version to be used for authentication
      */
-    SamlVersionEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum SamlVersionEnum {
+        SAML1_1("SAML1_1"),
+        SAML_2_0("SAML_2_0");
+
+        private final String value;
     }
 
-}
-public enum WsTrustVersionEnum {
-        _0("WS_TRUST_1_0"), // WS-Trust version that API Gateway must use to send the RST to the SAML issuer
-        _3("WS_TRUST_1_3"); // WS-Trust version that API Gateway must use to send the RST to the SAML issuer
-    
-    private final String text;
-
     /**
-     * @param text
+     * WS-Trust version that API Gateway must use to send the RST to the SAML issuer
      */
-    WsTrustVersionEnum(final String text) {
-        this.text = text;
+    @AllArgsConstructor
+    public enum WsTrustVersionEnum {
+        _0("WS_TRUST_1_0"),
+        _3("WS_TRUST_1_3");
+
+        private final String value;
     }
 
-}
 }

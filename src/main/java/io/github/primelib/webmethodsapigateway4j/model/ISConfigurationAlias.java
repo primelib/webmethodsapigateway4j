@@ -89,19 +89,13 @@ public class ISConfigurationAlias extends Alias {
     private Boolean validateSchemaWithXerces;
 
 
-public enum ContentModelComplianceForWSDLEnum {
+    @AllArgsConstructor
+    public enum ContentModelComplianceForWSDLEnum {
         STRICT("Strict"),
         LAX("Lax"),
         NONE("None");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    ContentModelComplianceForWSDLEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
 }

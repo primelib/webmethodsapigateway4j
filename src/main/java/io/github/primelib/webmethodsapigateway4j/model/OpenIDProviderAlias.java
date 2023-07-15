@@ -102,81 +102,51 @@ public class OpenIDProviderAlias extends Alias {
     private String userinfoEndpoint;
 
 
-public enum OpenIDDisplayValueEnum {
+    @AllArgsConstructor
+    public enum OpenIDDisplayValueEnum {
         NONE("none"),
         PAGE("page"),
         POPUP("popup"),
         TOUCH("touch"),
         WAP("wap");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    OpenIDDisplayValueEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
-public enum OpenIDGrantTypeEnum {
+    @AllArgsConstructor
+    public enum OpenIDGrantTypeEnum {
         AUTHORIZATION_CODE("authorization_code");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    OpenIDGrantTypeEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
-public enum OpenIDResponseTypeEnum {
+    @AllArgsConstructor
+    public enum OpenIDResponseTypeEnum {
         CODE("code"),
         ID_TOKEN("id_token"),
         TOKEN_ID_TOKEN("token id_token"),
         ID_TOKEN_TOKEN("id_token token");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    OpenIDResponseTypeEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
-public enum OpenIDTokenEndpointAuthModeEnum {
+    @AllArgsConstructor
+    public enum OpenIDTokenEndpointAuthModeEnum {
         CLIENT_SECRET_BASIC("client_secret_basic"),
         CLIENT_SECRET_POST("client_secret_post"),
         NONE("none");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    OpenIDTokenEndpointAuthModeEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
-public enum PromptEnum {
+    @AllArgsConstructor
+    public enum PromptEnum {
         NONE("none"),
         LOGIN("login"),
         CONSENT("consent"),
         SELECT_ACCOUNT("select_account");
-    
-    private final String text;
 
-    /**
-     * @param text
-     */
-    PromptEnum(final String text) {
-        this.text = text;
+        private final String value;
     }
 
-}
 }
