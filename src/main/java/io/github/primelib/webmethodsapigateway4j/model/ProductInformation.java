@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "Expiration Date",
     "HigherLevPosNr",
@@ -33,38 +38,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ProductInformation {
 
+    /**
+     * Constructs a validated implementation of {@link ProductInformation}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public ProductInformation(Consumer<ProductInformation> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("Expiration Date")
-    private String expirationDate;
+    protected String expirationDate;
 
     @JsonProperty("HigherLevPosNr")
-    private String higherLevPosNr;
+    protected String higherLevPosNr;
 
     @JsonProperty("HigherLevProdCode")
-    private String higherLevProdCode;
+    protected String higherLevProdCode;
 
     @JsonProperty("HigherLevProdName")
-    private String higherLevProdName;
+    protected String higherLevProdName;
 
     @JsonProperty("Operating System")
-    private String operatingSystem;
+    protected String operatingSystem;
 
     @JsonProperty("Product Code")
-    private String productCode;
+    protected String productCode;
 
     @JsonProperty("Product ID")
-    private String productID;
+    protected String productID;
 
     @JsonProperty("Product Name")
-    private String productName;
+    protected String productName;
 
     @JsonProperty("Product Version")
-    private String productVersion;
+    protected String productVersion;
 
     @JsonProperty("RenewalDate")
-    private String renewalDate;
+    protected String renewalDate;
 
     @JsonProperty("Usage")
-    private String usage;
+    protected String usage;
 
 
 }

@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "apigatewayLogger",
     "elasticSearchLogger",
@@ -37,88 +42,98 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class LogConfiguration {
 
     /**
+     * Constructs a validated implementation of {@link LogConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public LogConfiguration(Consumer<LogConfiguration> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * The log setting of APIGateway server.Possible values are off,trace,debug,info,warn,error and fatal
      */
     @JsonProperty("apigatewayLogger")
-    private String apigatewayLogger;
+    protected String apigatewayLogger;
 
     /**
      * The log setting of Internal Data Store.Possible values are off,info,debug,warn,error and fatal
      */
     @JsonProperty("elasticSearchLogger")
-    private String elasticSearchLogger;
+    protected String elasticSearchLogger;
 
     /**
      * Enabling log aggregation will collect logs from the different components and store in Internal Data Store or external Elasticsearch.The value can be true or false.
      */
     @JsonProperty("enableLogAggregation")
-    private String enableLogAggregation;
+    protected String enableLogAggregation;
 
     /**
      * The log setting to enable APIGateway security logs.Possible values are true and false.
      */
     @JsonProperty("enableSecurityLogger")
-    private String enableSecurityLogger;
+    protected String enableSecurityLogger;
 
     /**
      * The log setting enable APIGateway session logs.Possible values are off,trace,debug,info,warn,error and fatal
      */
     @JsonProperty("enableSessionLogger")
-    private String enableSessionLogger;
+    protected String enableSessionLogger;
 
     /**
      * Hostname of external elastic search used to send the logs.
      */
     @JsonProperty("hostName")
-    private String hostName;
+    protected String hostName;
 
     /**
      * Indexname of external elastic search to store the accumulated logs.
      */
     @JsonProperty("indexName")
-    private String indexName;
+    protected String indexName;
 
     /**
      * The log setting of APIGateway dashboard.Possible values are silent,quiet and verbose
      */
     @JsonProperty("kibanaLogger")
-    private String kibanaLogger;
+    protected String kibanaLogger;
 
     /**
      * Specifies where to store the accumulated logs from different stores. Value can be EXTERNAL_ES or INTERNAL
      */
     @JsonProperty("logDestination")
-    private String logDestination;
+    protected String logDestination;
 
     /**
      * Password that is used to communicate the external elastic search.
      */
     @JsonProperty("password")
-    private String password;
+    protected String password;
 
     /**
      * Port to communicate the external elastic search.
      */
     @JsonProperty("port")
-    private String port;
+    protected String port;
 
     /**
      * Protocol to communicate the external elastic search.
      */
     @JsonProperty("protocol")
-    private String protocol;
+    protected String protocol;
 
     /**
      * The log setting of OSGI platform.Possible values are true and false.
      */
     @JsonProperty("sagOsgiLogger")
-    private String sagOsgiLogger;
+    protected String sagOsgiLogger;
 
     /**
      * Username to communicate the external elastic search.
      */
     @JsonProperty("userName")
-    private String userName;
+    protected String userName;
 
 
 }

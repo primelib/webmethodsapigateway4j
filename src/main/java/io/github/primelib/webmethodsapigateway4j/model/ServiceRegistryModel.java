@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({
     "ConnectionTimeout",
@@ -41,79 +46,89 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ServiceRegistryModel extends Alias {
 
     /**
+     * Constructs a validated implementation of {@link ServiceRegistryModel}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public ServiceRegistryModel(Consumer<ServiceRegistryModel> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * The time interval (in seconds) after which a connection attempt times out while communicating with service registry
      */
     @JsonProperty("ConnectionTimeout")
-    private Integer connectionTimeout;
+    protected Integer connectionTimeout;
 
     /**
      * Custom headers that needs be sent while communicating with the service registry
      */
     @JsonProperty("customHeaders")
-    private Map<String, String> customHeaders = new HashMap<>();
+    protected Map<String, String> customHeaders = new HashMap<>();
 
     @JsonProperty("deRegistrationInfo")
-    private ServiceRegistryCommunication deRegistrationInfo;
+    protected ServiceRegistryCommunication deRegistrationInfo;
 
     @JsonProperty("discoveryInfo")
-    private ServiceRegistryCommunication discoveryInfo;
+    protected ServiceRegistryCommunication discoveryInfo;
 
     /**
      * Endpoint that is used to communicate with the service registry
      */
     @JsonProperty("endpointURI")
-    private String endpointURI;
+    protected String endpointURI;
 
     /**
      * APIGateway will ping the service registry on the configured interval for every API
      */
     @JsonProperty("heartBeatInterval")
-    private Integer heartBeatInterval;
+    protected Integer heartBeatInterval;
 
     /**
      * The key alias is the private key that is used for signing when using SSL communication with the Service Registry.
      */
     @JsonProperty("keyAlias")
-    private String keyAlias;
+    protected String keyAlias;
 
     /**
      * A keystore is a repository of private key. This keystore contains the private key used for the SSL communication with the Service Registry. For information on how to configure the keystore aliases, refer API Gateway Administration swagger
      */
     @JsonProperty("keystoreAlias")
-    private String keystoreAlias;
+    protected String keystoreAlias;
 
     /**
      * Base64 encoded password that is used in the Basic authentication when communicating with the service registry
      */
     @JsonProperty("password")
-    private String password;
+    protected String password;
 
     /**
      * The time interval (in seconds) after which a socket read attempt times out while communicating with service registry
      */
     @JsonProperty("readTimeout")
-    private Integer readTimeout;
+    protected Integer readTimeout;
 
     @JsonProperty("registrationInfo")
-    private ServiceRegistryCommunication registrationInfo;
+    protected ServiceRegistryCommunication registrationInfo;
 
     /**
      * It contains the information about the type of service registry
      */
     @JsonProperty("serviceRegistryType")
-    private ServiceRegistryTypeEnum serviceRegistryType;
+    protected ServiceRegistryTypeEnum serviceRegistryType;
 
     /**
      * A truststore is a repository of public keys. This truststore contains the public key of the Service Registry used for the SSL communication with the Service Registry. For information on how to configure the truststore aliases, refer API Gateway Administration swagger
      */
     @JsonProperty("trustStoreAlias")
-    private String trustStoreAlias;
+    protected String trustStoreAlias;
 
     /**
      * Username that is used in the Basic authentication when communicating with the service registry
      */
     @JsonProperty("username")
-    private String username;
+    protected String username;
 
 
     /**

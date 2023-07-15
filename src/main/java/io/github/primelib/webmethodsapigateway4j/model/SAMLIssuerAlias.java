@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({
     "appliesTo",
@@ -40,70 +45,80 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SAMLIssuerAlias extends Alias {
 
     /**
+     * Constructs a validated implementation of {@link SAMLIssuerAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public SAMLIssuerAlias(Consumer<SAMLIssuerAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specify the scope for which this security token is required
      */
     @JsonProperty("appliesTo")
-    private String appliesTo;
+    protected String appliesTo;
 
     @JsonProperty("assertionId")
-    private String assertionId;
+    protected String assertionId;
 
     /**
      * The endpoint URI of the STS
      */
     @JsonProperty("endpoint")
-    private String endpoint;
+    protected String endpoint;
 
     /**
      * Extensions to the &amp;lt;wst:RequestSecurityToken&amp;gt; element for requesting specific types of keys, algorithms, or key and algorithms, as specified by a given policy in the return token(s)
      */
     @JsonProperty("extendedParameters")
-    private Map<String, String> extendedParameters = new HashMap<>();
+    protected Map<String, String> extendedParameters = new HashMap<>();
 
     /**
      * Mode of communication
      */
     @JsonProperty("issuerAuthMode")
-    private IssuerAuthModeEnum issuerAuthMode;
+    protected IssuerAuthModeEnum issuerAuthMode;
 
     /**
      * The authentication type used for communicating to STS
      */
     @JsonProperty("issuerAuthScheme")
-    private IssuerAuthSchemeEnum issuerAuthScheme;
+    protected IssuerAuthSchemeEnum issuerAuthScheme;
 
     /**
      * Mode of communication to the STS
      */
     @JsonProperty("issuerCommunicationMode")
-    private IssuerCommunicationModeEnum issuerCommunicationMode;
+    protected IssuerCommunicationModeEnum issuerCommunicationMode;
 
     /**
      * The webMethods Integration Server service name
      */
     @JsonProperty("issuerPolicy")
-    private String issuerPolicy;
+    protected String issuerPolicy;
 
     @JsonProperty("kerberosCredentials")
-    private KerberosCredentials kerberosCredentials;
+    protected KerberosCredentials kerberosCredentials;
 
     /**
      * SAML version to be used for authentication
      */
     @JsonProperty("samlVersion")
-    private SamlVersionEnum samlVersion;
+    protected SamlVersionEnum samlVersion;
 
     @JsonProperty("signAndEncryptConfig")
-    private SignAndEncryptConfig signAndEncryptConfig;
+    protected SignAndEncryptConfig signAndEncryptConfig;
 
     /**
      * WS-Trust version that API Gateway must use to send the RST to the SAML issuer
      */
     @JsonProperty("wsTrustVersion")
-    private WsTrustVersionEnum wsTrustVersion;
+    protected WsTrustVersionEnum wsTrustVersion;
 
     @JsonProperty("wssCredentials")
-    private WssCredentials wssCredentials;
+    protected WssCredentials wssCredentials;
 
 
     /**

@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "clientPassword",
     "clientPrincipal",
@@ -28,34 +33,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class KerberosCredentials {
 
     /**
+     * Constructs a validated implementation of {@link KerberosCredentials}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public KerberosCredentials(Consumer<KerberosCredentials> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specify a base64 encoded password for the client principal
      */
     @JsonProperty("clientPassword")
-    private String clientPassword;
+    protected String clientPassword;
 
     /**
      * a unique identity to which Kerberos can assign tickets
      */
     @JsonProperty("clientPrincipal")
-    private String clientPrincipal;
+    protected String clientPrincipal;
 
     /**
      * Boolean value whether the token needs to be delegated or not
      */
     @JsonProperty("requestDelegateToken")
-    private Boolean requestDelegateToken;
+    protected Boolean requestDelegateToken;
 
     /**
      * a unique identifier of a service instance
      */
     @JsonProperty("servicePrincipal")
-    private String servicePrincipal;
+    protected String servicePrincipal;
 
     /**
      * the format in which you want to specify the principal name of the service that is registered with the principal database
      */
     @JsonProperty("servicePrincipalNameForm")
-    private ServicePrincipalNameFormEnum servicePrincipalNameForm;
+    protected ServicePrincipalNameFormEnum servicePrincipalNameForm;
 
 
     /**

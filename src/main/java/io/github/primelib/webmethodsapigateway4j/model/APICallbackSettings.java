@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "allowCallBackRequestsHTTPsAccessOnly",
     "allowCallbackRequestAccessToAllowedIPs",
@@ -29,34 +34,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class APICallbackSettings {
 
     /**
+     * Constructs a validated implementation of {@link APICallbackSettings}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public APICallbackSettings(Consumer<APICallbackSettings> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Native Servers can access the callback proxy through HTTPs protocal
      */
     @JsonProperty("allowCallBackRequestsHTTPsAccessOnly")
-    private Boolean allowCallBackRequestsHTTPsAccessOnly;
+    protected Boolean allowCallBackRequestsHTTPsAccessOnly;
 
     /**
      * Decider to process callback requests based on Allowed IPs
      */
     @JsonProperty("allowCallbackRequestAccessToAllowedIPs")
-    private Boolean allowCallbackRequestAccessToAllowedIPs;
+    protected Boolean allowCallbackRequestAccessToAllowedIPs;
 
     /**
      * Configure Allowed IPs.
      */
     @JsonProperty("allowedIPs")
-    private List<String> allowedIPs;
+    protected List<String> allowedIPs;
 
     /**
      * Select value from Loadbalancer, HTTP, HTTPS, External, the port used to forward to Native Server
      */
     @JsonProperty("portType")
-    private String portType;
+    protected String portType;
 
     /**
      * Decider to process the callback URLs
      */
     @JsonProperty("processCallbackRequests")
-    private Boolean processCallbackRequests;
+    protected Boolean processCallbackRequests;
 
 
 }

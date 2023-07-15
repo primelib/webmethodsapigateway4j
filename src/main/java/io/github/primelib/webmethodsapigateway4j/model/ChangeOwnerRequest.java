@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "assetIds",
     "assetType",
@@ -31,46 +36,56 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ChangeOwnerRequest {
 
     /**
+     * Constructs a validated implementation of {@link ChangeOwnerRequest}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public ChangeOwnerRequest(Consumer<ChangeOwnerRequest> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * List of APIGateway assets for which change owner/team is requested.
      */
     @JsonProperty("assetIds")
-    private List<String> assetIds;
+    protected List<String> assetIds;
 
     /**
      * APIGateway asset type.
      */
     @JsonProperty("assetType")
-    private String assetType;
+    protected String assetType;
 
     /**
      * Current owner of the APIGateway asset.
      */
     @JsonProperty("currentOwner")
-    private String currentOwner;
+    protected String currentOwner;
 
     /**
      * New teams of the APIGateway asset.
      */
     @JsonProperty("currentTeams")
-    private List<String> currentTeams;
+    protected List<String> currentTeams;
 
     /**
      * New owner of the APIGateway asset.
      */
     @JsonProperty("newOwner")
-    private String newOwner;
+    protected String newOwner;
 
     /**
      * Current teams of the APIGateway asset.
      */
     @JsonProperty("newTeams")
-    private List<String> newTeams;
+    protected List<String> newTeams;
 
     /**
      * Type of the new owner of the APIGateway asset. By default, it is user. Possible values are user and team.
      */
     @JsonProperty("ownerType")
-    private OwnerTypeEnum ownerType;
+    protected OwnerTypeEnum ownerType;
 
 
     /**

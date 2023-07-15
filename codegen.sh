@@ -6,8 +6,7 @@ PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # test
 case $1 in
   "update")
-    echo "> running update"
-    # update openapi spec (source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices)
+    echo "> updating openapi spec" # source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices
     mkdir -p "$PROJECT_DIR/spec"
     curl -o "$PROJECT_DIR/spec/openapi.admin.json" https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAdministration.json
     curl -o "$PROJECT_DIR/spec/openapi.alias.json" https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAlias.json

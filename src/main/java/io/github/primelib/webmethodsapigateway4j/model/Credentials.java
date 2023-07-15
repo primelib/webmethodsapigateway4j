@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "domain",
     "password",
@@ -26,22 +31,32 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Credentials {
 
     /**
+     * Constructs a validated implementation of {@link Credentials}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public Credentials(Consumer<Credentials> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specify a domain to access the native API
      */
     @JsonProperty("domain")
-    private String domain;
+    protected String domain;
 
     /**
      * Specify a base64 encoded password to access the native API
      */
     @JsonProperty("password")
-    private String password;
+    protected String password;
 
     /**
      * Specify a username to access the native API
      */
     @JsonProperty("userName")
-    private String userName;
+    protected String userName;
 
 
 }

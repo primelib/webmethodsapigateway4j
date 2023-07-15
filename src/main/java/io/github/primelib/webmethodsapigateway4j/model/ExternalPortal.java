@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "endpointPassword",
     "endpointTenant",
@@ -28,31 +33,41 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ExternalPortal {
 
     /**
+     * Constructs a validated implementation of {@link ExternalPortal}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public ExternalPortal(Consumer<ExternalPortal> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Password for API Portal user used by API Gateway to access portal.
      */
     @JsonProperty("endpointPassword")
-    private String endpointPassword;
+    protected String endpointPassword;
 
     /**
      * API Portal tenant name.
      */
     @JsonProperty("endpointTenant")
-    private String endpointTenant;
+    protected String endpointTenant;
 
     /**
      * API Portal endpoint URL.
      */
     @JsonProperty("endpointURL")
-    private String endpointURL;
+    protected String endpointURL;
 
     /**
      * API Portal username used by API Gateway to communicate.
      */
     @JsonProperty("endpointUsername")
-    private String endpointUsername;
+    protected String endpointUsername;
 
     @JsonProperty("type")
-    private String type;
+    protected String type;
 
 
 }

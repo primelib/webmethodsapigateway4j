@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
 import java.util.List;
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "description",
     "initialContextFactory",
@@ -43,118 +48,128 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class JNDIProviderAlias {
 
     /**
+     * Constructs a validated implementation of {@link JNDIProviderAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public JNDIProviderAlias(Consumer<JNDIProviderAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * The description of the JNDIProviderAlias configuration
      */
     @JsonProperty("description")
-    private String description;
+    protected String description;
 
     /**
      * The IntialContextFactoryName for JNDI lookup
      */
     @JsonProperty("initialContextFactory")
-    private String initialContextFactory;
+    protected String initialContextFactory;
 
     /**
      * Secure communication between Integration Server and the JNDI provider
      */
     @JsonProperty("isSSL")
-    private String isSSL;
+    protected String isSSL;
 
     /**
      * The name of the JNDIProviderAlias configuration
      */
     @JsonProperty("jndiAliasName")
-    private String jndiAliasName;
+    protected String jndiAliasName;
 
     /**
      * A unique ID for the jndiProviderAlias
      */
     @JsonProperty("jndiProviderAliasId")
-    private String jndiProviderAliasId;
+    protected String jndiProviderAliasId;
 
     /**
      * The alias to the key that contains the private key for connecting to the JNDI provider. 
      */
     @JsonProperty("keyAlias")
-    private String keyAlias;
+    protected String keyAlias;
 
     /**
      * The alias for the keystore that contains the client certificates for Integration Server to use when connecting to the JNDI provider.
      */
     @JsonProperty("keyStoreAlias")
-    private String keyStoreAlias;
+    protected String keyStoreAlias;
 
     /**
      * The JNDI property name for storing the keystore format.
      */
     @JsonProperty("keyStoreFormatProp")
-    private String keyStoreFormatProp;
+    protected String keyStoreFormatProp;
 
     /**
      * The JNDI property name for storing the keystore location.
      */
     @JsonProperty("keyStoreProp")
-    private String keyStoreProp;
+    protected String keyStoreProp;
 
     /**
      * The JNDI property name for storing the keystore password.
      */
     @JsonProperty("keyStorePwdProp")
-    private String keyStorePwdProp;
+    protected String keyStorePwdProp;
 
     /**
      * Any other properties you would like to mention, Provide the values as comma separated
      */
     @JsonProperty("otherProps")
-    private String otherProps;
+    protected String otherProps;
 
     /**
      * The JNDI property name for storing the private key name.
      */
     @JsonProperty("privateKeyProp")
-    private String privateKeyProp;
+    protected String privateKeyProp;
 
     /**
      * Message broker details
      */
     @JsonProperty("providerURL")
-    private String providerURL;
+    protected String providerURL;
 
     /**
      * Fall backs URL's of providerURL
      */
     @JsonProperty("providerURLFailoverList")
-    private String providerURLFailoverList;
+    protected String providerURLFailoverList;
 
     /**
      * securityCredentials in case of SSL connection
      */
     @JsonProperty("securityCredentials")
-    private String securityCredentials;
+    protected String securityCredentials;
 
     /**
      * SecurityPrincipal in case of SSL connection
      */
     @JsonProperty("securityPrincipal")
-    private String securityPrincipal;
+    protected String securityPrincipal;
 
     /**
      * The alias for the truststore that contains the certificates of the Certificate Authority (CA) for the JNDI provider.
      */
     @JsonProperty("trustStoreAlias")
-    private String trustStoreAlias;
+    protected String trustStoreAlias;
 
     /**
      * The JNDI property name for storing the truststore location.
      */
     @JsonProperty("trustStoreProp")
-    private String trustStoreProp;
+    protected String trustStoreProp;
 
     /**
      * The JNDI property name for storing the truststore password.
      */
     @JsonProperty("trustStorePwdProp")
-    private String trustStorePwdProp;
+    protected String trustStorePwdProp;
 
 
 }

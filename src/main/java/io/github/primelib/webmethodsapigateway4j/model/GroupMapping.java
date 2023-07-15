@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -18,7 +22,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "attributeToGroupMap",
     "groupAttributes"
@@ -28,16 +33,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GroupMapping {
 
     /**
+     * Constructs a validated implementation of {@link GroupMapping}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public GroupMapping(Consumer<GroupMapping> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specifies list the attribute values from SAML assertion to be used mapping APIGateway group.
      */
     @JsonProperty("attributeToGroupMap")
-    private Map<String, String> attributeToGroupMap = new HashMap<>();
+    protected Map<String, String> attributeToGroupMap = new HashMap<>();
 
     /**
      * Specifies list the attribute from SAML assertion.The value of these attributes will be used in mapping the group in APIGateway.
      */
     @JsonProperty("groupAttributes")
-    private Set<String> groupAttributes;
+    protected Set<String> groupAttributes;
 
 
 }

@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({
     "authMode",
@@ -30,28 +35,38 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class HTTPTransportSecurityAlias extends Alias {
 
     /**
+     * Constructs a validated implementation of {@link HTTPTransportSecurityAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public HTTPTransportSecurityAlias(Consumer<HTTPTransportSecurityAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Mode of authentication that needs to be used
      */
     @JsonProperty("authMode")
-    private AuthModeEnum authMode;
+    protected AuthModeEnum authMode;
 
     /**
      * type of authentication you want to use while communicating with the native API
      */
     @JsonProperty("authType")
-    private AuthTypeEnum authType;
+    protected AuthTypeEnum authType;
 
     @JsonProperty("httpAuthCredentials")
-    private Credentials httpAuthCredentials;
+    protected Credentials httpAuthCredentials;
 
     @JsonProperty("kerberosCredentials")
-    private KerberosCredentials kerberosCredentials;
+    protected KerberosCredentials kerberosCredentials;
 
     /**
      * Specify a base64 encoded OAuth2 token that is used for authentication
      */
     @JsonProperty("oauth2Token")
-    private String oauth2Token;
+    protected String oauth2Token;
 
 
     /**

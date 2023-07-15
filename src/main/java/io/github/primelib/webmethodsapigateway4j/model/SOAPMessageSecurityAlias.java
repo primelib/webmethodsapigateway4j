@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({
     "authMode",
@@ -31,31 +36,41 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SOAPMessageSecurityAlias extends Alias {
 
     /**
+     * Constructs a validated implementation of {@link SOAPMessageSecurityAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public SOAPMessageSecurityAlias(Consumer<SOAPMessageSecurityAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Mode of authentication
      */
     @JsonProperty("authMode")
-    private AuthModeEnum authMode;
+    protected AuthModeEnum authMode;
 
     /**
      * Type of authentication that needs to be used
      */
     @JsonProperty("authType")
-    private AuthTypeEnum authType;
+    protected AuthTypeEnum authType;
 
     @JsonProperty("kerberosCredentials")
-    private KerberosCredentials kerberosCredentials;
+    protected KerberosCredentials kerberosCredentials;
 
     /**
      * Saml issuer configuration name
      */
     @JsonProperty("samlIssuerConfig")
-    private String samlIssuerConfig;
+    protected String samlIssuerConfig;
 
     @JsonProperty("signAndEncryptConfig")
-    private SignAndEncryptConfig signAndEncryptConfig;
+    protected SignAndEncryptConfig signAndEncryptConfig;
 
     @JsonProperty("wssCredentials")
-    private WssCredentials wssCredentials;
+    protected WssCredentials wssCredentials;
 
 
     /**

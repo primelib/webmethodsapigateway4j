@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.io.File;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "keyStoreName",
     "keyStoreDescription",
@@ -31,46 +36,56 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class CreateTruststoreRequest {
 
     /**
+     * Constructs a validated implementation of {@link CreateTruststoreRequest}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public CreateTruststoreRequest(Consumer<CreateTruststoreRequest> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * The name of the truststore. It cannot contain spaces or special characters. The name of the trust store must be unique across all the truststores created in API Gateway.
      */
     @JsonProperty("keyStoreName")
-    private String keyStoreName;
+    protected String keyStoreName;
 
     /**
      * The description for the truststore.
      */
     @JsonProperty("keyStoreDescription")
-    private String keyStoreDescription;
+    protected String keyStoreDescription;
 
     /**
      * The certificate file format of the truststore.
      */
     @JsonProperty("keyStoreType")
-    private KeyStoreTypeEnum keyStoreType = KeyStoreTypeEnum.JKS;
+    protected KeyStoreTypeEnum keyStoreType = KeyStoreTypeEnum.JKS;
 
     /**
      * The truststore password that is defined at the time of truststore creation using a keystore utility.
      */
     @JsonProperty("keyStorePassword")
-    private String keyStorePassword;
+    protected String keyStorePassword;
 
     /**
      * The name of the truststore file that will be used to save the truststore internally in API Gateway.
      */
     @JsonProperty("uploadFileName")
-    private String uploadFileName;
+    protected String uploadFileName;
 
     /**
      * The contents of the truststore file.
      */
     @JsonProperty("fileContent")
-    private File fileContent;
+    protected File fileContent;
 
     /**
      * Specifies whether password is base 64 encoded.
      */
     @JsonProperty("isPwdBase64Encoded")
-    private String isPwdBase64Encoded;
+    protected String isPwdBase64Encoded;
 
 
     /**

@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "destination",
     "enable",
@@ -31,52 +36,62 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AuditLogDestination {
 
     /**
+     * Constructs a validated implementation of {@link AuditLogDestination}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public AuditLogDestination(Consumer<AuditLogDestination> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specifies whether the logger is to write entries to a file or database.
      */
     @JsonProperty("destination")
-    private String destination;
+    protected String destination;
 
     /**
      * Enable activation to enable the logger to start writing the log entries to the database or the file.
      */
     @JsonProperty("enable")
-    private String enable;
+    protected String enable;
 
     /**
      * Provides data about guaranteed delivery transactions.
      */
     @JsonProperty("guaranteed")
-    private String guaranteed;
+    protected String guaranteed;
 
     /**
      * Specifies the maximum number of entries the queue can hold.
      */
     @JsonProperty("maximumQueueSize")
-    private String maximumQueueSize;
+    protected String maximumQueueSize;
 
     /**
      * Specifies the maximum times the logger must retry writing the entry to the destination if the first attempt fails because of a transient error.
      */
     @JsonProperty("maximumRetries")
-    private String maximumRetries;
+    protected String maximumRetries;
 
     /**
      * Specifies whether the logger is to write entries to the destination synchronously or asynchronously.
      */
     @JsonProperty("mode")
-    private String mode;
+    protected String mode;
 
     /**
      * The default name of the audit log, API Gateway Transaction Logger.
      */
     @JsonProperty("name")
-    private String name;
+    protected String name;
 
     /**
      * Specifies the waiting time before the logger can reconnect and rewrite the eateries to the destination in case of failure.
      */
     @JsonProperty("waitBetweenRetries")
-    private String waitBetweenRetries;
+    protected String waitBetweenRetries;
 
 
 }

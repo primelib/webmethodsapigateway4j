@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "block",
     "enable",
@@ -29,34 +34,44 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class QuiesceMode {
 
     /**
+     * Constructs a validated implementation of {@link QuiesceMode}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public QuiesceMode(Consumer<QuiesceMode> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specifies the type of blocking for quiesce mode in API Gateway
      */
     @JsonProperty("block")
-    private BlockEnum block;
+    protected BlockEnum block;
 
     /**
      * Specifies whether to enable or disable quiesce mode for API Gateway
      */
     @JsonProperty("enable")
-    private Boolean enable;
+    protected Boolean enable;
 
     /**
      * Specifies the failure reason of the last quiesce mode operation if the status is a failure
      */
     @JsonProperty("failureReason")
-    private String failureReason;
+    protected String failureReason;
 
     /**
      * Specifies the types of data that need to be flushed when quiesce mode for all is enabled in API Gateway
      */
     @JsonProperty("flush")
-    private List<FlushEnum> flush;
+    protected List<FlushEnum> flush;
 
     /**
      * Specifies the current status of the last quiesce mode operation. A null value means that the quiesce mode action is still in progress and the status is not yet known
      */
     @JsonProperty("status")
-    private StatusEnum status;
+    protected StatusEnum status;
 
 
     /**

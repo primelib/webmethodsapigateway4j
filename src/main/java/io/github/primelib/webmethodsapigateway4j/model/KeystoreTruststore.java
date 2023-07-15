@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "configId",
     "keystoreName",
@@ -29,26 +34,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class KeystoreTruststore {
 
+    /**
+     * Constructs a validated implementation of {@link KeystoreTruststore}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public KeystoreTruststore(Consumer<KeystoreTruststore> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("configId")
-    private String configId;
+    protected String configId;
 
     @JsonProperty("keystoreName")
-    private String keystoreName;
+    protected String keystoreName;
 
     @JsonProperty("outboundKeyAlias")
-    private String outboundKeyAlias;
+    protected String outboundKeyAlias;
 
     @JsonProperty("outboundKeystoreName")
-    private String outboundKeystoreName;
+    protected String outboundKeystoreName;
 
     @JsonProperty("outboundTruststoreName")
-    private String outboundTruststoreName;
+    protected String outboundTruststoreName;
 
     @JsonProperty("signingAlias")
-    private String signingAlias;
+    protected String signingAlias;
 
     @JsonProperty("truststoreName")
-    private String truststoreName;
+    protected String truststoreName;
 
 
 }

@@ -210,10 +210,10 @@ import io.github.primelib.webmethodsapigateway4j.spec.UpdateWebhookOperationSpec
 import io.github.primelib.webmethodsapigateway4j.spec.UpdateWebserviceEndpointOperationSpec;
 
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
-public class APIGatewaySpecApi {
+public class APIGatewayConsumerApi {
     private final APIGatewayApi api;
 
-    public APIGatewaySpecApi(APIGatewayApi api) {
+    public APIGatewayConsumerApi(APIGatewayApi api) {
         this.api = api;
     }
 

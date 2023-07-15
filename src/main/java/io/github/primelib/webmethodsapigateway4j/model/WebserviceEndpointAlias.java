@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "WebserviceEndpointAliasId",
     "alias",
@@ -34,70 +39,80 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class WebserviceEndpointAlias {
 
     /**
+     * Constructs a validated implementation of {@link WebserviceEndpointAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public WebserviceEndpointAlias(Consumer<WebserviceEndpointAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * A unique ID for the WebserviceEndpointAlias
      */
     @JsonProperty("WebserviceEndpointAliasId")
-    private String webserviceEndpointAliasId;
+    protected String webserviceEndpointAliasId;
 
     /**
      * The name of the WebserviceEndpointAlias
      */
     @JsonProperty("alias")
-    private String alias;
+    protected String alias;
 
     /**
      * The property specifies the aliasType, Either it should be Provider or Consumer
      */
     @JsonProperty("aliasType")
-    private String aliasType;
+    protected String aliasType;
 
     /**
      * The description of the WebserviceEndpointAlias
      */
     @JsonProperty("description")
-    private String description;
+    protected String description;
 
     /**
      * this property specifies the keyalias name
      */
     @JsonProperty("keyAlias")
-    private String keyAlias;
+    protected String keyAlias;
 
     /**
      * this property specifies the keystorealias name
      */
     @JsonProperty("keyStoreAlias")
-    private String keyStoreAlias;
+    protected String keyStoreAlias;
 
     /**
      * this property specifies the timestampMaximumSkew value
      */
     @JsonProperty("timestampMaximumSkew")
-    private String timestampMaximumSkew;
+    protected String timestampMaximumSkew;
 
     /**
      * this property specifies the timestampPrecisionInMillis
      */
     @JsonProperty("timestampPrecisionInMillis")
-    private String timestampPrecisionInMillis;
+    protected String timestampPrecisionInMillis;
 
     /**
      * this property specifies the timestampTimeToLive value
      */
     @JsonProperty("timestampTimeToLive")
-    private String timestampTimeToLive;
+    protected String timestampTimeToLive;
 
     /**
      * this defines the transport type. The supported transport type is JMS
      */
     @JsonProperty("transportType")
-    private String transportType;
+    protected String transportType;
 
     /**
      * this property specifies the trustStoreAlias name
      */
     @JsonProperty("trustStoreAlias")
-    private String trustStoreAlias;
+    protected String trustStoreAlias;
 
 
 }

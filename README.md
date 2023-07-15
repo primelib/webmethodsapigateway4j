@@ -15,7 +15,19 @@ implementation("io.github.primelib:webmethodsapigateway4j:<latestVersion>")
 
 ## Usage
 
-*Parameter-Style*
+*Consumer Specification Approach*
+
+```java
+APIGatewayConsumerApi client = APIGatewayFactory.create(spec -> {
+    spec.api(APIGatewayConsumerApi.class);
+    spec.basicAuth(auth -> {
+        auth.username("admin");
+        auth.password("manage");
+    });
+});
+```
+
+*Parameter Approach*
 
 ```java
 APIGatewayApi client = APIGatewayFactory.create(spec -> {
@@ -27,17 +39,7 @@ APIGatewayApi client = APIGatewayFactory.create(spec -> {
 });
 ```
 
-*Spec-Style*
-
-```java
-APIGatewaySpecApi client = APIGatewayFactory.create(spec -> {
-    spec.api(APIGatewaySpecApi.class);
-    spec.basicAuth(auth -> {
-        auth.username("admin");
-        auth.password("manage");
-    });
-});
-```
+**_NOTE:_** The  `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
 
 ## Contribution
 

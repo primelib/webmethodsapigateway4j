@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "ExtendedRights",
     "LicenseType",
@@ -29,26 +34,36 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class LicenseInformation {
 
+    /**
+     * Constructs a validated implementation of {@link LicenseInformation}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public LicenseInformation(Consumer<LicenseInformation> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("ExtendedRights")
-    private String extendedRights;
+    protected String extendedRights;
 
     @JsonProperty("LicenseType")
-    private String licenseType;
+    protected String licenseType;
 
     @JsonProperty("LicenseVersion")
-    private String licenseVersion;
+    protected String licenseVersion;
 
     @JsonProperty("Metering")
-    private String metering;
+    protected String metering;
 
     @JsonProperty("Price Quantity")
-    private String priceQuantity;
+    protected String priceQuantity;
 
     @JsonProperty("Price Unit")
-    private String priceUnit;
+    protected String priceUnit;
 
     @JsonProperty("TypeOfInstallation")
-    private String typeOfInstallation;
+    protected String typeOfInstallation;
 
 
 }

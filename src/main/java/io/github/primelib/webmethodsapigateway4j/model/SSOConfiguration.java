@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
 import java.util.Map;
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "groupMapping",
     "idpFilename",
@@ -38,89 +43,99 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SSOConfiguration {
 
+    /**
+     * Constructs a validated implementation of {@link SSOConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public SSOConfiguration(Consumer<SSOConfiguration> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("groupMapping")
-    private GroupMapping groupMapping;
+    protected GroupMapping groupMapping;
 
     /**
      * Specifies the file name of identity provider metadata.
      */
     @JsonProperty("idpFilename")
-    private String idpFilename;
+    protected String idpFilename;
 
     /**
      * Specifies base64 encoded file content of identity provider metadata.
      */
     @JsonProperty("idpMetadataContent")
-    private String idpMetadataContent;
+    protected String idpMetadataContent;
 
     /**
      * Specifies the identity provider metadata URL.
      */
     @JsonProperty("idpUrl")
-    private String idpUrl;
+    protected String idpUrl;
 
     /**
      * Specifies the keystore alias to be used to generate service provider metadata.
      */
     @JsonProperty("keystoreAlias")
-    private String keystoreAlias;
+    protected String keystoreAlias;
 
     /**
      * Specifies whether SAML assertion is to be signed from the identity provider.
      */
     @JsonProperty("saml_assertion_signed")
-    private String samlAssertionSigned;
+    protected String samlAssertionSigned;
 
     /**
      * Specifies whether auth request should signed by the service provider.
      */
     @JsonProperty("saml_authreq_signed")
-    private String samlAuthreqSigned;
+    protected String samlAuthreqSigned;
 
     /**
      * Specifies the key alias to be used for signing and encryption.
      */
     @JsonProperty("saml_defaultkey_alias")
-    private String samlDefaultkeyAlias;
+    protected String samlDefaultkeyAlias;
 
     /**
      * Specifies whether SSO should be enabled or not.
      */
     @JsonProperty("saml_enabled")
-    private String samlEnabled;
+    protected String samlEnabled;
 
     /**
      * Specifies the key alias to be used for encryption.
      */
     @JsonProperty("saml_encrypkey_alias")
-    private String samlEncrypkeyAlias;
+    protected String samlEncrypkeyAlias;
 
     /**
      * Specifies the service provider SSO URL.
      */
     @JsonProperty("saml_redirect")
-    private String samlRedirect;
+    protected String samlRedirect;
 
     /**
      * Specifies the key alias to be used for signing.
      */
     @JsonProperty("saml_signkey_alias")
-    private String samlSignkeyAlias;
+    protected String samlSignkeyAlias;
 
     /**
      * Specifies the service provider entity ID.
      */
     @JsonProperty("saml_sp_id")
-    private String samlSpId;
+    protected String samlSpId;
 
     /**
      * Specifies whether SSO login page is redirected by default.
      */
     @JsonProperty("useSSOLoginByDefault")
-    private String useSSOLoginByDefault;
+    protected String useSSOLoginByDefault;
 
     @JsonProperty("userProfileMapping")
-    private UserProfileMapping userProfileMapping;
+    protected UserProfileMapping userProfileMapping;
 
 
 }

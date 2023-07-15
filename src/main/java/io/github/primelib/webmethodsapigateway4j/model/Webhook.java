@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "active",
     "config",
@@ -29,25 +34,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Webhook {
 
     /**
+     * Constructs a validated implementation of {@link Webhook}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public Webhook(Consumer<Webhook> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Specifies whether this webhook is active or not. Default value is false.
      */
     @JsonProperty("active")
-    private Boolean active;
+    protected Boolean active;
 
     @JsonProperty("config")
-    private WebhookConfig config;
+    protected WebhookConfig config;
 
     /**
      * The list of interested events this webhook is subscribed for
      */
     @JsonProperty("events")
-    private List<EventsEnum> events = new ArrayList<>();
+    protected List<EventsEnum> events = new ArrayList<>();
 
     /**
      * A unique ID for the webhook
      */
     @JsonProperty("id")
-    private String id;
+    protected String id;
 
 
     /**

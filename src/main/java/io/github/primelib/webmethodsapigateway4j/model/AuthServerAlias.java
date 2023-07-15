@@ -1,11 +1,15 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
 import java.util.Map;
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import java.util.Set;
@@ -19,7 +23,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({
     "authServerType",
@@ -39,49 +44,59 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AuthServerAlias extends Alias {
 
     /**
+     * Constructs a validated implementation of {@link AuthServerAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public AuthServerAlias(Consumer<AuthServerAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Type of the authorization server
      */
     @JsonProperty("authServerType")
-    private AuthServerTypeEnum authServerType;
+    protected AuthServerTypeEnum authServerType;
 
     @JsonProperty("dcrEndpoint")
-    private DynamicClientRegistrationEndpoint dcrEndpoint;
+    protected DynamicClientRegistrationEndpoint dcrEndpoint;
 
     @JsonProperty("localIntrospectionConfig")
-    private LocalIntrospectionConfig localIntrospectionConfig;
+    protected LocalIntrospectionConfig localIntrospectionConfig;
 
     @JsonProperty("metadata")
-    private Metadata metadata;
+    protected Metadata metadata;
 
     /**
      * Name of the provider which was created using ClientMetadataMapping alias, used in the Dynamic client registration
      */
     @JsonProperty("providerName")
-    private String providerName;
+    protected String providerName;
 
     @JsonProperty("remoteISConfig")
-    private RemoteISConfig remoteISConfig;
+    protected RemoteISConfig remoteISConfig;
 
     @JsonProperty("remoteIntrospectionConfig")
-    private RemoteIntrospectionConfig remoteIntrospectionConfig;
+    protected RemoteIntrospectionConfig remoteIntrospectionConfig;
 
     /**
      * List of scopes available in the authorization server
      */
     @JsonProperty("scopes")
-    private Set<Scope> scopes;
+    protected Set<Scope> scopes;
 
     @JsonProperty("sslConfig")
-    private SSLConfig sslConfig;
+    protected SSLConfig sslConfig;
 
     /**
      * List of grant types supported by the authorization server
      */
     @JsonProperty("supportedGrantTypes")
-    private List<String> supportedGrantTypes;
+    protected List<String> supportedGrantTypes;
 
     @JsonProperty("tokenGeneratorConfig")
-    private TokenGeneratorConfig tokenGeneratorConfig;
+    protected TokenGeneratorConfig tokenGeneratorConfig;
 
 
     /**

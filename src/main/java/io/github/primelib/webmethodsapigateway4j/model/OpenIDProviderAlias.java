@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @EqualsAndHashCode(callSuper = true)
 @JsonPropertyOrder({
     "authorizationEndpoint",
@@ -44,62 +49,72 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class OpenIDProviderAlias extends Alias {
 
+    /**
+     * Constructs a validated implementation of {@link OpenIDProviderAlias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public OpenIDProviderAlias(Consumer<OpenIDProviderAlias> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("authorizationEndpoint")
-    private String authorizationEndpoint;
+    protected String authorizationEndpoint;
 
     @JsonProperty("clientId")
-    private String clientId;
+    protected String clientId;
 
     @JsonProperty("clientSecret")
-    private String clientSecret;
+    protected String clientSecret;
 
     @JsonProperty("includeUserinfoClaims")
-    private Boolean includeUserinfoClaims;
+    protected Boolean includeUserinfoClaims;
 
     @JsonProperty("issuer")
-    private String issuer;
+    protected String issuer;
 
     @JsonProperty("jwksUri")
-    private String jwksUri;
+    protected String jwksUri;
 
     @JsonProperty("maxAge")
-    private String maxAge;
+    protected String maxAge;
 
     @JsonProperty("openIDDisplayValue")
-    private OpenIDDisplayValueEnum openIDDisplayValue;
+    protected OpenIDDisplayValueEnum openIDDisplayValue;
 
     @JsonProperty("openIDGrantType")
-    private OpenIDGrantTypeEnum openIDGrantType;
+    protected OpenIDGrantTypeEnum openIDGrantType;
 
     @JsonProperty("openIDResponseType")
-    private OpenIDResponseTypeEnum openIDResponseType;
+    protected OpenIDResponseTypeEnum openIDResponseType;
 
     @JsonProperty("openIDScopes")
-    private List<String> openIDScopes;
+    protected List<String> openIDScopes;
 
     @JsonProperty("openIDTokenEndpointAuthMode")
-    private OpenIDTokenEndpointAuthModeEnum openIDTokenEndpointAuthMode;
+    protected OpenIDTokenEndpointAuthModeEnum openIDTokenEndpointAuthMode;
 
     @JsonProperty("prompt")
-    private PromptEnum prompt;
+    protected PromptEnum prompt;
 
     @JsonProperty("redirectionEndpointHost")
-    private String redirectionEndpointHost;
+    protected String redirectionEndpointHost;
 
     @JsonProperty("redirectionEndpointPort")
-    private String redirectionEndpointPort;
+    protected String redirectionEndpointPort;
 
     @JsonProperty("tokenEndpoint")
-    private String tokenEndpoint;
+    protected String tokenEndpoint;
 
     @JsonProperty("trustStoreAlias")
-    private String trustStoreAlias;
+    protected String trustStoreAlias;
 
     @JsonProperty("uiLocales")
-    private String uiLocales;
+    protected String uiLocales;
 
     @JsonProperty("userinfoEndpoint")
-    private String userinfoEndpoint;
+    protected String userinfoEndpoint;
 
 
     @AllArgsConstructor

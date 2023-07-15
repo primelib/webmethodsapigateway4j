@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "attributeName",
     "attributeValue",
@@ -25,14 +30,24 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class RuleExpression {
 
+    /**
+     * Constructs a validated implementation of {@link RuleExpression}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public RuleExpression(Consumer<RuleExpression> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("attributeName")
-    private String attributeName;
+    protected String attributeName;
 
     @JsonProperty("attributeValue")
-    private String attributeValue;
+    protected String attributeValue;
 
     @JsonProperty("operator")
-    private String operator;
+    protected String operator;
 
 
 }

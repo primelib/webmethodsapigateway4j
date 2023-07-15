@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "extendedKeys",
     "wattKeys"
@@ -27,16 +32,26 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Settings {
 
     /**
+     * Constructs a validated implementation of {@link Settings}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public Settings(Consumer<Settings> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * A map containing the API Gateway Extended Settings key-value pair.
      */
     @JsonProperty("extendedKeys")
-    private Map<String, String> extendedKeys = new HashMap<>();
+    protected Map<String, String> extendedKeys = new HashMap<>();
 
     /**
      * A map containing the Integration Server Watt properties key-value pair.
      */
     @JsonProperty("wattKeys")
-    private Map<String, String> wattKeys = new HashMap<>();
+    protected Map<String, String> wattKeys = new HashMap<>();
 
 
 }

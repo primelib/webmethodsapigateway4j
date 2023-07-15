@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "clientHttpResponseSize",
     "connectionTimeout",
@@ -47,149 +52,159 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class AnalyticsDataStoreDestination {
 
     /**
+     * Constructs a validated implementation of {@link AnalyticsDataStoreDestination}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public AnalyticsDataStoreDestination(Consumer<AnalyticsDataStoreDestination> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * Maximum Response payload size in mb.
      */
     @JsonProperty("clientHttpResponseSize")
-    private String clientHttpResponseSize;
+    protected String clientHttpResponseSize;
 
     /**
      * Connection timeout in milli seconds between API Gateway and Analytics Data Store.
      */
     @JsonProperty("connectionTimeout")
-    private String connectionTimeout;
+    protected String connectionTimeout;
 
     /**
      * Specifies the host name or IP address of the machine on which Analytics Data Store Server is running.
      */
     @JsonProperty("hostname")
-    private String hostname;
+    protected String hostname;
 
     /**
      * Enable secure connection between API Gateway and Analytics Data Store.
      */
     @JsonProperty("httpsEnabled")
-    private String httpsEnabled;
+    protected String httpsEnabled;
 
     /**
      * Property to enforce hostname verification.
      */
     @JsonProperty("httpsEnforceHostnameVerification")
-    private String httpsEnforceHostnameVerification;
+    protected String httpsEnforceHostnameVerification;
 
     /**
      * To use persistent connection between APIGateway and Analytics Data Store.
      */
     @JsonProperty("keepAlive")
-    private String keepAlive;
+    protected String keepAlive;
 
     /**
      * Maximum number of persistent connections that can be maintained between API Gateway and cluster of Analytics Data Store.
      */
     @JsonProperty("keepAliveMaxConnections")
-    private String keepAliveMaxConnections;
+    protected String keepAliveMaxConnections;
 
     /**
      * Maximum number of persistent connections that can be maintained between API Gateway and single Analytics Data Store for single HTTP route.
      */
     @JsonProperty("keepAliveMaxConnectionsPerRoute")
-    private String keepAliveMaxConnectionsPerRoute;
+    protected String keepAliveMaxConnectionsPerRoute;
 
     /**
      * Alias name of the certificate that needs to be used from keystore.
      */
     @JsonProperty("keystoreAlias")
-    private String keystoreAlias;
+    protected String keystoreAlias;
 
     /**
      * Keystore location for client authentication.
      */
     @JsonProperty("keystoreName")
-    private String keystoreName;
+    protected String keystoreName;
 
     /**
      * Keystore password.
      */
     @JsonProperty("keystorePassword")
-    private String keystorePassword;
+    protected String keystorePassword;
 
     /**
      * Time out in milli seconds to wait for retries.
      */
     @JsonProperty("maxRetryTimeout")
-    private String maxRetryTimeout;
+    protected String maxRetryTimeout;
 
     /**
      * Outbound proxy alias name that is created in API Gateway.
      */
     @JsonProperty("outboundProxyAlias")
-    private String outboundProxyAlias;
+    protected String outboundProxyAlias;
 
     /**
      * Enable
      * outbound proxy settings between API Gateway and Analytics Data Store.
      */
     @JsonProperty("outboundProxyEnabled")
-    private String outboundProxyEnabled;
+    protected String outboundProxyEnabled;
 
     /**
      * The password for the Analytics Data Store server instance.
      */
     @JsonProperty("password")
-    private String password;
+    protected String password;
 
     /**
      * Specifies the port on which the Analytics Data Store server runs.
      */
     @JsonProperty("port")
-    private String port;
+    protected String port;
 
     /**
      * Specifies the communication protocol used to establish communication between API Gateway and Analytics Data Store.
      */
     @JsonProperty("protocol")
-    private String protocol;
+    protected String protocol;
 
     /**
      * Enable sniffer.
      */
     @JsonProperty("sniffEnabled")
-    private String sniffEnabled;
+    protected String sniffEnabled;
 
     /**
      * Time interval to refresh Elasticsearch node details in milliseconds.
      */
     @JsonProperty("sniffTimeInterval")
-    private String sniffTimeInterval;
+    protected String sniffTimeInterval;
 
     /**
      * Read timeout in milli seconds between API Gateway and Analytics Data Store.
      */
     @JsonProperty("socketTimeout")
-    private String socketTimeout;
+    protected String socketTimeout;
 
     /**
      * Tenant name.
      */
     @JsonProperty("tenantId")
-    private String tenantId;
+    protected String tenantId;
 
     /**
      * Truststore location contains Analytics Data Store certificate details.
      */
     @JsonProperty("truststoreName")
-    private String truststoreName;
+    protected String truststoreName;
 
     /**
      * Truststore password.
      */
     @JsonProperty("truststorePassword")
-    private String truststorePassword;
+    protected String truststorePassword;
 
     /**
      * The username for the Analytics Data Store server instance.
      */
     @JsonProperty("username")
-    private String username;
+    protected String username;
 
 
 }

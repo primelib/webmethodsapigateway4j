@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -17,7 +21,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "action",
     "indicesType",
@@ -29,25 +34,35 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class MigrationConfig {
 
     /**
+     * Constructs a validated implementation of {@link MigrationConfig}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public MigrationConfig(Consumer<MigrationConfig> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * The type of migration action to be performed
      */
     @JsonProperty("action")
-    private ActionEnum action;
+    protected ActionEnum action;
 
     /**
      * The type of indices to be reindexed for reindex action
      */
     @JsonProperty("indicesType")
-    private IndicesTypeEnum indicesType;
+    protected IndicesTypeEnum indicesType;
 
     /**
      * Migration properties for reindex action. Default values are taken from migration.properties file. Any value passed in here would overwrite the default value.
      */
     @JsonProperty("properties")
-    private Map<String, String> properties = new HashMap<>();
+    protected Map<String, String> properties = new HashMap<>();
 
     @JsonProperty("sourceElasticsearch")
-    private ElasticsearchConfig sourceElasticsearch;
+    protected ElasticsearchConfig sourceElasticsearch;
 
 
     /**

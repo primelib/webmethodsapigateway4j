@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "Adapter Runtime",
     "Clustering",
@@ -33,38 +38,48 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class IntegrationServer {
 
+    /**
+     * Constructs a validated implementation of {@link IntegrationServer}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public IntegrationServer(Consumer<IntegrationServer> spec) {
+        spec.accept(this);
+    }
+
     @JsonProperty("Adapter Runtime")
-    private String adapterRuntime;
+    protected String adapterRuntime;
 
     @JsonProperty("Clustering")
-    private String clustering;
+    protected String clustering;
 
     @JsonProperty("Concurrent Sessions")
-    private String concurrentSessions;
+    protected String concurrentSessions;
 
     @JsonProperty("Distributed Cache")
-    private String distributedCache;
+    protected String distributedCache;
 
     @JsonProperty("Enterprise Gateway")
-    private String enterpriseGateway;
+    protected String enterpriseGateway;
 
     @JsonProperty("Guaranteed Delivery")
-    private String guaranteedDelivery;
+    protected String guaranteedDelivery;
 
     @JsonProperty("Product Code")
-    private String productCode;
+    protected String productCode;
 
     @JsonProperty("Product Version")
-    private String productVersion;
+    protected String productVersion;
 
     @JsonProperty("Publish / Subscribe")
-    private String publishSubscribe;
+    protected String publishSubscribe;
 
     @JsonProperty("Remote Invoke")
-    private String remoteInvoke;
+    protected String remoteInvoke;
 
     @JsonProperty("Security Auditing")
-    private String securityAuditing;
+    protected String securityAuditing;
 
 
 }

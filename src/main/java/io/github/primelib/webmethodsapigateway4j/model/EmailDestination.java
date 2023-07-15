@@ -1,9 +1,13 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -15,7 +19,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "defaultEmailCharset",
     "fromEmail",
@@ -40,106 +45,116 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class EmailDestination {
 
     /**
+     * Constructs a validated implementation of {@link EmailDestination}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public EmailDestination(Consumer<EmailDestination> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * The character set that API Gateway uses to be recognized by the system. 
      */
     @JsonProperty("defaultEmailCharset")
-    private String defaultEmailCharset;
+    protected String defaultEmailCharset;
 
     /**
      * The email address from which you want to send the alerts.
      */
     @JsonProperty("fromEmail")
-    private String fromEmail;
+    protected String fromEmail;
 
     /**
      * The content of the email to be sent for the Log Invocation policy action.
      */
     @JsonProperty("logInvocationContent")
-    private String logInvocationContent;
+    protected String logInvocationContent;
 
     /**
      * The subject line of the email to be sent for the Log Invocation policy action.
      */
     @JsonProperty("logInvocationSubject")
-    private String logInvocationSubject;
+    protected String logInvocationSubject;
 
     /**
      * The content of the email to be sent for the Monitor SLA policy action.
      */
     @JsonProperty("monitorSLAContent")
-    private String monitorSLAContent;
+    protected String monitorSLAContent;
 
     /**
      * The subject line of the email to be sent for the Monitor SLA policy action.
      */
     @JsonProperty("monitorSLASubject")
-    private String monitorSLASubject;
+    protected String monitorSLASubject;
 
     /**
      * The content of the email to be sent for the Monitor SP policy action.
      */
     @JsonProperty("monitorSPContent")
-    private String monitorSPContent;
+    protected String monitorSPContent;
 
     /**
      * The subject line of the email to be sent for the Monitor SP policy action.
      */
     @JsonProperty("monitorSPSubject")
-    private String monitorSPSubject;
+    protected String monitorSPSubject;
 
     /**
      * The password that API Gateway uses to connect to the specified SMTP server.
      */
     @JsonProperty("password")
-    private String password;
+    protected String password;
 
     /**
      * The port that API Gateway uses to connect to the specified SMTP server.
      */
     @JsonProperty("port")
-    private String port;
+    protected String port;
 
     /**
      * The server name or the IP address of the SMTP server that API Gateway uses to send the messages.
      */
     @JsonProperty("smtpServer")
-    private String smtpServer;
+    protected String smtpServer;
 
     /**
      * The email address to which you want to send the test email.
      */
     @JsonProperty("testRecipient")
-    private String testRecipient;
+    protected String testRecipient;
 
     /**
      * The content of the email to be sent for the Throttling Traffic Optimization policy action.
      */
     @JsonProperty("throttlingContent")
-    private String throttlingContent;
+    protected String throttlingContent;
 
     /**
      * The subject line of the email to be sent for the Throttling Traffic Optimization policy action.
      */
     @JsonProperty("throttlingSubject")
-    private String throttlingSubject;
+    protected String throttlingSubject;
 
     /**
      * The SSL encryption type that API Gateway uses when communicating with an email server. 
      */
     @JsonProperty("transportLayerSecurity")
-    private String transportLayerSecurity;
+    protected String transportLayerSecurity;
 
     /**
      * The truststore that API Gateway uses while sending the request to a native API.
      */
     @JsonProperty("trustStoreAlias")
-    private String trustStoreAlias;
+    protected String trustStoreAlias;
 
     /**
      * The username that API Gateway uses to connect to the specified SMTP server.
      */
     @JsonProperty("username")
-    private String username;
+    protected String username;
 
 
 }

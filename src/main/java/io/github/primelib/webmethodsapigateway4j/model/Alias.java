@@ -1,10 +1,14 @@
 package io.github.primelib.webmethodsapigateway4j.model;
 
 import java.util.Map;
+import java.util.function.Consumer;
+import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 import lombok.Data;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
+import lombok.AccessLevel;
+import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -16,7 +20,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  */
 @Data
 @AllArgsConstructor
-@NoArgsConstructor
+@Accessors(fluent = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "description",
     "id",
@@ -30,40 +35,50 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Alias {
 
     /**
+     * Constructs a validated implementation of {@link Alias}.
+     *
+     * @param spec the specification to process
+     */
+    @ApiStatus.Internal
+    public Alias(Consumer<Alias> spec) {
+        spec.accept(this);
+    }
+
+    /**
      * A description about the alias
      */
     @JsonProperty("description")
-    private String description;
+    protected String description;
 
     /**
      * A unique ID for the alias
      */
     @JsonProperty("id")
-    private String id;
+    protected String id;
 
     /**
      * A unique name for the assertion
      */
     @JsonProperty("name")
-    private String name;
+    protected String name;
 
     /**
      * Owner of the alias
      */
     @JsonProperty("owner")
-    private String owner;
+    protected String owner;
 
     /**
      * Stage for which this alias needs to be used
      */
     @JsonProperty("stage")
-    private String stage;
+    protected String stage;
 
     /**
      * Type of the alias
      */
     @JsonProperty("type")
-    private TypeEnum type;
+    protected TypeEnum type;
 
 
     /**
