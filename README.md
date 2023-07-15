@@ -20,10 +20,16 @@ implementation("io.github.primelib:webmethodsapigateway4j:<latestVersion>")
 ```java
 APIGatewayConsumerApi client = APIGatewayFactory.create(spec -> {
     spec.api(APIGatewayConsumerApi.class);
+    spec.baseUrl("localhost:5555/rest/apigateway");
     spec.basicAuth(auth -> {
         auth.username("admin");
         auth.password("manage");
     });
+});
+
+APIResponsesModel apis = client.getAPIs(spec -> {
+    spec.from(0);
+    spec.size(100);
 });
 ```
 
@@ -32,11 +38,14 @@ APIGatewayConsumerApi client = APIGatewayFactory.create(spec -> {
 ```java
 APIGatewayApi client = APIGatewayFactory.create(spec -> {
     spec.api(APIGatewayApi.class);
+    spec.baseUrl("localhost:5555/rest/apigateway");
     spec.basicAuth(auth -> {
         auth.username("admin");
         auth.password("manage");
     });
 });
+
+APIResponsesModel apis = client.getAPIs(null, 0, 100);
 ```
 
 **_NOTE:_** The  `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.

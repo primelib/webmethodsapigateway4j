@@ -4,6 +4,7 @@ import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Destination;
+import io.github.primelib.webmethodsapigateway4j.model.Port;
 import lombok.AccessLevel;
 import lombok.Data;
 import lombok.NoArgsConstructor;

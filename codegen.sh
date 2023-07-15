@@ -6,7 +6,8 @@ PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 # test
 case $1 in
   "update")
-    echo "> updating openapi spec" # source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices
+    echo "> running update"
+    # update openapi spec (source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices)
     mkdir -p "$PROJECT_DIR/spec"
     curl -o "$PROJECT_DIR/spec/openapi.admin.json" https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAdministration.json
     curl -o "$PROJECT_DIR/spec/openapi.alias.json" https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAlias.json
@@ -28,10 +29,14 @@ case $1 in
     curl -o "$PROJECT_DIR/spec/openapi.transactional.json" https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayTransactionalEvent.json
     curl -o "$PROJECT_DIR/spec/openapi.user.json" https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayUserManagementSwagger.json
     SPEC_FILE="$PROJECT_DIR/openapi.json"
-    jq -s '.[0] * .[1]' "$PROJECT_DIR"/spec/*.json > "$SPEC_FILE"
+    jq -s 'reduce .[] as $item ({}; . * $item)' "$PROJECT_DIR"/spec/*.json > "$SPEC_FILE"
     jq '.info.title="API Gateway"' "$SPEC_FILE" | sponge "$SPEC_FILE" # overwrite name
     jq '.info.description="webMethods API Gateway is the core run time component in webMethods API Management platform and it enables organizations to secure, manage and monitor their API programs."' "$SPEC_FILE" | sponge "$SPEC_FILE" # overwrite description
     jq 'del(.definitions.BasicAuth, .definitions.ClientCredentialsAuth, .definitions.NoAuth, .definitions.RefreshTokenAuth, .definitions.TokenAuth)' "$SPEC_FILE" | sponge "$SPEC_FILE"
+    jq '.paths."/apis/{apiId}/applications".get.operationId="getApiApplications"' "$SPEC_FILE" | sponge "$SPEC_FILE"
+    # bad names
+    jq '(.definitions.ParameterSchema = .definitions.Schema) | del(.definitions.Schema)' "$SPEC_FILE" | sponge "$SPEC_FILE"
+    jq 'walk(if type == "string" and . == "#/definitions/Schema" then "#/definitions/ParameterSchema" else . end)' "$SPEC_FILE" | sponge "$SPEC_FILE"
     ;;
 
   "generate")
