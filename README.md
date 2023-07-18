@@ -20,7 +20,7 @@ implementation("io.github.primelib:webmethodsapigateway4j:<latestVersion>")
 ```java
 APIGatewayConsumerApi client = APIGatewayFactory.create(spec -> {
     spec.api(APIGatewayConsumerApi.class);
-    spec.baseUrl("localhost:5555/rest/apigateway");
+    spec.baseUrl("http://localhost:5555/rest/apigateway");
     spec.basicAuth(auth -> {
         auth.username("admin");
         auth.password("manage");
@@ -38,7 +38,7 @@ APIResponsesModel apis = client.getAPIs(spec -> {
 ```java
 APIGatewayApi client = APIGatewayFactory.create(spec -> {
     spec.api(APIGatewayApi.class);
-    spec.baseUrl("localhost:5555/rest/apigateway");
+    spec.baseUrl("http://localhost:5555/rest/apigateway");
     spec.basicAuth(auth -> {
         auth.username("admin");
         auth.password("manage");
