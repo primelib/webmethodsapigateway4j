@@ -166,6 +166,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to be activated (required)
      */
     @RequestLine("PUT /apis/{apiId}/activate")
+    @Headers({
+        "Accept: application/json"
+    })
     ModelAPIResponse activateAPI(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -176,7 +179,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /dataspace/activate")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     String activateDC(@NotNull String body);
 
@@ -187,6 +191,9 @@ public interface APIGatewayApi {
      * @param policyId             The path parameter should be the policy id of global policy that needs to be activated. If the policy id is not belongs to a global policy then error will be reported (required)
      */
     @RequestLine("PUT /policies/{policyId}/activate")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy activateGlobalPolicyByPolicyID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -197,7 +204,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /dataspace/activateAll")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Object activateNodes(@NotNull Object body);
 
@@ -208,6 +216,9 @@ public interface APIGatewayApi {
      * @param packageId            package id which needs to be activated (required)
      */
     @RequestLine("PUT /packages/{packageId}/activate")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageResponseContainer activatePackageByPackageId(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -217,6 +228,9 @@ public interface APIGatewayApi {
      * @param ruleId               The path parameter should be the id of rule that needs to be activated. (required)
      */
     @RequestLine("PUT /rule/{ruleId}/activate")
+    @Headers({
+        "Accept: application/json"
+    })
     Rule activateRule(@Param("ruleId") @NotNull String ruleId);
 
     /**
@@ -226,6 +240,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /admin")
+    @Headers({
+        "Accept: application/json"
+    })
     HealthCheckAdminResult adminGet();
 
     /**
@@ -239,7 +256,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /search/_aggregations")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Map<String, Object> aggregations(@NotNull SearchContext body);
 
@@ -250,6 +268,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /all")
+    @Headers({
+        "Accept: application/json"
+    })
     HealthCheckAllResult allGet();
 
     /**
@@ -263,6 +284,9 @@ public interface APIGatewayApi {
      * @param olderThan            All the api transactions of specified type that are older than the value specified are archived. Ex: olderThan='2d'. Possible types are d(days),M(months),y(years), For Example a) 2d means 2days b) 1M means 1 month c) 1y means 1 year (optional)
      */
     @RequestLine("POST /apitransactions/archives?from={from}&until={until}&olderThan={olderThan}&eventType={eventType}")
+    @Headers({
+        "Accept: application/json"
+    })
     void apiTransactionsArchiveBasedOnDuration(@Param("from") @NotNull String from, @Param("until") @NotNull String until, @Param("eventType") @NotNull String eventType, @Param("olderThan") @Nullable String olderThan);
 
     /**
@@ -273,7 +297,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PATCH /dataspace/ring")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     RemotePortConfig appendRingConfiguration(@NotNull RemotePortConfig body);
 
@@ -287,7 +312,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /approvals/{approvalId}/{action}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ApprovalPutResponse approveorrejectApprovalRequest(@Param("approvalId") @NotNull String approvalId, @Param("action") @NotNull String action, @Nullable ApprovalPutRequest body);
 
@@ -299,7 +325,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /tracer/archive")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void archiveTraceInfo(@NotNull ArchiveTraceInfoRequest body);
 
@@ -311,7 +338,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /authenticate")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     User authorize(@NotNull User body);
 
@@ -323,7 +351,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /users/authenticate")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     User authorizeUser(@NotNull User body);
 
@@ -335,7 +364,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /assets/owner")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ChangeOwnerResponse changeOwner(@NotNull ChangeOwnerRequest body);
 
@@ -347,7 +377,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /assets/team")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ChangeOwnerResponse changeTeam(@NotNull ChangeOwnerRequest body);
 
@@ -361,6 +392,9 @@ public interface APIGatewayApi {
      * @param active               This is a query parameter. It is used to get conflicting case for a global policy. If the value for this parameter is 'false' then it will return conflicting scenario for all the APIs whether it is active or not for the specified global policy. If the value for this flag is 'true' then it will return conflicting case only for the list of applicable active APIs alone (optional)
      */
     @RequestLine("GET /policies/{policyId}/conflicts?active={active}")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy checkConflictForGlobalPolicy(@Param("policyId") @NotNull String policyId, @Param("active") @Nullable String active);
 
     /**
@@ -371,7 +405,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /dataspace/configure")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Object configureNodes(@NotNull Object body);
 
@@ -383,7 +418,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /search/_count")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Map<String, Integer> countByType(@NotNull SearchContext body);
 
@@ -395,7 +431,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /apis")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     APIResponseCreate createAPI(@NotNull CreateAPIRequest body);
 
@@ -407,7 +444,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /portalGateways")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PortalGateway createAPIPortalConfiguration(@NotNull PortalGateway body);
 
@@ -420,7 +458,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /ports/{listenerKey}/accessMode")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AccessModeType createAccessMode(@Param("listenerKey") @NotNull String listenerKey, @NotNull AccessModeType body);
 
@@ -433,7 +472,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /accessProfiles")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AccessProfile createAccessProfile(@NotNull AccessProfile body);
 
@@ -445,7 +485,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /alias")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Alias createAlias(@NotNull Alias body);
 
@@ -457,7 +498,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /applications")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Application createApplication(@NotNull Application body);
 
@@ -469,7 +511,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /approvalConfigurations")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ApprovalConfiguration createApprovalConfiguration(@NotNull ApprovalConfiguration body);
 
@@ -877,7 +920,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /assertions")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AssertionConfiguration createAssertion(@NotNull AssertionConfiguration body);
 
@@ -889,7 +933,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /groups")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Group createGroup(@NotNull Group body);
 
@@ -902,7 +947,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /ports/{listenerKey}/ipAccessMode")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     IPAccessModeType createIPAccessMode(@Param("listenerKey") @NotNull String listenerKey, @NotNull IPAccessModeType body);
 
@@ -914,7 +960,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/jmsConnections")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     JMSConnectionAlias createJMSConnection(@NotNull JMSConnectionAlias body);
 
@@ -926,7 +973,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/jndi")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     JNDIProviderAlias createJNDI(@NotNull JNDIProviderAlias body);
 
@@ -947,7 +995,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/keystore")
     @Headers({
-        "Content-Type: multipart/form-data"
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
     KeyStore createKeystore(@Param("keyStoreName") @NotNull String keyStoreName, @Param("keyStoreType") @NotNull String keyStoreType, @Param("keyStorePassword") @NotNull String keyStorePassword, @Param("uploadFileName") @NotNull String uploadFileName, @Param("fileContent") @NotNull File fileContent, @Param("keyStoreDescription") @Nullable String keyStoreDescription, @Param("pkAliasesList") @Nullable String pkAliasesList, @Param("pkPasswordsList") @Nullable String pkPasswordsList, @Param("nullPKpasswds") @Nullable String nullPKpasswds, @Param("isPwdBase64Encoded") @Nullable String isPwdBase64Encoded);
 
@@ -959,7 +1008,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /scopes")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     GatewayScope createOAuthScope(@NotNull GatewayScope body);
 
@@ -969,7 +1019,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/outboundproxy")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void createOutboundProxy(@NotNull OutboundProxySettings body);
 
@@ -981,7 +1032,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /packages")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PackageResponseContainer createPackage(@Nullable ModelPackage body);
 
@@ -1020,7 +1072,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /plans")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PlanResponseContainer createPlan(@Nullable Plan body);
 
@@ -1035,7 +1088,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /policyActions")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PolicyAction createPolicyAction(@NotNull PolicyAction body);
 
@@ -1047,7 +1101,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /ports")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Port createPort(@Nullable Port body);
 
@@ -1062,7 +1117,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /promotion?fixingMissingVersions={fixingMissingVersions}&overwrite={overwrite}&overwriteAlias={overwriteAlias}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Promotion createPromotion(@NotNull Promotion body, @Param("fixingMissingVersions") @Nullable String fixingMissingVersions, @Param("overwrite") @Nullable Boolean overwrite, @Param("overwriteAlias") @Nullable Boolean overwriteAlias);
 
@@ -1074,7 +1130,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /rule")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Rule createRule(@NotNull Rule body);
 
@@ -1086,7 +1143,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /stages")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Stage createStage(@NotNull Stage body);
 
@@ -1098,7 +1156,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /strategies")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     OneOfStrategyModel createStrategy(@NotNull StrategyRequest body);
 
@@ -1110,7 +1169,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /subscriptions")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Application createSubscription(@Nullable SubscriptionRequest body);
 
@@ -1128,7 +1188,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/truststore")
     @Headers({
-        "Content-Type: multipart/form-data"
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
     TrustStore createTruststore(@Param("keyStoreName") @NotNull String keyStoreName, @Param("keyStoreType") @NotNull String keyStoreType, @Param("keyStorePassword") @NotNull String keyStorePassword, @Param("uploadFileName") @NotNull String uploadFileName, @Param("fileContent") @NotNull File fileContent, @Param("keyStoreDescription") @Nullable String keyStoreDescription, @Param("isPwdBase64Encoded") @Nullable String isPwdBase64Encoded);
 
@@ -1140,7 +1201,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /urlaliases")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     URLAliasSettings createURLALias(@NotNull URLAliasSettings body);
 
@@ -1152,7 +1214,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /users")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     User createUser(@NotNull User body);
 
@@ -1165,7 +1228,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /apis/{apiId}/versions")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ModelAPIResponse createVersion(@Param("apiId") @NotNull String apiId, @NotNull InputVersion body);
 
@@ -1177,7 +1241,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /webhooks")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Webhook createWebhook(@NotNull Webhook body);
 
@@ -1189,7 +1254,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/webServiceEndpoints")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     WebserviceEndpointAlias createWebserviceEndpoint(@NotNull WebserviceEndpointAlias body);
 
@@ -1200,6 +1266,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to be deactivated (required)
      */
     @RequestLine("PUT /apis/{apiId}/deactivate")
+    @Headers({
+        "Accept: application/json"
+    })
     ModelAPIResponse deactivateAPI(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -1211,6 +1280,9 @@ public interface APIGatewayApi {
      * @param policyId             The path parameter should be the policy id of global policy that needs to be deactivated. If the policy id is not belongs to a global policy then error will be reported (required)
      */
     @RequestLine("PUT /policies/{policyId}/deactivate")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy deactivateGlobalPolicyByPolicyID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -1220,6 +1292,9 @@ public interface APIGatewayApi {
      * @param packageId            package id which needs to be deactivated (required)
      */
     @RequestLine("PUT /packages/{packageId}/deactivate")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageResponseContainer deactivatePackageByPackageId(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -1229,6 +1304,9 @@ public interface APIGatewayApi {
      * @param ruleId               The path parameter should be the id of rule that needs to be deactivated. (required)
      */
     @RequestLine("PUT /rule/{ruleId}/deactivate")
+    @Headers({
+        "Accept: application/json"
+    })
     Rule deactivateRule(@Param("ruleId") @NotNull String ruleId);
 
     /**
@@ -1239,6 +1317,9 @@ public interface APIGatewayApi {
      * @param forceDelete          Flag for force delete. Required when API is associated with some applications (optional, defaults to true)
      */
     @RequestLine("DELETE /apis/{apiId}?forceDelete={forceDelete}")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponseDelete deleteAPI(@Param("apiId") @NotNull String apiId, @Param("forceDelete") @Nullable Boolean forceDelete);
 
     /**
@@ -1248,6 +1329,9 @@ public interface APIGatewayApi {
      * @param portalGatewayId      Id of the API Portal configuration for delete. (required)
      */
     @RequestLine("DELETE /portalGateways/{portalGatewayId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteAPIPortalConfiguration(@Param("portalGatewayId") @NotNull String portalGatewayId);
 
     /**
@@ -1258,6 +1342,9 @@ public interface APIGatewayApi {
      * @param forceDelete          Flag for force delete. Required when API is associated with some applications (optional, defaults to true)
      */
     @RequestLine("DELETE /apis?apiIds={apiIds}&forceDelete={forceDelete}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<APIResponseDelete> deleteAPIs(@Param("apiIds") @NotNull String apiIds, @Param("forceDelete") @Nullable Boolean forceDelete);
 
     /**
@@ -1267,6 +1354,9 @@ public interface APIGatewayApi {
      * @param accessProfileId      This parameter specifies the ID of a team that is to be deleted in API Gateway. (required)
      */
     @RequestLine("DELETE /accessProfiles/{accessProfileId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteAccessProfile(@Param("accessProfileId") @NotNull String accessProfileId);
 
     /**
@@ -1276,6 +1366,9 @@ public interface APIGatewayApi {
      * @param aliasId              The path parameter specifies the id of an alias that is to be deleted from API Gateway. (required)
      */
     @RequestLine("DELETE /alias/{aliasId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteAlias(@Param("aliasId") @NotNull String aliasId);
 
     /**
@@ -1285,6 +1378,9 @@ public interface APIGatewayApi {
      * @param applicationId        This parameter specifies the ID of an application to be deleted. (required)
      */
     @RequestLine("DELETE /applications/{applicationId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteApplic(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -1294,6 +1390,9 @@ public interface APIGatewayApi {
      * @param ids                  You can delete multiple applications using the query parameter 'ids' by providing the ids as comma-separated values. Example:  /applications?ids=375db639-01f7-4488-b14f-09daae622e18,afb0b5c0-0b0e-4d44-b139-e64d0dbf028c (optional)
      */
     @RequestLine("DELETE /applications?ids={ids}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteApplications(@Param("ids") @Nullable String ids);
 
     /**
@@ -1303,6 +1402,9 @@ public interface APIGatewayApi {
      * @param id                   This parameter specifies the ID of an approval configuration that is to be deleted in API Gateway. (required)
      */
     @RequestLine("DELETE /approvalConfigurations/{id}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteApprovalConfiguration(@Param("id") @NotNull String id);
 
     /**
@@ -1312,6 +1414,9 @@ public interface APIGatewayApi {
      * @param approvalId           Approval Request Id for the Approval Request to be deleted (required)
      */
     @RequestLine("DELETE /approvals/{approvalId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteApprovalRequest(@Param("approvalId") @NotNull String approvalId);
 
     /**
@@ -1321,6 +1426,9 @@ public interface APIGatewayApi {
      * @param assertionId          This path parameter is used to specify the assertion id for which assertion needs to deleted. (required)
      */
     @RequestLine("DELETE /assertions/{assertionId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteAssertion(@Param("assertionId") @NotNull String assertionId);
 
     /**
@@ -1331,6 +1439,9 @@ public interface APIGatewayApi {
      * @param apiVersion           The version of the apiName parameter specified (required)
      */
     @RequestLine("DELETE /serviceResultCache?apiName={apiName}&apiVersion={apiVersion}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteCacheDetailsByapiNameAndVersion(@Param("apiName") @NotNull String apiName, @Param("apiVersion") @NotNull String apiVersion);
 
     /**
@@ -1340,6 +1451,9 @@ public interface APIGatewayApi {
      * @param apiId                The id of API for which the Service Result Cache deletion is requested (required)
      */
     @RequestLine("DELETE /serviceResultCache/{apiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteCacheDetailsbyAPIId(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -1349,6 +1463,9 @@ public interface APIGatewayApi {
      * @param IP                    (required)
      */
     @RequestLine("DELETE /denialofservice/deniedIP?IP={IP}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteDeniedIPs(@Param("IP") @NotNull String IP);
 
     /**
@@ -1358,6 +1475,9 @@ public interface APIGatewayApi {
      * @param documentId           Id of the document for deletion (required)
      */
     @RequestLine("DELETE /documents/{documentId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteDocument(@Param("documentId") @NotNull String documentId);
 
     /**
@@ -1367,6 +1487,9 @@ public interface APIGatewayApi {
      * @param groupId              The path parameter specifies the id of a group that is to be deleted from API Gateway. (required)
      */
     @RequestLine("DELETE /groups/{groupId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteGroup(@Param("groupId") @NotNull String groupId);
 
     /**
@@ -1376,6 +1499,9 @@ public interface APIGatewayApi {
      * @param jmsConnId            This path parameter is used to specify the JMS connection id for which JMS connection needs to deleted. (required)
      */
     @RequestLine("DELETE /is/jmsConnections/{jmsConnId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteJMSConnection(@Param("jmsConnId") @NotNull String jmsConnId);
 
     /**
@@ -1385,6 +1511,9 @@ public interface APIGatewayApi {
      * @param jndiId               This path parameter is used to specify the JNDI id for which JNDI configuration needs to deleted. (required)
      */
     @RequestLine("DELETE /is/jndi/{jndiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteJNDI(@Param("jndiId") @NotNull String jndiId);
 
     /**
@@ -1394,6 +1523,9 @@ public interface APIGatewayApi {
      * @param keyStoreName         Keystore name to identify the corresponding Keystore (required)
      */
     @RequestLine("DELETE /is/keystore/{keyStoreName}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<KeyStore> deleteKeystore(@Param("keyStoreName") @NotNull String keyStoreName);
 
     /**
@@ -1403,6 +1535,9 @@ public interface APIGatewayApi {
      * @param oauthScopeId         The path parameter specifies the id of an OAuth scope mapping that is to be deleted from API Gateway. (required)
      */
     @RequestLine("DELETE /scopes/{oauthScopeId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteOAuthScope(@Param("oauthScopeId") @NotNull String oauthScopeId);
 
     /**
@@ -1412,6 +1547,9 @@ public interface APIGatewayApi {
      * @param outboundproxyAlias   The outbound proxy server alias to be deleted (required)
      */
     @RequestLine("DELETE /is/outboundproxy/{outboundproxyAlias}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteOutboundProxy(@Param("outboundproxyAlias") @NotNull String outboundproxyAlias);
 
     /**
@@ -1421,6 +1559,9 @@ public interface APIGatewayApi {
      * @param packageId            Id of the Package (required)
      */
     @RequestLine("DELETE /packages/{packageId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deletePackageById(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -1430,6 +1571,9 @@ public interface APIGatewayApi {
      * @param planId               Id of a Plan (required)
      */
     @RequestLine("DELETE /plans/{planId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deletePlanById(@Param("planId") @NotNull String planId);
 
     /**
@@ -1439,6 +1583,9 @@ public interface APIGatewayApi {
      * @param policyActionId       Policy Action ID (required)
      */
     @RequestLine("DELETE /policyActions/{policyActionId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deletePolicyAction(@Param("policyActionId") @NotNull String policyActionId);
 
     /**
@@ -1448,6 +1595,9 @@ public interface APIGatewayApi {
      * @param policyId             This path parameter is used to specify the policy id that needs to be deleted. If the policy id specified is global policy then it needs to be in inactive state to delete. Active global policy and global policy with systemPolicy property set to true cannot be deleted. (required)
      */
     @RequestLine("DELETE /policies/{policyId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deletePolicyByID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -1458,6 +1608,9 @@ public interface APIGatewayApi {
      * @param listenerKey          The listenerKey parameter uniquely identifies a port configuration within a package. (optional)
      */
     @RequestLine("DELETE /ports?pkg={pkg}&listenerKey={listenerKey}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deletePort(@Param("pkg") @Nullable String pkg, @Param("listenerKey") @Nullable String listenerKey);
 
     /**
@@ -1467,6 +1620,9 @@ public interface APIGatewayApi {
      * @param promotionId          Promotion Id for the promotion to be deleted (required)
      */
     @RequestLine("DELETE /promotion/{promotionId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deletePromotion(@Param("promotionId") @NotNull String promotionId);
 
     /**
@@ -1476,6 +1632,9 @@ public interface APIGatewayApi {
      * @param rollbackId           Rollback Id for the rollback to be deleted (required)
      */
     @RequestLine("DELETE /rollback/{rollbackId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteRollback(@Param("rollbackId") @NotNull String rollbackId);
 
     /**
@@ -1485,6 +1644,9 @@ public interface APIGatewayApi {
      * @param ruleId               The path parameter specifies the id of a rule that is to be deleted from API Gateway. (required)
      */
     @RequestLine("DELETE /rule/{ruleId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteRule(@Param("ruleId") @NotNull String ruleId);
 
     /**
@@ -1494,6 +1656,9 @@ public interface APIGatewayApi {
      * @param stageId              Stage Id for the stage to be deleted (required)
      */
     @RequestLine("DELETE /stages/{stageId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteStage(@Param("stageId") @NotNull String stageId);
 
     /**
@@ -1503,6 +1668,9 @@ public interface APIGatewayApi {
      * @param ids                  This parameter specifies the ID of a strategy that is to be deleted in API Gateway. (optional)
      */
     @RequestLine("DELETE /strategies?ids={ids}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteStrategy(@Param("ids") @Nullable String ids);
 
     /**
@@ -1512,6 +1680,9 @@ public interface APIGatewayApi {
      * @param applicationId        Application id to delete the application (required)
      */
     @RequestLine("DELETE /subscriptions/{applicationId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteSubscriptionBySubscriptionID(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -1521,6 +1692,9 @@ public interface APIGatewayApi {
      * @param trustStoreName       Truststore name to identify the corresponding trust store to delete in API Gateway (required)
      */
     @RequestLine("DELETE /is/truststore/{trustStoreName}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteTruststore(@Param("trustStoreName") @NotNull String trustStoreName);
 
     /**
@@ -1530,6 +1704,9 @@ public interface APIGatewayApi {
      * @param alias                The name of the URL alias to be deleted. (required)
      */
     @RequestLine("DELETE /urlaliases?alias={alias}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteURLAlias(@Param("alias") @NotNull String alias);
 
     /**
@@ -1539,6 +1716,9 @@ public interface APIGatewayApi {
      * @param userId               This parameter specifies the ID of an application that is to be deleted in API Gateway. (required)
      */
     @RequestLine("DELETE /users/{userId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteUser(@Param("userId") @NotNull String userId);
 
     /**
@@ -1548,6 +1728,9 @@ public interface APIGatewayApi {
      * @param id                   This parameter specifies the id of the webhook that is to be deleted in API Gateway. (required)
      */
     @RequestLine("DELETE /webhooks/{id}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteWebhook(@Param("id") @NotNull String id);
 
     /**
@@ -1557,6 +1740,9 @@ public interface APIGatewayApi {
      * @param webserviceEndpointId This path parameter is used to specify the Webservice endpoint id for which Webservice endpoint needs to deleted. (required)
      */
     @RequestLine("DELETE /is/webServiceEndpoints/{webserviceEndpointId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void deleteWebserviceEndpoint(@Param("webserviceEndpointId") @NotNull String webserviceEndpointId);
 
     /**
@@ -1566,6 +1752,9 @@ public interface APIGatewayApi {
      * @param jmsConnId            This path parameter is used to specify the JMS connection id which JMS connection needs to be disabled. (required)
      */
     @RequestLine("PUT /is/jmsConnections/{jmsConnId}/disable")
+    @Headers({
+        "Accept: application/json"
+    })
     void disableJMSConnection(@Param("jmsConnId") @NotNull String jmsConnId);
 
     /**
@@ -1575,6 +1764,9 @@ public interface APIGatewayApi {
      * @param jmsTriggerId         This path parameter is used to specify the JMS trigger id which JMS trigger needs to be disabled. (required)
      */
     @RequestLine("PUT /is/jmsTriggers/{jmsTriggerId}/disable")
+    @Headers({
+        "Accept: application/json"
+    })
     void disableJMSTrigger(@Param("jmsTriggerId") @NotNull String jmsTriggerId);
 
     /**
@@ -1584,6 +1776,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to be deactivated (required)
      */
     @RequestLine("PUT /apis/{apiId}/mock/disable")
+    @Headers({
+        "Accept: application/json"
+    })
     ModelAPIResponse disableMockAPI(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -1593,6 +1788,9 @@ public interface APIGatewayApi {
      * @param outboundproxyAlias   The outbound proxy server alias to be disabled (required)
      */
     @RequestLine("PUT /is/outboundproxy{outboundproxyAlias}/disable")
+    @Headers({
+        "Accept: application/json"
+    })
     void disableOutboundProxy(@Param("outboundproxyAlias") @NotNull String outboundproxyAlias);
 
     /**
@@ -1603,7 +1801,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /ports/disable")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     MessageWithPortReference disablePort(@NotNull PortReference body);
 
@@ -1614,6 +1813,9 @@ public interface APIGatewayApi {
      * @param policyId             This path parameter is used to specify the policy id of the threat protection policy which needs to be disabled (required)
      */
     @RequestLine("PUT /policies/{policyId}/disable")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy disableThreatProtectionRuleByPolicyID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -1623,6 +1825,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API for which tracing is disabled (required)
      */
     @RequestLine("PUT /apis/{apiId}/tracing/disable")
+    @Headers({
+        "Accept: application/json"
+    })
     GatewayAPI disableTracing(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -1632,6 +1837,9 @@ public interface APIGatewayApi {
      * @param rollbackId           Rollback Id for the promotion to be rollbacked (required)
      */
     @RequestLine("PUT /rollback/{rollbackId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Rollback doRollback(@Param("rollbackId") @NotNull String rollbackId);
 
     /**
@@ -1644,6 +1852,9 @@ public interface APIGatewayApi {
      * @param duration             All the api transactions of the specified type that are older than the value specified are downloaded. Ex: duration='2d'. Possible types are d(days),M(months),y(years), For Example a) 2d means 2days   b) 1M  means 1 month   c) 1y means 1 year. Either one of (startDate&amp;endDate) or duration is a mandatory parameter (optional)
      */
     @RequestLine("GET /apitransactions?duration={duration}&startDate={startDate}&endDate={endDate}&eventType={eventType}")
+    @Headers({
+        "Accept: application/zip"
+    })
     void downloadAPITransaction(@Param("startDate") @NotNull String startDate, @Param("endDate") @NotNull String endDate, @Param("eventType") @NotNull String eventType, @Param("duration") @Nullable String duration);
 
     /**
@@ -1652,6 +1863,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /logAggregation/downloadLogs")
+    @Headers({
+        "Accept: application/json"
+    })
     void downloadLogs();
 
     /**
@@ -1662,6 +1876,9 @@ public interface APIGatewayApi {
      * @param format               Output format of the API specification. For REST APIs the value is 'swagger'; for SOAP APIs use the value as 'wsdl';for GraphQL APIs use the value as 'graphql' (required)
      */
     @RequestLine("GET /apis/{apiId}/providerspecification?format={format}")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponseGetAPI downloadProviderSpecification(@Param("apiId") @NotNull String apiId, @Param("format") @NotNull String format);
 
     /**
@@ -1671,6 +1888,9 @@ public interface APIGatewayApi {
      * @param jmsConnId            This path parameter is used to specify the JMS connection id which JMS connection needs to be enabled. (required)
      */
     @RequestLine("PUT /is/jmsConnections/{jmsConnId}/enable")
+    @Headers({
+        "Accept: application/json"
+    })
     void enableJMSConnection(@Param("jmsConnId") @NotNull String jmsConnId);
 
     /**
@@ -1680,6 +1900,9 @@ public interface APIGatewayApi {
      * @param jmsTriggerId         This path parameter is used to specify the JMS trigger id which JMS trigger needs to be enabled. (required)
      */
     @RequestLine("PUT /is/jmsTriggers/{jmsTriggerId}/enable")
+    @Headers({
+        "Accept: application/json"
+    })
     void enableJMSTrigger(@Param("jmsTriggerId") @NotNull String jmsTriggerId);
 
     /**
@@ -1693,6 +1916,9 @@ public interface APIGatewayApi {
      * @param retainDefaultMockResponses Flag to retain generated mocked responses. When this is set to true, default mocked responses will be retained. If it's set to false, new default mocked responses will be generated using the examples, schema in the API (optional, defaults to false)
      */
     @RequestLine("PUT /apis/{apiId}/mock/enable?retainDefaultMockResponses={retainDefaultMockResponses}")
+    @Headers({
+        "Accept: application/json"
+    })
     ModelAPIResponse enableMockAPI(@Param("apiId") @NotNull String apiId, @Param("retainDefaultMockResponses") @Nullable Boolean retainDefaultMockResponses);
 
     /**
@@ -1702,6 +1928,9 @@ public interface APIGatewayApi {
      * @param outboundproxyAlias   The outbound proxy server alias to be enabled (required)
      */
     @RequestLine("PUT /is/outboundproxy{outboundproxyAlias}/enable")
+    @Headers({
+        "Accept: application/json"
+    })
     void enableOutboundProxy(@Param("outboundproxyAlias") @NotNull String outboundproxyAlias);
 
     /**
@@ -1712,7 +1941,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /ports/enable")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PortReference enablePort(@Nullable PortReference body);
 
@@ -1723,6 +1953,9 @@ public interface APIGatewayApi {
      * @param policyId             This path parameter is used to specify the policy id of the threat protection policy which needs to be enabled (required)
      */
     @RequestLine("PUT /policies/{policyId}/enable")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy enableThreatProtectionRuleByPolicyID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -1732,6 +1965,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /engine")
+    @Headers({
+        "Accept: application/json"
+    })
     HealthCheckEngineResult engineGet();
 
     /**
@@ -1742,7 +1978,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /security/exchangeIDToken")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ServiceOutput exchangeIDToken(@NotNull ServiceInput body);
 
@@ -1784,8 +2021,11 @@ public interface APIGatewayApi {
      * @param configurations       This parameter identifies the configurations to be exported.  The wildcard "*" selects all the configurations.  For example, a single configuration can be exported using the following request: GET /rest/apigateway/archive?configurations=loadBalancer,customContentTypes  Whereas, all the configurations can be exported using the following request: GET /rest/apigateway/archive?configurations=* (optional)
      * @param gatewayScopes        This parameter identifies the oauth scopes to be exported.  The wildcard "*" selects all the oauth scopes.  For example, a single oauth scope can be exported using the following request: GET /rest/apigateway/archive?gatewayScopes=73c93393-1477-4a99-9e44-c9b3e679de0c  Whereas, all the oauth scopes can be exported using the following request: GET /rest/apigateway/archive?gatewayScopes=* (optional)
      */
-    @RequestLine("GET /archive?include-applications={includeApplications}&include-users={includeUsers}&include-groups={includeGroups}&include-truststores={includeTruststores}&policies={policies}&apis={apis}&aliases={aliases}&applications={applications}&policyActions={policyActions}&approvalConfigurations={approvalConfigurations}&outboundProxies={outboundProxies}&urlAliases={urlAliases}&keyStores={keyStores}&trustStores={trustStores}&JNDIProviderAliases={jnDIProviderAliases}&JMSConnectionAliases={jmSConnectionAliases}&JMSTriggers={jmSTriggers}&webserviceEndpointAliases={webserviceEndpointAliases}&users={users}&groups={groups}&accessProfiles={accessProfiles}&kerberosSetting={kerberosSetting}&plans={plans}&packages={packages}&portalGateways={portalGateways}&configurations={configurations}&gatewayScopes={gatewayScopes}")
-    void exportApiGatewayAssets(@Param("include-applications") @Nullable String includeApplications, @Param("include-users") @Nullable String includeUsers, @Param("include-groups") @Nullable String includeGroups, @Param("include-truststores") @Nullable String includeTruststores, @Param("policies") @Nullable List<String> policies, @Param("apis") @Nullable List<String> apis, @Param("aliases") @Nullable List<String> aliases, @Param("applications") @Nullable List<String> applications, @Param("policyActions") @Nullable List<String> policyActions, @Param("approvalConfigurations") @Nullable List<String> approvalConfigurations, @Param("outboundProxies") @Nullable List<String> outboundProxies, @Param("urlAliases") @Nullable List<String> urlAliases, @Param("keyStores") @Nullable List<String> keyStores, @Param("trustStores") @Nullable List<String> trustStores, @Param("JNDIProviderAliases") @Nullable List<String> jnDIProviderAliases, @Param("JMSConnectionAliases") @Nullable List<String> jmSConnectionAliases, @Param("JMSTriggers") @Nullable List<String> jmSTriggers, @Param("webserviceEndpointAliases") @Nullable List<String> webserviceEndpointAliases, @Param("users") @Nullable List<String> users, @Param("groups") @Nullable List<String> groups, @Param("accessProfiles") @Nullable List<String> accessProfiles, @Param("kerberosSetting") @Nullable String kerberosSetting, @Param("plans") @Nullable List<String> plans, @Param("packages") @Nullable List<String> packages, @Param("portalGateways") @Nullable List<String> portalGateways, @Param("configurations") @Nullable List<String> configurations, @Param("gatewayScopes") @Nullable List<String> gatewayScopes);
+    @RequestLine("GET /archive?include-applications={include_applications}&include-users={include_users}&include-groups={include_groups}&include-truststores={include_truststores}&policies={policies}&apis={apis}&aliases={aliases}&applications={applications}&policyActions={policyActions}&approvalConfigurations={approvalConfigurations}&outboundProxies={outboundProxies}&urlAliases={urlAliases}&keyStores={keyStores}&trustStores={trustStores}&JNDIProviderAliases={JNDIProviderAliases}&JMSConnectionAliases={JMSConnectionAliases}&JMSTriggers={JMSTriggers}&webserviceEndpointAliases={webserviceEndpointAliases}&users={users}&groups={groups}&accessProfiles={accessProfiles}&kerberosSetting={kerberosSetting}&plans={plans}&packages={packages}&portalGateways={portalGateways}&configurations={configurations}&gatewayScopes={gatewayScopes}")
+    @Headers({
+        "Accept: application/json"
+    })
+    void exportApiGatewayAssets(@Param("include_applications") @Nullable String includeApplications, @Param("include_users") @Nullable String includeUsers, @Param("include_groups") @Nullable String includeGroups, @Param("include_truststores") @Nullable String includeTruststores, @Param("policies") @Nullable List<String> policies, @Param("apis") @Nullable List<String> apis, @Param("aliases") @Nullable List<String> aliases, @Param("applications") @Nullable List<String> applications, @Param("policyActions") @Nullable List<String> policyActions, @Param("approvalConfigurations") @Nullable List<String> approvalConfigurations, @Param("outboundProxies") @Nullable List<String> outboundProxies, @Param("urlAliases") @Nullable List<String> urlAliases, @Param("keyStores") @Nullable List<String> keyStores, @Param("trustStores") @Nullable List<String> trustStores, @Param("JNDIProviderAliases") @Nullable List<String> jnDIProviderAliases, @Param("JMSConnectionAliases") @Nullable List<String> jmSConnectionAliases, @Param("JMSTriggers") @Nullable List<String> jmSTriggers, @Param("webserviceEndpointAliases") @Nullable List<String> webserviceEndpointAliases, @Param("users") @Nullable List<String> users, @Param("groups") @Nullable List<String> groups, @Param("accessProfiles") @Nullable List<String> accessProfiles, @Param("kerberosSetting") @Nullable String kerberosSetting, @Param("plans") @Nullable List<String> plans, @Param("packages") @Nullable List<String> packages, @Param("portalGateways") @Nullable List<String> portalGateways, @Param("configurations") @Nullable List<String> configurations, @Param("gatewayScopes") @Nullable List<String> gatewayScopes);
 
     /**
      * Perform health check on all external destinations and resources
@@ -1794,6 +2034,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /externalServices")
+    @Headers({
+        "Accept: application/json"
+    })
     HealthCheckExternalResult externalServicesGet();
 
     /**
@@ -1802,6 +2045,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/jndi/template")
+    @Headers({
+        "Accept: application/json"
+    })
     void fetchJNDITemplates();
 
     /**
@@ -1813,7 +2059,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /apis/{apiId}/gatewayEndpoints")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ModelAPIResponse gatewayEndpoints(@Param("apiId") @NotNull String apiId, @NotNull InputGatewayEndpoints body);
 
@@ -1826,6 +2073,9 @@ public interface APIGatewayApi {
      * @param url                  User selected endpoint for API definition in swagger/raml format. (optional)
      */
     @RequestLine("GET /apis/{apiId}?format={format}&url={url}")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponseGetAPI getAPI(@Param("apiId") @NotNull String apiId, @Param("format") @Nullable String format, @Param("url") @Nullable String url);
 
     /**
@@ -1834,6 +2084,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/apiCallBackSettings")
+    @Headers({
+        "Accept: application/json"
+    })
     CallbackProcessorSettings getAPICallbackProcessorSettings();
 
     /**
@@ -1842,6 +2095,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/apiPortalDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     Destination getAPIPortalAsDestination();
 
     /**
@@ -1851,6 +2107,9 @@ public interface APIGatewayApi {
      * @param portalGatewayId      Id of the API Portal configuration for retrieval (required)
      */
     @RequestLine("GET /portalGateways/{portalGatewayId}")
+    @Headers({
+        "Accept: application/json"
+    })
     PortalGateway getAPIPortalConfiguration(@Param("portalGatewayId") @NotNull String portalGatewayId);
 
     /**
@@ -1861,6 +2120,9 @@ public interface APIGatewayApi {
      * @param apiId                Id of the API published from API Gateway to API Portal (required)
      */
     @RequestLine("GET /portalGateways/communities?portalGatewayId={portalGatewayId}&apiId={apiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     PortalGatewayCommunitiesData getAPIPortalMetadata(@Param("portalGatewayId") @NotNull String portalGatewayId, @Param("apiId") @NotNull String apiId);
 
     /**
@@ -1872,6 +2134,9 @@ public interface APIGatewayApi {
      * @param size                 Number of APIs to be retrieved (optional)
      */
     @RequestLine("GET /apis?apiIds={apiIds}&from={from}&size={size}")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponsesModel getAPIs(@Param("apiIds") @Nullable String apiIds, @Param("from") @Nullable Integer from, @Param("size") @Nullable Integer size);
 
     /**
@@ -1881,6 +2146,9 @@ public interface APIGatewayApi {
      * @param packageId            Id of the Package (required)
      */
     @RequestLine("GET /packages/{packageId}/apis")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageAPIsResponseContainer getAPIsForPackageById(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -1890,6 +2158,9 @@ public interface APIGatewayApi {
      * @param accessProfileId      The path parameter specifies the id of a team whose details are to be retrieved. (required)
      */
     @RequestLine("GET /accessProfiles/{accessProfileId}")
+    @Headers({
+        "Accept: application/json"
+    })
     AccessProfile getAccessProfile(@Param("accessProfileId") @NotNull String accessProfileId);
 
     /**
@@ -1898,6 +2169,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /accessProfiles")
+    @Headers({
+        "Accept: application/json"
+    })
     AccessProfile getAccessProfiles();
 
     /**
@@ -1907,6 +2181,9 @@ public interface APIGatewayApi {
      * @param applicationId        This parameter specifies the ID of an application whose access token endpoints are to be retrieved from API Gateway. (required)
      */
     @RequestLine("GET /applications/{applicationId}/accessTokens")
+    @Headers({
+        "Accept: application/json"
+    })
     void getAccessTokenEndpoints(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -1915,6 +2192,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/accountLockSettings")
+    @Headers({
+        "Accept: application/json"
+    })
     AccountLockSettings getAccountLockSettings();
 
     /**
@@ -1924,6 +2204,9 @@ public interface APIGatewayApi {
      * @param aliasId              The path parameter specifies the id of an alias whose details are to be retrieved. (required)
      */
     @RequestLine("GET /alias/{aliasId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Alias getAlias(@Param("aliasId") @NotNull String aliasId);
 
     /**
@@ -1932,6 +2215,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /portalGateways")
+    @Headers({
+        "Accept: application/json"
+    })
     PortalGateway getAllAPIPortalConfiguration();
 
     /**
@@ -1940,6 +2226,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /alias")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Alias> getAllAlias();
 
     /**
@@ -1948,6 +2237,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /assertions")
+    @Headers({
+        "Accept: application/json"
+    })
     AssertionConfiguration getAllAssertions();
 
     /**
@@ -1956,6 +2248,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/jmsConnections")
+    @Headers({
+        "Accept: application/json"
+    })
     void getAllJMSConnections();
 
     /**
@@ -1964,6 +2259,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/jmsTriggers")
+    @Headers({
+        "Accept: application/json"
+    })
     void getAllJMSTriggers();
 
     /**
@@ -1972,6 +2270,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /packages")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageGetAllResponseContainer getAllPackages();
 
     /**
@@ -1980,6 +2281,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /plans")
+    @Headers({
+        "Accept: application/json"
+    })
     PlanGetAllResponse getAllPlans();
 
     /**
@@ -1989,6 +2293,9 @@ public interface APIGatewayApi {
      * @param policyActionIds      This is a query parameter. Provide comma separated Policy Action ids to get the policy action details for specified policy action ids (optional)
      */
     @RequestLine("GET /policyActions?policyActionIds={policyActionIds}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<PolicyAction> getAllPolicyActions(@Param("policyActionIds") @Nullable String policyActionIds);
 
     /**
@@ -1999,6 +2306,9 @@ public interface APIGatewayApi {
      * @param active               active : if supplied, returns the active rules only (optional)
      */
     @RequestLine("GET /rule?ruleType={ruleType}&active={active}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Rule> getAllRule(@Param("ruleType") @Nullable String ruleType, @Param("active") @Nullable String active);
 
     /**
@@ -2012,7 +2322,10 @@ public interface APIGatewayApi {
      * @param size                 Number of results to be fetched for the usage result (optional)
      * @param count                true to get the count for the search or all the usages available (optional, defaults to false)
      */
-    @RequestLine("GET /subscriptions/usage?name={name}&package={_package}&plan={plan}&from={from}&size={size}&count={count}")
+    @RequestLine("GET /subscriptions/usage?name={name}&package={package}&plan={plan}&from={from}&size={size}&count={count}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Usage> getAllSubscriptionUsage(@Param("name") @Nullable String name, @Param("package") @Nullable String _package, @Param("plan") @Nullable String plan, @Param("from") @Nullable Integer from, @Param("size") @Nullable Integer size, @Param("count") @Nullable String count);
 
     /**
@@ -2023,6 +2336,9 @@ public interface APIGatewayApi {
      * @param planId               Specify the plan id for which the subscription details is requested (optional)
      */
     @RequestLine("GET /subscriptions?packageId={packageId}&planId={planId}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Application> getAllSubscriptions(@Param("packageId") @Nullable String packageId, @Param("planId") @Nullable String planId);
 
     /**
@@ -2031,6 +2347,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /webhooks")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Webhook> getAllWebhooks();
 
     /**
@@ -2039,12 +2358,18 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/webServiceEndpoints")
+    @Headers({
+        "Accept: application/json"
+    })
     void getAllWebserviceEndpoints();
 
     /**
      *
      */
     @RequestLine("GET /configurations/analyticsDataStoreDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     AnalyticsDataStoreDestination getAnalyticsDataStoreAsDestination();
 
     /**
@@ -2054,6 +2379,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to find the associated applications (required)
      */
     @RequestLine("GET /apis/{apiId}/applications")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Application> getApiApplications(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2067,6 +2395,9 @@ public interface APIGatewayApi {
      * @param active               This is a query parameter. It is used to retrieve the list of applicable APIs for a global policy. If the value for this parameter is 'false' then it will return all the APIs whether it is active or not for the specified global policy. If the value for this flag is 'true' then it will return only the list of applicable active APIs alone for the specified global policy (optional)
      */
     @RequestLine("GET /policies/{policyId}/apis?active={active}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<APIResponseGetAPIs> getApplicableAPIsForGlobalPolicyByID(@Param("policyId") @NotNull String policyId, @Param("active") @Nullable String active);
 
     /**
@@ -2076,6 +2407,9 @@ public interface APIGatewayApi {
      * @param applicationId        This parameter specifies the ID of an application whose details are to be retrieved in API Gateway. (required)
      */
     @RequestLine("GET /applications/{applicationId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Application getApplication(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -2084,6 +2418,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /applications")
+    @Headers({
+        "Accept: application/json"
+    })
     Application getApplications();
 
     /**
@@ -2093,6 +2430,9 @@ public interface APIGatewayApi {
      * @param approvalId           approvalId for the Approval Request to be retrieved (required)
      */
     @RequestLine("GET /approvals/{approvalId}")
+    @Headers({
+        "Accept: application/json"
+    })
     ApprovalRequest getApproval(@Param("approvalId") @NotNull String approvalId);
 
     /**
@@ -2102,6 +2442,9 @@ public interface APIGatewayApi {
      * @param id                   This parameter specifies the ID of an approval configuration whose details are to be retrieved in API Gateway. (required)
      */
     @RequestLine("GET /approvalConfigurations/{id}")
+    @Headers({
+        "Accept: application/json"
+    })
     ApprovalConfiguration getApprovalConfiguration(@Param("id") @NotNull String id);
 
     /**
@@ -2110,6 +2453,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /approvalConfigurations")
+    @Headers({
+        "Accept: application/json"
+    })
     ApprovalConfiguration getApprovalConfigurations();
 
     /**
@@ -2118,6 +2464,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /approvals")
+    @Headers({
+        "Accept: application/json"
+    })
     List<ApprovalResponsePayload> getApprovals();
 
     /**
@@ -2127,6 +2476,9 @@ public interface APIGatewayApi {
      * @param assertionId          This path parameter is used to specify the assertion id which assertion details needs to retrieved. (required)
      */
     @RequestLine("GET /assertions/{assertionId}")
+    @Headers({
+        "Accept: application/json"
+    })
     AssertionConfiguration getAssertion(@Param("assertionId") @NotNull String assertionId);
 
     /**
@@ -2136,6 +2488,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to find the list of applicable global policies (required)
      */
     @RequestLine("GET /apis/{apiId}/globalPolicies")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponseGetGlobalPolicies getAssociatedGlobalPolicies(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2144,12 +2499,18 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/auditlogDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     AuditLogDestination getAuditLogAsDestination();
 
     /**
      *
      */
     @RequestLine("GET /configurations/cache")
+    @Headers({
+        "Accept: application/json"
+    })
     GatewayCacheConfig getCacheConfig();
 
     /**
@@ -2159,6 +2520,9 @@ public interface APIGatewayApi {
      * @param apiId                The id of API for which the cached response size is requested (required)
      */
     @RequestLine("GET /serviceResultCache/{apiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void getCacheDetailsByapiId(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2171,6 +2535,9 @@ public interface APIGatewayApi {
      * @param apiVersion           The version of the apiName parameter specified (required)
      */
     @RequestLine("GET /serviceResultCache?apiName={apiName}&apiVersion={apiVersion}")
+    @Headers({
+        "Accept: application/json"
+    })
     void getCacheDetailsByapiNameAndVersion(@Param("apiName") @NotNull String apiName, @Param("apiVersion") @NotNull String apiVersion);
 
     /**
@@ -2179,6 +2546,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/centraSiteDestinationCommunicationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     CSCommunicationDestination getCentraSiteCommunicationAsDestination();
 
     /**
@@ -2187,6 +2557,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/centraSiteDestinationSNMPConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     CSSNMPDestination getCentraSiteSNMPAsDestination();
 
     /**
@@ -2195,6 +2568,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/cluster")
+    @Headers({
+        "Accept: application/json"
+    })
     ClusterInfo getClusterSetting();
 
     /**
@@ -2203,6 +2579,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/customContentTypes")
+    @Headers({
+        "Accept: application/json"
+    })
     Object getCustomContentTypes();
 
     /**
@@ -2211,6 +2590,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/jdbcDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     Destination getDatabaseAsDestination();
 
     /**
@@ -2219,6 +2601,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /dataspace")
+    @Headers({
+        "Accept: application/json"
+    })
     RemotePortConfig getDataspaceConfiguration();
 
     /**
@@ -2227,6 +2612,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /denialofservice/deniedIP")
+    @Headers({
+        "Accept: application/json"
+    })
     List<String> getDeniedIPs();
 
     /**
@@ -2235,6 +2623,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/denyByIPForFailedAuthConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     DenyByIPForFailedAuthConfig getDenyByIPForFailedAuthConfig();
 
     /**
@@ -2243,6 +2634,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/desDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     Destination getDigitalEventsAsDestination();
 
     /**
@@ -2252,6 +2646,9 @@ public interface APIGatewayApi {
      * @param documentId           The unique identifier of the document for retrieving from API Gateway. (required)
      */
     @RequestLine("GET /documents/{documentId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Document getDocument(@Param("documentId") @NotNull String documentId);
 
     /**
@@ -2260,6 +2657,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/elasticsearchDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     ElasticsearchDestination getElasticsearchAsDestination();
 
     /**
@@ -2268,6 +2668,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/emailDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     EmailDestination getEmailAsDestination();
 
     /**
@@ -2276,6 +2679,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/errorProcessing")
+    @Headers({
+        "Accept: application/json"
+    })
     ErrorProcessing getErrorProcessingDetails();
 
     /**
@@ -2284,6 +2690,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/gatewayDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     Destination getGatewayAsDestination();
 
     /**
@@ -2293,6 +2702,9 @@ public interface APIGatewayApi {
      * @param groupId              The path parameter specifies the id of a group whose details are to be retrieved. (required)
      */
     @RequestLine("GET /groups/{groupId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Group getGroup(@Param("groupId") @NotNull String groupId);
 
     /**
@@ -2301,6 +2713,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /groups")
+    @Headers({
+        "Accept: application/json"
+    })
     Group getGroups();
 
     /**
@@ -2312,7 +2727,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("GET /ports/{listenerKey}/ipAccessMode")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     IPAccessMode getIPAccessMode(@Param("listenerKey") @NotNull String listenerKey, @NotNull IPAccessMode body);
 
@@ -2322,6 +2738,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /installedLanguages")
+    @Headers({
+        "Accept: application/json"
+    })
     List<String> getInstalledLanguages();
 
     /**
@@ -2331,6 +2750,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id of the API for which IntegrationServerPublishInfo is to be fetched (required)
      */
     @RequestLine("GET /integrationServer/publish?apiId={apiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     ServiceRegistryPublishGetResponse getIntegrationServerPublishInfo(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2340,6 +2762,9 @@ public interface APIGatewayApi {
      * @param jmsConnId            This path parameter is used to specify the JMS connection id which JMS connection needs to be retrived. (required)
      */
     @RequestLine("GET /is/jmsConnections/{jmsConnId}")
+    @Headers({
+        "Accept: application/json"
+    })
     JMSConnectionAlias getJMSConnection(@Param("jmsConnId") @NotNull String jmsConnId);
 
     /**
@@ -2349,6 +2774,9 @@ public interface APIGatewayApi {
      * @param jmsTriggerId         This path parameter is used to specify the JMS trigger id which JMS trigger needs to be retrieved. (required)
      */
     @RequestLine("GET /is/jmsTriggers/{jmsTriggerId}")
+    @Headers({
+        "Accept: application/json"
+    })
     JMSTrigger getJMSTrigger(@Param("jmsTriggerId") @NotNull String jmsTriggerId);
 
     /**
@@ -2357,7 +2785,10 @@ public interface APIGatewayApi {
      *
      * @param appId                This parameter is used to specify an application id for which APIGateway generates a JWT (optional)
      */
-    @RequestLine("GET /jwt/getJsonWebToken?app_id={appId}")
+    @RequestLine("GET /jwt/getJsonWebToken?app_id={app_id}")
+    @Headers({
+        "Accept: application/json"
+    })
     JWT getJsonWebToken(@Param("app_id") @Nullable String appId);
 
     /**
@@ -2368,7 +2799,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /security/getJsonWebToken")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     JWTServiceOutput getJsonWebTokenNew(@NotNull JWTServiceInput body);
 
@@ -2378,6 +2810,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/kerberos")
+    @Headers({
+        "Accept: application/json"
+    })
     KerberosSettings getKerberosSetting();
 
     /**
@@ -2386,6 +2821,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/keystore")
+    @Headers({
+        "Accept: application/json"
+    })
     KeystoreTruststore getKeyStoreTrustore();
 
     /**
@@ -2395,6 +2833,9 @@ public interface APIGatewayApi {
      * @param keyStoreName         Keystore name to identify the corresponding Keystore (required)
      */
     @RequestLine("GET /is/keystore/{keyStoreName}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<KeyStore> getKeystore(@Param("keyStoreName") @NotNull String keyStoreName);
 
     /**
@@ -2403,6 +2844,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/keystore")
+    @Headers({
+        "Accept: application/json"
+    })
     List<KeyStore> getKeystores();
 
     /**
@@ -2411,6 +2855,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/ldapConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     InputLdapConfiguration getLdapConfig();
 
     /**
@@ -2419,6 +2866,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/license")
+    @Headers({
+        "Accept: application/json"
+    })
     LicenseDetail getLicenseDetails();
 
     /**
@@ -2427,6 +2877,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /dataspace/listener")
+    @Headers({
+        "Accept: application/json"
+    })
     ListenerConfig getListenerConfiguration();
 
     /**
@@ -2435,6 +2888,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/loadBalancer")
+    @Headers({
+        "Accept: application/json"
+    })
     LoadBalancer getLoadBalancers();
 
     /**
@@ -2443,6 +2899,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/lockedAccounts")
+    @Headers({
+        "Accept: application/json"
+    })
     LockedAccounts getLockedAccounts();
 
     /**
@@ -2451,6 +2910,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/logConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     LogConfiguration getLogConfig();
 
     /**
@@ -2460,6 +2922,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /apitransactions/typedefinitions")
+    @Headers({
+        "Accept: application/json"
+    })
     void getMappings();
 
     /**
@@ -2468,6 +2933,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /masterPassword")
+    @Headers({
+        "Accept: application/json"
+    })
     MasterPasswordProperties getMasterPasswordProperties();
 
     /**
@@ -2477,6 +2945,9 @@ public interface APIGatewayApi {
      * @param action               The migration action for which the status to be sent (required)
      */
     @RequestLine("GET /migration/status?action={action}")
+    @Headers({
+        "Accept: application/json"
+    })
     void getMigrationStatus(@Param("action") @NotNull String action);
 
     /**
@@ -2485,6 +2956,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/mobileApp")
+    @Headers({
+        "Accept: application/json"
+    })
     MobileApplicationConfiguration getMobileApplicationConfigurations();
 
     /**
@@ -2494,6 +2968,9 @@ public interface APIGatewayApi {
      * @param oauthScopeId         The path parameter specifies the id of an OAuth scope mapping that is to be retrieved from API Gateway. (required)
      */
     @RequestLine("GET /scopes/{oauthScopeId}")
+    @Headers({
+        "Accept: application/json"
+    })
     GatewayScope getOAuthScope(@Param("oauthScopeId") @NotNull String oauthScopeId);
 
     /**
@@ -2502,6 +2979,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /scopes")
+    @Headers({
+        "Accept: application/json"
+    })
     GatewayScope getOAuthScopes();
 
     /**
@@ -2510,6 +2990,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/outboundproxy")
+    @Headers({
+        "Accept: application/json"
+    })
     OutboundProxyGetResponse getOutboundProxies();
 
     /**
@@ -2519,6 +3002,9 @@ public interface APIGatewayApi {
      * @param packageId            Id of the Package (required)
      */
     @RequestLine("GET /packages/{packageId}")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageGetResponseContainer getPackageById(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -2528,6 +3014,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to find the associated packages (required)
      */
     @RequestLine("GET /apis/{apiId}/packages")
+    @Headers({
+        "Accept: application/json"
+    })
     List<ModelPackage> getPackagesForAPI(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2536,6 +3025,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/passwordExpiry")
+    @Headers({
+        "Accept: application/json"
+    })
     PasswordExpirySettings getPasswordExpirySettings();
 
     /**
@@ -2544,6 +3036,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/passwordRestrictions")
+    @Headers({
+        "Accept: application/json"
+    })
     PasswordRestrictions getPasswordRestrictions();
 
     /**
@@ -2553,6 +3048,9 @@ public interface APIGatewayApi {
      * @param planId               Id of a Plan (required)
      */
     @RequestLine("GET /plans/{planId}")
+    @Headers({
+        "Accept: application/json"
+    })
     PlanGetResponse getPlanById(@Param("planId") @NotNull String planId);
 
     /**
@@ -2562,6 +3060,9 @@ public interface APIGatewayApi {
      * @param packageId            Id of the Package (required)
      */
     @RequestLine("GET /packages/{packageId}/plans")
+    @Headers({
+        "Accept: application/json"
+    })
     PackagePlansResponseContainer getPlansForPackageById(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -2573,6 +3074,9 @@ public interface APIGatewayApi {
      * @param policyType           This query parameter is used to retrieve policy details for a list of policies of a particular policy type. The policy type can be template or global. If the policy type is template then policy details of all the policy templates is returned. If the policy type is global then the policy details of global policies is returned.If any other policy type is specified all policies are returned (optional)
      */
     @RequestLine("GET /policies?policyIds={policyIds}&stage={stage}&policyType={policyType}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Policy> getPolicies(@Param("policyIds") @Nullable String policyIds, @Param("stage") @Nullable String stage, @Param("policyType") @Nullable String policyType);
 
     /**
@@ -2582,6 +3086,9 @@ public interface APIGatewayApi {
      * @param policyActionId       This path parameter is used to specify the policy action id which policy action details needs to retrieved. (required)
      */
     @RequestLine("GET /policyActions/{policyActionId}")
+    @Headers({
+        "Accept: application/json"
+    })
     PolicyActionWrapper getPolicyAction(@Param("policyActionId") @NotNull String policyActionId);
 
     /**
@@ -2591,6 +3098,9 @@ public interface APIGatewayApi {
      * @param policyId             This path parameter is used to specify the policy id for which the policy details needs to be retrieved (required)
      */
     @RequestLine("GET /policies/{policyId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy getPolicyById(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -2599,6 +3109,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /policyStages")
+    @Headers({
+        "Accept: application/json"
+    })
     List<PolicyEnforcementStage> getPolicyStages();
 
     /**
@@ -2608,6 +3121,9 @@ public interface APIGatewayApi {
      * @param listenerKey          The listenerKey parameter uniquely identifies a port configuration within the WmRoot package. (required)
      */
     @RequestLine("GET /ports/{listenerKey}")
+    @Headers({
+        "Accept: application/json"
+    })
     Port getPort(@Param("listenerKey") @NotNull String listenerKey);
 
     /**
@@ -2617,6 +3133,9 @@ public interface APIGatewayApi {
      * @param listenerKey          The listenerKey parameter uniquely identifies a port configuration within the WmRoot package. (required)
      */
     @RequestLine("GET /ports/{listenerKey}/accessMode")
+    @Headers({
+        "Accept: application/json"
+    })
     Port getPortAccessMode(@Param("listenerKey") @NotNull String listenerKey);
 
     /**
@@ -2627,6 +3146,9 @@ public interface APIGatewayApi {
      * @param listenerKey          The listenerKey parameter uniquely identifies a port configuration within a package. (optional)
      */
     @RequestLine("GET /ports?pkg={pkg}&listenerKey={listenerKey}")
+    @Headers({
+        "Accept: application/json"
+    })
     Listeners getPorts(@Param("pkg") @Nullable String pkg, @Param("listenerKey") @Nullable String listenerKey);
 
     /**
@@ -2635,6 +3157,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /ports/primary")
+    @Headers({
+        "Accept: application/json"
+    })
     MessageWithPortReference getPrimaryPort();
 
     /**
@@ -2644,6 +3169,9 @@ public interface APIGatewayApi {
      * @param promotionId          Promotion Id for the promotion to be retrieved (required)
      */
     @RequestLine("GET /promotion/{promotionId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Promotion getPromotion(@Param("promotionId") @NotNull String promotionId);
 
     /**
@@ -2652,6 +3180,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /promotion")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Promotion> getPromotions();
 
     /**
@@ -2660,6 +3191,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/proxyBypass")
+    @Headers({
+        "Accept: application/json"
+    })
     ProxyBypass getProxyBypass();
 
     /**
@@ -2670,6 +3204,9 @@ public interface APIGatewayApi {
      * @param apiId                Id of the API published from API Gateway to API Portal (required)
      */
     @RequestLine("GET /portalGateways/packages?portalGatewayId={portalGatewayId}&apiId={apiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Set<Object> getPublishedPackages(@Param("portalGatewayId") @NotNull String portalGatewayId, @Param("apiId") @NotNull String apiId);
 
     /**
@@ -2678,6 +3215,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /quiescemode")
+    @Headers({
+        "Accept: application/json"
+    })
     QuiesceMode getQuiesceMode();
 
     /**
@@ -2687,6 +3227,9 @@ public interface APIGatewayApi {
      * @param applicationId        This parameter specifies the ID of an application whose registered APIs are to be retrieved in API Gateway. (required)
      */
     @RequestLine("GET /applications/{applicationId}/apis")
+    @Headers({
+        "Accept: application/json"
+    })
     void getRegisteredApis(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -2695,6 +3238,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /dataspace/ring")
+    @Headers({
+        "Accept: application/json"
+    })
     RemotePortConfig getRingConfiguration();
 
     /**
@@ -2704,6 +3250,9 @@ public interface APIGatewayApi {
      * @param rollbackId           Rollback Id for the rollback to be retrieved (required)
      */
     @RequestLine("GET /rollback/{rollbackId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Rollback getRollback(@Param("rollbackId") @NotNull String rollbackId);
 
     /**
@@ -2712,6 +3261,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /rollback")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Rollback> getRollbacks();
 
     /**
@@ -2721,6 +3273,9 @@ public interface APIGatewayApi {
      * @param ruleId               The path parameter specifies the id of a rule that is to be retrieved. (required)
      */
     @RequestLine("GET /rule/{ruleId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Rule getRule(@Param("ruleId") @NotNull String ruleId);
 
     /**
@@ -2729,6 +3284,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/snmpDestinationConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     SNMPDestination getSNMPAsDestination();
 
     /**
@@ -2737,6 +3295,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/samlsso")
+    @Headers({
+        "Accept: application/json"
+    })
     SSOConfiguration getSSOConfiguration();
 
     /**
@@ -2747,6 +3308,9 @@ public interface APIGatewayApi {
      * @param scopeName            Name of the scope (required)
      */
     @RequestLine("GET /apis/{apiId}/scopes/{scopeName}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<ScopeResourceIndex> getScopeByScopeName(@Param("apiId") @NotNull String apiId, @Param("scopeName") @NotNull String scopeName);
 
     /**
@@ -2757,6 +3321,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to retrieve the versions (required)
      */
     @RequestLine("GET /apis/{apiId}/scopes")
+    @Headers({
+        "Accept: application/json"
+    })
     List<ScopeResourceIndex> getScopes(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2766,6 +3333,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id of the API for which ServiceRegistryPublishInfo is to be fetched (required)
      */
     @RequestLine("GET /serviceRegistry/publish?apiId={apiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     ServiceRegistryPublishGetResponse getServiceRegistryPublishInfo(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2774,6 +3344,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/settings")
+    @Headers({
+        "Accept: application/json"
+    })
     ExtendedSettingsOutput getSettings();
 
     /**
@@ -2783,6 +3356,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to download the source content (required)
      */
     @RequestLine("GET /apis/{apiId}/source")
+    @Headers({
+        "Accept: multipart/mixed"
+    })
     List<Multipart> getSource(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2792,6 +3368,9 @@ public interface APIGatewayApi {
      * @param stageId              Stage Id for the stage to be retrieved (required)
      */
     @RequestLine("GET /stages/{stageId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Stage getStage(@Param("stageId") @NotNull String stageId);
 
     /**
@@ -2800,6 +3379,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /stages")
+    @Headers({
+        "Accept: application/json"
+    })
     List<Stage> getStages();
 
     /**
@@ -2808,6 +3390,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /strategies")
+    @Headers({
+        "Accept: application/json"
+    })
     OneOfStrategyModel getStrategies();
 
     /**
@@ -2817,6 +3402,9 @@ public interface APIGatewayApi {
      * @param strategyId           This parameter specifies the ID of a strategy whose details are to be retrieved in API Gateway. (required)
      */
     @RequestLine("GET /strategies/{strategyId}")
+    @Headers({
+        "Accept: application/json"
+    })
     OneOfStrategyModel getStrategy(@Param("strategyId") @NotNull String strategyId);
 
     /**
@@ -2826,6 +3414,9 @@ public interface APIGatewayApi {
      * @param applicationId        Application id to view the details of the application (required)
      */
     @RequestLine("GET /subscriptions/{applicationId}")
+    @Headers({
+        "Accept: application/json"
+    })
     Application getSubscriptionBySubscriptionID(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -2835,6 +3426,9 @@ public interface APIGatewayApi {
      * @param correlationID        Correlation ID of the request. Correlation ID can be retrieved from the transaction event of the request. (required)
      */
     @RequestLine("GET /tracer/{correlationID}")
+    @Headers({
+        "Accept: application/json"
+    })
     Map<String, List<TraceLog>> getTracer(@Param("correlationID") @NotNull String correlationID);
 
     /**
@@ -2856,6 +3450,9 @@ public interface APIGatewayApi {
      * @param size                 This parameter specifies the number of records that should be present in the response. This can be combined with the parameter - from to get the records in batches during pagination. (optional)
      */
     @RequestLine("GET /transactionalEvents/_search?apiName={apiName}&apiVersion={apiVersion}&apiId={apiId}&applicationName={applicationName}&applicationId={applicationId}&packageName={packageName}&packageId={packageId}&planName={planName}&planId={planId}&from={from}&size={size}&fromDate={fromDate}&toDate={toDate}")
+    @Headers({
+        "Accept: application/json"
+    })
     TransactionEvent getTransactions(@Param("fromDate") @NotNull LocalDate fromDate, @Param("toDate") @NotNull LocalDate toDate, @Param("apiName") @Nullable String apiName, @Param("apiVersion") @Nullable String apiVersion, @Param("apiId") @Nullable String apiId, @Param("applicationName") @Nullable String applicationName, @Param("applicationId") @Nullable String applicationId, @Param("packageName") @Nullable String packageName, @Param("packageId") @Nullable String packageId, @Param("planName") @Nullable String planName, @Param("planId") @Nullable String planId, @Param("from") @Nullable Integer from, @Param("size") @Nullable Integer size);
 
     /**
@@ -2875,6 +3472,9 @@ public interface APIGatewayApi {
      * @param planId               The system generated id for a Plan.The id of an can be retrieved from the Plan details screen (optional)
      */
     @RequestLine("GET /transactionalEvents/_count?apiName={apiName}&apiVersion={apiVersion}&apiId={apiId}&applicationName={applicationName}&applicationId={applicationId}&packageName={packageName}&packageId={packageId}&planName={planName}&planId={planId}&fromDate={fromDate}&toDate={toDate}")
+    @Headers({
+        "Accept: application/json"
+    })
     TransactionResponse getTransactionsCount(@Param("fromDate") @NotNull LocalDate fromDate, @Param("toDate") @NotNull LocalDate toDate, @Param("apiName") @Nullable String apiName, @Param("apiVersion") @Nullable String apiVersion, @Param("apiId") @Nullable String apiId, @Param("applicationName") @Nullable String applicationName, @Param("applicationId") @Nullable String applicationId, @Param("packageName") @Nullable String packageName, @Param("packageId") @Nullable String packageId, @Param("planName") @Nullable String planName, @Param("planId") @Nullable String planId);
 
     /**
@@ -2884,6 +3484,9 @@ public interface APIGatewayApi {
      * @param trustStoreName       Truststore name to identify the corresponding trust store in API Gateway (required)
      */
     @RequestLine("GET /is/truststore/{trustStoreName}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<TrustStore> getTruststore(@Param("trustStoreName") @NotNull String trustStoreName);
 
     /**
@@ -2892,6 +3495,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/truststore")
+    @Headers({
+        "Accept: application/json"
+    })
     List<TrustStore> getTruststores();
 
     /**
@@ -2901,6 +3507,9 @@ public interface APIGatewayApi {
      * @param alias                The name of the URL alias to be retrieved. If this query parameter is provided, then it retrieves the URL Aliases identified by the given alias. (optional)
      */
     @RequestLine("GET /urlaliases?alias={alias}")
+    @Headers({
+        "Accept: application/json"
+    })
     URLAliasesGetResponse getURLALias(@Param("alias") @Nullable String alias);
 
     /**
@@ -2910,6 +3519,9 @@ public interface APIGatewayApi {
      * @param applicationId        Application id to view the usage details of the application (required)
      */
     @RequestLine("GET /subscriptions/{applicationId}/usage")
+    @Headers({
+        "Accept: application/json"
+    })
     Usage getUsageBySubscriptionID(@Param("applicationId") @NotNull String applicationId);
 
     /**
@@ -2919,6 +3531,9 @@ public interface APIGatewayApi {
      * @param userId               The path parameter specifies the id of an user whose details are to be retrieved. (required)
      */
     @RequestLine("GET /users/{userId}")
+    @Headers({
+        "Accept: application/json"
+    })
     User getUser(@Param("userId") @NotNull String userId);
 
     /**
@@ -2927,6 +3542,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /users")
+    @Headers({
+        "Accept: application/json"
+    })
     User getUsers();
 
     /**
@@ -2936,6 +3554,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to retrieve the versions (required)
      */
     @RequestLine("GET /apis/{apiId}/versions")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponseGetAPIs getVersions(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -2945,6 +3566,9 @@ public interface APIGatewayApi {
      * @param id                   The path parameter specifies the id of a webhook whose details are to be retrieved. (required)
      */
     @RequestLine("GET /webhooks/{id}")
+    @Headers({
+        "Accept: application/json"
+    })
     Webhook getWebhook(@Param("id") @NotNull String id);
 
     /**
@@ -2954,6 +3578,9 @@ public interface APIGatewayApi {
      * @param webserviceEndpointId This path parameter is used to specify the Webservice endpoint id which Webservice endpoint needs to be retrived. (required)
      */
     @RequestLine("GET /is/webServiceEndpoints/{webserviceEndpointId}")
+    @Headers({
+        "Accept: application/json"
+    })
     WebserviceEndpointAlias getWebserviceEndpoint(@Param("webserviceEndpointId") @NotNull String webserviceEndpointId);
 
     /**
@@ -2962,6 +3589,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /configurations/whiteListingIPs")
+    @Headers({
+        "Accept: application/json"
+    })
     WhiteListedIPs getWhiteListedIPs();
 
     /**
@@ -3227,12 +3857,13 @@ public interface APIGatewayApi {
      * @param xHTTPMethodOverride  This parameter is used to specify that this REST call is an export operation. The value for this field is GET. If this is specified then you need to provide the filtering criteria in body to specify the asset. If empty payload specified then all assets will be exported.  (optional)
      * @param zipFile              Zip file that contains the API Gateway asset needs to be imported (optional)
      */
-    @RequestLine("POST /archive?overwrite={overwrite}&fixingMissingVersions={fixingMissingVersions}&preserveAssetState={preserveAssetState}&policies={policies}&apis={apis}&aliases={aliases}&applications={applications}&approvalConfigurations={approvalConfigurations}&outboundProxies={outboundProxies}&urlAliases={urlAliases}&keyStores={keyStores}&trustStores={trustStores}&JNDIProviderAliases={jnDIProviderAliases}&JMSConnectionAliases={jmSConnectionAliases}&JMSTriggers={jmSTriggers}&webserviceEndpointAliases={webserviceEndpointAliases}&users={users}&groups={groups}&accessProfiles={accessProfiles}&kerberosSetting={kerberosSetting}&plans={plans}&packages={packages}&configurations={configurations}&gatewayScopes={gatewayScopes}")
+    @RequestLine("POST /archive?overwrite={overwrite}&fixingMissingVersions={fixingMissingVersions}&preserveAssetState={preserveAssetState}&policies={policies}&apis={apis}&aliases={aliases}&applications={applications}&approvalConfigurations={approvalConfigurations}&outboundProxies={outboundProxies}&urlAliases={urlAliases}&keyStores={keyStores}&trustStores={trustStores}&JNDIProviderAliases={JNDIProviderAliases}&JMSConnectionAliases={JMSConnectionAliases}&JMSTriggers={JMSTriggers}&webserviceEndpointAliases={webserviceEndpointAliases}&users={users}&groups={groups}&accessProfiles={accessProfiles}&kerberosSetting={kerberosSetting}&plans={plans}&packages={packages}&configurations={configurations}&gatewayScopes={gatewayScopes}")
     @Headers({
-        "x-HTTP-Method-Override: {xHTTPMethodOverride}", 
-        "Content-Type: multipart/form-data"
+        "x-HTTP-Method-Override: {x_HTTP_Method_Override}", 
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
-    void importExportAPIGatewayAssets(@Param("overwrite") @Nullable String overwrite, @Param("fixingMissingVersions") @Nullable String fixingMissingVersions, @Param("preserveAssetState") @Nullable String preserveAssetState, @Param("policies") @Nullable List<String> policies, @Param("apis") @Nullable List<String> apis, @Param("aliases") @Nullable List<String> aliases, @Param("applications") @Nullable List<String> applications, @Param("approvalConfigurations") @Nullable List<String> approvalConfigurations, @Param("outboundProxies") @Nullable List<String> outboundProxies, @Param("urlAliases") @Nullable List<String> urlAliases, @Param("keyStores") @Nullable List<String> keyStores, @Param("trustStores") @Nullable List<String> trustStores, @Param("JNDIProviderAliases") @Nullable List<String> jnDIProviderAliases, @Param("JMSConnectionAliases") @Nullable List<String> jmSConnectionAliases, @Param("JMSTriggers") @Nullable List<String> jmSTriggers, @Param("webserviceEndpointAliases") @Nullable List<String> webserviceEndpointAliases, @Param("users") @Nullable List<String> users, @Param("groups") @Nullable List<String> groups, @Param("accessProfiles") @Nullable List<String> accessProfiles, @Param("kerberosSetting") @Nullable String kerberosSetting, @Param("plans") @Nullable List<String> plans, @Param("packages") @Nullable List<String> packages, @Param("configurations") @Nullable List<String> configurations, @Param("gatewayScopes") @Nullable List<String> gatewayScopes, @Param("x-HTTP-Method-Override") @Nullable String xHTTPMethodOverride, @Param("zipFile") @Nullable File zipFile);
+    void importExportAPIGatewayAssets(@Param("overwrite") @Nullable String overwrite, @Param("fixingMissingVersions") @Nullable String fixingMissingVersions, @Param("preserveAssetState") @Nullable String preserveAssetState, @Param("policies") @Nullable List<String> policies, @Param("apis") @Nullable List<String> apis, @Param("aliases") @Nullable List<String> aliases, @Param("applications") @Nullable List<String> applications, @Param("approvalConfigurations") @Nullable List<String> approvalConfigurations, @Param("outboundProxies") @Nullable List<String> outboundProxies, @Param("urlAliases") @Nullable List<String> urlAliases, @Param("keyStores") @Nullable List<String> keyStores, @Param("trustStores") @Nullable List<String> trustStores, @Param("JNDIProviderAliases") @Nullable List<String> jnDIProviderAliases, @Param("JMSConnectionAliases") @Nullable List<String> jmSConnectionAliases, @Param("JMSTriggers") @Nullable List<String> jmSTriggers, @Param("webserviceEndpointAliases") @Nullable List<String> webserviceEndpointAliases, @Param("users") @Nullable List<String> users, @Param("groups") @Nullable List<String> groups, @Param("accessProfiles") @Nullable List<String> accessProfiles, @Param("kerberosSetting") @Nullable String kerberosSetting, @Param("plans") @Nullable List<String> plans, @Param("packages") @Nullable List<String> packages, @Param("configurations") @Nullable List<String> configurations, @Param("gatewayScopes") @Nullable List<String> gatewayScopes, @Param("x_HTTP_Method_Override") @Nullable String xHTTPMethodOverride, @Param("zipFile") @Nullable File zipFile);
 
     /**
      * <p>
@@ -3242,7 +3873,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /tracer/import")
     @Headers({
-        "Content-Type: multipart/form-data"
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
     ImportTraceInfoResponse importTraceInfo(@Param("file") @NotNull File _file);
 
@@ -3252,6 +3884,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /jwt/certs")
+    @Headers({
+        "Accept: application/json"
+    })
     Object jWKSUri();
 
     /**
@@ -3261,6 +3896,9 @@ public interface APIGatewayApi {
      * @param filter                (optional)
      */
     @RequestLine("GET /apitransactions/archives?filter={filter}")
+    @Headers({
+        "Accept: application/json"
+    })
     void listAllArchives(@Param("filter") @Nullable String filter);
 
     /**
@@ -3269,6 +3907,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/jndi")
+    @Headers({
+        "Accept: application/json"
+    })
     void listAllJNDI();
 
     /**
@@ -3279,6 +3920,9 @@ public interface APIGatewayApi {
      * @param status                (optional)
      */
     @RequestLine("GET /apitransactions/jobs?action={action}&status={status}")
+    @Headers({
+        "Accept: application/json"
+    })
     void listAllPendingJobs(@Param("action") @Nullable String action, @Param("status") @Nullable String status);
 
     /**
@@ -3288,6 +3932,9 @@ public interface APIGatewayApi {
      * @param jndiId               This path parameter is used to specify the JNDI configuration id which JNDI configuration needs to be retrived. (required)
      */
     @RequestLine("GET /is/jndi/{jndiId}")
+    @Headers({
+        "Accept: application/json"
+    })
     JNDIProviderAlias listJNDI(@Param("jndiId") @NotNull String jndiId);
 
     /**
@@ -3298,7 +3945,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /migration")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void migration(@NotNull MigrationConfig body);
 
@@ -3309,6 +3957,9 @@ public interface APIGatewayApi {
      * @param policyId             This path parameter is used to specify the policy id of the threat protection whose execution order needs to be moved down  (required)
      */
     @RequestLine("PUT /policies/{policyId}/movedown")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy moveDownThreatProtectionRuleByPolicyID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -3318,6 +3969,9 @@ public interface APIGatewayApi {
      * @param policyId             This path parameter is used to specify the policy id of the threat protection whose execution order needs to be moved up  (required)
      */
     @RequestLine("PUT /policies/{policyId}/moveup")
+    @Headers({
+        "Accept: application/json"
+    })
     Policy moveUpThreatProtectionRuleByPolicyID(@Param("policyId") @NotNull String policyId);
 
     /**
@@ -3330,7 +3984,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /apis/{apiId}/implementation")
     @Headers({
-        "Content-Type: multipart/form-data"
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
     ModelAPIResponse notifyAPIImplementation(@Param("apiId") @NotNull String apiId, @Param("maturityState") @Nullable String maturityState, @Param("nativeBaseURLs") @Nullable List<String> nativeBaseURLs);
 
@@ -3343,7 +3998,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PATCH /applications/{applicationId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Application patchApplication(@Param("applicationId") @NotNull String applicationId, @NotNull Application body);
 
@@ -3354,7 +4010,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PATCH /documents/{documentId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     DocumentResponse patchDocument(@Param("documentId") @NotNull String documentId, @NotNull Document body);
 
@@ -3374,7 +4031,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /policies?action={action}&policyIds={policyIds}&policyScope={policyScope}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Policy policiesPost(@NotNull Policy body, @Param("action") @Nullable String action, @Param("policyIds") @Nullable String policyIds, @Param("policyScope") @Nullable String policyScope);
 
@@ -3385,6 +4043,9 @@ public interface APIGatewayApi {
      * @param policyActionTemplates This is a query parameter. It will be used to fetch policy action templates for list of policy action. (optional)
      */
     @RequestLine("GET /policyActionTemplates?policyActionTemplates={policyActionTemplates}")
+    @Headers({
+        "Accept: application/json"
+    })
     List<PolicyActionTemplate> policyActionTemplatesGet(@Param("policyActionTemplates") @Nullable String policyActionTemplates);
 
     /**
@@ -3394,6 +4055,9 @@ public interface APIGatewayApi {
      * @param policyActionTemplateId This is a path parameter. It will be used to fetch policy action template of a particular template. (required)
      */
     @RequestLine("GET /policyActionTemplates/{policyActionTemplateId}")
+    @Headers({
+        "Accept: application/json"
+    })
     PolicyActionTemplate policyActionTemplatesPolicyActionTemplateIdGet(@Param("policyActionTemplateId") @NotNull String policyActionTemplateId);
 
     /**
@@ -3405,7 +4069,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /apis/{apiId}/publish")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     APIResponseCreate publishAPI(@Param("apiId") @NotNull String apiId, @NotNull InputPublish body);
 
@@ -3416,6 +4081,9 @@ public interface APIGatewayApi {
      * @param packageId            package id which needs to be published to portal (required)
      */
     @RequestLine("PUT /packages/{packageId}/publish")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageResponseContainer publishPackageByPackageId(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -3426,7 +4094,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /integrationServer/publish")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ServiceRegistryPublishPutResponse publishToIntegrationServer(@NotNull InputIntegrationServerPublish body);
 
@@ -3438,7 +4107,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /serviceRegistry/publish")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ServiceRegistryPublishPutResponse publishToServiceRegistry(@NotNull InputServiceRegistryPublish body);
 
@@ -3453,6 +4123,9 @@ public interface APIGatewayApi {
      * @param olderThan            All the api transactions of the specified type, that are older than the value specified, are purged. Ex: olderThan='2d'. Possible types are d(days),M(months),y(years), For Example a) 2d means 2days   b) 1M  means 1 month   c) 1y means 1 year (optional)
      */
     @RequestLine("DELETE /apitransactions?action={action}&from={from}&until={until}&olderThan={olderThan}&eventType={eventType}")
+    @Headers({
+        "Accept: application/json"
+    })
     void purgeAPITransactions(@Param("from") @NotNull String from, @Param("until") @NotNull String until, @Param("eventType") @NotNull String eventType, @Param("action") @Nullable String action, @Param("olderThan") @Nullable String olderThan);
 
     /**
@@ -3463,7 +4136,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /quiescemode")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     QuiesceMode quiescemode(@NotNull QuiesceMode body);
 
@@ -3476,7 +4150,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /strategies/{strategyId}/refreshCredentials")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     OneOfStrategyModel refreshCredentials(@Param("strategyId") @NotNull String strategyId, @NotNull StrategyRequest body);
 
@@ -3489,7 +4164,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /applications/{applicationId}/accessTokens")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void regenerateAccessTokens(@Param("applicationId") @NotNull String applicationId, @NotNull AccessTokensTypeModel body);
 
@@ -3502,7 +4178,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /applications/{applicationId}/apis")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void registerApis(@Param("applicationId") @NotNull String applicationId, @NotNull List<String> body);
 
@@ -3512,6 +4189,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("PUT /masterPassword/reset")
+    @Headers({
+        "Accept: application/json"
+    })
     MasterPasswordResetResponse resetMasterPassword();
 
     /**
@@ -3521,6 +4201,9 @@ public interface APIGatewayApi {
      * @param fileName             This parameter indicates the file name to be restored. Ex: fileName=default-2017-08-29-1504011306456. (required)
      */
     @RequestLine("POST /apitransactions/archives/{fileName}")
+    @Headers({
+        "Accept: application/json"
+    })
     void restoreData(@Param("fileName") @NotNull String fileName);
 
     /**
@@ -3531,7 +4214,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/apiCallBackSettings")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     CallbackProcessorSettings saveAPICallbackProcessorSettings(@NotNull CallbackProcessorSettings body);
 
@@ -3543,7 +4227,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/apiPortalDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Destination saveAPIPortalAsDestination(@NotNull Destination body);
 
@@ -3555,7 +4240,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/accountLockSettings")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AccountLockSettings saveAccountLockSettings(@NotNull AccountLockSettings body);
 
@@ -3565,7 +4251,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/analyticsDataStoreDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AnalyticsDataStoreDestination saveAnalyticsDataStoreAsDestination(@NotNull AnalyticsDataStoreDestination body);
 
@@ -3577,7 +4264,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/auditlogDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AuditLogDestination saveAuditLogAsDestination(@NotNull AuditLogDestination body);
 
@@ -3589,7 +4277,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/centraSiteDestinationCommunicationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     CSCommunicationDestination saveCentraSiteCommunicationAsDestination(@NotNull CSCommunicationDestination body);
 
@@ -3601,7 +4290,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/centraSiteDestinationSNMPConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     CSSNMPDestination saveCentraSiteSNMPAsDestination(@NotNull CSSNMPDestination body);
 
@@ -3613,7 +4303,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/customContentTypes")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Object saveCustomContentTypes(@NotNull Object body);
 
@@ -3625,7 +4316,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/jdbcDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Destination saveDatabaseAsDestination(@NotNull Destination body);
 
@@ -3637,7 +4329,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/denyByIPForFailedAuthConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     DenyByIPForFailedAuthConfig saveDenyByIPForFailedAuthConfig(@NotNull DenyByIPForFailedAuthConfig body);
 
@@ -3649,7 +4342,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/desDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Destination saveDigitalEventsAsDestination(@NotNull Destination body);
 
@@ -3661,7 +4355,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/elasticsearchDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ElasticsearchDestination saveElasticsearchAsDestination(@NotNull ElasticsearchDestination body);
 
@@ -3673,7 +4368,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/emailDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     EmailDestination saveEmailAsDestination(@NotNull EmailDestination body);
 
@@ -3685,7 +4381,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/errorProcessing")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ErrorProcessing saveErrorProcessingDetails(@NotNull ErrorProcessing body);
 
@@ -3697,7 +4394,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/gatewayDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Destination saveGatewayAsDestination(@NotNull Destination body);
 
@@ -3709,7 +4407,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/keystore")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     KeystoreTruststore saveKeystoreTruststore(@NotNull KeystoreTruststore body);
 
@@ -3721,7 +4420,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/ldapConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     InputLdapConfiguration saveLdapConfig(@NotNull InputLdapConfiguration body);
 
@@ -3733,7 +4433,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/loadBalancer")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     LoadBalancer saveLoadBalancers(@NotNull LoadBalancer body);
 
@@ -3743,6 +4444,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("PUT /configurations/logConfig")
+    @Headers({
+        "Accept: application/json"
+    })
     LogConfiguration saveLogConfig();
 
     /**
@@ -3753,7 +4457,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/mobileApp")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     MobileApplicationConfiguration saveMobileApplicationConfigurations(@NotNull MobileApplicationConfiguration body);
 
@@ -3765,7 +4470,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/passwordExpiry")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PasswordExpirySettings savePasswordExpirySettings(@NotNull PasswordExpirySettings body);
 
@@ -3777,7 +4483,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/passwordRestrictions")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PasswordRestrictions savePasswordRestrictions(@NotNull PasswordRestrictions body);
 
@@ -3791,7 +4498,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/proxyBypass")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void saveProxyBypass(@NotNull ProxyBypass body);
 
@@ -3803,7 +4511,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/snmpDestinationConfig")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     SNMPDestination saveSNMPAsDestination(@NotNull SNMPDestination body);
 
@@ -3815,7 +4524,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/samlsso")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     SSOConfiguration saveSSOConfig(@NotNull SSOConfiguration body);
 
@@ -3827,7 +4537,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/settings")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ExtendedSettingsOutput saveSettings(@NotNull ExtendedSettingsInput body);
 
@@ -3839,7 +4550,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /configurations/whiteListingIPs")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     WhiteListedIPs saveWhitelistedIPs(@NotNull WhiteListedIPs body);
 
@@ -3891,7 +4603,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /search")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Map<String, Object> searchByType(@NotNull SearchContext body);
 
@@ -3899,6 +4612,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("GET /is/serverinfo")
+    @Headers({
+        "Accept: application/json"
+    })
     ServerInfo serverInformation();
 
     /**
@@ -3909,7 +4625,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /ports/primary")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PortReference setPrimaryPort(@Nullable PortReference body);
 
@@ -3921,7 +4638,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /shutdown")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void shutdown(@NotNull Shutdown body);
 
@@ -3931,7 +4649,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /documents")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     DocumentResponse storeDocument(@NotNull Document body);
 
@@ -3942,6 +4661,9 @@ public interface APIGatewayApi {
      * @param jndiId                (required)
      */
     @RequestLine("GET /is/jndi/{jndiId}/test")
+    @Headers({
+        "Accept: application/json"
+    })
     void testJNDI(@Param("jndiId") @NotNull String jndiId);
 
     /**
@@ -3951,6 +4673,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id of the API for which tracing should be enabled. (required)
      */
     @RequestLine("PUT /apis/{apiId}/tracing/enable")
+    @Headers({
+        "Accept: application/json"
+    })
     GatewayAPI tracingEnable(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -3960,6 +4685,9 @@ public interface APIGatewayApi {
      * @param jobId                This parameter indicates the job Id. Job Id is required to identify and track the status of a job which has been initiated. Ex: jobId=1504011632215 (required)
      */
     @RequestLine("GET /apitransactions/jobs/{jobId}")
+    @Headers({
+        "Accept: application/json"
+    })
     void trackJobStatus(@Param("jobId") @NotNull String jobId);
 
     /**
@@ -3970,7 +4698,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/lockedAccounts")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     LockedAccounts unLockUserAccounts(@NotNull UnlockAccountsRequest body);
 
@@ -3982,6 +4711,9 @@ public interface APIGatewayApi {
      * @param packageId            package id which needs to be unpublished from portal (required)
      */
     @RequestLine("PUT /packages/{packageId}/unpublish")
+    @Headers({
+        "Accept: application/json"
+    })
     PackageResponseContainer unPublishPackageByPackageId(@Param("packageId") @NotNull String packageId);
 
     /**
@@ -3991,6 +4723,9 @@ public interface APIGatewayApi {
      * @param apiId                API Id for the API to be unpublished (required)
      */
     @RequestLine("PUT /apis/{apiId}/unpublish")
+    @Headers({
+        "Accept: application/json"
+    })
     APIResponseCreate unpublishAPI(@Param("apiId") @NotNull String apiId);
 
     /**
@@ -4001,7 +4736,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /serviceRegistry/unpublish")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ServiceRegistryUnpublishPutResponse unpublishFromServiceRegistry(@NotNull InputServiceRegistryUnpublish body);
 
@@ -4017,7 +4753,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /apis/{apiId}?overwriteTags={overwriteTags}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     APIResponseCreate updateAPI(@Param("apiId") @NotNull String apiId, @NotNull UpdateAPIRequest body, @Param("overwriteTags") @Nullable Boolean overwriteTags);
 
@@ -4030,7 +4767,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /portalGateways/{portalGatewayId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PortalGateway updateAPIPortalConfiguration(@Param("portalGatewayId") @NotNull String portalGatewayId, @NotNull PortalGateway body);
 
@@ -4043,7 +4781,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /ports/{listenerKey}/accessMode")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AccessModeServices updateAccessMode(@Param("listenerKey") @NotNull String listenerKey, @NotNull AccessModeServices body);
 
@@ -4056,7 +4795,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /accessProfiles/{accessProfileId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AccessProfile updateAccessProfile(@Param("accessProfileId") @NotNull String accessProfileId, @NotNull AccessProfile body);
 
@@ -4069,7 +4809,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /alias/{aliasId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Alias updateAlias(@Param("aliasId") @NotNull String aliasId, @NotNull Alias body);
 
@@ -4081,7 +4822,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /applications/accessTokens")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void updateApiKeysExpiry(@NotNull AccessTokensTypeModel body);
 
@@ -4094,7 +4836,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /applications/{applicationId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Application updateApplication(@Param("applicationId") @NotNull String applicationId, @NotNull Application body);
 
@@ -4107,7 +4850,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /approvalConfigurations/{id}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ApprovalConfiguration updateApprovalConfiguration(@Param("id") @NotNull String id, @NotNull ApprovalConfiguration body);
 
@@ -4120,7 +4864,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /assertions/{assertionId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     AssertionConfiguration updateAssertion(@Param("assertionId") @NotNull String assertionId, @NotNull AssertionConfiguration body);
 
@@ -4128,6 +4873,9 @@ public interface APIGatewayApi {
      *
      */
     @RequestLine("PUT /configurations/cache")
+    @Headers({
+        "Accept: application/json"
+    })
     GatewayCacheConfig updateCacheConfig();
 
     /**
@@ -4138,7 +4886,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/cluster")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ClusterInfo updateCluster(@NotNull ClusterInfo body);
 
@@ -4149,7 +4898,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /documents/{documentId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     DocumentResponse updateDocumentContent(@Param("documentId") @NotNull String documentId, @NotNull Document body);
 
@@ -4161,7 +4911,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /masterPassword/setExpiry")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     MasterPasswordExpiryIntervalResponse updateExpiryInterval(@NotNull MasterPasswordExpiryInterval body);
 
@@ -4174,7 +4925,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /groups/{groupId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Group updateGroup(@Param("groupId") @NotNull String groupId, @NotNull Group body);
 
@@ -4186,7 +4938,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/jmsConnections")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     JMSConnectionAlias updateJMSConnection(@NotNull JMSConnectionAlias body);
 
@@ -4198,7 +4951,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/jmsTriggers")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     JMSTrigger updateJMSTrigger(@NotNull JMSTrigger body);
 
@@ -4210,7 +4964,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/jndi")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     JNDIProviderAlias updateJNDI(@NotNull JNDIProviderAlias body);
 
@@ -4220,7 +4975,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/kerberos")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void updateKerberos(@NotNull KerberosSettings body);
 
@@ -4242,7 +4998,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/keystore/{keyStoreName}")
     @Headers({
-        "Content-Type: multipart/form-data"
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
     KeyStore updateKeystoreAliases(@Param("keyStoreName") @NotNull String keyStoreName, @Param("keyStoreType") @NotNull String keyStoreType, @Param("keyStoreProvider") @NotNull String keyStoreProvider, @Param("keyStorePassword") @NotNull String keyStorePassword, @Param("uploadFileName") @NotNull String uploadFileName, @Param("fileContent") @NotNull File fileContent, @Param("keyStoreDescription") @Nullable String keyStoreDescription, @Param("pkAliasesList") @Nullable String pkAliasesList, @Param("pkPasswordsList") @Nullable String pkPasswordsList, @Param("nullPKpasswds") @Nullable String nullPKpasswds, @Param("isPwdBase64Encoded") @Nullable String isPwdBase64Encoded);
 
@@ -4252,7 +5009,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/license")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void updateLicenseDetails(@NotNull LicenseDetail body);
 
@@ -4264,7 +5022,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /dataspace/listener")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     ListenerConfig updateListenerConfiguration(@NotNull ListenerConfig body);
 
@@ -4276,7 +5035,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /masterPassword/update")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     MasterPasswordUpdateResponse updateMasterPassword(@NotNull MasterPasswordUpdate body);
 
@@ -4289,7 +5049,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /scopes/{oauthScopeId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     GatewayScope updateOAuthScope(@Param("oauthScopeId") @NotNull String oauthScopeId, @NotNull GatewayScope body);
 
@@ -4299,7 +5060,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/outboundproxy")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void updateOutboundProxy(@NotNull OutboundProxySettings body);
 
@@ -4314,7 +5076,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /packages/{packageId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PackageResponseContainer updatePackageByPackageId(@Param("packageId") @NotNull String packageId, @Nullable ModelPackage body);
 
@@ -4328,7 +5091,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /plans/{planId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PlanGetResponse updatePlanByPlanId(@Param("planId") @NotNull String planId, @Nullable Plan body);
 
@@ -4341,7 +5105,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /policyActions/{policyActionId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     PolicyActionWrapper updatePolicyAction(@Param("policyActionId") @NotNull String policyActionId, @NotNull PolicyActionWrapper body);
 
@@ -4354,7 +5119,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /policies/{policyId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Policy updatePolicyByID(@Param("policyId") @NotNull String policyId, @Nullable Policy body);
 
@@ -4366,7 +5132,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /ports")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Port updatePort(@Nullable Port body);
 
@@ -4380,7 +5147,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/proxyBypass")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void updateProxyBypass(@NotNull ProxyBypass body);
 
@@ -4393,7 +5161,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /applications/{applicationId}/apis")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     void updateRegisteredApis(@Param("applicationId") @NotNull String applicationId, @NotNull List<String> body);
 
@@ -4405,7 +5174,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /dataspace/ring")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     RemotePortConfig updateRingConfiguration(@NotNull RemotePortConfig body);
 
@@ -4418,7 +5188,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /rule/{ruleId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Rule updateRule(@Param("ruleId") @NotNull String ruleId, @NotNull Rule body);
 
@@ -4431,7 +5202,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /stages/{stageId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Stage updateStage(@Param("stageId") @NotNull String stageId, @NotNull Stage body);
 
@@ -4444,7 +5216,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /strategies/{strategyId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     OneOfStrategyModel updateStrategy(@Param("strategyId") @NotNull String strategyId, @NotNull StrategyRequest body);
 
@@ -4457,7 +5230,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /subscriptions/{applicationId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Application updateSubscription(@Param("applicationId") @NotNull String applicationId, @Nullable SubscriptionUpdateRequest body);
 
@@ -4476,7 +5250,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("POST /is/truststore/{trustStoreName}")
     @Headers({
-        "Content-Type: multipart/form-data"
+        "Content-Type: multipart/form-data", 
+        "Accept: application/json"
     })
     TrustStore updateTruststore(@Param("trustStoreName") @NotNull String trustStoreName, @Param("keyStoreType") @NotNull String keyStoreType, @Param("keyStoreProvider") @NotNull String keyStoreProvider, @Param("keyStorePassword") @NotNull String keyStorePassword, @Param("uploadFileName") @NotNull String uploadFileName, @Param("fileContent") @NotNull File fileContent, @Param("keyStoreDescription") @Nullable String keyStoreDescription, @Param("isPwdBase64Encoded") @Nullable String isPwdBase64Encoded);
 
@@ -4488,7 +5263,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /urlaliases")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     URLAliasSettings updateURLALias(@NotNull URLAliasSettings body);
 
@@ -4501,7 +5277,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /users/{userId}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     User updateUser(@Param("userId") @NotNull String userId, @NotNull User body);
 
@@ -4514,7 +5291,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /webhooks/{id}")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     Webhook updateWebhook(@Param("id") @NotNull String id, @NotNull Webhook body);
 
@@ -4526,7 +5304,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /is/webServiceEndpoints")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     WebserviceEndpointAlias updateWebserviceEndpoint(@NotNull WebserviceEndpointAlias body);
 
@@ -4539,7 +5318,8 @@ public interface APIGatewayApi {
      */
     @RequestLine("PUT /ports/{listenerKey}/ipAccessMode")
     @Headers({
-        "Content-Type: application/json"
+        "Content-Type: application/json", 
+        "Accept: application/json"
     })
     IPAccessModeHostsList updatedIPAccessMode(@Param("listenerKey") @NotNull String listenerKey, @NotNull IPAccessModeHostsList body);
 

@@ -1,6 +1,6 @@
 plugins {
     `java-library`
-    id("me.philippheuer.configuration") version "0.10.6"
+    id("me.philippheuer.configuration") version "0.10.7"
 }
 
 val version: String = properties["version"] as? String ?: "0.0.0"
@@ -30,7 +30,7 @@ projectConfiguration {
         }
         pom.licenses {
             license {
-                name.set("MIT Licence")
+                name.set("MIT")
                 distribution.set("repo")
                 url.set("https://github.com/primelib/webmethodsapigateway4j/blob/main/LICENSE")
             }
@@ -58,7 +58,6 @@ dependencies {
     implementation("io.github.openfeign:feign-slf4j")
     implementation("io.github.openfeign:feign-okhttp")
     implementation("io.github.openfeign:feign-micrometer")
-    implementation("io.github.openfeign.form:feign-form:3.8.0")
 
     // resilience4J
     implementation("io.github.resilience4j:resilience4j-feign")
