@@ -3,13 +3,16 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * MigrationConfig
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "action",
     "indicesType",
@@ -32,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("MigrationConfig")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class MigrationConfig {
-
-    /**
-     * Constructs a validated implementation of {@link MigrationConfig}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public MigrationConfig(Consumer<MigrationConfig> spec) {
-        spec.accept(this);
-    }
 
     /**
      * The type of migration action to be performed
@@ -59,11 +55,36 @@ public class MigrationConfig {
      * Migration properties for reindex action. Default values are taken from migration.properties file. Any value passed in here would overwrite the default value.
      */
     @JsonProperty("properties")
-    protected Map<String, String> properties = new HashMap<>();
+    protected Map<String, String> properties;
 
     @JsonProperty("sourceElasticsearch")
     protected ElasticsearchConfig sourceElasticsearch;
 
+    /**
+     * Constructs a validated instance of {@link MigrationConfig}.
+     *
+     * @param spec the specification to process
+     */
+    public MigrationConfig(Consumer<MigrationConfig> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link MigrationConfig}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MigrationConfig(Consumer)} instead.
+     * @param action The type of migration action to be performed
+     * @param indicesType The type of indices to be reindexed for reindex action
+     * @param properties Migration properties for reindex action. Default values are taken from migration.properties file. Any value passed in here would overwrite the default value.
+     * @param sourceElasticsearch var.name
+     */
+    @ApiStatus.Internal
+    public MigrationConfig(ActionEnum action, IndicesTypeEnum indicesType, Map<String, String> properties, ElasticsearchConfig sourceElasticsearch) {
+        this.action = action;
+        this.indicesType = indicesType;
+        this.properties = properties;
+        this.sourceElasticsearch = sourceElasticsearch;
+    }
 
     /**
      * The type of migration action to be performed

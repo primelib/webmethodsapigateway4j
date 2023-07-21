@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Policy;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the DeletePolicyByID operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DeletePolicyByIDOperationSpec {
     /**
@@ -35,13 +44,27 @@ public class DeletePolicyByIDOperationSpec {
     private String policyId;
 
     /**
-     * Constructs a validated implementation of {@link DeletePolicyByIDOperationSpec}.
+     * Constructs a validated instance of {@link DeletePolicyByIDOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public DeletePolicyByIDOperationSpec(Consumer<DeletePolicyByIDOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link DeletePolicyByIDOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param policyId             This path parameter is used to specify the policy id that needs to be deleted. If the policy id specified is global policy then it needs to be in inactive state to delete. Active global policy and global policy with systemPolicy property set to true cannot be deleted.
+     */
+    @ApiStatus.Internal
+    public DeletePolicyByIDOperationSpec(String policyId) {
+        this.policyId = policyId;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -54,5 +77,4 @@ public class DeletePolicyByIDOperationSpec {
     public void validate() {
         Objects.requireNonNull(policyId, "policyId is a required parameter!");
     }
-
 }

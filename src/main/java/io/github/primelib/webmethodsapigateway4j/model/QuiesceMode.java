@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * QuiesceMode
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "block",
     "enable",
@@ -32,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("QuiesceMode")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class QuiesceMode {
-
-    /**
-     * Constructs a validated implementation of {@link QuiesceMode}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public QuiesceMode(Consumer<QuiesceMode> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Specifies the type of blocking for quiesce mode in API Gateway
@@ -73,6 +70,33 @@ public class QuiesceMode {
     @JsonProperty("status")
     protected StatusEnum status;
 
+    /**
+     * Constructs a validated instance of {@link QuiesceMode}.
+     *
+     * @param spec the specification to process
+     */
+    public QuiesceMode(Consumer<QuiesceMode> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link QuiesceMode}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #QuiesceMode(Consumer)} instead.
+     * @param block Specifies the type of blocking for quiesce mode in API Gateway
+     * @param enable Specifies whether to enable or disable quiesce mode for API Gateway
+     * @param failureReason Specifies the failure reason of the last quiesce mode operation if the status is a failure
+     * @param flush Specifies the types of data that need to be flushed when quiesce mode for all is enabled in API Gateway
+     * @param status Specifies the current status of the last quiesce mode operation. A null value means that the quiesce mode action is still in progress and the status is not yet known
+     */
+    @ApiStatus.Internal
+    public QuiesceMode(BlockEnum block, Boolean enable, String failureReason, List<FlushEnum> flush, StatusEnum status) {
+        this.block = block;
+        this.enable = enable;
+        this.failureReason = failureReason;
+        this.flush = flush;
+        this.status = status;
+    }
 
     /**
      * Specifies the type of blocking for quiesce mode in API Gateway

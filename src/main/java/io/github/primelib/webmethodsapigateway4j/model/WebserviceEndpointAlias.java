@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * WebserviceEndpointAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "WebserviceEndpointAliasId",
     "alias",
@@ -37,16 +43,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("WebserviceEndpointAlias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class WebserviceEndpointAlias {
-
-    /**
-     * Constructs a validated implementation of {@link WebserviceEndpointAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public WebserviceEndpointAlias(Consumer<WebserviceEndpointAlias> spec) {
-        spec.accept(this);
-    }
 
     /**
      * A unique ID for the WebserviceEndpointAlias
@@ -114,5 +110,44 @@ public class WebserviceEndpointAlias {
     @JsonProperty("trustStoreAlias")
     protected String trustStoreAlias;
 
+    /**
+     * Constructs a validated instance of {@link WebserviceEndpointAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public WebserviceEndpointAlias(Consumer<WebserviceEndpointAlias> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link WebserviceEndpointAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WebserviceEndpointAlias(Consumer)} instead.
+     * @param webserviceEndpointAliasId A unique ID for the WebserviceEndpointAlias
+     * @param alias The name of the WebserviceEndpointAlias
+     * @param aliasType The property specifies the aliasType, Either it should be Provider or Consumer
+     * @param description The description of the WebserviceEndpointAlias
+     * @param keyAlias this property specifies the keyalias name
+     * @param keyStoreAlias this property specifies the keystorealias name
+     * @param timestampMaximumSkew this property specifies the timestampMaximumSkew value
+     * @param timestampPrecisionInMillis this property specifies the timestampPrecisionInMillis
+     * @param timestampTimeToLive this property specifies the timestampTimeToLive value
+     * @param transportType this defines the transport type. The supported transport type is JMS
+     * @param trustStoreAlias this property specifies the trustStoreAlias name
+     */
+    @ApiStatus.Internal
+    public WebserviceEndpointAlias(String webserviceEndpointAliasId, String alias, String aliasType, String description, String keyAlias, String keyStoreAlias, String timestampMaximumSkew, String timestampPrecisionInMillis, String timestampTimeToLive, String transportType, String trustStoreAlias) {
+        this.webserviceEndpointAliasId = webserviceEndpointAliasId;
+        this.alias = alias;
+        this.aliasType = aliasType;
+        this.description = description;
+        this.keyAlias = keyAlias;
+        this.keyStoreAlias = keyStoreAlias;
+        this.timestampMaximumSkew = timestampMaximumSkew;
+        this.timestampPrecisionInMillis = timestampPrecisionInMillis;
+        this.timestampTimeToLive = timestampTimeToLive;
+        this.transportType = transportType;
+        this.trustStoreAlias = trustStoreAlias;
+    }
 
 }

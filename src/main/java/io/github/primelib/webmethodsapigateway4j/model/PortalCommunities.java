@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * PortalCommunities
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "description",
     "id",
@@ -30,16 +37,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("PortalCommunities")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PortalCommunities {
-
-    /**
-     * Constructs a validated implementation of {@link PortalCommunities}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public PortalCommunities(Consumer<PortalCommunities> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Description of API Portal community.
@@ -65,6 +62,31 @@ public class PortalCommunities {
     @JsonProperty("status")
     protected StatusEnum status;
 
+    /**
+     * Constructs a validated instance of {@link PortalCommunities}.
+     *
+     * @param spec the specification to process
+     */
+    public PortalCommunities(Consumer<PortalCommunities> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link PortalCommunities}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PortalCommunities(Consumer)} instead.
+     * @param description Description of API Portal community.
+     * @param id ID of API Portal community.
+     * @param name API Portal community name.
+     * @param status Staus of the API Portal community.
+     */
+    @ApiStatus.Internal
+    public PortalCommunities(String description, String id, String name, StatusEnum status) {
+        this.description = description;
+        this.id = id;
+        this.name = name;
+        this.status = status;
+    }
 
     /**
      * Staus of the API Portal community.

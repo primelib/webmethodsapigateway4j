@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * PackagePlanResponse
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "description",
     "id",
@@ -29,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("PackagePlanResponse")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PackagePlanResponse {
-
-    /**
-     * Constructs a validated implementation of {@link PackagePlanResponse}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public PackagePlanResponse(Consumer<PackagePlanResponse> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Description of action performed on package
@@ -58,6 +55,29 @@ public class PackagePlanResponse {
     @JsonProperty("status")
     protected StatusEnum status;
 
+    /**
+     * Constructs a validated instance of {@link PackagePlanResponse}.
+     *
+     * @param spec the specification to process
+     */
+    public PackagePlanResponse(Consumer<PackagePlanResponse> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link PackagePlanResponse}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PackagePlanResponse(Consumer)} instead.
+     * @param description Description of action performed on package
+     * @param id Id of the package
+     * @param status Status of action performed on package
+     */
+    @ApiStatus.Internal
+    public PackagePlanResponse(String description, String id, StatusEnum status) {
+        this.description = description;
+        this.id = id;
+        this.status = status;
+    }
 
     /**
      * Status of action performed on package

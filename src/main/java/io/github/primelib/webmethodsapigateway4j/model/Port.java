@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Port
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "accessMode",
     "clientAuth",
@@ -63,16 +69,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("Port")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Port {
-
-    /**
-     * Constructs a validated implementation of {@link Port}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Port(Consumer<Port> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("accessMode")
     protected String accessMode;
@@ -182,5 +178,94 @@ public class Port {
     @JsonProperty("usedThreadCount")
     protected String usedThreadCount;
 
+    /**
+     * Constructs a validated instance of {@link Port}.
+     *
+     * @param spec the specification to process
+     */
+    public Port(Consumer<Port> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Port}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Port(Consumer)} instead.
+     * @param accessMode var.name
+     * @param clientAuth var.name
+     * @param configURL var.name
+     * @param curDelay var.name
+     * @param enabled var.name
+     * @param factoryKey var.name
+     * @param hasAccessList var.name
+     * @param hasIPAccessList var.name
+     * @param hostAccessMode var.name
+     * @param hostAllow var.name
+     * @param hostDeny var.name
+     * @param idProvider var.name
+     * @param internalPort var.name
+     * @param ipAccessMode var.name
+     * @param jsseEnabledProtocols var.name
+     * @param keepAliveTimeout var.name
+     * @param key var.name
+     * @param listenerType var.name
+     * @param listening var.name
+     * @param maxQueue var.name
+     * @param maxThread var.name
+     * @param minThread var.name
+     * @param pkg var.name
+     * @param port var.name
+     * @param portAlias var.name
+     * @param portDescription var.name
+     * @param protocol var.name
+     * @param provider var.name
+     * @param ssl var.name
+     * @param status var.name
+     * @param stepsize var.name
+     * @param suspended var.name
+     * @param threadPool var.name
+     * @param threadPriority var.name
+     * @param uniqueID var.name
+     * @param usedThreadCount var.name
+     */
+    @ApiStatus.Internal
+    public Port(String accessMode, String clientAuth, String configURL, String curDelay, String enabled, String factoryKey, String hasAccessList, String hasIPAccessList, String hostAccessMode, List<String> hostAllow, List<String> hostDeny, Object idProvider, Integer internalPort, String ipAccessMode, Object jsseEnabledProtocols, String keepAliveTimeout, String key, String listenerType, String listening, String maxQueue, String maxThread, String minThread, String pkg, Integer port, String portAlias, String portDescription, String protocol, String provider, String ssl, String status, String stepsize, String suspended, String threadPool, String threadPriority, String uniqueID, String usedThreadCount) {
+        this.accessMode = accessMode;
+        this.clientAuth = clientAuth;
+        this.configURL = configURL;
+        this.curDelay = curDelay;
+        this.enabled = enabled;
+        this.factoryKey = factoryKey;
+        this.hasAccessList = hasAccessList;
+        this.hasIPAccessList = hasIPAccessList;
+        this.hostAccessMode = hostAccessMode;
+        this.hostAllow = hostAllow;
+        this.hostDeny = hostDeny;
+        this.idProvider = idProvider;
+        this.internalPort = internalPort;
+        this.ipAccessMode = ipAccessMode;
+        this.jsseEnabledProtocols = jsseEnabledProtocols;
+        this.keepAliveTimeout = keepAliveTimeout;
+        this.key = key;
+        this.listenerType = listenerType;
+        this.listening = listening;
+        this.maxQueue = maxQueue;
+        this.maxThread = maxThread;
+        this.minThread = minThread;
+        this.pkg = pkg;
+        this.port = port;
+        this.portAlias = portAlias;
+        this.portDescription = portDescription;
+        this.protocol = protocol;
+        this.provider = provider;
+        this.ssl = ssl;
+        this.status = status;
+        this.stepsize = stepsize;
+        this.suspended = suspended;
+        this.threadPool = threadPool;
+        this.threadPriority = threadPriority;
+        this.uniqueID = uniqueID;
+        this.usedThreadCount = usedThreadCount;
+    }
 
 }

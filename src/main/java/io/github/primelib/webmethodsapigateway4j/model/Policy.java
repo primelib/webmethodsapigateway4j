@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Policy
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "active",
     "descriptions",
@@ -37,16 +44,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("Policy")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Policy {
-
-    /**
-     * Constructs a validated implementation of {@link Policy}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Policy(Consumer<Policy> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("active")
     protected Boolean active;
@@ -97,6 +94,43 @@ public class Policy {
     @JsonProperty("systemPolicy")
     protected Boolean systemPolicy;
 
+    /**
+     * Constructs a validated instance of {@link Policy}.
+     *
+     * @param spec the specification to process
+     */
+    public Policy(Consumer<Policy> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Policy}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Policy(Consumer)} instead.
+     * @param active var.name
+     * @param descriptions This contains list of description for the policy  with corresponding locale information.
+     * @param global var.name
+     * @param id Policy ID
+     * @param names This contains list of names for the policy with corresponding locale information.
+     * @param parameters This basic details of a threat protection rule such as rule name, description, rule action, custom error message etc.will be stored in this property.
+     * @param policyEnforcements This property contains list of policy (runtime) enforcement id grouped based on the stages.
+     * @param policyScope This property is used to refer the scope of the policy.
+     * @param scope var.name
+     * @param systemPolicy var.name
+     */
+    @ApiStatus.Internal
+    public Policy(Boolean active, List<InternationalizedString> descriptions, Boolean global, String id, List<InternationalizedString> names, List<PolicyActionParameter> parameters, List<PolicyEnforcements> policyEnforcements, PolicyScopeEnum policyScope, Scope scope, Boolean systemPolicy) {
+        this.active = active;
+        this.descriptions = descriptions;
+        this.global = global;
+        this.id = id;
+        this.names = names;
+        this.parameters = parameters;
+        this.policyEnforcements = policyEnforcements;
+        this.policyScope = policyScope;
+        this.scope = scope;
+        this.systemPolicy = systemPolicy;
+    }
 
     /**
      * This property is used to refer the scope of the policy.

@@ -3,13 +3,16 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,10 +24,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * GatewayAPI
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "apiDefinition",
     "apiDescription",
@@ -65,16 +71,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GatewayAPI {
 
-    /**
-     * Constructs a validated implementation of {@link GatewayAPI}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public GatewayAPI(Consumer<GatewayAPI> spec) {
-        spec.accept(this);
-    }
-
     @JsonProperty("apiDefinition")
     protected API apiDefinition;
 
@@ -109,7 +105,7 @@ public class GatewayAPI {
     protected List<DeploymentsEnum> deployments;
 
     @JsonProperty("gatewayEndpoints")
-    protected Map<String, String> gatewayEndpoints = new HashMap<>();
+    protected Map<String, String> gatewayEndpoints;
 
     @JsonProperty("id")
     protected String id;
@@ -118,7 +114,7 @@ public class GatewayAPI {
     protected Boolean isActive;
 
     @JsonProperty("k8sIdentifiers")
-    protected Map<String, String> k8sIdentifiers = new HashMap<>();
+    protected Map<String, String> k8sIdentifiers;
 
     @JsonProperty("lastModified")
     protected String lastModified;
@@ -177,6 +173,91 @@ public class GatewayAPI {
     @JsonProperty("type")
     protected String type;
 
+    /**
+     * Constructs a validated instance of {@link GatewayAPI}.
+     *
+     * @param spec the specification to process
+     */
+    public GatewayAPI(Consumer<GatewayAPI> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link GatewayAPI}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GatewayAPI(Consumer)} instead.
+     * @param apiDefinition var.name
+     * @param apiDescription var.name
+     * @param apiDocuments var.name
+     * @param apiEndpointPrefix var.name
+     * @param apiGroups var.name
+     * @param apiName var.name
+     * @param apiVersion var.name
+     * @param appMeshEndpoints var.name
+     * @param centraSiteURL var.name
+     * @param creationDate var.name
+     * @param deployments var.name
+     * @param gatewayEndpoints var.name
+     * @param id var.name
+     * @param isActive var.name
+     * @param k8sIdentifiers var.name
+     * @param lastModified var.name
+     * @param maturityState var.name
+     * @param microgatewayEndpoints var.name
+     * @param mockService var.name
+     * @param nativeEndpoint var.name
+     * @param nextVersion var.name
+     * @param oauth2ScopeName var.name
+     * @param owner var.name
+     * @param policies var.name
+     * @param portalApiItemIdentifier var.name
+     * @param prevVersion var.name
+     * @param provider var.name
+     * @param publishedPortals var.name
+     * @param publishedToRegistry var.name
+     * @param rootFileName var.name
+     * @param scopes var.name
+     * @param systemVersion var.name
+     * @param tracingEnabled var.name
+     * @param type var.name
+     */
+    @ApiStatus.Internal
+    public GatewayAPI(API apiDefinition, String apiDescription, List<String> apiDocuments, String apiEndpointPrefix, List<String> apiGroups, String apiName, String apiVersion, List<String> appMeshEndpoints, String centraSiteURL, String creationDate, List<DeploymentsEnum> deployments, Map<String, String> gatewayEndpoints, String id, Boolean isActive, Map<String, String> k8sIdentifiers, String lastModified, String maturityState, List<EndpointInfo> microgatewayEndpoints, MockService mockService, Set<Endpoint> nativeEndpoint, String nextVersion, String oauth2ScopeName, String owner, List<String> policies, String portalApiItemIdentifier, String prevVersion, String provider, List<String> publishedPortals, Boolean publishedToRegistry, String rootFileName, List<Scope> scopes, Integer systemVersion, Boolean tracingEnabled, String type) {
+        this.apiDefinition = apiDefinition;
+        this.apiDescription = apiDescription;
+        this.apiDocuments = apiDocuments;
+        this.apiEndpointPrefix = apiEndpointPrefix;
+        this.apiGroups = apiGroups;
+        this.apiName = apiName;
+        this.apiVersion = apiVersion;
+        this.appMeshEndpoints = appMeshEndpoints;
+        this.centraSiteURL = centraSiteURL;
+        this.creationDate = creationDate;
+        this.deployments = deployments;
+        this.gatewayEndpoints = gatewayEndpoints;
+        this.id = id;
+        this.isActive = isActive;
+        this.k8sIdentifiers = k8sIdentifiers;
+        this.lastModified = lastModified;
+        this.maturityState = maturityState;
+        this.microgatewayEndpoints = microgatewayEndpoints;
+        this.mockService = mockService;
+        this.nativeEndpoint = nativeEndpoint;
+        this.nextVersion = nextVersion;
+        this.oauth2ScopeName = oauth2ScopeName;
+        this.owner = owner;
+        this.policies = policies;
+        this.portalApiItemIdentifier = portalApiItemIdentifier;
+        this.prevVersion = prevVersion;
+        this.provider = provider;
+        this.publishedPortals = publishedPortals;
+        this.publishedToRegistry = publishedToRegistry;
+        this.rootFileName = rootFileName;
+        this.scopes = scopes;
+        this.systemVersion = systemVersion;
+        this.tracingEnabled = tracingEnabled;
+        this.type = type;
+    }
 
     @AllArgsConstructor
     public enum DeploymentsEnum {

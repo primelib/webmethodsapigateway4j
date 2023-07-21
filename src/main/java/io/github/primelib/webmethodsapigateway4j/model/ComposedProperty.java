@@ -3,11 +3,12 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -19,11 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ComposedProperty
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "allOf",
     "anyOf",
@@ -32,16 +34,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ComposedProperty")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ComposedProperty extends Property {
-
-    /**
-     * Constructs a validated implementation of {@link ComposedProperty}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ComposedProperty(Consumer<ComposedProperty> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("allOf")
     protected List<Property> allOf;
@@ -52,5 +44,29 @@ public class ComposedProperty extends Property {
     @JsonProperty("oneOf")
     protected List<Property> oneOf;
 
+    /**
+     * Constructs a validated instance of {@link ComposedProperty}.
+     *
+     * @param spec the specification to process
+     */
+    public ComposedProperty(Consumer<ComposedProperty> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ComposedProperty}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ComposedProperty(Consumer)} instead.
+     * @param allOf var.name
+     * @param anyOf var.name
+     * @param oneOf var.name
+     */
+    @ApiStatus.Internal
+    public ComposedProperty(List<Property> allOf, List<Property> anyOf, List<Property> oneOf) {
+        this.allOf = allOf;
+        this.anyOf = anyOf;
+        this.oneOf = oneOf;
+    }
 
 }

@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * SOAPBinding
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "faultMessages",
     "inputMessage",
@@ -34,16 +40,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("SOAPBinding")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SOAPBinding {
-
-    /**
-     * Constructs a validated implementation of {@link SOAPBinding}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public SOAPBinding(Consumer<SOAPBinding> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("faultMessages")
     protected List<String> faultMessages;
@@ -66,5 +62,36 @@ public class SOAPBinding {
     @JsonProperty("type")
     protected String type;
 
+    /**
+     * Constructs a validated instance of {@link SOAPBinding}.
+     *
+     * @param spec the specification to process
+     */
+    public SOAPBinding(Consumer<SOAPBinding> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link SOAPBinding}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPBinding(Consumer)} instead.
+     * @param faultMessages var.name
+     * @param inputMessage var.name
+     * @param _interFace var.name
+     * @param name var.name
+     * @param outputMessage var.name
+     * @param specifier var.name
+     * @param type var.name
+     */
+    @ApiStatus.Internal
+    public SOAPBinding(List<String> faultMessages, String inputMessage, SOAPInterface _interFace, String name, String outputMessage, String specifier, String type) {
+        this.faultMessages = faultMessages;
+        this.inputMessage = inputMessage;
+        this._interFace = _interFace;
+        this.name = name;
+        this.outputMessage = outputMessage;
+        this.specifier = specifier;
+        this.type = type;
+    }
 
 }

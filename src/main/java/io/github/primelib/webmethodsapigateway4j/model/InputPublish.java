@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * InputPublish
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "communities",
     "endpoints",
@@ -30,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("InputPublish")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class InputPublish {
-
-    /**
-     * Constructs a validated implementation of {@link InputPublish}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public InputPublish(Consumer<InputPublish> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("communities")
     protected List<String> communities;
@@ -50,5 +46,28 @@ public class InputPublish {
     @JsonProperty("portalGatewayId")
     protected String portalGatewayId;
 
+    /**
+     * Constructs a validated instance of {@link InputPublish}.
+     *
+     * @param spec the specification to process
+     */
+    public InputPublish(Consumer<InputPublish> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link InputPublish}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputPublish(Consumer)} instead.
+     * @param communities var.name
+     * @param endpoints var.name
+     * @param portalGatewayId var.name
+     */
+    @ApiStatus.Internal
+    public InputPublish(List<String> communities, List<String> endpoints, String portalGatewayId) {
+        this.communities = communities;
+        this.endpoints = endpoints;
+        this.portalGatewayId = portalGatewayId;
+    }
 
 }

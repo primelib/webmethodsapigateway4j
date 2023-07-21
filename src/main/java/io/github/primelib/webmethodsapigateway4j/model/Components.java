@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Components
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "callbacks",
     "examples",
@@ -40,71 +45,98 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class Components {
 
     /**
-     * Constructs a validated implementation of {@link Components}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Components(Consumer<Components> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * An object to hold reusable callback objects
      */
     @JsonProperty("callbacks")
-    protected Map<String, Callback> callbacks = new HashMap<>();
+    protected Map<String, Callback> callbacks;
 
     /**
      * An object to hold reusable example objects
      */
     @JsonProperty("examples")
-    protected Map<String, Example> examples = new HashMap<>();
+    protected Map<String, Example> examples;
 
     /**
      * An object to hold reusable header objects
      */
     @JsonProperty("headers")
-    protected Map<String, Header> headers = new HashMap<>();
+    protected Map<String, Header> headers;
 
     /**
      * An object to hold reusable link objects
      */
     @JsonProperty("links")
-    protected Map<String, Link> links = new HashMap<>();
+    protected Map<String, Link> links;
 
     /**
      * An object to hold reusable parameter objects
      */
     @JsonProperty("parameters")
-    protected Map<String, Parameter> parameters = new HashMap<>();
+    protected Map<String, Parameter> parameters;
 
     /**
      * An object to hold reusable requestBody objects
      */
     @JsonProperty("requestBodies")
-    protected Map<String, RequestBody> requestBodies = new HashMap<>();
+    protected Map<String, RequestBody> requestBodies;
 
     /**
      * An object to hold reusable response objects
      */
     @JsonProperty("responses")
-    protected Map<String, Response> responses = new HashMap<>();
+    protected Map<String, Response> responses;
 
     /**
      * An object to hold reusable schema objects
      */
     @JsonProperty("schemas")
-    protected Map<String, ParameterSchema> schemas = new HashMap<>();
+    protected Map<String, ParameterSchema> schemas;
 
     /**
      * An object to hold reusable securityScheme objects
      */
     @JsonProperty("securitySchemes")
-    protected Map<String, SecurityScheme> securitySchemes = new HashMap<>();
+    protected Map<String, SecurityScheme> securitySchemes;
 
     @JsonProperty("vendorExtensions")
-    protected Map<String, Object> vendorExtensions = new HashMap<>();
+    protected Map<String, Object> vendorExtensions;
 
+    /**
+     * Constructs a validated instance of {@link Components}.
+     *
+     * @param spec the specification to process
+     */
+    public Components(Consumer<Components> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Components}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Components(Consumer)} instead.
+     * @param callbacks An object to hold reusable callback objects
+     * @param examples An object to hold reusable example objects
+     * @param headers An object to hold reusable header objects
+     * @param links An object to hold reusable link objects
+     * @param parameters An object to hold reusable parameter objects
+     * @param requestBodies An object to hold reusable requestBody objects
+     * @param responses An object to hold reusable response objects
+     * @param schemas An object to hold reusable schema objects
+     * @param securitySchemes An object to hold reusable securityScheme objects
+     * @param vendorExtensions var.name
+     */
+    @ApiStatus.Internal
+    public Components(Map<String, Callback> callbacks, Map<String, Example> examples, Map<String, Header> headers, Map<String, Link> links, Map<String, Parameter> parameters, Map<String, RequestBody> requestBodies, Map<String, Response> responses, Map<String, ParameterSchema> schemas, Map<String, SecurityScheme> securitySchemes, Map<String, Object> vendorExtensions) {
+        this.callbacks = callbacks;
+        this.examples = examples;
+        this.headers = headers;
+        this.links = links;
+        this.parameters = parameters;
+        this.requestBodies = requestBodies;
+        this.responses = responses;
+        this.schemas = schemas;
+        this.securitySchemes = securitySchemes;
+        this.vendorExtensions = vendorExtensions;
+    }
 
 }

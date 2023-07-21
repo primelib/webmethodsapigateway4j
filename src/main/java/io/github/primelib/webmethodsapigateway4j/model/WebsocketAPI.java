@@ -3,14 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -22,11 +22,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * WebsocketAPI
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "externalDocs",
     "messages",
@@ -38,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class WebsocketAPI extends API {
 
-    /**
-     * Constructs a validated implementation of {@link WebsocketAPI}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public WebsocketAPI(Consumer<WebsocketAPI> spec) {
-        spec.accept(this);
-    }
-
     @JsonProperty("externalDocs")
     protected List<ExternalDocs> externalDocs;
 
@@ -58,10 +49,38 @@ public class WebsocketAPI extends API {
     protected Set<String> nativeUri;
 
     @JsonProperty("parameters")
-    protected Map<String, AbstractParameter> parameters = new HashMap<>();
+    protected Map<String, AbstractParameter> parameters;
 
     @JsonProperty("supportedSubProtocols")
     protected List<String> supportedSubProtocols;
 
+    /**
+     * Constructs a validated instance of {@link WebsocketAPI}.
+     *
+     * @param spec the specification to process
+     */
+    public WebsocketAPI(Consumer<WebsocketAPI> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link WebsocketAPI}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WebsocketAPI(Consumer)} instead.
+     * @param externalDocs var.name
+     * @param messages var.name
+     * @param nativeUri var.name
+     * @param parameters var.name
+     * @param supportedSubProtocols var.name
+     */
+    @ApiStatus.Internal
+    public WebsocketAPI(List<ExternalDocs> externalDocs, List<MessageFrame> messages, Set<String> nativeUri, Map<String, AbstractParameter> parameters, List<String> supportedSubProtocols) {
+        this.externalDocs = externalDocs;
+        this.messages = messages;
+        this.nativeUri = nativeUri;
+        this.parameters = parameters;
+        this.supportedSubProtocols = supportedSubProtocols;
+    }
 
 }

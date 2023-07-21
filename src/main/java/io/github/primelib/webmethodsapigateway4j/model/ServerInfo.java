@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ServerInfo
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "LicenseDetails",
     "allSvcsMinusShuts",
@@ -48,16 +54,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ServerInfo")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ServerInfo {
-
-    /**
-     * Constructs a validated implementation of {@link ServerInfo}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ServerInfo(Consumer<ServerInfo> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("LicenseDetails")
     protected List<LicenseDetail> licenseDetails;
@@ -122,5 +118,64 @@ public class ServerInfo {
     @JsonProperty("version")
     protected String version;
 
+    /**
+     * Constructs a validated instance of {@link ServerInfo}.
+     *
+     * @param spec the specification to process
+     */
+    public ServerInfo(Consumer<ServerInfo> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ServerInfo}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServerInfo(Consumer)} instead.
+     * @param licenseDetails var.name
+     * @param allSvcsMinusShuts var.name
+     * @param allSvcsMinusStarts var.name
+     * @param build var.name
+     * @param code var.name
+     * @param description var.name
+     * @param jvmVersion var.name
+     * @param listACL var.name
+     * @param loaderr var.name
+     * @param loadok var.name
+     * @param loadwarning var.name
+     * @param message var.name
+     * @param _package var.name
+     * @param patchNums var.name
+     * @param publisher var.name
+     * @param services var.name
+     * @param shutdownServices var.name
+     * @param startupServices var.name
+     * @param systemInfo var.name
+     * @param time var.name
+     * @param version var.name
+     */
+    @ApiStatus.Internal
+    public ServerInfo(List<LicenseDetail> licenseDetails, List<String> allSvcsMinusShuts, List<String> allSvcsMinusStarts, String build, String code, String description, String jvmVersion, String listACL, String loaderr, String loadok, String loadwarning, String message, String _package, Object patchNums, String publisher, List<String> services, List<String> shutdownServices, List<String> startupServices, SystemInfo systemInfo, Object time, String version) {
+        this.licenseDetails = licenseDetails;
+        this.allSvcsMinusShuts = allSvcsMinusShuts;
+        this.allSvcsMinusStarts = allSvcsMinusStarts;
+        this.build = build;
+        this.code = code;
+        this.description = description;
+        this.jvmVersion = jvmVersion;
+        this.listACL = listACL;
+        this.loaderr = loaderr;
+        this.loadok = loadok;
+        this.loadwarning = loadwarning;
+        this.message = message;
+        this._package = _package;
+        this.patchNums = patchNums;
+        this.publisher = publisher;
+        this.services = services;
+        this.shutdownServices = shutdownServices;
+        this.startupServices = startupServices;
+        this.systemInfo = systemInfo;
+        this.time = time;
+        this.version = version;
+    }
 
 }

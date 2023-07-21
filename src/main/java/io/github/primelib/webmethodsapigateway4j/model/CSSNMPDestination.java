@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * CSSNMPDestination
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "authorizationPassword",
     "authorizationProtocol",
@@ -36,16 +42,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("CSSNMPDestination")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class CSSNMPDestination {
-
-    /**
-     * Constructs a validated implementation of {@link CSSNMPDestination}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public CSSNMPDestination(Consumer<CSSNMPDestination> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Specifies the password to be used for authorization protocol.
@@ -101,5 +97,40 @@ public class CSSNMPDestination {
     @JsonProperty("username")
     protected String username;
 
+    /**
+     * Constructs a validated instance of {@link CSSNMPDestination}.
+     *
+     * @param spec the specification to process
+     */
+    public CSSNMPDestination(Consumer<CSSNMPDestination> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link CSSNMPDestination}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CSSNMPDestination(Consumer)} instead.
+     * @param authorizationPassword Specifies the password to be used for authorization protocol.
+     * @param authorizationProtocol Specifies the authorization protocol that is used by the SNMP Listener for decoding the incoming trap.
+     * @param hostname Specifies the CentraSite host name or IP address to which the SNMP listener binds.
+     * @param port Specifies the port to which the SNMP listener binds. The default port number for CentraSite's SNMP server is 8181.
+     * @param privacyPassword Specifies the password to be used for privacy protocol.
+     * @param privacyProtocol Specifies the privacy protocol that is used by the SNMP Listener for decoding the incoming trap.
+     * @param sendTRAPsToCentrasite Specifies whether the events has to be sent from API Gateway to CentraSite.
+     * @param transport Specifies the wire transport protocol that is used by the SNMP Listener.
+     * @param username Specifies the SecurityName that is used by the SNMP Listener.
+     */
+    @ApiStatus.Internal
+    public CSSNMPDestination(String authorizationPassword, String authorizationProtocol, String hostname, String port, String privacyPassword, String privacyProtocol, String sendTRAPsToCentrasite, String transport, String username) {
+        this.authorizationPassword = authorizationPassword;
+        this.authorizationProtocol = authorizationProtocol;
+        this.hostname = hostname;
+        this.port = port;
+        this.privacyPassword = privacyPassword;
+        this.privacyProtocol = privacyProtocol;
+        this.sendTRAPsToCentrasite = sendTRAPsToCentrasite;
+        this.transport = transport;
+        this.username = username;
+    }
 
 }

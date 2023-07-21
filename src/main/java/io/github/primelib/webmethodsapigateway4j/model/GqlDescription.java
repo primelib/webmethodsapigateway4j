@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * GqlDescription
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "content"
 })
@@ -29,20 +35,29 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GqlDescription {
 
     /**
-     * Constructs a validated implementation of {@link GqlDescription}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public GqlDescription(Consumer<GqlDescription> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * Description value
      */
     @JsonProperty("content")
     protected String content;
 
+    /**
+     * Constructs a validated instance of {@link GqlDescription}.
+     *
+     * @param spec the specification to process
+     */
+    public GqlDescription(Consumer<GqlDescription> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link GqlDescription}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlDescription(Consumer)} instead.
+     * @param content Description value
+     */
+    @ApiStatus.Internal
+    public GqlDescription(String content) {
+        this.content = content;
+    }
 
 }

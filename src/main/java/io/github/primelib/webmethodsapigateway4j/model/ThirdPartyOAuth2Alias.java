@@ -3,11 +3,12 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +19,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ThirdPartyOAuth2Alias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "authInfo",
     "endpointDetails",
@@ -32,16 +34,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ThirdPartyOAuth2Alias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ThirdPartyOAuth2Alias extends Alias {
-
-    /**
-     * Constructs a validated implementation of {@link ThirdPartyOAuth2Alias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ThirdPartyOAuth2Alias(Consumer<ThirdPartyOAuth2Alias> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("authInfo")
     protected Object authInfo;
@@ -55,5 +47,31 @@ public class ThirdPartyOAuth2Alias extends Alias {
     @JsonProperty("providerName")
     protected String providerName;
 
+    /**
+     * Constructs a validated instance of {@link ThirdPartyOAuth2Alias}.
+     *
+     * @param spec the specification to process
+     */
+    public ThirdPartyOAuth2Alias(Consumer<ThirdPartyOAuth2Alias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ThirdPartyOAuth2Alias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ThirdPartyOAuth2Alias(Consumer)} instead.
+     * @param authInfo var.name
+     * @param endpointDetails var.name
+     * @param metadata var.name
+     * @param providerName var.name
+     */
+    @ApiStatus.Internal
+    public ThirdPartyOAuth2Alias(Object authInfo, OAuth2Endpoints endpointDetails, Metadata metadata, String providerName) {
+        this.authInfo = authInfo;
+        this.endpointDetails = endpointDetails;
+        this.metadata = metadata;
+        this.providerName = providerName;
+    }
 
 }

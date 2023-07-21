@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * JWTServiceInput
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "claimsSet"
 })
@@ -31,20 +36,29 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class JWTServiceInput {
 
     /**
-     * Constructs a validated implementation of {@link JWTServiceInput}.
+     * key value pairs in the form of json map
+     */
+    @JsonProperty("claimsSet")
+    protected Map<String, Object> claimsSet;
+
+    /**
+     * Constructs a validated instance of {@link JWTServiceInput}.
      *
      * @param spec the specification to process
      */
-    @ApiStatus.Internal
     public JWTServiceInput(Consumer<JWTServiceInput> spec) {
         spec.accept(this);
     }
 
     /**
-     * key value pairs in the form of json map
+     * Constructs a validated instance of {@link JWTServiceInput}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #JWTServiceInput(Consumer)} instead.
+     * @param claimsSet key value pairs in the form of json map
      */
-    @JsonProperty("claimsSet")
-    protected Map<String, Object> claimsSet = new HashMap<>();
-
+    @ApiStatus.Internal
+    public JWTServiceInput(Map<String, Object> claimsSet) {
+        this.claimsSet = claimsSet;
+    }
 
 }

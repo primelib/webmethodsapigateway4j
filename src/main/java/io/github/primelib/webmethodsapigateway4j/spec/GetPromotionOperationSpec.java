@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Promotion;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the GetPromotion operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GetPromotionOperationSpec {
     /**
@@ -35,13 +44,27 @@ public class GetPromotionOperationSpec {
     private String promotionId;
 
     /**
-     * Constructs a validated implementation of {@link GetPromotionOperationSpec}.
+     * Constructs a validated instance of {@link GetPromotionOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public GetPromotionOperationSpec(Consumer<GetPromotionOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link GetPromotionOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param promotionId          Promotion Id for the promotion to be retrieved
+     */
+    @ApiStatus.Internal
+    public GetPromotionOperationSpec(String promotionId) {
+        this.promotionId = promotionId;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -54,5 +77,4 @@ public class GetPromotionOperationSpec {
     public void validate() {
         Objects.requireNonNull(promotionId, "promotionId is a required parameter!");
     }
-
 }

@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * InputForUpdateGatewayEndpoint
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "gatewayEndpoint",
     "newEndpointName",
@@ -29,16 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("InputForUpdateGatewayEndpoint")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class InputForUpdateGatewayEndpoint {
-
-    /**
-     * Constructs a validated implementation of {@link InputForUpdateGatewayEndpoint}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public InputForUpdateGatewayEndpoint(Consumer<InputForUpdateGatewayEndpoint> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Gateway endpoint value to be updated
@@ -58,5 +54,28 @@ public class InputForUpdateGatewayEndpoint {
     @JsonProperty("oldEndpointName")
     protected String oldEndpointName;
 
+    /**
+     * Constructs a validated instance of {@link InputForUpdateGatewayEndpoint}.
+     *
+     * @param spec the specification to process
+     */
+    public InputForUpdateGatewayEndpoint(Consumer<InputForUpdateGatewayEndpoint> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link InputForUpdateGatewayEndpoint}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputForUpdateGatewayEndpoint(Consumer)} instead.
+     * @param gatewayEndpoint Gateway endpoint value to be updated
+     * @param newEndpointName New name of the endpoint
+     * @param oldEndpointName Existing name of the endpoint
+     */
+    @ApiStatus.Internal
+    public InputForUpdateGatewayEndpoint(String gatewayEndpoint, String newEndpointName, String oldEndpointName) {
+        this.gatewayEndpoint = gatewayEndpoint;
+        this.newEndpointName = newEndpointName;
+        this.oldEndpointName = oldEndpointName;
+    }
 
 }

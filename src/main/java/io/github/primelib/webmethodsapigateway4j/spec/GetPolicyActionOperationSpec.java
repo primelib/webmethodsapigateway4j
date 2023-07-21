@@ -7,8 +7,13 @@ import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Policy;
 import io.github.primelib.webmethodsapigateway4j.model.PolicyAction;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -18,9 +23,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the GetPolicyAction operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GetPolicyActionOperationSpec {
     /**
@@ -36,13 +45,27 @@ public class GetPolicyActionOperationSpec {
     private String policyActionId;
 
     /**
-     * Constructs a validated implementation of {@link GetPolicyActionOperationSpec}.
+     * Constructs a validated instance of {@link GetPolicyActionOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public GetPolicyActionOperationSpec(Consumer<GetPolicyActionOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link GetPolicyActionOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param policyActionId       This path parameter is used to specify the policy action id which policy action details needs to retrieved.
+     */
+    @ApiStatus.Internal
+    public GetPolicyActionOperationSpec(String policyActionId) {
+        this.policyActionId = policyActionId;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -55,5 +78,4 @@ public class GetPolicyActionOperationSpec {
     public void validate() {
         Objects.requireNonNull(policyActionId, "policyActionId is a required parameter!");
     }
-
 }

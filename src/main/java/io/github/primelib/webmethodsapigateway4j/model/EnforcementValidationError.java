@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * EnforcementValidationError
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "allowedOccurrence",
     "conflictingTemplateId",
@@ -33,16 +40,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("EnforcementValidationError")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class EnforcementValidationError {
-
-    /**
-     * Constructs a validated implementation of {@link EnforcementValidationError}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public EnforcementValidationError(Consumer<EnforcementValidationError> spec) {
-        spec.accept(this);
-    }
 
     /**
      * This value will be populated when the error occurred due to occurrence of policy enforcement
@@ -80,6 +77,35 @@ public class EnforcementValidationError {
     @JsonProperty("templateId")
     protected String templateId;
 
+    /**
+     * Constructs a validated instance of {@link EnforcementValidationError}.
+     *
+     * @param spec the specification to process
+     */
+    public EnforcementValidationError(Consumer<EnforcementValidationError> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link EnforcementValidationError}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EnforcementValidationError(Consumer)} instead.
+     * @param allowedOccurrence This value will be populated when the error occurred due to occurrence of policy enforcement
+     * @param conflictingTemplateId This value will be populated when the error occurred due to mutually exclusive policy enforcement are available at the runtime enforcement of an API
+     * @param errorType The type of the policy enforcement validation error
+     * @param missingDependency The value of the list of missed policy enforcement which are dependent for this policy enforcement. This will be populated when the policy enforcement validation error occurred due to dependency missing
+     * @param policyActionName The name of the policy enforcement which is having the validation error
+     * @param templateId The template Id of the policy enforcement which is having the validation error
+     */
+    @ApiStatus.Internal
+    public EnforcementValidationError(AllowedOccurrenceEnum allowedOccurrence, String conflictingTemplateId, ErrorTypeEnum errorType, List<String> missingDependency, String policyActionName, String templateId) {
+        this.allowedOccurrence = allowedOccurrence;
+        this.conflictingTemplateId = conflictingTemplateId;
+        this.errorType = errorType;
+        this.missingDependency = missingDependency;
+        this.policyActionName = policyActionName;
+        this.templateId = templateId;
+    }
 
     /**
      * This value will be populated when the error occurred due to occurrence of policy enforcement

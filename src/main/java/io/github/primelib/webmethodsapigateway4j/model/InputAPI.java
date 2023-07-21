@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * InputAPI
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "apiDefinition",
     "apiDescription",
@@ -37,16 +43,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("InputAPI")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class InputAPI {
-
-    /**
-     * Constructs a validated implementation of {@link InputAPI}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public InputAPI(Consumer<InputAPI> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("apiDefinition")
     protected API apiDefinition;
@@ -87,5 +83,42 @@ public class InputAPI {
     @JsonProperty("url")
     protected String url;
 
+    /**
+     * Constructs a validated instance of {@link InputAPI}.
+     *
+     * @param spec the specification to process
+     */
+    public InputAPI(Consumer<InputAPI> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link InputAPI}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputAPI(Consumer)} instead.
+     * @param apiDefinition var.name
+     * @param apiDescription var.name
+     * @param apiName var.name
+     * @param apiVersion var.name
+     * @param authorizationValue var.name
+     * @param maturityState var.name
+     * @param rootFileName Required when creating an API by importing protected URL
+     * @param teams Contains teams to which the API must be assigned.
+     * @param type var.name
+     * @param url Required when creating an API by importing URL
+     */
+    @ApiStatus.Internal
+    public InputAPI(API apiDefinition, String apiDescription, String apiName, String apiVersion, AuthorizationValue authorizationValue, String maturityState, String rootFileName, List<Team> teams, String type, String url) {
+        this.apiDefinition = apiDefinition;
+        this.apiDescription = apiDescription;
+        this.apiName = apiName;
+        this.apiVersion = apiVersion;
+        this.authorizationValue = authorizationValue;
+        this.maturityState = maturityState;
+        this.rootFileName = rootFileName;
+        this.teams = teams;
+        this.type = type;
+        this.url = url;
+    }
 
 }

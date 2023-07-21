@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * GqlInterfaceTypeDefinition
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "comments",
     "directives",
@@ -38,16 +43,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class GqlInterfaceTypeDefinition {
 
     /**
-     * Constructs a validated implementation of {@link GqlInterfaceTypeDefinition}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public GqlInterfaceTypeDefinition(Consumer<GqlInterfaceTypeDefinition> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * List of comments
      */
     @JsonProperty("comments")
@@ -60,7 +55,7 @@ public class GqlInterfaceTypeDefinition {
     protected List<GqlDirective> directives;
 
     @JsonProperty("directivesByName")
-    protected Map<String, GqlDirective> directivesByName = new HashMap<>();
+    protected Map<String, GqlDirective> directivesByName;
 
     /**
      * Name of the interface type definition
@@ -80,5 +75,36 @@ public class GqlInterfaceTypeDefinition {
     @JsonProperty("implements")
     protected List<GqlType> _implements;
 
+    /**
+     * Constructs a validated instance of {@link GqlInterfaceTypeDefinition}.
+     *
+     * @param spec the specification to process
+     */
+    public GqlInterfaceTypeDefinition(Consumer<GqlInterfaceTypeDefinition> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link GqlInterfaceTypeDefinition}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlInterfaceTypeDefinition(Consumer)} instead.
+     * @param comments List of comments
+     * @param directives List of directives
+     * @param directivesByName var.name
+     * @param name Name of the interface type definition
+     * @param description var.name
+     * @param fieldDefinitions List of field definitions
+     * @param _implements var.name
+     */
+    @ApiStatus.Internal
+    public GqlInterfaceTypeDefinition(List<GqlComment> comments, List<GqlDirective> directives, Map<String, GqlDirective> directivesByName, String name, GqlDescription description, List<GqlFieldDefinition> fieldDefinitions, List<GqlType> _implements) {
+        this.comments = comments;
+        this.directives = directives;
+        this.directivesByName = directivesByName;
+        this.name = name;
+        this.description = description;
+        this.fieldDefinitions = fieldDefinitions;
+        this._implements = _implements;
+    }
 
 }

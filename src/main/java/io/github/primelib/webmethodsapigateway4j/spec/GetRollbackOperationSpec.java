@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Rollback;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the GetRollback operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GetRollbackOperationSpec {
     /**
@@ -35,13 +44,27 @@ public class GetRollbackOperationSpec {
     private String rollbackId;
 
     /**
-     * Constructs a validated implementation of {@link GetRollbackOperationSpec}.
+     * Constructs a validated instance of {@link GetRollbackOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public GetRollbackOperationSpec(Consumer<GetRollbackOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link GetRollbackOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param rollbackId           Rollback Id for the rollback to be retrieved
+     */
+    @ApiStatus.Internal
+    public GetRollbackOperationSpec(String rollbackId) {
+        this.rollbackId = rollbackId;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -54,5 +77,4 @@ public class GetRollbackOperationSpec {
     public void validate() {
         Objects.requireNonNull(rollbackId, "rollbackId is a required parameter!");
     }
-
 }

@@ -3,13 +3,16 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * SecurityScheme
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "bearerFormat",
     "description",
@@ -38,16 +44,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("SecurityScheme")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SecurityScheme {
-
-    /**
-     * Constructs a validated implementation of {@link SecurityScheme}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public SecurityScheme(Consumer<SecurityScheme> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("bearerFormat")
     protected String bearerFormat;
@@ -77,8 +73,45 @@ public class SecurityScheme {
     protected TypeEnum type;
 
     @JsonProperty("vendorExtensions")
-    protected Map<String, Object> vendorExtensions = new HashMap<>();
+    protected Map<String, Object> vendorExtensions;
 
+    /**
+     * Constructs a validated instance of {@link SecurityScheme}.
+     *
+     * @param spec the specification to process
+     */
+    public SecurityScheme(Consumer<SecurityScheme> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link SecurityScheme}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SecurityScheme(Consumer)} instead.
+     * @param bearerFormat var.name
+     * @param description var.name
+     * @param flows var.name
+     * @param get$ref var.name
+     * @param in var.name
+     * @param name var.name
+     * @param openIdConnectUrl var.name
+     * @param scheme var.name
+     * @param type var.name
+     * @param vendorExtensions var.name
+     */
+    @ApiStatus.Internal
+    public SecurityScheme(String bearerFormat, String description, OAuthFlows flows, String get$ref, InEnum in, String name, String openIdConnectUrl, String scheme, TypeEnum type, Map<String, Object> vendorExtensions) {
+        this.bearerFormat = bearerFormat;
+        this.description = description;
+        this.flows = flows;
+        this.get$ref = get$ref;
+        this.in = in;
+        this.name = name;
+        this.openIdConnectUrl = openIdConnectUrl;
+        this.scheme = scheme;
+        this.type = type;
+        this.vendorExtensions = vendorExtensions;
+    }
 
     @AllArgsConstructor
     public enum InEnum {

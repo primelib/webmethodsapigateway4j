@@ -7,8 +7,13 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Policy;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -18,9 +23,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the UpdatePolicyByID operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class UpdatePolicyByIDOperationSpec {
     /**
@@ -41,13 +50,29 @@ public class UpdatePolicyByIDOperationSpec {
     private Policy body;
 
     /**
-     * Constructs a validated implementation of {@link UpdatePolicyByIDOperationSpec}.
+     * Constructs a validated instance of {@link UpdatePolicyByIDOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public UpdatePolicyByIDOperationSpec(Consumer<UpdatePolicyByIDOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link UpdatePolicyByIDOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param policyId             This path parameter is used to specify the policy id that needs to be updated.
+     * @param body                 
+     */
+    @ApiStatus.Internal
+    public UpdatePolicyByIDOperationSpec(String policyId, Policy body) {
+        this.policyId = policyId;
+        this.body = body;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -60,5 +85,4 @@ public class UpdatePolicyByIDOperationSpec {
     public void validate() {
         Objects.requireNonNull(policyId, "policyId is a required parameter!");
     }
-
 }

@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * IntegrationServer
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "Adapter Runtime",
     "Clustering",
@@ -37,16 +43,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("IntegrationServer")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class IntegrationServer {
-
-    /**
-     * Constructs a validated implementation of {@link IntegrationServer}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public IntegrationServer(Consumer<IntegrationServer> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("Adapter Runtime")
     protected String adapterRuntime;
@@ -81,5 +77,44 @@ public class IntegrationServer {
     @JsonProperty("Security Auditing")
     protected String securityAuditing;
 
+    /**
+     * Constructs a validated instance of {@link IntegrationServer}.
+     *
+     * @param spec the specification to process
+     */
+    public IntegrationServer(Consumer<IntegrationServer> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link IntegrationServer}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IntegrationServer(Consumer)} instead.
+     * @param adapterRuntime var.name
+     * @param clustering var.name
+     * @param concurrentSessions var.name
+     * @param distributedCache var.name
+     * @param enterpriseGateway var.name
+     * @param guaranteedDelivery var.name
+     * @param productCode var.name
+     * @param productVersion var.name
+     * @param publishSubscribe var.name
+     * @param remoteInvoke var.name
+     * @param securityAuditing var.name
+     */
+    @ApiStatus.Internal
+    public IntegrationServer(String adapterRuntime, String clustering, String concurrentSessions, String distributedCache, String enterpriseGateway, String guaranteedDelivery, String productCode, String productVersion, String publishSubscribe, String remoteInvoke, String securityAuditing) {
+        this.adapterRuntime = adapterRuntime;
+        this.clustering = clustering;
+        this.concurrentSessions = concurrentSessions;
+        this.distributedCache = distributedCache;
+        this.enterpriseGateway = enterpriseGateway;
+        this.guaranteedDelivery = guaranteedDelivery;
+        this.productCode = productCode;
+        this.productVersion = productVersion;
+        this.publishSubscribe = publishSubscribe;
+        this.remoteInvoke = remoteInvoke;
+        this.securityAuditing = securityAuditing;
+    }
 
 }

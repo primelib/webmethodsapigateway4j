@@ -3,14 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -20,11 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * SAMLIssuerAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "appliesTo",
     "assertionId",
@@ -45,16 +47,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class SAMLIssuerAlias extends Alias {
 
     /**
-     * Constructs a validated implementation of {@link SAMLIssuerAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public SAMLIssuerAlias(Consumer<SAMLIssuerAlias> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * Specify the scope for which this security token is required
      */
     @JsonProperty("appliesTo")
@@ -73,7 +65,7 @@ public class SAMLIssuerAlias extends Alias {
      * Extensions to the &amp;lt;wst:RequestSecurityToken&amp;gt; element for requesting specific types of keys, algorithms, or key and algorithms, as specified by a given policy in the return token(s)
      */
     @JsonProperty("extendedParameters")
-    protected Map<String, String> extendedParameters = new HashMap<>();
+    protected Map<String, String> extendedParameters;
 
     /**
      * Mode of communication
@@ -120,6 +112,50 @@ public class SAMLIssuerAlias extends Alias {
     @JsonProperty("wssCredentials")
     protected WssCredentials wssCredentials;
 
+    /**
+     * Constructs a validated instance of {@link SAMLIssuerAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public SAMLIssuerAlias(Consumer<SAMLIssuerAlias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link SAMLIssuerAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SAMLIssuerAlias(Consumer)} instead.
+     * @param appliesTo Specify the scope for which this security token is required
+     * @param assertionId var.name
+     * @param endpoint The endpoint URI of the STS
+     * @param extendedParameters Extensions to the &amp;lt;wst:RequestSecurityToken&amp;gt; element for requesting specific types of keys, algorithms, or key and algorithms, as specified by a given policy in the return token(s)
+     * @param issuerAuthMode Mode of communication
+     * @param issuerAuthScheme The authentication type used for communicating to STS
+     * @param issuerCommunicationMode Mode of communication to the STS
+     * @param issuerPolicy The webMethods Integration Server service name
+     * @param kerberosCredentials var.name
+     * @param samlVersion SAML version to be used for authentication
+     * @param signAndEncryptConfig var.name
+     * @param wsTrustVersion WS-Trust version that API Gateway must use to send the RST to the SAML issuer
+     * @param wssCredentials var.name
+     */
+    @ApiStatus.Internal
+    public SAMLIssuerAlias(String appliesTo, String assertionId, String endpoint, Map<String, String> extendedParameters, IssuerAuthModeEnum issuerAuthMode, IssuerAuthSchemeEnum issuerAuthScheme, IssuerCommunicationModeEnum issuerCommunicationMode, String issuerPolicy, KerberosCredentials kerberosCredentials, SamlVersionEnum samlVersion, SignAndEncryptConfig signAndEncryptConfig, WsTrustVersionEnum wsTrustVersion, WssCredentials wssCredentials) {
+        this.appliesTo = appliesTo;
+        this.assertionId = assertionId;
+        this.endpoint = endpoint;
+        this.extendedParameters = extendedParameters;
+        this.issuerAuthMode = issuerAuthMode;
+        this.issuerAuthScheme = issuerAuthScheme;
+        this.issuerCommunicationMode = issuerCommunicationMode;
+        this.issuerPolicy = issuerPolicy;
+        this.kerberosCredentials = kerberosCredentials;
+        this.samlVersion = samlVersion;
+        this.signAndEncryptConfig = signAndEncryptConfig;
+        this.wsTrustVersion = wsTrustVersion;
+        this.wssCredentials = wssCredentials;
+    }
 
     /**
      * Mode of communication

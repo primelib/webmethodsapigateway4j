@@ -3,11 +3,12 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +19,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * JMSProviderAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "deliveryMode",
     "includeConnFactoryName",
@@ -36,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("JMSProviderAlias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class JMSProviderAlias extends WebserviceEndpointAlias {
-
-    /**
-     * Constructs a validated implementation of {@link JMSProviderAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public JMSProviderAlias(Consumer<JMSProviderAlias> spec) {
-        spec.accept(this);
-    }
 
     /**
      * This property specifies the deliveryMode
@@ -95,5 +87,39 @@ public class JMSProviderAlias extends WebserviceEndpointAlias {
     @JsonProperty("timeToLive")
     protected Long timeToLive;
 
+    /**
+     * Constructs a validated instance of {@link JMSProviderAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public JMSProviderAlias(Consumer<JMSProviderAlias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link JMSProviderAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #JMSProviderAlias(Consumer)} instead.
+     * @param deliveryMode This property specifies the deliveryMode
+     * @param includeConnFactoryName This property enables/disables the includeConnFactoryName parameter
+     * @param includeJNDIParams This property enables/disables the includeJNDIParams parameter
+     * @param jmsTriggerName This property specifies the JMS Trigger name
+     * @param priority This property specifies priority value
+     * @param replyToDestName This property specifies the replyToDestName name
+     * @param replyToDestType This property specifies the replyToDestType type
+     * @param timeToLive This property specifies the timeToLive value
+     */
+    @ApiStatus.Internal
+    public JMSProviderAlias(String deliveryMode, String includeConnFactoryName, String includeJNDIParams, String jmsTriggerName, Integer priority, String replyToDestName, String replyToDestType, Long timeToLive) {
+        this.deliveryMode = deliveryMode;
+        this.includeConnFactoryName = includeConnFactoryName;
+        this.includeJNDIParams = includeJNDIParams;
+        this.jmsTriggerName = jmsTriggerName;
+        this.priority = priority;
+        this.replyToDestName = replyToDestName;
+        this.replyToDestType = replyToDestType;
+        this.timeToLive = timeToLive;
+    }
 
 }

@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Attribute
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "attributeName",
     "operation",
@@ -29,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("Attribute")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Attribute {
-
-    /**
-     * Constructs a validated implementation of {@link Attribute}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Attribute(Consumer<Attribute> spec) {
-        spec.accept(this);
-    }
 
     /**
      * The field name on which needs to be satisfied by the APIs.
@@ -58,6 +55,29 @@ public class Attribute {
     @JsonProperty("value")
     protected String value;
 
+    /**
+     * Constructs a validated instance of {@link Attribute}.
+     *
+     * @param spec the specification to process
+     */
+    public Attribute(Consumer<Attribute> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Attribute}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Attribute(Consumer)} instead.
+     * @param attributeName The field name on which needs to be satisfied by the APIs.
+     * @param operation Operation that needs to performed on the field specified.
+     * @param value Value the needs to processed on the field and operation specified.
+     */
+    @ApiStatus.Internal
+    public Attribute(AttributeNameEnum attributeName, OperationEnum operation, String value) {
+        this.attributeName = attributeName;
+        this.operation = operation;
+        this.value = value;
+    }
 
     /**
      * The field name on which needs to be satisfied by the APIs.

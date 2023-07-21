@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * GqlUnionTypeExtensionDefinition
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "comments",
     "description",
@@ -35,16 +40,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("GqlUnionTypeExtensionDefinition")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GqlUnionTypeExtensionDefinition {
-
-    /**
-     * Constructs a validated implementation of {@link GqlUnionTypeExtensionDefinition}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public GqlUnionTypeExtensionDefinition(Consumer<GqlUnionTypeExtensionDefinition> spec) {
-        spec.accept(this);
-    }
 
     /**
      * List of comments
@@ -62,7 +57,7 @@ public class GqlUnionTypeExtensionDefinition {
     protected List<GqlDirective> directives;
 
     @JsonProperty("directivesByName")
-    protected Map<String, GqlDirective> directivesByName = new HashMap<>();
+    protected Map<String, GqlDirective> directivesByName;
 
     /**
      * The list union types
@@ -76,5 +71,34 @@ public class GqlUnionTypeExtensionDefinition {
     @JsonProperty("name")
     protected String name;
 
+    /**
+     * Constructs a validated instance of {@link GqlUnionTypeExtensionDefinition}.
+     *
+     * @param spec the specification to process
+     */
+    public GqlUnionTypeExtensionDefinition(Consumer<GqlUnionTypeExtensionDefinition> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link GqlUnionTypeExtensionDefinition}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlUnionTypeExtensionDefinition(Consumer)} instead.
+     * @param comments List of comments
+     * @param description var.name
+     * @param directives List of directives
+     * @param directivesByName var.name
+     * @param memberTypes The list union types
+     * @param name Name of the union type definition
+     */
+    @ApiStatus.Internal
+    public GqlUnionTypeExtensionDefinition(List<GqlComment> comments, GqlDescription description, List<GqlDirective> directives, Map<String, GqlDirective> directivesByName, List<GqlType> memberTypes, String name) {
+        this.comments = comments;
+        this.description = description;
+        this.directives = directives;
+        this.directivesByName = directivesByName;
+        this.memberTypes = memberTypes;
+        this.name = name;
+    }
 
 }

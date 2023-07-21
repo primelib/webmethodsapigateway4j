@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ElasticsearchConfig
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "password",
     "url",
@@ -29,16 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ElasticsearchConfig")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ElasticsearchConfig {
-
-    /**
-     * Constructs a validated implementation of {@link ElasticsearchConfig}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ElasticsearchConfig(Consumer<ElasticsearchConfig> spec) {
-        spec.accept(this);
-    }
 
     /**
      * The password required to authenticate if authentication is enabled for the source Elasticsearch instance.
@@ -58,5 +54,28 @@ public class ElasticsearchConfig {
     @JsonProperty("username")
     protected String username;
 
+    /**
+     * Constructs a validated instance of {@link ElasticsearchConfig}.
+     *
+     * @param spec the specification to process
+     */
+    public ElasticsearchConfig(Consumer<ElasticsearchConfig> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ElasticsearchConfig}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ElasticsearchConfig(Consumer)} instead.
+     * @param password The password required to authenticate if authentication is enabled for the source Elasticsearch instance.
+     * @param url The source Elasticsearch instance URL
+     * @param username The user name required to authenticate against if authentication is enabled for the source Elasticsearch instance.
+     */
+    @ApiStatus.Internal
+    public ElasticsearchConfig(String password, String url, String username) {
+        this.password = password;
+        this.url = url;
+        this.username = username;
+    }
 
 }

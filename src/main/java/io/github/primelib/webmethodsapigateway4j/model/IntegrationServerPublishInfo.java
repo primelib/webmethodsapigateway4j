@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * IntegrationServerPublishInfo
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "apiName",
     "contentModelComplianceForWSDL",
@@ -41,16 +48,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("IntegrationServerPublishInfo")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class IntegrationServerPublishInfo {
-
-    /**
-     * Constructs a validated implementation of {@link IntegrationServerPublishInfo}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public IntegrationServerPublishInfo(Consumer<IntegrationServerPublishInfo> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("apiName")
     protected String apiName;
@@ -103,6 +100,51 @@ public class IntegrationServerPublishInfo {
     @JsonProperty("validateSchemaWithXerces")
     protected Boolean validateSchemaWithXerces;
 
+    /**
+     * Constructs a validated instance of {@link IntegrationServerPublishInfo}.
+     *
+     * @param spec the specification to process
+     */
+    public IntegrationServerPublishInfo(Consumer<IntegrationServerPublishInfo> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link IntegrationServerPublishInfo}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IntegrationServerPublishInfo(Consumer)} instead.
+     * @param apiName var.name
+     * @param contentModelComplianceForWSDL var.name
+     * @param enableMTOM var.name
+     * @param enforceWSICompliance var.name
+     * @param folderName Name of the folder under the package (mentioned on 'packageName' property) in which the API to be published. This field is required.
+     * @param importSwaggerBasedOnTags var.name
+     * @param integrationServerId Uddi key of the integration server created in API Gateway. This field is required.
+     * @param integrationServerName var.name
+     * @param packageAndFolders var.name
+     * @param packageName Name of the package in the integration server in which the API to be published. This field is required.
+     * @param skipCustomScalarTypes var.name
+     * @param status var.name
+     * @param updateNativeEndpointsOfAPI var.name
+     * @param validateSchemaWithXerces var.name
+     */
+    @ApiStatus.Internal
+    public IntegrationServerPublishInfo(String apiName, String contentModelComplianceForWSDL, Boolean enableMTOM, Boolean enforceWSICompliance, String folderName, Boolean importSwaggerBasedOnTags, String integrationServerId, String integrationServerName, List<PackageFolderPair> packageAndFolders, String packageName, Boolean skipCustomScalarTypes, StatusEnum status, Boolean updateNativeEndpointsOfAPI, Boolean validateSchemaWithXerces) {
+        this.apiName = apiName;
+        this.contentModelComplianceForWSDL = contentModelComplianceForWSDL;
+        this.enableMTOM = enableMTOM;
+        this.enforceWSICompliance = enforceWSICompliance;
+        this.folderName = folderName;
+        this.importSwaggerBasedOnTags = importSwaggerBasedOnTags;
+        this.integrationServerId = integrationServerId;
+        this.integrationServerName = integrationServerName;
+        this.packageAndFolders = packageAndFolders;
+        this.packageName = packageName;
+        this.skipCustomScalarTypes = skipCustomScalarTypes;
+        this.status = status;
+        this.updateNativeEndpointsOfAPI = updateNativeEndpointsOfAPI;
+        this.validateSchemaWithXerces = validateSchemaWithXerces;
+    }
 
     @AllArgsConstructor
     public enum StatusEnum {

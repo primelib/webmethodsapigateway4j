@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * OneOfStrategyModel
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "JWT_HSA",
     "JWT_RSA",
@@ -33,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("OneOfStrategyModel")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class OneOfStrategyModel {
-
-    /**
-     * Constructs a validated implementation of {@link OneOfStrategyModel}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public OneOfStrategyModel(Consumer<OneOfStrategyModel> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("JWT_HSA")
     protected JWTHSAuthStrategy JWT_HSA;
@@ -65,5 +61,36 @@ public class OneOfStrategyModel {
     @JsonProperty("OPENID_CONNECT_RSA")
     protected OAuth2LocalRSIntrospectionStrategy OPENID_CONNECT_RSA;
 
+    /**
+     * Constructs a validated instance of {@link OneOfStrategyModel}.
+     *
+     * @param spec the specification to process
+     */
+    public OneOfStrategyModel(Consumer<OneOfStrategyModel> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link OneOfStrategyModel}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OneOfStrategyModel(Consumer)} instead.
+     * @param JWT_HSA var.name
+     * @param JWT_RSA var.name
+     * @param OAUTH2 var.name
+     * @param OAUTH2_LOCAL_HSA var.name
+     * @param OAUTH2_LOCAL_RSA var.name
+     * @param OPENID_CONNECT_HSA var.name
+     * @param OPENID_CONNECT_RSA var.name
+     */
+    @ApiStatus.Internal
+    public OneOfStrategyModel(JWTHSAuthStrategy JWT_HSA, JWTRSAuthStrategy JWT_RSA, OAuth2RemoteIntrospectionAuthStrategy OAUTH2, OpenIDConnectHSAuthStrategy OAUTH2_LOCAL_HSA, OpenIDConnectRSAuthStrategy OAUTH2_LOCAL_RSA, OAuth2LocalHSIntrospectionStrategy OPENID_CONNECT_HSA, OAuth2LocalRSIntrospectionStrategy OPENID_CONNECT_RSA) {
+        this.JWT_HSA = JWT_HSA;
+        this.JWT_RSA = JWT_RSA;
+        this.OAUTH2 = OAUTH2;
+        this.OAUTH2_LOCAL_HSA = OAUTH2_LOCAL_HSA;
+        this.OAUTH2_LOCAL_RSA = OAUTH2_LOCAL_RSA;
+        this.OPENID_CONNECT_HSA = OPENID_CONNECT_HSA;
+        this.OPENID_CONNECT_RSA = OPENID_CONNECT_RSA;
+    }
 
 }

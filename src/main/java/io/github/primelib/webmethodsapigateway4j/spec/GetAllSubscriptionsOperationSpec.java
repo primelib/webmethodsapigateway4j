@@ -4,8 +4,13 @@ import org.jetbrains.annotations.ApiStatus;
 import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -15,9 +20,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the GetAllSubscriptions operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GetAllSubscriptionsOperationSpec {
     /**
@@ -39,7 +48,7 @@ public class GetAllSubscriptionsOperationSpec {
     private String planId;
 
     /**
-     * Constructs a validated implementation of {@link GetAllSubscriptionsOperationSpec}.
+     * Constructs a validated instance of {@link GetAllSubscriptionsOperationSpec}.
      *
      * @param spec the specification to process
      */
@@ -51,11 +60,26 @@ public class GetAllSubscriptionsOperationSpec {
     }
 
     /**
+     * Constructs a validated instance of {@link GetAllSubscriptionsOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param packageId            Specify the package id for which the subscription details is requested
+     * @param planId               Specify the plan id for which the subscription details is requested
+     */
+    @ApiStatus.Internal
+    public GetAllSubscriptionsOperationSpec(String packageId, String planId) {
+        this.packageId = packageId;
+        this.planId = planId;
+
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
      * Validates the Spec, will throw a exception if required parameters are missing
      *
      * @throws NullPointerException
      */
     public void validate() {
     }
-
 }

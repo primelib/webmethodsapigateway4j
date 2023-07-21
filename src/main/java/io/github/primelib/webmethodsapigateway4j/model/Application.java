@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -21,10 +23,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Application
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "accessTokens",
     "applicationID",
@@ -51,16 +56,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("Application")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Application {
-
-    /**
-     * Constructs a validated implementation of {@link Application}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Application(Consumer<Application> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("accessTokens")
     protected ApplicationToken accessTokens;
@@ -93,7 +88,7 @@ public class Application {
      * list of all custom fields
      */
     @JsonProperty("customFields")
-    protected Map<String, Object> customFields = new HashMap<>();
+    protected Map<String, Object> customFields;
 
     /**
      * description of the application
@@ -173,5 +168,64 @@ public class Application {
     @JsonProperty("version")
     protected String version;
 
+    /**
+     * Constructs a validated instance of {@link Application}.
+     *
+     * @param spec the specification to process
+     */
+    public Application(Consumer<Application> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Application}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Application(Consumer)} instead.
+     * @param accessTokens var.name
+     * @param applicationID unique identifier of an application
+     * @param authStrategyIds Contains a list of JWT/Oauth/OpenID authentication strategy ids associated to the application
+     * @param contactEmails list of email contacts
+     * @param creationDate application creation time
+     * @param customFields list of all custom fields
+     * @param description description of the application
+     * @param iconbyteArray application icon byte array
+     * @param identifiers list of all application identifiers
+     * @param isSuspended holds the suspended state of an application
+     * @param jsOrigins list of all javascript origins
+     * @param lastModified last modified time of the application
+     * @param lastUpdated last modified time of the application in milliseconds
+     * @param name name of the application
+     * @param owner owner of the application
+     * @param ownerType The application's owner type can be user or a team. By default, its the user who created the application.
+     * @param primaryNode var.name
+     * @param shell var.name
+     * @param siteURLs list of all site URLs
+     * @param subscription var.name
+     * @param version var.name
+     */
+    @ApiStatus.Internal
+    public Application(ApplicationToken accessTokens, String applicationID, Set<String> authStrategyIds, List<String> contactEmails, String creationDate, Map<String, Object> customFields, String description, String iconbyteArray, List<ApplicationIdentifier> identifiers, Boolean isSuspended, List<String> jsOrigins, String lastModified, Long lastUpdated, String name, String owner, String ownerType, Node primaryNode, Boolean shell, List<String> siteURLs, Boolean subscription, String version) {
+        this.accessTokens = accessTokens;
+        this.applicationID = applicationID;
+        this.authStrategyIds = authStrategyIds;
+        this.contactEmails = contactEmails;
+        this.creationDate = creationDate;
+        this.customFields = customFields;
+        this.description = description;
+        this.iconbyteArray = iconbyteArray;
+        this.identifiers = identifiers;
+        this.isSuspended = isSuspended;
+        this.jsOrigins = jsOrigins;
+        this.lastModified = lastModified;
+        this.lastUpdated = lastUpdated;
+        this.name = name;
+        this.owner = owner;
+        this.ownerType = ownerType;
+        this.primaryNode = primaryNode;
+        this.shell = shell;
+        this.siteURLs = siteURLs;
+        this.subscription = subscription;
+        this.version = version;
+    }
 
 }

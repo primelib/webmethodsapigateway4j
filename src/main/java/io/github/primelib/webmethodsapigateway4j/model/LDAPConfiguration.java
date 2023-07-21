@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * LDAPConfiguration
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "cacheSize",
     "cacheTTL",
@@ -32,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("LDAPConfiguration")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class LDAPConfiguration {
-
-    /**
-     * Constructs a validated implementation of {@link LDAPConfiguration}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public LDAPConfiguration(Consumer<LDAPConfiguration> spec) {
-        spec.accept(this);
-    }
 
     /**
      * The maximum number of LDAP users Integration Server can keep in memory in the user cache. The default is 10.
@@ -70,5 +66,32 @@ public class LDAPConfiguration {
     @JsonProperty("provider")
     protected String provider;
 
+    /**
+     * Constructs a validated instance of {@link LDAPConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    public LDAPConfiguration(Consumer<LDAPConfiguration> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link LDAPConfiguration}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LDAPConfiguration(Consumer)} instead.
+     * @param cacheSize The maximum number of LDAP users Integration Server can keep in memory in the user cache. The default is 10.
+     * @param cacheTTL The number of minutes an LDAP user's credentials (userid and password) can remain in the credential cache before being purged. The default is 60 minutes.
+     * @param cdsRunning var.name
+     * @param ldapDirectoryList List of LDAP directories. This field is applicable when LDAP provider is chosen.
+     * @param provider Choose the authentication provider. Possible values are 'local' and 'LDAP' 
+     */
+    @ApiStatus.Internal
+    public LDAPConfiguration(String cacheSize, String cacheTTL, Boolean cdsRunning, List<LDAPDirectory> ldapDirectoryList, String provider) {
+        this.cacheSize = cacheSize;
+        this.cacheTTL = cacheTTL;
+        this.cdsRunning = cdsRunning;
+        this.ldapDirectoryList = ldapDirectoryList;
+        this.provider = provider;
+    }
 
 }

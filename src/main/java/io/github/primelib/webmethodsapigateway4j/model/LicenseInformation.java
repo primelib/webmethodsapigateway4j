@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * LicenseInformation
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "ExtendedRights",
     "LicenseType",
@@ -33,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("LicenseInformation")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class LicenseInformation {
-
-    /**
-     * Constructs a validated implementation of {@link LicenseInformation}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public LicenseInformation(Consumer<LicenseInformation> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("ExtendedRights")
     protected String extendedRights;
@@ -65,5 +61,36 @@ public class LicenseInformation {
     @JsonProperty("TypeOfInstallation")
     protected String typeOfInstallation;
 
+    /**
+     * Constructs a validated instance of {@link LicenseInformation}.
+     *
+     * @param spec the specification to process
+     */
+    public LicenseInformation(Consumer<LicenseInformation> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link LicenseInformation}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LicenseInformation(Consumer)} instead.
+     * @param extendedRights var.name
+     * @param licenseType var.name
+     * @param licenseVersion var.name
+     * @param metering var.name
+     * @param priceQuantity var.name
+     * @param priceUnit var.name
+     * @param typeOfInstallation var.name
+     */
+    @ApiStatus.Internal
+    public LicenseInformation(String extendedRights, String licenseType, String licenseVersion, String metering, String priceQuantity, String priceUnit, String typeOfInstallation) {
+        this.extendedRights = extendedRights;
+        this.licenseType = licenseType;
+        this.licenseVersion = licenseVersion;
+        this.metering = metering;
+        this.priceQuantity = priceQuantity;
+        this.priceUnit = priceUnit;
+        this.typeOfInstallation = typeOfInstallation;
+    }
 
 }

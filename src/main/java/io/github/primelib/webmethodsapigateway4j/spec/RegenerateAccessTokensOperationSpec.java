@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.AccessTokensTypeModel;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the RegenerateAccessTokens operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class RegenerateAccessTokensOperationSpec {
     /**
@@ -41,13 +50,29 @@ public class RegenerateAccessTokensOperationSpec {
     private AccessTokensTypeModel body;
 
     /**
-     * Constructs a validated implementation of {@link RegenerateAccessTokensOperationSpec}.
+     * Constructs a validated instance of {@link RegenerateAccessTokensOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public RegenerateAccessTokensOperationSpec(Consumer<RegenerateAccessTokensOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link RegenerateAccessTokensOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param applicationId        This parameter specifies the ID of an application for generating the access Tokens in API Gateway.
+     * @param body                 This parameter specifies the type of token to be regenerated.
+     */
+    @ApiStatus.Internal
+    public RegenerateAccessTokensOperationSpec(String applicationId, AccessTokensTypeModel body) {
+        this.applicationId = applicationId;
+        this.body = body;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -61,5 +86,4 @@ public class RegenerateAccessTokensOperationSpec {
         Objects.requireNonNull(applicationId, "applicationId is a required parameter!");
         Objects.requireNonNull(body, "body is a required parameter!");
     }
-
 }

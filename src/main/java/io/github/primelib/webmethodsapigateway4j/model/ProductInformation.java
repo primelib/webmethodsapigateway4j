@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ProductInformation
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "Expiration Date",
     "HigherLevPosNr",
@@ -37,16 +43,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ProductInformation")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ProductInformation {
-
-    /**
-     * Constructs a validated implementation of {@link ProductInformation}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ProductInformation(Consumer<ProductInformation> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("Expiration Date")
     protected String expirationDate;
@@ -81,5 +77,44 @@ public class ProductInformation {
     @JsonProperty("Usage")
     protected String usage;
 
+    /**
+     * Constructs a validated instance of {@link ProductInformation}.
+     *
+     * @param spec the specification to process
+     */
+    public ProductInformation(Consumer<ProductInformation> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ProductInformation}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ProductInformation(Consumer)} instead.
+     * @param expirationDate var.name
+     * @param higherLevPosNr var.name
+     * @param higherLevProdCode var.name
+     * @param higherLevProdName var.name
+     * @param operatingSystem var.name
+     * @param productCode var.name
+     * @param productID var.name
+     * @param productName var.name
+     * @param productVersion var.name
+     * @param renewalDate var.name
+     * @param usage var.name
+     */
+    @ApiStatus.Internal
+    public ProductInformation(String expirationDate, String higherLevPosNr, String higherLevProdCode, String higherLevProdName, String operatingSystem, String productCode, String productID, String productName, String productVersion, String renewalDate, String usage) {
+        this.expirationDate = expirationDate;
+        this.higherLevPosNr = higherLevPosNr;
+        this.higherLevProdCode = higherLevProdCode;
+        this.higherLevProdName = higherLevProdName;
+        this.operatingSystem = operatingSystem;
+        this.productCode = productCode;
+        this.productID = productID;
+        this.productName = productName;
+        this.productVersion = productVersion;
+        this.renewalDate = renewalDate;
+        this.usage = usage;
+    }
 
 }

@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AssertionConfiguration
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "Assertion element",
     "Assertion name",
@@ -30,16 +37,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("AssertionConfiguration")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class AssertionConfiguration {
-
-    /**
-     * Constructs a validated implementation of {@link AssertionConfiguration}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public AssertionConfiguration(Consumer<AssertionConfiguration> spec) {
-        spec.accept(this);
-    }
 
     /**
      * XML element which represents the assertion
@@ -65,6 +62,31 @@ public class AssertionConfiguration {
     @JsonProperty("assertionId")
     protected String assertionId;
 
+    /**
+     * Constructs a validated instance of {@link AssertionConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    public AssertionConfiguration(Consumer<AssertionConfiguration> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link AssertionConfiguration}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AssertionConfiguration(Consumer)} instead.
+     * @param assertionElement XML element which represents the assertion
+     * @param assertionName Name of the assertion
+     * @param assertionType Type of assertion(tokenAssertion/bindingAssertion)
+     * @param assertionId A unique ID for the assertion
+     */
+    @ApiStatus.Internal
+    public AssertionConfiguration(String assertionElement, String assertionName, AssertionTypeEnum assertionType, String assertionId) {
+        this.assertionElement = assertionElement;
+        this.assertionName = assertionName;
+        this.assertionType = assertionType;
+        this.assertionId = assertionId;
+    }
 
     /**
      * Type of assertion(tokenAssertion/bindingAssertion)

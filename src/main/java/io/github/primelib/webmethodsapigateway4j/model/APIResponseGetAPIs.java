@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * APIResponseGetAPIs
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "active",
     "apiId",
@@ -38,16 +45,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("APIResponseGetAPIs")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class APIResponseGetAPIs {
-
-    /**
-     * Constructs a validated implementation of {@link APIResponseGetAPIs}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public APIResponseGetAPIs(Consumer<APIResponseGetAPIs> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("active")
     protected Boolean active;
@@ -103,6 +100,45 @@ public class APIResponseGetAPIs {
     @JsonProperty("type")
     protected String type;
 
+    /**
+     * Constructs a validated instance of {@link APIResponseGetAPIs}.
+     *
+     * @param spec the specification to process
+     */
+    public APIResponseGetAPIs(Consumer<APIResponseGetAPIs> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link APIResponseGetAPIs}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGetAPIs(Consumer)} instead.
+     * @param active var.name
+     * @param apiId var.name
+     * @param apiName API Name
+     * @param apiVersion API Version
+     * @param errorReason var.name
+     * @param id API Id
+     * @param publishedPortals Published portals of an API
+     * @param responseStatus var.name
+     * @param systemVersion System version of an API
+     * @param teams Contains teams belonging to an API.
+     * @param type API Type
+     */
+    @ApiStatus.Internal
+    public APIResponseGetAPIs(Boolean active, String apiId, String apiName, String apiVersion, String errorReason, String id, List<String> publishedPortals, ResponseStatusEnum responseStatus, Integer systemVersion, List<Team> teams, String type) {
+        this.active = active;
+        this.apiId = apiId;
+        this.apiName = apiName;
+        this.apiVersion = apiVersion;
+        this.errorReason = errorReason;
+        this.id = id;
+        this.publishedPortals = publishedPortals;
+        this.responseStatus = responseStatus;
+        this.systemVersion = systemVersion;
+        this.teams = teams;
+        this.type = type;
+    }
 
     @AllArgsConstructor
     public enum ResponseStatusEnum {

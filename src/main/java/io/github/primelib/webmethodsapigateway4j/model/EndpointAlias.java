@@ -3,11 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * EndpointAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "connectionTimeout",
     "endPointURI",
@@ -36,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("EndpointAlias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class EndpointAlias extends Alias {
-
-    /**
-     * Constructs a validated implementation of {@link EndpointAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public EndpointAlias(Consumer<EndpointAlias> spec) {
-        spec.accept(this);
-    }
 
     /**
      * time interval (in seconds) after which a connection attempt times out
@@ -95,6 +88,40 @@ public class EndpointAlias extends Alias {
     @JsonProperty("truststoreAlias")
     protected String truststoreAlias;
 
+    /**
+     * Constructs a validated instance of {@link EndpointAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public EndpointAlias(Consumer<EndpointAlias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link EndpointAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EndpointAlias(Consumer)} instead.
+     * @param connectionTimeout time interval (in seconds) after which a connection attempt times out
+     * @param endPointURI the default URI or components of the URI such as service name
+     * @param keyAlias Key alias in the particular keyStore
+     * @param keystoreAlias Keystore alias name that is used for the signing/encryption
+     * @param optimizationTechnique Type of optimization technique used for SOAP messages
+     * @param passSecurityHeaders Boolean value whether to pass security headers or not
+     * @param readTimeout time interval (in seconds) after which a socket read attempt times out
+     * @param truststoreAlias Truststore alias name is used to validate the server certificate
+     */
+    @ApiStatus.Internal
+    public EndpointAlias(Integer connectionTimeout, String endPointURI, String keyAlias, String keystoreAlias, OptimizationTechniqueEnum optimizationTechnique, Boolean passSecurityHeaders, Integer readTimeout, String truststoreAlias) {
+        this.connectionTimeout = connectionTimeout;
+        this.endPointURI = endPointURI;
+        this.keyAlias = keyAlias;
+        this.keystoreAlias = keystoreAlias;
+        this.optimizationTechnique = optimizationTechnique;
+        this.passSecurityHeaders = passSecurityHeaders;
+        this.readTimeout = readTimeout;
+        this.truststoreAlias = truststoreAlias;
+    }
 
     /**
      * Type of optimization technique used for SOAP messages

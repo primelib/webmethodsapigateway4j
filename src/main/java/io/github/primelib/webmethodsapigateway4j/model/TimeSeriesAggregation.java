@@ -3,11 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * TimeSeriesAggregation
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "interval",
     "intervalTypeAsString"
@@ -30,16 +33,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("TimeSeriesAggregation")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class TimeSeriesAggregation extends IAggregation {
-
-    /**
-     * Constructs a validated implementation of {@link TimeSeriesAggregation}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public TimeSeriesAggregation(Consumer<TimeSeriesAggregation> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Interval of the time series in aggregation.
@@ -50,6 +43,28 @@ public class TimeSeriesAggregation extends IAggregation {
     @JsonProperty("intervalTypeAsString")
     protected String intervalTypeAsString;
 
+    /**
+     * Constructs a validated instance of {@link TimeSeriesAggregation}.
+     *
+     * @param spec the specification to process
+     */
+    public TimeSeriesAggregation(Consumer<TimeSeriesAggregation> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link TimeSeriesAggregation}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TimeSeriesAggregation(Consumer)} instead.
+     * @param interval Interval of the time series in aggregation.
+     * @param intervalTypeAsString var.name
+     */
+    @ApiStatus.Internal
+    public TimeSeriesAggregation(IntervalEnum interval, String intervalTypeAsString) {
+        this.interval = interval;
+        this.intervalTypeAsString = intervalTypeAsString;
+    }
 
     /**
      * Interval of the time series in aggregation.

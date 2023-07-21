@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * MobileApplicationConfiguration
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "mobileAppDeviceTypes",
     "mobileApplications"
@@ -29,16 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("MobileApplicationConfiguration")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class MobileApplicationConfiguration {
-
-    /**
-     * Constructs a validated implementation of {@link MobileApplicationConfiguration}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public MobileApplicationConfiguration(Consumer<MobileApplicationConfiguration> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Configure Device Types to be filtered when Threat protection 'Mobile App Filter' Rule enforced
@@ -52,5 +48,26 @@ public class MobileApplicationConfiguration {
     @JsonProperty("mobileApplications")
     protected List<String> mobileApplications;
 
+    /**
+     * Constructs a validated instance of {@link MobileApplicationConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    public MobileApplicationConfiguration(Consumer<MobileApplicationConfiguration> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link MobileApplicationConfiguration}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MobileApplicationConfiguration(Consumer)} instead.
+     * @param mobileAppDeviceTypes Configure Device Types to be filtered when Threat protection 'Mobile App Filter' Rule enforced
+     * @param mobileApplications Configure Mobile Application names to be filtered when Threat protection 'Mobile App Filter' Rule enforced
+     */
+    @ApiStatus.Internal
+    public MobileApplicationConfiguration(List<String> mobileAppDeviceTypes, List<String> mobileApplications) {
+        this.mobileAppDeviceTypes = mobileAppDeviceTypes;
+        this.mobileApplications = mobileApplications;
+    }
 
 }

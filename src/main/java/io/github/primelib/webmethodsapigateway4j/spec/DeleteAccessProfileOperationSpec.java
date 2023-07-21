@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.AccessProfile;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the DeleteAccessProfile operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DeleteAccessProfileOperationSpec {
     /**
@@ -35,13 +44,27 @@ public class DeleteAccessProfileOperationSpec {
     private String accessProfileId;
 
     /**
-     * Constructs a validated implementation of {@link DeleteAccessProfileOperationSpec}.
+     * Constructs a validated instance of {@link DeleteAccessProfileOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public DeleteAccessProfileOperationSpec(Consumer<DeleteAccessProfileOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link DeleteAccessProfileOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param accessProfileId      This parameter specifies the ID of a team that is to be deleted in API Gateway.
+     */
+    @ApiStatus.Internal
+    public DeleteAccessProfileOperationSpec(String accessProfileId) {
+        this.accessProfileId = accessProfileId;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -54,5 +77,4 @@ public class DeleteAccessProfileOperationSpec {
     public void validate() {
         Objects.requireNonNull(accessProfileId, "accessProfileId is a required parameter!");
     }
-
 }

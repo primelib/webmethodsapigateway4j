@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * EntityType
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "getmIDs",
     "methods",
@@ -35,30 +40,47 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class EntityType {
 
-    /**
-     * Constructs a validated implementation of {@link EntityType}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public EntityType(Consumer<EntityType> spec) {
-        spec.accept(this);
-    }
-
     @JsonProperty("getmIDs")
     protected List<String> getmIDs;
 
     @JsonProperty("methods")
-    protected Map<String, MethodParameters> methods = new HashMap<>();
+    protected Map<String, MethodParameters> methods;
 
     @JsonProperty("navigationProperties")
-    protected Map<String, EntitySet> navigationProperties = new HashMap<>();
+    protected Map<String, EntitySet> navigationProperties;
 
     @JsonProperty("properties")
-    protected Map<String, Object> properties = new HashMap<>();
+    protected Map<String, Object> properties;
 
     @JsonProperty("props")
     protected List<String> props;
 
+    /**
+     * Constructs a validated instance of {@link EntityType}.
+     *
+     * @param spec the specification to process
+     */
+    public EntityType(Consumer<EntityType> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link EntityType}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EntityType(Consumer)} instead.
+     * @param getmIDs var.name
+     * @param methods var.name
+     * @param navigationProperties var.name
+     * @param properties var.name
+     * @param props var.name
+     */
+    @ApiStatus.Internal
+    public EntityType(List<String> getmIDs, Map<String, MethodParameters> methods, Map<String, EntitySet> navigationProperties, Map<String, Object> properties, List<String> props) {
+        this.getmIDs = getmIDs;
+        this.methods = methods;
+        this.navigationProperties = navigationProperties;
+        this.properties = properties;
+        this.props = props;
+    }
 
 }

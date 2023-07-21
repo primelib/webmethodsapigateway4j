@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * AuthorizationValue
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "keyName",
     "type",
@@ -30,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("AuthorizationValue")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class AuthorizationValue {
-
-    /**
-     * Constructs a validated implementation of {@link AuthorizationValue}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public AuthorizationValue(Consumer<AuthorizationValue> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("keyName")
     protected String keyName;
@@ -53,5 +49,30 @@ public class AuthorizationValue {
     @JsonProperty("value")
     protected String value;
 
+    /**
+     * Constructs a validated instance of {@link AuthorizationValue}.
+     *
+     * @param spec the specification to process
+     */
+    public AuthorizationValue(Consumer<AuthorizationValue> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link AuthorizationValue}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AuthorizationValue(Consumer)} instead.
+     * @param keyName var.name
+     * @param type var.name
+     * @param urlMatcher var.name
+     * @param value var.name
+     */
+    @ApiStatus.Internal
+    public AuthorizationValue(String keyName, String type, Object urlMatcher, String value) {
+        this.keyName = keyName;
+        this.type = type;
+        this.urlMatcher = urlMatcher;
+        this.value = value;
+    }
 
 }

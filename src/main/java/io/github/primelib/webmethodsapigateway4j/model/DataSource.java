@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * DataSource
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "contentType",
     "inputStream",
@@ -30,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("DataSource")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DataSource {
-
-    /**
-     * Constructs a validated implementation of {@link DataSource}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public DataSource(Consumer<DataSource> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("contentType")
     protected String contentType;
@@ -53,5 +49,30 @@ public class DataSource {
     @JsonProperty("outputStream")
     protected Object outputStream;
 
+    /**
+     * Constructs a validated instance of {@link DataSource}.
+     *
+     * @param spec the specification to process
+     */
+    public DataSource(Consumer<DataSource> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link DataSource}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DataSource(Consumer)} instead.
+     * @param contentType var.name
+     * @param inputStream var.name
+     * @param name var.name
+     * @param outputStream var.name
+     */
+    @ApiStatus.Internal
+    public DataSource(String contentType, Object inputStream, String name, Object outputStream) {
+        this.contentType = contentType;
+        this.inputStream = inputStream;
+        this.name = name;
+        this.outputStream = outputStream;
+    }
 
 }

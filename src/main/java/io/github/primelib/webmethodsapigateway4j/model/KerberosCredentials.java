@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * KerberosCredentials
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "clientPassword",
     "clientPrincipal",
@@ -31,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("KerberosCredentials")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class KerberosCredentials {
-
-    /**
-     * Constructs a validated implementation of {@link KerberosCredentials}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public KerberosCredentials(Consumer<KerberosCredentials> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Specify a base64 encoded password for the client principal
@@ -72,6 +69,33 @@ public class KerberosCredentials {
     @JsonProperty("servicePrincipalNameForm")
     protected ServicePrincipalNameFormEnum servicePrincipalNameForm;
 
+    /**
+     * Constructs a validated instance of {@link KerberosCredentials}.
+     *
+     * @param spec the specification to process
+     */
+    public KerberosCredentials(Consumer<KerberosCredentials> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link KerberosCredentials}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #KerberosCredentials(Consumer)} instead.
+     * @param clientPassword Specify a base64 encoded password for the client principal
+     * @param clientPrincipal a unique identity to which Kerberos can assign tickets
+     * @param requestDelegateToken Boolean value whether the token needs to be delegated or not
+     * @param servicePrincipal a unique identifier of a service instance
+     * @param servicePrincipalNameForm the format in which you want to specify the principal name of the service that is registered with the principal database
+     */
+    @ApiStatus.Internal
+    public KerberosCredentials(String clientPassword, String clientPrincipal, Boolean requestDelegateToken, String servicePrincipal, ServicePrincipalNameFormEnum servicePrincipalNameForm) {
+        this.clientPassword = clientPassword;
+        this.clientPrincipal = clientPrincipal;
+        this.requestDelegateToken = requestDelegateToken;
+        this.servicePrincipal = servicePrincipal;
+        this.servicePrincipalNameForm = servicePrincipalNameForm;
+    }
 
     /**
      * the format in which you want to specify the principal name of the service that is registered with the principal database

@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * DataHandler
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "allCommands",
     "content",
@@ -36,16 +42,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("DataHandler")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DataHandler {
-
-    /**
-     * Constructs a validated implementation of {@link DataHandler}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public DataHandler(Consumer<DataHandler> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("allCommands")
     protected List<CommandInfo> allCommands;
@@ -74,5 +70,40 @@ public class DataHandler {
     @JsonProperty("transferDataFlavors")
     protected List<DataFlavor> transferDataFlavors;
 
+    /**
+     * Constructs a validated instance of {@link DataHandler}.
+     *
+     * @param spec the specification to process
+     */
+    public DataHandler(Consumer<DataHandler> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link DataHandler}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DataHandler(Consumer)} instead.
+     * @param allCommands var.name
+     * @param content var.name
+     * @param contentType var.name
+     * @param dataSource var.name
+     * @param inputStream var.name
+     * @param name var.name
+     * @param outputStream var.name
+     * @param preferredCommands var.name
+     * @param transferDataFlavors var.name
+     */
+    @ApiStatus.Internal
+    public DataHandler(List<CommandInfo> allCommands, Object content, String contentType, DataSource dataSource, Object inputStream, String name, Object outputStream, List<CommandInfo> preferredCommands, List<DataFlavor> transferDataFlavors) {
+        this.allCommands = allCommands;
+        this.content = content;
+        this.contentType = contentType;
+        this.dataSource = dataSource;
+        this.inputStream = inputStream;
+        this.name = name;
+        this.outputStream = outputStream;
+        this.preferredCommands = preferredCommands;
+        this.transferDataFlavors = transferDataFlavors;
+    }
 
 }

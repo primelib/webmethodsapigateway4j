@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * TrustStore
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "certificateAliases",
     "fileContent",
@@ -40,16 +47,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("TrustStore")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class TrustStore {
-
-    /**
-     * Constructs a validated implementation of {@link TrustStore}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public TrustStore(Consumer<TrustStore> spec) {
-        spec.accept(this);
-    }
 
     /**
      * The list of aliases that are available within the truststore.
@@ -126,6 +123,49 @@ public class TrustStore {
     @JsonProperty("uploadFileName")
     protected String uploadFileName;
 
+    /**
+     * Constructs a validated instance of {@link TrustStore}.
+     *
+     * @param spec the specification to process
+     */
+    public TrustStore(Consumer<TrustStore> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link TrustStore}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TrustStore(Consumer)} instead.
+     * @param certificateAliases The list of aliases that are available within the truststore.
+     * @param fileContent The contents of the truststore file.
+     * @param id The unique identifier for the truststore.
+     * @param isLoaded Indicates whether the truststore is loaded or not. A truststore may not be loaded if there are errors while reading the truststore file.
+     * @param isWarning Indicates whether there is a warning message from the API Gateway while the truststore was created/modified.
+     * @param keyStoreDescription The description for the truststore.
+     * @param keyStoreLocation The location where the truststore is saved in API Gateway.
+     * @param keyStoreName The name of the truststore. It cannot contain spaces or special characters.
+     * @param keyStorePassword The truststore password that is defined at the time of truststore creation using a keystore utility.
+     * @param keyStoreProvider var.name
+     * @param keyStoreType The certificate file format of the truststore.
+     * @param message The warning message if any. Applies only if isWarning = true
+     * @param uploadFileName The name of the truststore file that will be used to save the truststore internally in API Gateway.
+     */
+    @ApiStatus.Internal
+    public TrustStore(List<String> certificateAliases, String fileContent, String id, Boolean isLoaded, Boolean isWarning, String keyStoreDescription, String keyStoreLocation, String keyStoreName, String keyStorePassword, String keyStoreProvider, KeyStoreTypeEnum keyStoreType, String message, String uploadFileName) {
+        this.certificateAliases = certificateAliases;
+        this.fileContent = fileContent;
+        this.id = id;
+        this.isLoaded = isLoaded;
+        this.isWarning = isWarning;
+        this.keyStoreDescription = keyStoreDescription;
+        this.keyStoreLocation = keyStoreLocation;
+        this.keyStoreName = keyStoreName;
+        this.keyStorePassword = keyStorePassword;
+        this.keyStoreProvider = keyStoreProvider;
+        this.keyStoreType = keyStoreType;
+        this.message = message;
+        this.uploadFileName = uploadFileName;
+    }
 
     /**
      * The certificate file format of the truststore.

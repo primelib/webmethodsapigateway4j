@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * APIResponseGatewayEndpoint
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "endpoint",
     "endpointDisplayName",
@@ -32,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("APIResponseGatewayEndpoint")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class APIResponseGatewayEndpoint {
-
-    /**
-     * Constructs a validated implementation of {@link APIResponseGatewayEndpoint}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public APIResponseGatewayEndpoint(Consumer<APIResponseGatewayEndpoint> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("endpoint")
     protected String endpoint;
@@ -58,6 +55,33 @@ public class APIResponseGatewayEndpoint {
     @JsonProperty("endpointUrls")
     protected List<String> endpointUrls;
 
+    /**
+     * Constructs a validated instance of {@link APIResponseGatewayEndpoint}.
+     *
+     * @param spec the specification to process
+     */
+    public APIResponseGatewayEndpoint(Consumer<APIResponseGatewayEndpoint> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link APIResponseGatewayEndpoint}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGatewayEndpoint(Consumer)} instead.
+     * @param endpoint var.name
+     * @param endpointDisplayName var.name
+     * @param endpointName var.name
+     * @param endpointType var.name
+     * @param endpointUrls var.name
+     */
+    @ApiStatus.Internal
+    public APIResponseGatewayEndpoint(String endpoint, String endpointDisplayName, String endpointName, EndpointTypeEnum endpointType, List<String> endpointUrls) {
+        this.endpoint = endpoint;
+        this.endpointDisplayName = endpointDisplayName;
+        this.endpointName = endpointName;
+        this.endpointType = endpointType;
+        this.endpointUrls = endpointUrls;
+    }
 
     @AllArgsConstructor
     public enum EndpointTypeEnum {

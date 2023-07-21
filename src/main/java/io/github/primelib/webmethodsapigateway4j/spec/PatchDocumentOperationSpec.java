@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Document;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the PatchDocument operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PatchDocumentOperationSpec {
     /**
@@ -41,13 +50,29 @@ public class PatchDocumentOperationSpec {
     private Document body;
 
     /**
-     * Constructs a validated implementation of {@link PatchDocumentOperationSpec}.
+     * Constructs a validated instance of {@link PatchDocumentOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public PatchDocumentOperationSpec(Consumer<PatchDocumentOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link PatchDocumentOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param documentId           The unique identifier of the document to be patched.
+     * @param body                 The request payload to patch the document in API Gateway.
+     */
+    @ApiStatus.Internal
+    public PatchDocumentOperationSpec(String documentId, Document body) {
+        this.documentId = documentId;
+        this.body = body;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -61,5 +86,4 @@ public class PatchDocumentOperationSpec {
         Objects.requireNonNull(documentId, "documentId is a required parameter!");
         Objects.requireNonNull(body, "body is a required parameter!");
     }
-
 }

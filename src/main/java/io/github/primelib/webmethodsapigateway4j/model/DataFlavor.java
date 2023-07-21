@@ -4,10 +4,13 @@ import java.util.List;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * DataFlavor
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "defaultRepresentationClassAsString",
     "flavorJavaFileListType",
@@ -43,16 +49,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("DataFlavor")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class DataFlavor {
-
-    /**
-     * Constructs a validated implementation of {@link DataFlavor}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public DataFlavor(Consumer<DataFlavor> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("defaultRepresentationClassAsString")
     protected String defaultRepresentationClassAsString;
@@ -102,5 +98,54 @@ public class DataFlavor {
     @JsonProperty("subType")
     protected String subType;
 
+    /**
+     * Constructs a validated instance of {@link DataFlavor}.
+     *
+     * @param spec the specification to process
+     */
+    public DataFlavor(Consumer<DataFlavor> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link DataFlavor}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DataFlavor(Consumer)} instead.
+     * @param defaultRepresentationClassAsString var.name
+     * @param flavorJavaFileListType var.name
+     * @param flavorRemoteObjectType var.name
+     * @param flavorSerializedObjectType var.name
+     * @param flavorTextType var.name
+     * @param humanPresentableName var.name
+     * @param mimeType var.name
+     * @param mimeTypeSerializedObject var.name
+     * @param primaryType var.name
+     * @param representationClassByteBuffer var.name
+     * @param representationClassCharBuffer var.name
+     * @param representationClassInputStream var.name
+     * @param representationClassReader var.name
+     * @param representationClassRemote var.name
+     * @param representationClassSerializable var.name
+     * @param subType var.name
+     */
+    @ApiStatus.Internal
+    public DataFlavor(String defaultRepresentationClassAsString, Boolean flavorJavaFileListType, Boolean flavorRemoteObjectType, Boolean flavorSerializedObjectType, Boolean flavorTextType, String humanPresentableName, String mimeType, Boolean mimeTypeSerializedObject, String primaryType, Boolean representationClassByteBuffer, Boolean representationClassCharBuffer, Boolean representationClassInputStream, Boolean representationClassReader, Boolean representationClassRemote, Boolean representationClassSerializable, String subType) {
+        this.defaultRepresentationClassAsString = defaultRepresentationClassAsString;
+        this.flavorJavaFileListType = flavorJavaFileListType;
+        this.flavorRemoteObjectType = flavorRemoteObjectType;
+        this.flavorSerializedObjectType = flavorSerializedObjectType;
+        this.flavorTextType = flavorTextType;
+        this.humanPresentableName = humanPresentableName;
+        this.mimeType = mimeType;
+        this.mimeTypeSerializedObject = mimeTypeSerializedObject;
+        this.primaryType = primaryType;
+        this.representationClassByteBuffer = representationClassByteBuffer;
+        this.representationClassCharBuffer = representationClassCharBuffer;
+        this.representationClassInputStream = representationClassInputStream;
+        this.representationClassReader = representationClassReader;
+        this.representationClassRemote = representationClassRemote;
+        this.representationClassSerializable = representationClassSerializable;
+        this.subType = subType;
+    }
 
 }

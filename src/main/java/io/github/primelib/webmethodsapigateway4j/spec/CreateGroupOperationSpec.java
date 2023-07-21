@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Group;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the CreateGroup operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class CreateGroupOperationSpec {
     /**
@@ -35,13 +44,27 @@ public class CreateGroupOperationSpec {
     private Group body;
 
     /**
-     * Constructs a validated implementation of {@link CreateGroupOperationSpec}.
+     * Constructs a validated instance of {@link CreateGroupOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public CreateGroupOperationSpec(Consumer<CreateGroupOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link CreateGroupOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param body                 This parameter describes the request payload of a group that is to be created in API Gateway.
+     */
+    @ApiStatus.Internal
+    public CreateGroupOperationSpec(Group body) {
+        this.body = body;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -54,5 +77,4 @@ public class CreateGroupOperationSpec {
     public void validate() {
         Objects.requireNonNull(body, "body is a required parameter!");
     }
-
 }

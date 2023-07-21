@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ArchiveResult
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "dependencyFailed",
     "explanation",
@@ -32,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ArchiveResult")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ArchiveResult {
-
-    /**
-     * Constructs a validated implementation of {@link ArchiveResult}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ArchiveResult(Consumer<ArchiveResult> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("dependencyFailed")
     protected Boolean dependencyFailed;
@@ -61,5 +57,34 @@ public class ArchiveResult {
     @JsonProperty("warning")
     protected Boolean warning;
 
+    /**
+     * Constructs a validated instance of {@link ArchiveResult}.
+     *
+     * @param spec the specification to process
+     */
+    public ArchiveResult(Consumer<ArchiveResult> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ArchiveResult}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ArchiveResult(Consumer)} instead.
+     * @param dependencyFailed var.name
+     * @param explanation var.name
+     * @param importedOK var.name
+     * @param name var.name
+     * @param overwritten var.name
+     * @param warning var.name
+     */
+    @ApiStatus.Internal
+    public ArchiveResult(Boolean dependencyFailed, String explanation, Boolean importedOK, String name, Boolean overwritten, Boolean warning) {
+        this.dependencyFailed = dependencyFailed;
+        this.explanation = explanation;
+        this.importedOK = importedOK;
+        this.name = name;
+        this.overwritten = overwritten;
+        this.warning = warning;
+    }
 
 }

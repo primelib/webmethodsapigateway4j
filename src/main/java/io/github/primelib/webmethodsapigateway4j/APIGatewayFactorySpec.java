@@ -54,6 +54,15 @@ public final class APIGatewayFactorySpec<T> {
     private List<AuthMethod> auth = new ArrayList<>(5);
 
     /**
+     * The proxy server to use, if applicable
+     * <p>
+     * Defaults to {@code null}.
+     * Set to {@code APIGatewayProxySpec.detect()} to detect the proxy based on the os environment automatically.
+     */
+    @Nullable
+    private APIGatewayProxySpec proxy = null;
+
+    /**
      * MeterRegistry to use for metrics
      */
     @NotNull
@@ -94,6 +103,12 @@ public final class APIGatewayFactorySpec<T> {
         Objects.requireNonNull(logLevel, "logLevel must not be null");
     }
 
+    public APIGatewayProxySpec httpProxy(Consumer<APIGatewayProxySpec> proxySpec) {
+        APIGatewayProxySpec proxy = new APIGatewayProxySpec(proxySpec);
+        proxy(proxy);
+        return proxy;
+    }
+
     public BasicAuthSpec basicAuth(Consumer<BasicAuthSpec> spec) {
         BasicAuthSpec method = new BasicAuthSpec(spec);
         auth.add(method);
@@ -104,6 +119,7 @@ public final class APIGatewayFactorySpec<T> {
         backendName(spec.backendName());
         baseUrl(spec.baseUrl());
         auth(spec.auth());
+        proxy(spec.proxy());
         meterRegistry(spec.meterRegistry());
     }
 }

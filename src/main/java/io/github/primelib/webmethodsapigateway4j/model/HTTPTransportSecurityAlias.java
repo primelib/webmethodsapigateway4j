@@ -3,11 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * HTTPTransportSecurityAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "authMode",
     "authType",
@@ -33,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("HTTPTransportSecurityAlias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class HTTPTransportSecurityAlias extends Alias {
-
-    /**
-     * Constructs a validated implementation of {@link HTTPTransportSecurityAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public HTTPTransportSecurityAlias(Consumer<HTTPTransportSecurityAlias> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Mode of authentication that needs to be used
@@ -68,6 +61,34 @@ public class HTTPTransportSecurityAlias extends Alias {
     @JsonProperty("oauth2Token")
     protected String oauth2Token;
 
+    /**
+     * Constructs a validated instance of {@link HTTPTransportSecurityAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public HTTPTransportSecurityAlias(Consumer<HTTPTransportSecurityAlias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link HTTPTransportSecurityAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HTTPTransportSecurityAlias(Consumer)} instead.
+     * @param authMode Mode of authentication that needs to be used
+     * @param authType type of authentication you want to use while communicating with the native API
+     * @param httpAuthCredentials var.name
+     * @param kerberosCredentials var.name
+     * @param oauth2Token Specify a base64 encoded OAuth2 token that is used for authentication
+     */
+    @ApiStatus.Internal
+    public HTTPTransportSecurityAlias(AuthModeEnum authMode, AuthTypeEnum authType, Credentials httpAuthCredentials, KerberosCredentials kerberosCredentials, String oauth2Token) {
+        this.authMode = authMode;
+        this.authType = authType;
+        this.httpAuthCredentials = httpAuthCredentials;
+        this.kerberosCredentials = kerberosCredentials;
+        this.oauth2Token = oauth2Token;
+    }
 
     /**
      * Mode of authentication that needs to be used

@@ -6,9 +6,14 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
+import java.util.Set;
 import io.github.primelib.webmethodsapigateway4j.model.UpdateAPIRequest;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -18,9 +23,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the UpdateAPI operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class UpdateAPIOperationSpec {
     /**
@@ -44,16 +53,34 @@ public class UpdateAPIOperationSpec {
      * When an API is updated using a URL / file, the existing tags will be overwritten if this value is true.
      */
     @Nullable 
-    private Boolean overwriteTags = false;
+    private Boolean overwriteTags;
 
     /**
-     * Constructs a validated implementation of {@link UpdateAPIOperationSpec}.
+     * Constructs a validated instance of {@link UpdateAPIOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public UpdateAPIOperationSpec(Consumer<UpdateAPIOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link UpdateAPIOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param apiId                API Id for the API to be updated
+     * @param body                 
+     * @param overwriteTags        When an API is updated using a URL / file, the existing tags will be overwritten if this value is true.
+     */
+    @ApiStatus.Internal
+    public UpdateAPIOperationSpec(String apiId, UpdateAPIRequest body, Boolean overwriteTags) {
+        this.apiId = apiId;
+        this.body = body;
+        this.overwriteTags = overwriteTags;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -67,5 +94,4 @@ public class UpdateAPIOperationSpec {
         Objects.requireNonNull(apiId, "apiId is a required parameter!");
         Objects.requireNonNull(body, "body is a required parameter!");
     }
-
 }

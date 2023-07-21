@@ -3,11 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * MetricsAggregation
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "metricsType"
 })
@@ -31,21 +34,31 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class MetricsAggregation extends IAggregation {
 
     /**
-     * Constructs a validated implementation of {@link MetricsAggregation}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public MetricsAggregation(Consumer<MetricsAggregation> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * Type of the metrics aggregation.
      */
     @JsonProperty("metricsType")
     protected MetricsTypeEnum metricsType;
 
+    /**
+     * Constructs a validated instance of {@link MetricsAggregation}.
+     *
+     * @param spec the specification to process
+     */
+    public MetricsAggregation(Consumer<MetricsAggregation> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link MetricsAggregation}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MetricsAggregation(Consumer)} instead.
+     * @param metricsType Type of the metrics aggregation.
+     */
+    @ApiStatus.Internal
+    public MetricsAggregation(MetricsTypeEnum metricsType) {
+        this.metricsType = metricsType;
+    }
 
     /**
      * Type of the metrics aggregation.

@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * IncludeOptions
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "includeAccessProfiles",
     "includeAll",
@@ -41,16 +47,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("IncludeOptions")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class IncludeOptions {
-
-    /**
-     * Constructs a validated implementation of {@link IncludeOptions}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public IncludeOptions(Consumer<IncludeOptions> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("includeAccessProfiles")
     protected Boolean includeAccessProfiles;
@@ -118,5 +114,50 @@ public class IncludeOptions {
     @JsonProperty("promotion")
     protected Boolean promotion;
 
+    /**
+     * Constructs a validated instance of {@link IncludeOptions}.
+     *
+     * @param spec the specification to process
+     */
+    public IncludeOptions(Consumer<IncludeOptions> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link IncludeOptions}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IncludeOptions(Consumer)} instead.
+     * @param includeAccessProfiles var.name
+     * @param includeAll Include all dependent assets for all asset type specified
+     * @param includeApis Include API as dependent asset for asset type specified if applicable
+     * @param includeApplications Include application as dependent asset for asset type specified if applicable
+     * @param includeDocuments Include documents as dependent asset for asset type specified if applicable
+     * @param includeGatewayScopes var.name
+     * @param includeGroups Include groups as dependent asset for asset type specified if applicable
+     * @param includeRegisteredApplications Include registered application as dependent asset for asset type specified if applicable
+     * @param includeSubscriptions Include subscriptions for the asset type specified if applicable
+     * @param includeTruststores var.name
+     * @param includeUsers Include users as dependent asset for asset type specified if applicable
+     * @param promotedGroupsList var.name
+     * @param promotedUsersList var.name
+     * @param promotion var.name
+     */
+    @ApiStatus.Internal
+    public IncludeOptions(Boolean includeAccessProfiles, Boolean includeAll, Boolean includeApis, Boolean includeApplications, Boolean includeDocuments, Boolean includeGatewayScopes, Boolean includeGroups, Boolean includeRegisteredApplications, Boolean includeSubscriptions, Boolean includeTruststores, Boolean includeUsers, List<String> promotedGroupsList, List<String> promotedUsersList, Boolean promotion) {
+        this.includeAccessProfiles = includeAccessProfiles;
+        this.includeAll = includeAll;
+        this.includeApis = includeApis;
+        this.includeApplications = includeApplications;
+        this.includeDocuments = includeDocuments;
+        this.includeGatewayScopes = includeGatewayScopes;
+        this.includeGroups = includeGroups;
+        this.includeRegisteredApplications = includeRegisteredApplications;
+        this.includeSubscriptions = includeSubscriptions;
+        this.includeTruststores = includeTruststores;
+        this.includeUsers = includeUsers;
+        this.promotedGroupsList = promotedGroupsList;
+        this.promotedUsersList = promotedUsersList;
+        this.promotion = promotion;
+    }
 
 }

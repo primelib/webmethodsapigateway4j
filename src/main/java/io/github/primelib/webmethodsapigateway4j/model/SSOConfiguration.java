@@ -4,10 +4,13 @@ import java.util.Map;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * SSOConfiguration
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "groupMapping",
     "idpFilename",
@@ -42,16 +48,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("SSOConfiguration")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SSOConfiguration {
-
-    /**
-     * Constructs a validated implementation of {@link SSOConfiguration}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public SSOConfiguration(Consumer<SSOConfiguration> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("groupMapping")
     protected GroupMapping groupMapping;
@@ -137,5 +133,52 @@ public class SSOConfiguration {
     @JsonProperty("userProfileMapping")
     protected UserProfileMapping userProfileMapping;
 
+    /**
+     * Constructs a validated instance of {@link SSOConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    public SSOConfiguration(Consumer<SSOConfiguration> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link SSOConfiguration}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SSOConfiguration(Consumer)} instead.
+     * @param groupMapping var.name
+     * @param idpFilename Specifies the file name of identity provider metadata.
+     * @param idpMetadataContent Specifies base64 encoded file content of identity provider metadata.
+     * @param idpUrl Specifies the identity provider metadata URL.
+     * @param keystoreAlias Specifies the keystore alias to be used to generate service provider metadata.
+     * @param samlAssertionSigned Specifies whether SAML assertion is to be signed from the identity provider.
+     * @param samlAuthreqSigned Specifies whether auth request should signed by the service provider.
+     * @param samlDefaultkeyAlias Specifies the key alias to be used for signing and encryption.
+     * @param samlEnabled Specifies whether SSO should be enabled or not.
+     * @param samlEncrypkeyAlias Specifies the key alias to be used for encryption.
+     * @param samlRedirect Specifies the service provider SSO URL.
+     * @param samlSignkeyAlias Specifies the key alias to be used for signing.
+     * @param samlSpId Specifies the service provider entity ID.
+     * @param useSSOLoginByDefault Specifies whether SSO login page is redirected by default.
+     * @param userProfileMapping var.name
+     */
+    @ApiStatus.Internal
+    public SSOConfiguration(GroupMapping groupMapping, String idpFilename, String idpMetadataContent, String idpUrl, String keystoreAlias, String samlAssertionSigned, String samlAuthreqSigned, String samlDefaultkeyAlias, String samlEnabled, String samlEncrypkeyAlias, String samlRedirect, String samlSignkeyAlias, String samlSpId, String useSSOLoginByDefault, UserProfileMapping userProfileMapping) {
+        this.groupMapping = groupMapping;
+        this.idpFilename = idpFilename;
+        this.idpMetadataContent = idpMetadataContent;
+        this.idpUrl = idpUrl;
+        this.keystoreAlias = keystoreAlias;
+        this.samlAssertionSigned = samlAssertionSigned;
+        this.samlAuthreqSigned = samlAuthreqSigned;
+        this.samlDefaultkeyAlias = samlDefaultkeyAlias;
+        this.samlEnabled = samlEnabled;
+        this.samlEncrypkeyAlias = samlEncrypkeyAlias;
+        this.samlRedirect = samlRedirect;
+        this.samlSignkeyAlias = samlSignkeyAlias;
+        this.samlSpId = samlSpId;
+        this.useSSOLoginByDefault = useSSOLoginByDefault;
+        this.userProfileMapping = userProfileMapping;
+    }
 
 }

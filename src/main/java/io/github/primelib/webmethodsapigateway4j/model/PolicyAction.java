@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * PolicyAction
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "active",
     "descriptions",
@@ -34,16 +40,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("PolicyAction")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PolicyAction {
-
-    /**
-     * Constructs a validated implementation of {@link PolicyAction}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public PolicyAction(Consumer<PolicyAction> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("active")
     protected Boolean active;
@@ -81,5 +77,36 @@ public class PolicyAction {
     @JsonProperty("templateKey")
     protected String templateKey;
 
+    /**
+     * Constructs a validated instance of {@link PolicyAction}.
+     *
+     * @param spec the specification to process
+     */
+    public PolicyAction(Consumer<PolicyAction> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link PolicyAction}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyAction(Consumer)} instead.
+     * @param active var.name
+     * @param descriptions List of policy action description with corresponding locale information
+     * @param id Policy Action ID
+     * @param names List of policy action names with corresponding locale information
+     * @param parameters This is the list of values that are configured for this policy actions
+     * @param stageKey var.name
+     * @param templateKey Template key of the policy actions
+     */
+    @ApiStatus.Internal
+    public PolicyAction(Boolean active, List<InternationalizedString> descriptions, String id, List<InternationalizedString> names, List<PolicyActionParameter> parameters, String stageKey, String templateKey) {
+        this.active = active;
+        this.descriptions = descriptions;
+        this.id = id;
+        this.names = names;
+        this.parameters = parameters;
+        this.stageKey = stageKey;
+        this.templateKey = templateKey;
+    }
 
 }

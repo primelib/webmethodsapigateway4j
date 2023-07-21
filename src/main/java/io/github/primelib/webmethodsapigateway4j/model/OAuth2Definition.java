@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -20,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * OAuth2Definition
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "authorizationGrants",
     "authorizationUrl",
@@ -39,16 +44,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("OAuth2Definition")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class OAuth2Definition {
-
-    /**
-     * Constructs a validated implementation of {@link OAuth2Definition}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public OAuth2Definition(Consumer<OAuth2Definition> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("authorizationGrants")
     protected List<String> authorizationGrants;
@@ -66,7 +61,7 @@ public class OAuth2Definition {
     protected String refreshUrl;
 
     @JsonProperty("scopes")
-    protected Map<String, Object> scopes = new HashMap<>();
+    protected Map<String, Object> scopes;
 
     @JsonProperty("securitySchemeDescriptor")
     protected SecuritySchemeDescriptor securitySchemeDescriptor;
@@ -78,7 +73,44 @@ public class OAuth2Definition {
     protected String type;
 
     @JsonProperty("vendorExtensions")
-    protected Map<String, Object> vendorExtensions = new HashMap<>();
+    protected Map<String, Object> vendorExtensions;
 
+    /**
+     * Constructs a validated instance of {@link OAuth2Definition}.
+     *
+     * @param spec the specification to process
+     */
+    public OAuth2Definition(Consumer<OAuth2Definition> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link OAuth2Definition}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OAuth2Definition(Consumer)} instead.
+     * @param authorizationGrants var.name
+     * @param authorizationUrl var.name
+     * @param description var.name
+     * @param flow var.name
+     * @param refreshUrl var.name
+     * @param scopes var.name
+     * @param securitySchemeDescriptor var.name
+     * @param tokenUrl var.name
+     * @param type var.name
+     * @param vendorExtensions var.name
+     */
+    @ApiStatus.Internal
+    public OAuth2Definition(List<String> authorizationGrants, String authorizationUrl, String description, String flow, String refreshUrl, Map<String, Object> scopes, SecuritySchemeDescriptor securitySchemeDescriptor, String tokenUrl, String type, Map<String, Object> vendorExtensions) {
+        this.authorizationGrants = authorizationGrants;
+        this.authorizationUrl = authorizationUrl;
+        this.description = description;
+        this.flow = flow;
+        this.refreshUrl = refreshUrl;
+        this.scopes = scopes;
+        this.securitySchemeDescriptor = securitySchemeDescriptor;
+        this.tokenUrl = tokenUrl;
+        this.type = type;
+        this.vendorExtensions = vendorExtensions;
+    }
 
 }

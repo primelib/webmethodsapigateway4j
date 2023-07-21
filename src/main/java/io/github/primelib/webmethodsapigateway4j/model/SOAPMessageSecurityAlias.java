@@ -3,11 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,11 +20,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * SOAPMessageSecurityAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "authMode",
     "authType",
@@ -34,16 +37,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("SOAPMessageSecurityAlias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SOAPMessageSecurityAlias extends Alias {
-
-    /**
-     * Constructs a validated implementation of {@link SOAPMessageSecurityAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public SOAPMessageSecurityAlias(Consumer<SOAPMessageSecurityAlias> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Mode of authentication
@@ -72,6 +65,36 @@ public class SOAPMessageSecurityAlias extends Alias {
     @JsonProperty("wssCredentials")
     protected WssCredentials wssCredentials;
 
+    /**
+     * Constructs a validated instance of {@link SOAPMessageSecurityAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public SOAPMessageSecurityAlias(Consumer<SOAPMessageSecurityAlias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link SOAPMessageSecurityAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPMessageSecurityAlias(Consumer)} instead.
+     * @param authMode Mode of authentication
+     * @param authType Type of authentication that needs to be used
+     * @param kerberosCredentials var.name
+     * @param samlIssuerConfig Saml issuer configuration name
+     * @param signAndEncryptConfig var.name
+     * @param wssCredentials var.name
+     */
+    @ApiStatus.Internal
+    public SOAPMessageSecurityAlias(AuthModeEnum authMode, AuthTypeEnum authType, KerberosCredentials kerberosCredentials, String samlIssuerConfig, SignAndEncryptConfig signAndEncryptConfig, WssCredentials wssCredentials) {
+        this.authMode = authMode;
+        this.authType = authType;
+        this.kerberosCredentials = kerberosCredentials;
+        this.samlIssuerConfig = samlIssuerConfig;
+        this.signAndEncryptConfig = signAndEncryptConfig;
+        this.wssCredentials = wssCredentials;
+    }
 
     /**
      * Mode of authentication

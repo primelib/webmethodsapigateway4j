@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ServiceRegistryUnpublishPutResponse
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "unpublishResponse",
     "unpublishResponses"
@@ -29,16 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ServiceRegistryUnpublishPutResponse")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ServiceRegistryUnpublishPutResponse {
-
-    /**
-     * Constructs a validated implementation of {@link ServiceRegistryUnpublishPutResponse}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ServiceRegistryUnpublishPutResponse(Consumer<ServiceRegistryUnpublishPutResponse> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("unpublishResponse")
     protected UnpublishResponse unpublishResponse;
@@ -49,5 +45,26 @@ public class ServiceRegistryUnpublishPutResponse {
     @JsonProperty("unpublishResponses")
     protected List<UnpublishResponse> unpublishResponses;
 
+    /**
+     * Constructs a validated instance of {@link ServiceRegistryUnpublishPutResponse}.
+     *
+     * @param spec the specification to process
+     */
+    public ServiceRegistryUnpublishPutResponse(Consumer<ServiceRegistryUnpublishPutResponse> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ServiceRegistryUnpublishPutResponse}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServiceRegistryUnpublishPutResponse(Consumer)} instead.
+     * @param unpublishResponse var.name
+     * @param unpublishResponses This contains the service registry unpublish status for requests unpublishing more than one API from one or more service registries.
+     */
+    @ApiStatus.Internal
+    public ServiceRegistryUnpublishPutResponse(UnpublishResponse unpublishResponse, List<UnpublishResponse> unpublishResponses) {
+        this.unpublishResponse = unpublishResponse;
+        this.unpublishResponses = unpublishResponses;
+    }
 
 }

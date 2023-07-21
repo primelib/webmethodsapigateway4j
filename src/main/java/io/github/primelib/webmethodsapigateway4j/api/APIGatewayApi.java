@@ -6,7 +6,6 @@ import java.util.function.Consumer;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
-import lombok.Data;
 
 import io.github.primelib.webmethodsapigateway4j.model.APIResponseCreate;
 import io.github.primelib.webmethodsapigateway4j.model.APIResponseDelete;

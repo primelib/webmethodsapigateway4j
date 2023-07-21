@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ApprovalRequest
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "approvalEvent",
     "approvers",
@@ -40,16 +47,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ApprovalRequest")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ApprovalRequest {
-
-    /**
-     * Constructs a validated implementation of {@link ApprovalRequest}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ApprovalRequest(Consumer<ApprovalRequest> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Type of the approval event
@@ -123,6 +120,49 @@ public class ApprovalRequest {
     @JsonProperty("status")
     protected StatusEnum status;
 
+    /**
+     * Constructs a validated instance of {@link ApprovalRequest}.
+     *
+     * @param spec the specification to process
+     */
+    public ApprovalRequest(Consumer<ApprovalRequest> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ApprovalRequest}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ApprovalRequest(Consumer)} instead.
+     * @param approvalEvent Type of the approval event
+     * @param approvers var.name
+     * @param approversGroupId Approvers Accessprofile Identifier. Whoever belongs to the selected team will be considered as Approvers
+     * @param created Approval last updated time
+     * @param id var.name
+     * @param mode Mode of the request approval and 'anyone' is the only allowed value
+     * @param requesterComment Comment added by the requestor
+     * @param requestorFirstName First name of the requestor user name
+     * @param requestorId User name of the requestor
+     * @param requestorLastName Last name of the requestor user name
+     * @param requestorMail Mail id of the requestor
+     * @param requestorName User name of the requestor
+     * @param status Current status of the request
+     */
+    @ApiStatus.Internal
+    public ApprovalRequest(ApprovalEventEnum approvalEvent, List<Approver> approvers, String approversGroupId, String created, String id, String mode, String requesterComment, String requestorFirstName, String requestorId, String requestorLastName, String requestorMail, String requestorName, StatusEnum status) {
+        this.approvalEvent = approvalEvent;
+        this.approvers = approvers;
+        this.approversGroupId = approversGroupId;
+        this.created = created;
+        this.id = id;
+        this.mode = mode;
+        this.requesterComment = requesterComment;
+        this.requestorFirstName = requestorFirstName;
+        this.requestorId = requestorId;
+        this.requestorLastName = requestorLastName;
+        this.requestorMail = requestorMail;
+        this.requestorName = requestorName;
+        this.status = status;
+    }
 
     /**
      * Type of the approval event

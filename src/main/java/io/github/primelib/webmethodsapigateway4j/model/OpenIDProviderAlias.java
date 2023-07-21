@@ -3,11 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -19,11 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * OpenIDProviderAlias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "authorizationEndpoint",
     "clientId",
@@ -48,16 +51,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("OpenIDProviderAlias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class OpenIDProviderAlias extends Alias {
-
-    /**
-     * Constructs a validated implementation of {@link OpenIDProviderAlias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public OpenIDProviderAlias(Consumer<OpenIDProviderAlias> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("authorizationEndpoint")
     protected String authorizationEndpoint;
@@ -116,6 +109,62 @@ public class OpenIDProviderAlias extends Alias {
     @JsonProperty("userinfoEndpoint")
     protected String userinfoEndpoint;
 
+    /**
+     * Constructs a validated instance of {@link OpenIDProviderAlias}.
+     *
+     * @param spec the specification to process
+     */
+    public OpenIDProviderAlias(Consumer<OpenIDProviderAlias> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link OpenIDProviderAlias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OpenIDProviderAlias(Consumer)} instead.
+     * @param authorizationEndpoint var.name
+     * @param clientId var.name
+     * @param clientSecret var.name
+     * @param includeUserinfoClaims var.name
+     * @param issuer var.name
+     * @param jwksUri var.name
+     * @param maxAge var.name
+     * @param openIDDisplayValue var.name
+     * @param openIDGrantType var.name
+     * @param openIDResponseType var.name
+     * @param openIDScopes var.name
+     * @param openIDTokenEndpointAuthMode var.name
+     * @param prompt var.name
+     * @param redirectionEndpointHost var.name
+     * @param redirectionEndpointPort var.name
+     * @param tokenEndpoint var.name
+     * @param trustStoreAlias var.name
+     * @param uiLocales var.name
+     * @param userinfoEndpoint var.name
+     */
+    @ApiStatus.Internal
+    public OpenIDProviderAlias(String authorizationEndpoint, String clientId, String clientSecret, Boolean includeUserinfoClaims, String issuer, String jwksUri, String maxAge, OpenIDDisplayValueEnum openIDDisplayValue, OpenIDGrantTypeEnum openIDGrantType, OpenIDResponseTypeEnum openIDResponseType, List<String> openIDScopes, OpenIDTokenEndpointAuthModeEnum openIDTokenEndpointAuthMode, PromptEnum prompt, String redirectionEndpointHost, String redirectionEndpointPort, String tokenEndpoint, String trustStoreAlias, String uiLocales, String userinfoEndpoint) {
+        this.authorizationEndpoint = authorizationEndpoint;
+        this.clientId = clientId;
+        this.clientSecret = clientSecret;
+        this.includeUserinfoClaims = includeUserinfoClaims;
+        this.issuer = issuer;
+        this.jwksUri = jwksUri;
+        this.maxAge = maxAge;
+        this.openIDDisplayValue = openIDDisplayValue;
+        this.openIDGrantType = openIDGrantType;
+        this.openIDResponseType = openIDResponseType;
+        this.openIDScopes = openIDScopes;
+        this.openIDTokenEndpointAuthMode = openIDTokenEndpointAuthMode;
+        this.prompt = prompt;
+        this.redirectionEndpointHost = redirectionEndpointHost;
+        this.redirectionEndpointPort = redirectionEndpointPort;
+        this.tokenEndpoint = tokenEndpoint;
+        this.trustStoreAlias = trustStoreAlias;
+        this.uiLocales = uiLocales;
+        this.userinfoEndpoint = userinfoEndpoint;
+    }
 
     @AllArgsConstructor
     public enum OpenIDDisplayValueEnum {

@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * LogConfiguration
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "apigatewayLogger",
     "elasticSearchLogger",
@@ -40,16 +46,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("LogConfiguration")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class LogConfiguration {
-
-    /**
-     * Constructs a validated implementation of {@link LogConfiguration}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public LogConfiguration(Consumer<LogConfiguration> spec) {
-        spec.accept(this);
-    }
 
     /**
      * The log setting of APIGateway server.Possible values are off,trace,debug,info,warn,error and fatal
@@ -135,5 +131,50 @@ public class LogConfiguration {
     @JsonProperty("userName")
     protected String userName;
 
+    /**
+     * Constructs a validated instance of {@link LogConfiguration}.
+     *
+     * @param spec the specification to process
+     */
+    public LogConfiguration(Consumer<LogConfiguration> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link LogConfiguration}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LogConfiguration(Consumer)} instead.
+     * @param apigatewayLogger The log setting of APIGateway server.Possible values are off,trace,debug,info,warn,error and fatal
+     * @param elasticSearchLogger The log setting of Internal Data Store.Possible values are off,info,debug,warn,error and fatal
+     * @param enableLogAggregation Enabling log aggregation will collect logs from the different components and store in Internal Data Store or external Elasticsearch.The value can be true or false.
+     * @param enableSecurityLogger The log setting to enable APIGateway security logs.Possible values are true and false.
+     * @param enableSessionLogger The log setting enable APIGateway session logs.Possible values are off,trace,debug,info,warn,error and fatal
+     * @param hostName Hostname of external elastic search used to send the logs.
+     * @param indexName Indexname of external elastic search to store the accumulated logs.
+     * @param kibanaLogger The log setting of APIGateway dashboard.Possible values are silent,quiet and verbose
+     * @param logDestination Specifies where to store the accumulated logs from different stores. Value can be EXTERNAL_ES or INTERNAL
+     * @param password Password that is used to communicate the external elastic search.
+     * @param port Port to communicate the external elastic search.
+     * @param protocol Protocol to communicate the external elastic search.
+     * @param sagOsgiLogger The log setting of OSGI platform.Possible values are true and false.
+     * @param userName Username to communicate the external elastic search.
+     */
+    @ApiStatus.Internal
+    public LogConfiguration(String apigatewayLogger, String elasticSearchLogger, String enableLogAggregation, String enableSecurityLogger, String enableSessionLogger, String hostName, String indexName, String kibanaLogger, String logDestination, String password, String port, String protocol, String sagOsgiLogger, String userName) {
+        this.apigatewayLogger = apigatewayLogger;
+        this.elasticSearchLogger = elasticSearchLogger;
+        this.enableLogAggregation = enableLogAggregation;
+        this.enableSecurityLogger = enableSecurityLogger;
+        this.enableSessionLogger = enableSessionLogger;
+        this.hostName = hostName;
+        this.indexName = indexName;
+        this.kibanaLogger = kibanaLogger;
+        this.logDestination = logDestination;
+        this.password = password;
+        this.port = port;
+        this.protocol = protocol;
+        this.sagOsgiLogger = sagOsgiLogger;
+        this.userName = userName;
+    }
 
 }

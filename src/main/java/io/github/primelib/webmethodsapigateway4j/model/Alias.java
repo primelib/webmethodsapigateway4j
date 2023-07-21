@@ -4,10 +4,14 @@ import java.util.Map;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * Alias
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "description",
     "id",
@@ -33,16 +40,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("Alias")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Alias {
-
-    /**
-     * Constructs a validated implementation of {@link Alias}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public Alias(Consumer<Alias> spec) {
-        spec.accept(this);
-    }
 
     /**
      * A description about the alias
@@ -80,6 +77,35 @@ public class Alias {
     @JsonProperty("type")
     protected TypeEnum type;
 
+    /**
+     * Constructs a validated instance of {@link Alias}.
+     *
+     * @param spec the specification to process
+     */
+    public Alias(Consumer<Alias> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link Alias}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Alias(Consumer)} instead.
+     * @param description A description about the alias
+     * @param id A unique ID for the alias
+     * @param name A unique name for the assertion
+     * @param owner Owner of the alias
+     * @param stage Stage for which this alias needs to be used
+     * @param type Type of the alias
+     */
+    @ApiStatus.Internal
+    public Alias(String description, String id, String name, String owner, String stage, TypeEnum type) {
+        this.description = description;
+        this.id = id;
+        this.name = name;
+        this.owner = owner;
+        this.stage = stage;
+        this.type = type;
+    }
 
     /**
      * Type of the alias

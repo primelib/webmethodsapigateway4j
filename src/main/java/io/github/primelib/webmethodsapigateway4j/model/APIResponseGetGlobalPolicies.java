@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * APIResponseGetGlobalPolicies
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "globalPolicies"
 })
@@ -29,18 +35,27 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class APIResponseGetGlobalPolicies {
 
+    @JsonProperty("globalPolicies")
+    protected List<String> globalPolicies;
+
     /**
-     * Constructs a validated implementation of {@link APIResponseGetGlobalPolicies}.
+     * Constructs a validated instance of {@link APIResponseGetGlobalPolicies}.
      *
      * @param spec the specification to process
      */
-    @ApiStatus.Internal
     public APIResponseGetGlobalPolicies(Consumer<APIResponseGetGlobalPolicies> spec) {
         spec.accept(this);
     }
 
-    @JsonProperty("globalPolicies")
-    protected List<String> globalPolicies;
-
+    /**
+     * Constructs a validated instance of {@link APIResponseGetGlobalPolicies}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGetGlobalPolicies(Consumer)} instead.
+     * @param globalPolicies var.name
+     */
+    @ApiStatus.Internal
+    public APIResponseGetGlobalPolicies(List<String> globalPolicies) {
+        this.globalPolicies = globalPolicies;
+    }
 
 }

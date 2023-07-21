@@ -3,13 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -19,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * OAuthFlows
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "authorizationCode",
     "clientCredentials",
@@ -33,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("OAuthFlows")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class OAuthFlows {
-
-    /**
-     * Constructs a validated implementation of {@link OAuthFlows}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public OAuthFlows(Consumer<OAuthFlows> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("authorizationCode")
     protected OAuth2Definition authorizationCode;
@@ -57,7 +52,34 @@ public class OAuthFlows {
     protected OAuth2Definition password;
 
     @JsonProperty("vendorExtensions")
-    protected Map<String, Object> vendorExtensions = new HashMap<>();
+    protected Map<String, Object> vendorExtensions;
 
+    /**
+     * Constructs a validated instance of {@link OAuthFlows}.
+     *
+     * @param spec the specification to process
+     */
+    public OAuthFlows(Consumer<OAuthFlows> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link OAuthFlows}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OAuthFlows(Consumer)} instead.
+     * @param authorizationCode var.name
+     * @param clientCredentials var.name
+     * @param implicit var.name
+     * @param password var.name
+     * @param vendorExtensions var.name
+     */
+    @ApiStatus.Internal
+    public OAuthFlows(OAuth2Definition authorizationCode, OAuth2Definition clientCredentials, OAuth2Definition implicit, OAuth2Definition password, Map<String, Object> vendorExtensions) {
+        this.authorizationCode = authorizationCode;
+        this.clientCredentials = clientCredentials;
+        this.implicit = implicit;
+        this.password = password;
+        this.vendorExtensions = vendorExtensions;
+    }
 
 }

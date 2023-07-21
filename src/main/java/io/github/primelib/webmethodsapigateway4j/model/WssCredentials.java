@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * WssCredentials
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "password",
     "passwordType",
@@ -29,16 +36,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("WssCredentials")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class WssCredentials {
-
-    /**
-     * Constructs a validated implementation of {@link WssCredentials}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public WssCredentials(Consumer<WssCredentials> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Specify a base64 encoded password for the username
@@ -58,6 +55,29 @@ public class WssCredentials {
     @JsonProperty("userName")
     protected String userName;
 
+    /**
+     * Constructs a validated instance of {@link WssCredentials}.
+     *
+     * @param spec the specification to process
+     */
+    public WssCredentials(Consumer<WssCredentials> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link WssCredentials}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WssCredentials(Consumer)} instead.
+     * @param password Specify a base64 encoded password for the username
+     * @param passwordType type of password
+     * @param userName a username used to generate the WSS username token
+     */
+    @ApiStatus.Internal
+    public WssCredentials(String password, PasswordTypeEnum passwordType, String userName) {
+        this.password = password;
+        this.passwordType = passwordType;
+        this.userName = userName;
+    }
 
     /**
      * type of password

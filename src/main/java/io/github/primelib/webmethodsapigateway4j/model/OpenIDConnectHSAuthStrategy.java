@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * OpenIDConnectHSAuthStrategy
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "audience",
     "authServerAlias",
@@ -38,16 +45,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("OpenIDConnectHSAuthStrategy")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class OpenIDConnectHSAuthStrategy {
-
-    /**
-     * Constructs a validated implementation of {@link OpenIDConnectHSAuthStrategy}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public OpenIDConnectHSAuthStrategy(Consumer<OpenIDConnectHSAuthStrategy> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("audience")
     protected String audience;
@@ -97,6 +94,47 @@ public class OpenIDConnectHSAuthStrategy {
     @JsonProperty("type")
     protected TypeEnum type;
 
+    /**
+     * Constructs a validated instance of {@link OpenIDConnectHSAuthStrategy}.
+     *
+     * @param spec the specification to process
+     */
+    public OpenIDConnectHSAuthStrategy(Consumer<OpenIDConnectHSAuthStrategy> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link OpenIDConnectHSAuthStrategy}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OpenIDConnectHSAuthStrategy(Consumer)} instead.
+     * @param audience var.name
+     * @param authServerAlias The name of the authorization server alias
+     * @param clientId var.name
+     * @param clientRegistration var.name
+     * @param dcrConfig var.name
+     * @param description var.name
+     * @param id A unique ID for the strategy
+     * @param jwtAuthStrategy var.name
+     * @param name The name of the strategy
+     * @param primaryNode var.name
+     * @param secret var.name
+     * @param type The type of the strategy
+     */
+    @ApiStatus.Internal
+    public OpenIDConnectHSAuthStrategy(String audience, String authServerAlias, String clientId, ClientRegistration clientRegistration, DynamicClientRegistrationConfig dcrConfig, String description, String id, JWTAuthStrategy jwtAuthStrategy, String name, Node primaryNode, GatewaySecret secret, TypeEnum type) {
+        this.audience = audience;
+        this.authServerAlias = authServerAlias;
+        this.clientId = clientId;
+        this.clientRegistration = clientRegistration;
+        this.dcrConfig = dcrConfig;
+        this.description = description;
+        this.id = id;
+        this.jwtAuthStrategy = jwtAuthStrategy;
+        this.name = name;
+        this.primaryNode = primaryNode;
+        this.secret = secret;
+        this.type = type;
+    }
 
     /**
      * The type of the strategy

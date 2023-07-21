@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * PolicyActionOrder
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "isCustomOrderSupported",
     "orderPosition",
@@ -31,16 +38,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("PolicyActionOrder")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PolicyActionOrder {
-
-    /**
-     * Constructs a validated implementation of {@link PolicyActionOrder}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public PolicyActionOrder(Consumer<PolicyActionOrder> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("isCustomOrderSupported")
     protected Boolean isCustomOrderSupported;
@@ -70,6 +67,31 @@ public class PolicyActionOrder {
     @JsonProperty("sequence")
     protected List<SequenceEnum> sequence;
 
+    /**
+     * Constructs a validated instance of {@link PolicyActionOrder}.
+     *
+     * @param spec the specification to process
+     */
+    public PolicyActionOrder(Consumer<PolicyActionOrder> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link PolicyActionOrder}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyActionOrder(Consumer)} instead.
+     * @param isCustomOrderSupported var.name
+     * @param orderPosition Order of the policy enforcement.   1. First - policy enforcement needs to be added in its respective stage.   2. Last - policy enforcement needs to be added as last in its respective stage.   3. Before First occurrence - Policy needs to be added before the first occurrence of policyTemplateIds specified.   4. After last occurrence - Policy needs to be added after last occurrence of policyTemplateIds specified
+     * @param policyTemplateIDs List of policy template ids needed to process the order before first occurrence and after last occurrence
+     * @param sequence Sequence of the policy enforcement.  1. insequence - Stages or policies marked with this sequence will be executed when the request comes to API Gateway and before the request dispatched to native service.   2. outsequence - Stages or policies marked with this sequence will be executed when the request goes out of API Gateway to the invoker.   3. faultsequence - Stages or policies marked with this sequence will be executed when native service return any error
+     */
+    @ApiStatus.Internal
+    public PolicyActionOrder(Boolean isCustomOrderSupported, OrderPositionEnum orderPosition, List<String> policyTemplateIDs, List<SequenceEnum> sequence) {
+        this.isCustomOrderSupported = isCustomOrderSupported;
+        this.orderPosition = orderPosition;
+        this.policyTemplateIDs = policyTemplateIDs;
+        this.sequence = sequence;
+    }
 
     /**
      * Order of the policy enforcement.

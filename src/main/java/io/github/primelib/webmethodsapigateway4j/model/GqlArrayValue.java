@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * GqlArrayValue
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "comments",
     "values"
@@ -29,16 +35,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("GqlArrayValue")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class GqlArrayValue {
-
-    /**
-     * Constructs a validated implementation of {@link GqlArrayValue}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public GqlArrayValue(Consumer<GqlArrayValue> spec) {
-        spec.accept(this);
-    }
 
     /**
      * List of comments
@@ -52,5 +48,26 @@ public class GqlArrayValue {
     @JsonProperty("values")
     protected List<GqlValue> values;
 
+    /**
+     * Constructs a validated instance of {@link GqlArrayValue}.
+     *
+     * @param spec the specification to process
+     */
+    public GqlArrayValue(Consumer<GqlArrayValue> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link GqlArrayValue}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlArrayValue(Consumer)} instead.
+     * @param comments List of comments
+     * @param values List of values
+     */
+    @ApiStatus.Internal
+    public GqlArrayValue(List<GqlComment> comments, List<GqlValue> values) {
+        this.comments = comments;
+        this.values = values;
+    }
 
 }

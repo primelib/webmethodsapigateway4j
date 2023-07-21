@@ -3,10 +3,13 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +20,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * SalesInformation
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "AutoCallHome",
     "ContractDetails",
@@ -34,16 +40,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("SalesInformation")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SalesInformation {
-
-    /**
-     * Constructs a validated implementation of {@link SalesInformation}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public SalesInformation(Consumer<SalesInformation> spec) {
-        spec.accept(this);
-    }
 
     @JsonProperty("AutoCallHome")
     protected String autoCallHome;
@@ -69,5 +65,38 @@ public class SalesInformation {
     @JsonProperty("Serial Number")
     protected String serialNumber;
 
+    /**
+     * Constructs a validated instance of {@link SalesInformation}.
+     *
+     * @param spec the specification to process
+     */
+    public SalesInformation(Consumer<SalesInformation> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link SalesInformation}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SalesInformation(Consumer)} instead.
+     * @param autoCallHome var.name
+     * @param contractDetails var.name
+     * @param contractPosNumber var.name
+     * @param customerID var.name
+     * @param customerName var.name
+     * @param licenseKey var.name
+     * @param licenseTypeDetails var.name
+     * @param serialNumber var.name
+     */
+    @ApiStatus.Internal
+    public SalesInformation(String autoCallHome, String contractDetails, String contractPosNumber, String customerID, String customerName, String licenseKey, String licenseTypeDetails, String serialNumber) {
+        this.autoCallHome = autoCallHome;
+        this.contractDetails = contractDetails;
+        this.contractPosNumber = contractPosNumber;
+        this.customerID = customerID;
+        this.customerName = customerName;
+        this.licenseKey = licenseKey;
+        this.licenseTypeDetails = licenseTypeDetails;
+        this.serialNumber = serialNumber;
+    }
 
 }

@@ -3,14 +3,15 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
-import java.util.HashMap;
 import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
@@ -20,11 +21,12 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ServiceRegistryModel
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Getter
+@Setter
 @EqualsAndHashCode(callSuper = true)
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @JsonPropertyOrder({
     "ConnectionTimeout",
     "customHeaders",
@@ -46,16 +48,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 public class ServiceRegistryModel extends Alias {
 
     /**
-     * Constructs a validated implementation of {@link ServiceRegistryModel}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ServiceRegistryModel(Consumer<ServiceRegistryModel> spec) {
-        spec.accept(this);
-    }
-
-    /**
      * The time interval (in seconds) after which a connection attempt times out while communicating with service registry
      */
     @JsonProperty("ConnectionTimeout")
@@ -65,7 +57,7 @@ public class ServiceRegistryModel extends Alias {
      * Custom headers that needs be sent while communicating with the service registry
      */
     @JsonProperty("customHeaders")
-    protected Map<String, String> customHeaders = new HashMap<>();
+    protected Map<String, String> customHeaders;
 
     @JsonProperty("deRegistrationInfo")
     protected ServiceRegistryCommunication deRegistrationInfo;
@@ -130,6 +122,52 @@ public class ServiceRegistryModel extends Alias {
     @JsonProperty("username")
     protected String username;
 
+    /**
+     * Constructs a validated instance of {@link ServiceRegistryModel}.
+     *
+     * @param spec the specification to process
+     */
+    public ServiceRegistryModel(Consumer<ServiceRegistryModel> spec) {
+        super();
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ServiceRegistryModel}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServiceRegistryModel(Consumer)} instead.
+     * @param connectionTimeout The time interval (in seconds) after which a connection attempt times out while communicating with service registry
+     * @param customHeaders Custom headers that needs be sent while communicating with the service registry
+     * @param deRegistrationInfo var.name
+     * @param discoveryInfo var.name
+     * @param endpointURI Endpoint that is used to communicate with the service registry
+     * @param heartBeatInterval APIGateway will ping the service registry on the configured interval for every API
+     * @param keyAlias The key alias is the private key that is used for signing when using SSL communication with the Service Registry.
+     * @param keystoreAlias A keystore is a repository of private key. This keystore contains the private key used for the SSL communication with the Service Registry. For information on how to configure the keystore aliases, refer API Gateway Administration swagger
+     * @param password Base64 encoded password that is used in the Basic authentication when communicating with the service registry
+     * @param readTimeout The time interval (in seconds) after which a socket read attempt times out while communicating with service registry
+     * @param registrationInfo var.name
+     * @param serviceRegistryType It contains the information about the type of service registry
+     * @param trustStoreAlias A truststore is a repository of public keys. This truststore contains the public key of the Service Registry used for the SSL communication with the Service Registry. For information on how to configure the truststore aliases, refer API Gateway Administration swagger
+     * @param username Username that is used in the Basic authentication when communicating with the service registry
+     */
+    @ApiStatus.Internal
+    public ServiceRegistryModel(Integer connectionTimeout, Map<String, String> customHeaders, ServiceRegistryCommunication deRegistrationInfo, ServiceRegistryCommunication discoveryInfo, String endpointURI, Integer heartBeatInterval, String keyAlias, String keystoreAlias, String password, Integer readTimeout, ServiceRegistryCommunication registrationInfo, ServiceRegistryTypeEnum serviceRegistryType, String trustStoreAlias, String username) {
+        this.connectionTimeout = connectionTimeout;
+        this.customHeaders = customHeaders;
+        this.deRegistrationInfo = deRegistrationInfo;
+        this.discoveryInfo = discoveryInfo;
+        this.endpointURI = endpointURI;
+        this.heartBeatInterval = heartBeatInterval;
+        this.keyAlias = keyAlias;
+        this.keystoreAlias = keystoreAlias;
+        this.password = password;
+        this.readTimeout = readTimeout;
+        this.registrationInfo = registrationInfo;
+        this.serviceRegistryType = serviceRegistryType;
+        this.trustStoreAlias = trustStoreAlias;
+        this.username = username;
+    }
 
     /**
      * It contains the information about the type of service registry

@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * PolicyActionParameterTemplate
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "applicableServiceTypes",
     "canRender",
@@ -40,16 +47,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("PolicyActionParameterTemplate")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class PolicyActionParameterTemplate {
-
-    /**
-     * Constructs a validated implementation of {@link PolicyActionParameterTemplate}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public PolicyActionParameterTemplate(Consumer<PolicyActionParameterTemplate> spec) {
-        spec.accept(this);
-    }
 
     /**
      * List of Service type applicable for this policy action parameter
@@ -117,6 +114,49 @@ public class PolicyActionParameterTemplate {
     @JsonProperty("type")
     protected TypeEnum type;
 
+    /**
+     * Constructs a validated instance of {@link PolicyActionParameterTemplate}.
+     *
+     * @param spec the specification to process
+     */
+    public PolicyActionParameterTemplate(Consumer<PolicyActionParameterTemplate> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link PolicyActionParameterTemplate}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyActionParameterTemplate(Consumer)} instead.
+     * @param applicableServiceTypes List of Service type applicable for this policy action parameter
+     * @param canRender UI specific property. This property infer it can be rendered on UI
+     * @param defaultValues This contains the list of default values for this policy action parameter
+     * @param descriptions Policy action parameter template description
+     * @param isArray This property infers whether this policy action parameter can be an array
+     * @param isRequired This property infers if it is added to a policy enforcement then it is mandate to provide value for this policy action parameter
+     * @param names Policy action parameter template name
+     * @param parameterTemplatesReference var.name
+     * @param policyParaeterTemplates var.name
+     * @param possibleValues var.name
+     * @param requiredChildParameterKeys var.name
+     * @param templateKey Unique id for policy action parameter
+     * @param type Policy Action parameter data type.
+     */
+    @ApiStatus.Internal
+    public PolicyActionParameterTemplate(List<String> applicableServiceTypes, Boolean canRender, List<Object> defaultValues, List<InternationalizedString> descriptions, Boolean isArray, Boolean isRequired, List<InternationalizedString> names, List<String> parameterTemplatesReference, List<PolicyActionParameterTemplate> policyParaeterTemplates, List<PossibleValue> possibleValues, List<String> requiredChildParameterKeys, String templateKey, TypeEnum type) {
+        this.applicableServiceTypes = applicableServiceTypes;
+        this.canRender = canRender;
+        this.defaultValues = defaultValues;
+        this.descriptions = descriptions;
+        this.isArray = isArray;
+        this.isRequired = isRequired;
+        this.names = names;
+        this.parameterTemplatesReference = parameterTemplatesReference;
+        this.policyParaeterTemplates = policyParaeterTemplates;
+        this.possibleValues = possibleValues;
+        this.requiredChildParameterKeys = requiredChildParameterKeys;
+        this.templateKey = templateKey;
+        this.type = type;
+    }
 
     /**
      * Policy Action parameter data type.

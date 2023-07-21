@@ -5,8 +5,13 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.ModelPackage;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -16,9 +21,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the CreatePackage operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class CreatePackageOperationSpec {
     /**
@@ -33,7 +42,7 @@ public class CreatePackageOperationSpec {
     private ModelPackage body;
 
     /**
-     * Constructs a validated implementation of {@link CreatePackageOperationSpec}.
+     * Constructs a validated instance of {@link CreatePackageOperationSpec}.
      *
      * @param spec the specification to process
      */
@@ -45,11 +54,24 @@ public class CreatePackageOperationSpec {
     }
 
     /**
+     * Constructs a validated instance of {@link CreatePackageOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param body                 
+     */
+    @ApiStatus.Internal
+    public CreatePackageOperationSpec(ModelPackage body) {
+        this.body = body;
+
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
      * Validates the Spec, will throw a exception if required parameters are missing
      *
      * @throws NullPointerException
      */
     public void validate() {
     }
-
 }

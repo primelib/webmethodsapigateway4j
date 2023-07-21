@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import java.util.List;
@@ -18,10 +22,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * ChangeOwnerRequest
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "assetIds",
     "assetType",
@@ -34,16 +41,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("ChangeOwnerRequest")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class ChangeOwnerRequest {
-
-    /**
-     * Constructs a validated implementation of {@link ChangeOwnerRequest}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public ChangeOwnerRequest(Consumer<ChangeOwnerRequest> spec) {
-        spec.accept(this);
-    }
 
     /**
      * List of APIGateway assets for which change owner/team is requested.
@@ -87,6 +84,37 @@ public class ChangeOwnerRequest {
     @JsonProperty("ownerType")
     protected OwnerTypeEnum ownerType;
 
+    /**
+     * Constructs a validated instance of {@link ChangeOwnerRequest}.
+     *
+     * @param spec the specification to process
+     */
+    public ChangeOwnerRequest(Consumer<ChangeOwnerRequest> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link ChangeOwnerRequest}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ChangeOwnerRequest(Consumer)} instead.
+     * @param assetIds List of APIGateway assets for which change owner/team is requested.
+     * @param assetType APIGateway asset type.
+     * @param currentOwner Current owner of the APIGateway asset.
+     * @param currentTeams New teams of the APIGateway asset.
+     * @param newOwner New owner of the APIGateway asset.
+     * @param newTeams Current teams of the APIGateway asset.
+     * @param ownerType Type of the new owner of the APIGateway asset. By default, it is user. Possible values are user and team.
+     */
+    @ApiStatus.Internal
+    public ChangeOwnerRequest(List<String> assetIds, String assetType, String currentOwner, List<String> currentTeams, String newOwner, List<String> newTeams, OwnerTypeEnum ownerType) {
+        this.assetIds = assetIds;
+        this.assetType = assetType;
+        this.currentOwner = currentOwner;
+        this.currentTeams = currentTeams;
+        this.newOwner = newOwner;
+        this.newTeams = newTeams;
+        this.ownerType = ownerType;
+    }
 
     /**
      * Type of the new owner of the APIGateway asset. By default, it is user. Possible values are user and team.

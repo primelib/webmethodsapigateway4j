@@ -3,10 +3,14 @@ package io.github.primelib.webmethodsapigateway4j.model;
 import java.util.function.Consumer;
 import org.jetbrains.annotations.ApiStatus;
 import javax.annotation.processing.Generated;
-import lombok.Data;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import lombok.AccessLevel;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import lombok.NoArgsConstructor;
+import lombok.AllArgsConstructor;
 import lombok.experimental.Accessors;
 
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -17,10 +21,13 @@ import com.fasterxml.jackson.annotation.JsonProperty;
  * TokenGeneratorConfig
  *
  */
-@Data
-@AllArgsConstructor
-@Accessors(fluent = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @JsonPropertyOrder({
     "accessTokenExpInterval",
     "algorithm",
@@ -32,16 +39,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @JsonTypeName("TokenGeneratorConfig")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class TokenGeneratorConfig {
-
-    /**
-     * Constructs a validated implementation of {@link TokenGeneratorConfig}.
-     *
-     * @param spec the specification to process
-     */
-    @ApiStatus.Internal
-    public TokenGeneratorConfig(Consumer<TokenGeneratorConfig> spec) {
-        spec.accept(this);
-    }
 
     /**
      * Expiry interval in seconds for the generated access token 
@@ -79,6 +76,35 @@ public class TokenGeneratorConfig {
     @JsonProperty("expiry")
     protected Long expiry;
 
+    /**
+     * Constructs a validated instance of {@link TokenGeneratorConfig}.
+     *
+     * @param spec the specification to process
+     */
+    public TokenGeneratorConfig(Consumer<TokenGeneratorConfig> spec) {
+        spec.accept(this);
+    }
+
+    /**
+     * Constructs a validated instance of {@link TokenGeneratorConfig}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TokenGeneratorConfig(Consumer)} instead.
+     * @param accessTokenExpInterval Expiry interval in seconds for the generated access token 
+     * @param algorithm Type of algorithm that needs to be used for signing the JWT
+     * @param audience Default audience value that needs to be added in the generated JWT
+     * @param authCodeExpInterval Expiry interval in seconds for the generated authorization code in Authorization code grant type
+     * @param enforcePKCE Global option to apply PKCE security, for the public clients using authorization code grant type. Applicable only for local auth server
+     * @param expiry Expiry interval of the JWT in minutes
+     */
+    @ApiStatus.Internal
+    public TokenGeneratorConfig(Integer accessTokenExpInterval, AlgorithmEnum algorithm, String audience, Integer authCodeExpInterval, Boolean enforcePKCE, Long expiry) {
+        this.accessTokenExpInterval = accessTokenExpInterval;
+        this.algorithm = algorithm;
+        this.audience = audience;
+        this.authCodeExpInterval = authCodeExpInterval;
+        this.enforcePKCE = enforcePKCE;
+        this.expiry = expiry;
+    }
 
     /**
      * Type of algorithm that needs to be used for signing the JWT

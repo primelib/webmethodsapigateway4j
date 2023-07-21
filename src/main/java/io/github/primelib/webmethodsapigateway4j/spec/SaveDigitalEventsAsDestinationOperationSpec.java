@@ -6,8 +6,13 @@ import org.jetbrains.annotations.NotNull;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.model.Destination;
+import java.util.Set;
 import lombok.AccessLevel;
-import lombok.Data;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import lombok.NoArgsConstructor;
 import lombok.experimental.Accessors;
 import java.util.function.Consumer;
@@ -17,9 +22,13 @@ import java.util.function.Consumer;
  * <p>
  * Specification for the SaveDigitalEventsAsDestination operation.
  */
-@Data
-@Accessors(fluent = true)
-@NoArgsConstructor(access = AccessLevel.PRIVATE, force = true)
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@Accessors(fluent = true, chain = true)
+@NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
+@Builder
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class SaveDigitalEventsAsDestinationOperationSpec {
     /**
@@ -34,13 +43,27 @@ public class SaveDigitalEventsAsDestinationOperationSpec {
     private Destination body;
 
     /**
-     * Constructs a validated implementation of {@link SaveDigitalEventsAsDestinationOperationSpec}.
+     * Constructs a validated instance of {@link SaveDigitalEventsAsDestinationOperationSpec}.
      *
      * @param spec the specification to process
      */
     @ApiStatus.Internal
     public SaveDigitalEventsAsDestinationOperationSpec(Consumer<SaveDigitalEventsAsDestinationOperationSpec> spec) {
         spec.accept(this);
+        if (VALIDATION_ENABLED)
+            validate();
+    }
+
+    /**
+     * Constructs a validated instance of {@link SaveDigitalEventsAsDestinationOperationSpec}.
+     * <p>
+     * NOTE: This constructor is not considered stable and may change if the operation is updated.
+     * @param body                 
+     */
+    @ApiStatus.Internal
+    public SaveDigitalEventsAsDestinationOperationSpec(Destination body) {
+        this.body = body;
+
         if (VALIDATION_ENABLED)
             validate();
     }
@@ -53,5 +76,4 @@ public class SaveDigitalEventsAsDestinationOperationSpec {
     public void validate() {
         Objects.requireNonNull(body, "body is a required parameter!");
     }
-
 }
