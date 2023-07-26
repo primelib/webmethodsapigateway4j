@@ -7,7 +7,6 @@ import org.jetbrains.annotations.Nullable;
 import javax.annotation.processing.Generated;
 
 import io.github.primelib.webmethodsapigateway4j.api.APIGatewayApi;
-import io.github.primelib.webmethodsapigateway4j.auth.AuthMethod;
 import io.github.primelib.webmethodsapigateway4j.auth.BasicAuthSpec;
 import lombok.AccessLevel;
 import lombok.Data;
@@ -16,6 +15,9 @@ import lombok.experimental.Accessors;
 
 import io.micrometer.core.instrument.MeterRegistry;
 import io.micrometer.core.instrument.composite.CompositeMeterRegistry;
+
+import io.github.primelib.primecodegenlib.java.feign.common.api.AuthMethod;
+import io.github.primelib.primecodegenlib.java.feign.common.config.ProxySpec;
 
 import java.util.Objects;
 import java.util.function.Consumer;
@@ -57,10 +59,10 @@ public final class APIGatewayFactorySpec<T> {
      * The proxy server to use, if applicable
      * <p>
      * Defaults to {@code null}.
-     * Set to {@code APIGatewayProxySpec.detect()} to detect the proxy based on the os environment automatically.
+     * Set to {@code ProxySpec.detect()} to detect the proxy based on the os environment automatically.
      */
     @Nullable
-    private APIGatewayProxySpec proxy = null;
+    private ProxySpec proxy = null;
 
     /**
      * MeterRegistry to use for metrics
@@ -103,8 +105,8 @@ public final class APIGatewayFactorySpec<T> {
         Objects.requireNonNull(logLevel, "logLevel must not be null");
     }
 
-    public APIGatewayProxySpec httpProxy(Consumer<APIGatewayProxySpec> proxySpec) {
-        APIGatewayProxySpec proxy = new APIGatewayProxySpec(proxySpec);
+    public ProxySpec httpProxy(Consumer<ProxySpec> proxySpec) {
+        ProxySpec proxy = new ProxySpec(proxySpec);
         proxy(proxy);
         return proxy;
     }
