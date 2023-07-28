@@ -15,6 +15,8 @@ import lombok.experimental.Accessors;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * SOAPMessageSecurityAlias
@@ -111,7 +113,25 @@ public class SOAPMessageSecurityAlias extends Alias {
         TRANSPARENT("TRANSPARENT"),
         INCOMING_KERBEROS("INCOMING_KERBEROS");
 
+        private static final AuthModeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static AuthModeEnum of(String input) {
+            if (input != null) {
+                for (AuthModeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -126,7 +146,25 @@ public class SOAPMessageSecurityAlias extends Alias {
         REMOVE_WSS_HEADERS("REMOVE_WSS_HEADERS"),
         NONE("NONE");
 
+        private static final AuthTypeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static AuthTypeEnum of(String input) {
+            if (input != null) {
+                for (AuthTypeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

@@ -16,6 +16,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * OpenIDProviderAlias
@@ -174,14 +176,50 @@ public class OpenIDProviderAlias extends Alias {
         TOUCH("touch"),
         WAP("wap");
 
+        private static final OpenIDDisplayValueEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static OpenIDDisplayValueEnum of(String input) {
+            if (input != null) {
+                for (OpenIDDisplayValueEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     @AllArgsConstructor
     public enum OpenIDGrantTypeEnum {
         AUTHORIZATION_CODE("authorization_code");
 
+        private static final OpenIDGrantTypeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static OpenIDGrantTypeEnum of(String input) {
+            if (input != null) {
+                for (OpenIDGrantTypeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     @AllArgsConstructor
@@ -191,7 +229,25 @@ public class OpenIDProviderAlias extends Alias {
         TOKEN_ID_TOKEN("token id_token"),
         ID_TOKEN_TOKEN("id_token token");
 
+        private static final OpenIDResponseTypeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static OpenIDResponseTypeEnum of(String input) {
+            if (input != null) {
+                for (OpenIDResponseTypeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     @AllArgsConstructor
@@ -200,7 +256,25 @@ public class OpenIDProviderAlias extends Alias {
         CLIENT_SECRET_POST("client_secret_post"),
         NONE("none");
 
+        private static final OpenIDTokenEndpointAuthModeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static OpenIDTokenEndpointAuthModeEnum of(String input) {
+            if (input != null) {
+                for (OpenIDTokenEndpointAuthModeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     @AllArgsConstructor
@@ -210,7 +284,25 @@ public class OpenIDProviderAlias extends Alias {
         CONSENT("consent"),
         SELECT_ACCOUNT("select_account");
 
+        private static final PromptEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static PromptEnum of(String input) {
+            if (input != null) {
+                for (PromptEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

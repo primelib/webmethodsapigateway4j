@@ -17,6 +17,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * SearchContext
@@ -154,7 +156,25 @@ public class SearchContext {
         AND("and"),
         OR("or");
 
+        private static final ConditionEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static ConditionEnum of(String input) {
+            if (input != null) {
+                for (ConditionEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -165,7 +185,25 @@ public class SearchContext {
         ASC("ASC"),
         DESC("DESC");
 
+        private static final SortOrderEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static SortOrderEnum of(String input) {
+            if (input != null) {
+                for (SortOrderEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -224,7 +262,25 @@ public class SearchContext {
         MEDIATOR_TRACE_SPANS("MEDIATOR_TRACE_SPANS"),
         SERVER_LOG_TRACE_SPANS("SERVER_LOG_TRACE_SPANS");
 
+        private static final TypesEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static TypesEnum of(String input) {
+            if (input != null) {
+                for (TypesEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

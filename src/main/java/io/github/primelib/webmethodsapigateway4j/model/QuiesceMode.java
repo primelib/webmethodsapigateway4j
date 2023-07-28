@@ -17,6 +17,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * QuiesceMode
@@ -106,7 +108,25 @@ public class QuiesceMode {
         DESIGNTIME("designtime"),
         ALL("all");
 
+        private static final BlockEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static BlockEnum of(String input) {
+            if (input != null) {
+                for (BlockEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -118,7 +138,25 @@ public class QuiesceMode {
         PERFORMANCE_METRICS("performance_metrics"),
         SUBSCRIPTION_QUOTA("subscription_quota");
 
+        private static final FlushEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static FlushEnum of(String input) {
+            if (input != null) {
+                for (FlushEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -130,7 +168,25 @@ public class QuiesceMode {
         FAILURE("failure"),
         IN_PROGRESS("in progress");
 
+        private static final StatusEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static StatusEnum of(String input) {
+            if (input != null) {
+                for (StatusEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

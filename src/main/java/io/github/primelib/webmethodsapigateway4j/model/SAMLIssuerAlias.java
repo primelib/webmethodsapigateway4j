@@ -16,6 +16,8 @@ import java.util.Map;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * SAMLIssuerAlias
@@ -172,7 +174,25 @@ public class SAMLIssuerAlias extends Alias {
         TRANSPARENT("TRANSPARENT"),
         INCOMING_KERBEROS("INCOMING_KERBEROS");
 
+        private static final IssuerAuthModeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static IssuerAuthModeEnum of(String input) {
+            if (input != null) {
+                for (IssuerAuthModeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -185,7 +205,25 @@ public class SAMLIssuerAlias extends Alias {
         KERBEROS("KERBEROS"),
         X509("X509");
 
+        private static final IssuerAuthSchemeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static IssuerAuthSchemeEnum of(String input) {
+            if (input != null) {
+                for (IssuerAuthSchemeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -196,7 +234,25 @@ public class SAMLIssuerAlias extends Alias {
         NORMAL_CLIENT("NORMAL_CLIENT"),
         ACT_AS_DELEGATION("ACT_AS_DELEGATION");
 
+        private static final IssuerCommunicationModeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static IssuerCommunicationModeEnum of(String input) {
+            if (input != null) {
+                for (IssuerCommunicationModeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -207,7 +263,25 @@ public class SAMLIssuerAlias extends Alias {
         SAML1_1("SAML1_1"),
         SAML_2_0("SAML_2_0");
 
+        private static final SamlVersionEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static SamlVersionEnum of(String input) {
+            if (input != null) {
+                for (SamlVersionEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -218,7 +292,25 @@ public class SAMLIssuerAlias extends Alias {
         _0("WS_TRUST_1_0"),
         _3("WS_TRUST_1_3");
 
+        private static final WsTrustVersionEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static WsTrustVersionEnum of(String input) {
+            if (input != null) {
+                for (WsTrustVersionEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

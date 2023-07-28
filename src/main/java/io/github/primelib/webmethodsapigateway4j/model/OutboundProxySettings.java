@@ -16,6 +16,8 @@ import lombok.experimental.Accessors;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * OutboundProxySettings
@@ -174,7 +176,25 @@ public class OutboundProxySettings {
         _6("6"),
         _7("7");
 
+        private static final FtpTypeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static FtpTypeEnum of(String input) {
+            if (input != null) {
+                for (FtpTypeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -185,7 +205,25 @@ public class OutboundProxySettings {
         Y("Y"),
         N("N");
 
+        private static final IsDefaultEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static IsDefaultEnum of(String input) {
+            if (input != null) {
+                for (IsDefaultEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -198,7 +236,25 @@ public class OutboundProxySettings {
         SOCKS("SOCKS"),
         FTP("FTP");
 
+        private static final ProtocolEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static ProtocolEnum of(String input) {
+            if (input != null) {
+                for (ProtocolEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -209,7 +265,25 @@ public class OutboundProxySettings {
         _4("4"),
         _5("5");
 
+        private static final SocksVersionEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static SocksVersionEnum of(String input) {
+            if (input != null) {
+                for (SocksVersionEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -220,7 +294,25 @@ public class OutboundProxySettings {
         ENABLED("Enabled"),
         DISABLED("Disabled");
 
+        private static final StatusEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static StatusEnum of(String input) {
+            if (input != null) {
+                for (StatusEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

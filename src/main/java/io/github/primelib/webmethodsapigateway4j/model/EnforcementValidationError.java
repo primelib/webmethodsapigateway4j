@@ -17,6 +17,8 @@ import java.util.List;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * EnforcementValidationError
@@ -115,7 +117,25 @@ public class EnforcementValidationError {
         ONCE("once"),
         MULTIPLE("multiple");
 
+        private static final AllowedOccurrenceEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static AllowedOccurrenceEnum of(String input) {
+            if (input != null) {
+                for (AllowedOccurrenceEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     /**
@@ -127,7 +147,25 @@ public class EnforcementValidationError {
         MUTUALLYEXCLUSIVE("mutuallyExclusive"),
         OCCURRENCE("occurrence");
 
+        private static final ErrorTypeEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static ErrorTypeEnum of(String input) {
+            if (input != null) {
+                for (ErrorTypeEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }

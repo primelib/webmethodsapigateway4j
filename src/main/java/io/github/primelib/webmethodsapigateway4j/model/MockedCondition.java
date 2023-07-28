@@ -16,6 +16,8 @@ import lombok.experimental.Accessors;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.annotation.JsonTypeName;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonCreator;
+import com.fasterxml.jackson.annotation.JsonValue;
 
 /**
  * MockedCondition
@@ -94,7 +96,25 @@ public class MockedCondition {
         HEADER("Header"),
         QUERYPARAMETER("QueryParameter");
 
+        private static final MockedConditionParameterEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static MockedConditionParameterEnum of(String input) {
+            if (input != null) {
+                for (MockedConditionParameterEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     @AllArgsConstructor
@@ -104,7 +124,25 @@ public class MockedCondition {
         CONTAINSKEY("ContainsKey"),
         CONTAINSKEYVALUE("ContainsKeyValue");
 
+        private static final MockedLevel1OperatorEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static MockedLevel1OperatorEnum of(String input) {
+            if (input != null) {
+                for (MockedLevel1OperatorEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
     @AllArgsConstructor
@@ -115,7 +153,25 @@ public class MockedCondition {
         STARTSWITH("StartsWith"),
         ENDSWITH("EndsWith");
 
+        private static final MockedLevel2OperatorEnum[] VALUES = values(); // prevent allocating a new array for every call to values()
         private final String value;
+
+        @JsonCreator
+        public static MockedLevel2OperatorEnum of(String input) {
+            if (input != null) {
+                for (MockedLevel2OperatorEnum v : VALUES) {
+                    if (input.equalsIgnoreCase(v.value)) 
+                        return v;
+                }
+            }
+
+            return null;
+        }
+
+        @JsonValue
+        public String getValue() {
+            return value;
+        }
     }
 
 }
