@@ -55,8 +55,8 @@ public class InputAPIImplementation {
      * Constructs a validated instance of {@link InputAPIImplementation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputAPIImplementation(Consumer)} instead.
-     * @param maturityState var.name
-     * @param nativeBaseURLs var.name
+     * @param maturityState maturityState
+     * @param nativeBaseURLs nativeBaseURLs
      */
     @ApiStatus.Internal
     public InputAPIImplementation(String maturityState, List<String> nativeBaseURLs) {

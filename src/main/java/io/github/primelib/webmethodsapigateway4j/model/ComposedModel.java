@@ -70,12 +70,12 @@ public class ComposedModel extends Model {
      * Constructs a validated instance of {@link ComposedModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ComposedModel(Consumer)} instead.
-     * @param allOf var.name
-     * @param anyOf var.name
-     * @param child var.name
-     * @param interfaces var.name
-     * @param oneOf var.name
-     * @param parent var.name
+     * @param allOf allOf
+     * @param anyOf anyOf
+     * @param child child
+     * @param interfaces interfaces
+     * @param oneOf oneOf
+     * @param parent parent
      */
     @ApiStatus.Internal
     public ComposedModel(List<Model> allOf, List<Model> anyOf, Model child, List<Model> interfaces, List<Model> oneOf, Model parent) {

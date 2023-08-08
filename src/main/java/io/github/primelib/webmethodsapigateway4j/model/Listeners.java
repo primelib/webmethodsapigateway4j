@@ -51,7 +51,7 @@ public class Listeners {
      * Constructs a validated instance of {@link Listeners}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Listeners(Consumer)} instead.
-     * @param listeners var.name
+     * @param listeners listeners
      */
     @ApiStatus.Internal
     public Listeners(List<Port> listeners) {

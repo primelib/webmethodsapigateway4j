@@ -49,7 +49,7 @@ public class ObjectSchema extends ParameterSchema {
      * Constructs a validated instance of {@link ObjectSchema}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ObjectSchema(Consumer)} instead.
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public ObjectSchema(String type) {

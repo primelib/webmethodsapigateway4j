@@ -51,7 +51,7 @@ public class GqlValue {
      * Constructs a validated instance of {@link GqlValue}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlValue(Consumer)} instead.
-     * @param comments var.name
+     * @param comments comments
      */
     @ApiStatus.Internal
     public GqlValue(List<GqlComment> comments) {

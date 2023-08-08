@@ -54,8 +54,8 @@ public class EndpointInfo {
      * Constructs a validated instance of {@link EndpointInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EndpointInfo(Consumer)} instead.
-     * @param endpoint var.name
-     * @param gatewayPoolId var.name
+     * @param endpoint endpoint
+     * @param gatewayPoolId gatewayPoolId
      */
     @ApiStatus.Internal
     public EndpointInfo(String endpoint, String gatewayPoolId) {

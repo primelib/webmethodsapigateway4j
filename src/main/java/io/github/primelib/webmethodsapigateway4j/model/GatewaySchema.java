@@ -53,8 +53,8 @@ public class GatewaySchema extends ParameterSchema {
      * Constructs a validated instance of {@link GatewaySchema}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GatewaySchema(Consumer)} instead.
-     * @param schema var.name
-     * @param type var.name
+     * @param schema schema
+     * @param type type
      */
     @ApiStatus.Internal
     public GatewaySchema(String schema, String type) {

@@ -50,7 +50,7 @@ public class AccessTokensTypeModel {
      * Constructs a validated instance of {@link AccessTokensTypeModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AccessTokensTypeModel(Consumer)} instead.
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public AccessTokensTypeModel(String type) {

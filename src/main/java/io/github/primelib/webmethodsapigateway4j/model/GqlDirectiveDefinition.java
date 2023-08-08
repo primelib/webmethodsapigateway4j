@@ -80,7 +80,7 @@ public class GqlDirectiveDefinition {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlDirectiveDefinition(Consumer)} instead.
      * @param comments List of comments
-     * @param description var.name
+     * @param description description
      * @param directiveLocations List of directive locations
      * @param inputValueDefinitions List of input value type definitions
      * @param name Name of the directive

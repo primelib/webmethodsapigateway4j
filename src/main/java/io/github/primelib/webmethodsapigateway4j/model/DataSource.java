@@ -62,10 +62,10 @@ public class DataSource {
      * Constructs a validated instance of {@link DataSource}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DataSource(Consumer)} instead.
-     * @param contentType var.name
-     * @param inputStream var.name
-     * @param name var.name
-     * @param outputStream var.name
+     * @param contentType contentType
+     * @param inputStream inputStream
+     * @param name name
+     * @param outputStream outputStream
      */
     @ApiStatus.Internal
     public DataSource(String contentType, Object inputStream, String name, Object outputStream) {

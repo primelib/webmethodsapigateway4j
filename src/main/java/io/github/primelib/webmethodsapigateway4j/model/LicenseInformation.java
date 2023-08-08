@@ -74,13 +74,13 @@ public class LicenseInformation {
      * Constructs a validated instance of {@link LicenseInformation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LicenseInformation(Consumer)} instead.
-     * @param extendedRights var.name
-     * @param licenseType var.name
-     * @param licenseVersion var.name
-     * @param metering var.name
-     * @param priceQuantity var.name
-     * @param priceUnit var.name
-     * @param typeOfInstallation var.name
+     * @param extendedRights extendedRights
+     * @param licenseType licenseType
+     * @param licenseVersion licenseVersion
+     * @param metering metering
+     * @param priceQuantity priceQuantity
+     * @param priceUnit priceUnit
+     * @param typeOfInstallation typeOfInstallation
      */
     @ApiStatus.Internal
     public LicenseInformation(String extendedRights, String licenseType, String licenseVersion, String metering, String priceQuantity, String priceUnit, String typeOfInstallation) {

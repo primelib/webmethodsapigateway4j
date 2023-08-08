@@ -131,27 +131,27 @@ public class ServerInfo {
      * Constructs a validated instance of {@link ServerInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServerInfo(Consumer)} instead.
-     * @param licenseDetails var.name
-     * @param allSvcsMinusShuts var.name
-     * @param allSvcsMinusStarts var.name
-     * @param build var.name
-     * @param code var.name
-     * @param description var.name
-     * @param jvmVersion var.name
-     * @param listACL var.name
-     * @param loaderr var.name
-     * @param loadok var.name
-     * @param loadwarning var.name
-     * @param message var.name
-     * @param _package var.name
-     * @param patchNums var.name
-     * @param publisher var.name
-     * @param services var.name
-     * @param shutdownServices var.name
-     * @param startupServices var.name
-     * @param systemInfo var.name
-     * @param time var.name
-     * @param version var.name
+     * @param licenseDetails licenseDetails
+     * @param allSvcsMinusShuts allSvcsMinusShuts
+     * @param allSvcsMinusStarts allSvcsMinusStarts
+     * @param build build
+     * @param code code
+     * @param description description
+     * @param jvmVersion jvmVersion
+     * @param listACL listACL
+     * @param loaderr loaderr
+     * @param loadok loadok
+     * @param loadwarning loadwarning
+     * @param message message
+     * @param _package _package
+     * @param patchNums patchNums
+     * @param publisher publisher
+     * @param services services
+     * @param shutdownServices shutdownServices
+     * @param startupServices startupServices
+     * @param systemInfo systemInfo
+     * @param time time
+     * @param version version
      */
     @ApiStatus.Internal
     public ServerInfo(List<LicenseDetail> licenseDetails, List<String> allSvcsMinusShuts, List<String> allSvcsMinusStarts, String build, String code, String description, String jvmVersion, String listACL, String loaderr, String loadok, String loadwarning, String message, String _package, Object patchNums, String publisher, List<String> services, List<String> shutdownServices, List<String> startupServices, SystemInfo systemInfo, Object time, String version) {

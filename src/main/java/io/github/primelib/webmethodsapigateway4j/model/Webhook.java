@@ -76,7 +76,7 @@ public class Webhook {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Webhook(Consumer)} instead.
      * @param active Specifies whether this webhook is active or not. Default value is false.
-     * @param config var.name
+     * @param config config
      * @param events The list of interested events this webhook is subscribed for
      * @param id A unique ID for the webhook
      */

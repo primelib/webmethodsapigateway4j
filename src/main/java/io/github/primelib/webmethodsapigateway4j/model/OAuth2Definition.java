@@ -88,16 +88,16 @@ public class OAuth2Definition {
      * Constructs a validated instance of {@link OAuth2Definition}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OAuth2Definition(Consumer)} instead.
-     * @param authorizationGrants var.name
-     * @param authorizationUrl var.name
-     * @param description var.name
-     * @param flow var.name
-     * @param refreshUrl var.name
-     * @param scopes var.name
-     * @param securitySchemeDescriptor var.name
-     * @param tokenUrl var.name
-     * @param type var.name
-     * @param vendorExtensions var.name
+     * @param authorizationGrants authorizationGrants
+     * @param authorizationUrl authorizationUrl
+     * @param description description
+     * @param flow flow
+     * @param refreshUrl refreshUrl
+     * @param scopes scopes
+     * @param securitySchemeDescriptor securitySchemeDescriptor
+     * @param tokenUrl tokenUrl
+     * @param type type
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public OAuth2Definition(List<String> authorizationGrants, String authorizationUrl, String description, String flow, String refreshUrl, Map<String, Object> scopes, SecuritySchemeDescriptor securitySchemeDescriptor, String tokenUrl, String type, Map<String, Object> vendorExtensions) {

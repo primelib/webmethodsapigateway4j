@@ -78,9 +78,9 @@ public class RequestBody {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RequestBody(Consumer)} instead.
      * @param content The content of the request body. The key is a media type or media type range and the value describes it
      * @param description A brief description of the request body. This could contain examples of use
-     * @param get$ref var.name
+     * @param get$ref get$ref
      * @param required Determines if the request body is required in the request. Defaults to false
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public RequestBody(Map<String, MediaType> content, String description, String get$ref, Boolean required, Map<String, Object> vendorExtensions) {

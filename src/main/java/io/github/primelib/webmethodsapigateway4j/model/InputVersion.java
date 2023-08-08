@@ -54,8 +54,8 @@ public class InputVersion {
      * Constructs a validated instance of {@link InputVersion}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputVersion(Consumer)} instead.
-     * @param newApiVersion var.name
-     * @param retainApplications var.name
+     * @param newApiVersion newApiVersion
+     * @param retainApplications retainApplications
      */
     @ApiStatus.Internal
     public InputVersion(String newApiVersion, Boolean retainApplications) {

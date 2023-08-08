@@ -51,7 +51,7 @@ public class ApprovalResponsePayload {
      * Constructs a validated instance of {@link ApprovalResponsePayload}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ApprovalResponsePayload(Consumer)} instead.
-     * @param approvalRequests var.name
+     * @param approvalRequests approvalRequests
      */
     @ApiStatus.Internal
     public ApprovalResponsePayload(List<ApprovalRequest> approvalRequests) {

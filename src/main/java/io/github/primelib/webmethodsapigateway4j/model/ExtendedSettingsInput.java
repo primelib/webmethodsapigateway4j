@@ -50,7 +50,7 @@ public class ExtendedSettingsInput {
      * Constructs a validated instance of {@link ExtendedSettingsInput}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ExtendedSettingsInput(Consumer)} instead.
-     * @param preferredSettings var.name
+     * @param preferredSettings preferredSettings
      */
     @ApiStatus.Internal
     public ExtendedSettingsInput(Settings preferredSettings) {

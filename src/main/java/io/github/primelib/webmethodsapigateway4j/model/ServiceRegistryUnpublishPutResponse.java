@@ -58,7 +58,7 @@ public class ServiceRegistryUnpublishPutResponse {
      * Constructs a validated instance of {@link ServiceRegistryUnpublishPutResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServiceRegistryUnpublishPutResponse(Consumer)} instead.
-     * @param unpublishResponse var.name
+     * @param unpublishResponse unpublishResponse
      * @param unpublishResponses This contains the service registry unpublish status for requests unpublishing more than one API from one or more service registries.
      */
     @ApiStatus.Internal

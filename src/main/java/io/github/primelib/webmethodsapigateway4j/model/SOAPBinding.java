@@ -75,13 +75,13 @@ public class SOAPBinding {
      * Constructs a validated instance of {@link SOAPBinding}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPBinding(Consumer)} instead.
-     * @param faultMessages var.name
-     * @param inputMessage var.name
-     * @param _interFace var.name
-     * @param name var.name
-     * @param outputMessage var.name
-     * @param specifier var.name
-     * @param type var.name
+     * @param faultMessages faultMessages
+     * @param inputMessage inputMessage
+     * @param _interFace _interFace
+     * @param name name
+     * @param outputMessage outputMessage
+     * @param specifier specifier
+     * @param type type
      */
     @ApiStatus.Internal
     public SOAPBinding(List<String> faultMessages, String inputMessage, SOAPInterface _interFace, String name, String outputMessage, String specifier, String type) {

@@ -67,10 +67,10 @@ public class ServerVariable {
      * Constructs a validated instance of {@link ServerVariable}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServerVariable(Consumer)} instead.
-     * @param _default var.name
+     * @param _default _default
      * @param description An optional description for the server variable
-     * @param _enum var.name
-     * @param vendorExtensions var.name
+     * @param _enum _enum
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public ServerVariable(String _default, String description, List<String> _enum, Map<String, Object> vendorExtensions) {

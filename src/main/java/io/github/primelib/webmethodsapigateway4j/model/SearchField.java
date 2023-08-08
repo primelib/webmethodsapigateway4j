@@ -78,9 +78,9 @@ public class SearchField {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SearchField(Consumer)} instead.
      * @param attributeName Field name to be searched for the list of types specified
      * @param keyword Value of the corresponding field to be matched. User can use regular expression to specify the multiple values for single attributeName. For example  to find   1. apiDescription contains "weather" or equals "country" , we can use {"attributeName" : "apiDescription", "keyword" : ".*weather.*|country"}.   2. apiName starts with weather - {"attributeName" : "apiName", "keyword" : "weather.*"}.   3. api type is REST or SOAP - {"attributeName" : "type", "keyword" : "REST|SOAP"}.
-     * @param orTokenKey var.name
-     * @param range var.name
-     * @param rawFieldKey var.name
+     * @param orTokenKey orTokenKey
+     * @param range range
+     * @param rawFieldKey rawFieldKey
      */
     @ApiStatus.Internal
     public SearchField(String attributeName, String keyword, Boolean orTokenKey, SearchRange range, String rawFieldKey) {

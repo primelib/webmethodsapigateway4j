@@ -51,7 +51,7 @@ public class IPAccessModeHostsList {
      * Constructs a validated instance of {@link IPAccessModeHostsList}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IPAccessModeHostsList(Consumer)} instead.
-     * @param hostsList var.name
+     * @param hostsList hostsList
      */
     @ApiStatus.Internal
     public IPAccessModeHostsList(List<String> hostsList) {

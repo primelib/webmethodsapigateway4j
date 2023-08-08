@@ -86,16 +86,16 @@ public class Part {
      * Constructs a validated instance of {@link Part}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Part(Consumer)} instead.
-     * @param allHeaders var.name
-     * @param content var.name
-     * @param contentType var.name
-     * @param dataHandler var.name
-     * @param description var.name
-     * @param disposition var.name
-     * @param fileName var.name
-     * @param inputStream var.name
-     * @param lineCount var.name
-     * @param size var.name
+     * @param allHeaders allHeaders
+     * @param content content
+     * @param contentType contentType
+     * @param dataHandler dataHandler
+     * @param description description
+     * @param disposition disposition
+     * @param fileName fileName
+     * @param inputStream inputStream
+     * @param lineCount lineCount
+     * @param size size
      */
     @ApiStatus.Internal
     public Part(Object allHeaders, Object content, String contentType, DataHandler dataHandler, String description, String disposition, String fileName, Object inputStream, Integer lineCount, Integer size) {

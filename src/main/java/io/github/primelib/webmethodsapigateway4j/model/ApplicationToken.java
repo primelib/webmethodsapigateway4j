@@ -54,8 +54,8 @@ public class ApplicationToken {
      * Constructs a validated instance of {@link ApplicationToken}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ApplicationToken(Consumer)} instead.
-     * @param apiAccessKey var.name
-     * @param oauth2Token var.name
+     * @param apiAccessKey apiAccessKey
+     * @param oauth2Token oauth2Token
      */
     @ApiStatus.Internal
     public ApplicationToken(APIAccessKey apiAccessKey, OAuth2Token oauth2Token) {

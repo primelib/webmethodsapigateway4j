@@ -121,12 +121,12 @@ public class SearchContext {
      * Constructs a validated instance of {@link SearchContext}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SearchContext(Consumer)} instead.
-     * @param aggregations var.name
+     * @param aggregations aggregations
      * @param condition Condition between scope specified. The value can be either 'and' or 'or'
      * @param deploymentFilter This filter is used for deployment types.
      * @param from The starting index of the record to be fetched. Default value is 0 which fetches from the start. The index is applied to each type separately. For each type the first n records are skipped as specified in from field. If the value specified is less than zero then the default value is taken for fetching records
      * @param responseFields List of fields to be fetched for the specified types.
-     * @param scope var.name
+     * @param scope scope
      * @param size Number of records to be fetched. Default value is -1, which fetches all the records. The size is applied to each type separately. Each type has the records less than or equal to the size specified. If the value specified is less than zero then the default value is taken for fetching records
      * @param sortByField Field name on which the sorting needs to be applied.
      * @param sortOrder Sort order for the records

@@ -58,7 +58,7 @@ public class ServiceRegistryPublishPutResponse {
      * Constructs a validated instance of {@link ServiceRegistryPublishPutResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServiceRegistryPublishPutResponse(Consumer)} instead.
-     * @param publishResponse var.name
+     * @param publishResponse publishResponse
      * @param publishResponses This contains the service registry publish status for requests publishing more than one API to one or more service registries.
      */
     @ApiStatus.Internal

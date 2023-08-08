@@ -99,7 +99,7 @@ public class AbstractParameter {
      * @param in The location of the parameter. Possible values are "query", "header", "path" or "cookie"
      * @param name The name of the parameter. Parameter names are case sensitive
      * @param required Determines whether this parameter is mandatory. If the parameter location is "path", this property is REQUIRED and its value MUST be true. Otherwise, the property MAY be included and its default value is false
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public AbstractParameter(Boolean allowEmptyValue, String description, String get$ref, String in, String name, Boolean required, Map<String, Object> vendorExtensions) {

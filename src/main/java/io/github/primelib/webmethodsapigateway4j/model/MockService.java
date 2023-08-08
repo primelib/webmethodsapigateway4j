@@ -58,9 +58,9 @@ public class MockService {
      * Constructs a validated instance of {@link MockService}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MockService(Consumer)} instead.
-     * @param enableMock var.name
-     * @param runAsUser var.name
-     * @param service var.name
+     * @param enableMock enableMock
+     * @param runAsUser runAsUser
+     * @param service service
      */
     @ApiStatus.Internal
     public MockService(Boolean enableMock, String runAsUser, String service) {

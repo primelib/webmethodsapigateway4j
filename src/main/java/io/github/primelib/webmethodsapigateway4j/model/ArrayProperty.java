@@ -61,10 +61,10 @@ public class ArrayProperty extends Property {
      * Constructs a validated instance of {@link ArrayProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ArrayProperty(Consumer)} instead.
-     * @param items var.name
-     * @param maxItems var.name
-     * @param minItems var.name
-     * @param uniqueItems var.name
+     * @param items items
+     * @param maxItems maxItems
+     * @param minItems minItems
+     * @param uniqueItems uniqueItems
      */
     @ApiStatus.Internal
     public ArrayProperty(Property items, Integer maxItems, Integer minItems, Boolean uniqueItems) {

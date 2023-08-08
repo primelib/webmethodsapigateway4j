@@ -90,16 +90,16 @@ public class SecurityScheme {
      * Constructs a validated instance of {@link SecurityScheme}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SecurityScheme(Consumer)} instead.
-     * @param bearerFormat var.name
-     * @param description var.name
-     * @param flows var.name
-     * @param get$ref var.name
-     * @param in var.name
-     * @param name var.name
-     * @param openIdConnectUrl var.name
-     * @param scheme var.name
-     * @param type var.name
-     * @param vendorExtensions var.name
+     * @param bearerFormat bearerFormat
+     * @param description description
+     * @param flows flows
+     * @param get$ref get$ref
+     * @param in in
+     * @param name name
+     * @param openIdConnectUrl openIdConnectUrl
+     * @param scheme scheme
+     * @param type type
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public SecurityScheme(String bearerFormat, String description, OAuthFlows flows, String get$ref, InEnum in, String name, String openIdConnectUrl, String scheme, TypeEnum type, Map<String, Object> vendorExtensions) {

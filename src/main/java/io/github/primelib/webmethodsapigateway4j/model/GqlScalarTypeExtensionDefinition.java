@@ -78,9 +78,9 @@ public class GqlScalarTypeExtensionDefinition {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlScalarTypeExtensionDefinition(Consumer)} instead.
      * @param comments List of comments
-     * @param description var.name
+     * @param description description
      * @param directives List of directives
-     * @param directivesByName var.name
+     * @param directivesByName directivesByName
      * @param name Name of the scalar type definition
      */
     @ApiStatus.Internal

@@ -54,8 +54,8 @@ public class ActionImport {
      * Constructs a validated instance of {@link ActionImport}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ActionImport(Consumer)} instead.
-     * @param action var.name
-     * @param enabled var.name
+     * @param action action
+     * @param enabled enabled
      */
     @ApiStatus.Internal
     public ActionImport(String action, Boolean enabled) {

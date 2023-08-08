@@ -73,12 +73,12 @@ public class MockedCondition {
      * Constructs a validated instance of {@link MockedCondition}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MockedCondition(Consumer)} instead.
-     * @param conditionName var.name
-     * @param mockedConditionParameter var.name
-     * @param mockedLevel1Operator var.name
-     * @param mockedLevel2Operator var.name
-     * @param value1 var.name
-     * @param value2 var.name
+     * @param conditionName conditionName
+     * @param mockedConditionParameter mockedConditionParameter
+     * @param mockedLevel1Operator mockedLevel1Operator
+     * @param mockedLevel2Operator mockedLevel2Operator
+     * @param value1 value1
+     * @param value2 value2
      */
     @ApiStatus.Internal
     public MockedCondition(String conditionName, MockedConditionParameterEnum mockedConditionParameter, MockedLevel1OperatorEnum mockedLevel1Operator, MockedLevel2OperatorEnum mockedLevel2Operator, String value1, String value2) {

@@ -50,7 +50,7 @@ public class BitSet {
      * Constructs a validated instance of {@link BitSet}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #BitSet(Consumer)} instead.
-     * @param empty var.name
+     * @param empty empty
      */
     @ApiStatus.Internal
     public BitSet(Boolean empty) {

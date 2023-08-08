@@ -129,18 +129,18 @@ public class SAMLIssuerAlias extends Alias {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SAMLIssuerAlias(Consumer)} instead.
      * @param appliesTo Specify the scope for which this security token is required
-     * @param assertionId var.name
+     * @param assertionId assertionId
      * @param endpoint The endpoint URI of the STS
      * @param extendedParameters Extensions to the &amp;lt;wst:RequestSecurityToken&amp;gt; element for requesting specific types of keys, algorithms, or key and algorithms, as specified by a given policy in the return token(s)
      * @param issuerAuthMode Mode of communication
      * @param issuerAuthScheme The authentication type used for communicating to STS
      * @param issuerCommunicationMode Mode of communication to the STS
      * @param issuerPolicy The webMethods Integration Server service name
-     * @param kerberosCredentials var.name
+     * @param kerberosCredentials kerberosCredentials
      * @param samlVersion SAML version to be used for authentication
-     * @param signAndEncryptConfig var.name
+     * @param signAndEncryptConfig signAndEncryptConfig
      * @param wsTrustVersion WS-Trust version that API Gateway must use to send the RST to the SAML issuer
-     * @param wssCredentials var.name
+     * @param wssCredentials wssCredentials
      */
     @ApiStatus.Internal
     public SAMLIssuerAlias(String appliesTo, String assertionId, String endpoint, Map<String, String> extendedParameters, IssuerAuthModeEnum issuerAuthMode, IssuerAuthSchemeEnum issuerAuthScheme, IssuerCommunicationModeEnum issuerCommunicationMode, String issuerPolicy, KerberosCredentials kerberosCredentials, SamlVersionEnum samlVersion, SignAndEncryptConfig signAndEncryptConfig, WsTrustVersionEnum wsTrustVersion, WssCredentials wssCredentials) {

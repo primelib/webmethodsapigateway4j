@@ -141,18 +141,18 @@ public class Operation {
      * @param callbacks An optional, string description, intended to apply to all operations in this path
      * @param deprecated Declares this operation to be deprecated. Consumers SHOULD refrain from usage of the declared operation. Default value is false
      * @param description A verbose explanation of the operation behavior
-     * @param enabled var.name
-     * @param externalDocs var.name
+     * @param enabled enabled
+     * @param externalDocs externalDocs
      * @param mockedConditionsBasedCustomResponsesList The list of mocked conditions and it's applicable only for mocked APIs
      * @param mockedResponses The list of possible mocked responses as they are returned from executing this operation and it's applicable only for mocked APIs
      * @param operationId Unique string used to identify the operation. The id MUST be unique among all operations described in the API. The operationId value is case-sensitive
      * @param parameters A list of parameters that are applicable for this operation. If a parameter is already defined at the Path Item, the new definition will override it but can never remove it
-     * @param requestBody var.name
+     * @param requestBody requestBody
      * @param responses The list of possible responses as they are returned from executing this operation
-     * @param scopes var.name
+     * @param scopes scopes
      * @param summary A short summary of what the operation does
      * @param tags A list of tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Operation(Map<String, Callback> callbacks, Boolean deprecated, String description, Boolean enabled, ExternalDocs externalDocs, List<MockedConditionsBasedCustomResponse> mockedConditionsBasedCustomResponsesList, Map<String, MockedResponse> mockedResponses, String operationId, List<Parameter> parameters, RequestBody requestBody, Map<String, Response> responses, List<String> scopes, String summary, List<String> tags, Map<String, Object> vendorExtensions) {

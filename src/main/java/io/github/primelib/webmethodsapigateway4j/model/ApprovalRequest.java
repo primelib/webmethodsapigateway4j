@@ -136,10 +136,10 @@ public class ApprovalRequest {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ApprovalRequest(Consumer)} instead.
      * @param approvalEvent Type of the approval event
-     * @param approvers var.name
+     * @param approvers approvers
      * @param approversGroupId Approvers Accessprofile Identifier. Whoever belongs to the selected team will be considered as Approvers
      * @param created Approval last updated time
-     * @param id var.name
+     * @param id id
      * @param mode Mode of the request approval and 'anyone' is the only allowed value
      * @param requesterComment Comment added by the requestor
      * @param requestorFirstName First name of the requestor user name

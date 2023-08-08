@@ -58,9 +58,9 @@ public class Multipart {
      * Constructs a validated instance of {@link Multipart}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Multipart(Consumer)} instead.
-     * @param contentType var.name
-     * @param count var.name
-     * @param parent var.name
+     * @param contentType contentType
+     * @param count count
+     * @param parent parent
      */
     @ApiStatus.Internal
     public Multipart(String contentType, Integer count, Part parent) {

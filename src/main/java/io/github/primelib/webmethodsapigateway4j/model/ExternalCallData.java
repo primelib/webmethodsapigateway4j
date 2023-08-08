@@ -70,12 +70,12 @@ public class ExternalCallData {
      * Constructs a validated instance of {@link ExternalCallData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ExternalCallData(Consumer)} instead.
-     * @param callDuration var.name
-     * @param callEndTime var.name
-     * @param callStartTime var.name
-     * @param externalCallType var.name
-     * @param externalURL var.name
-     * @param responseCode var.name
+     * @param callDuration callDuration
+     * @param callEndTime callEndTime
+     * @param callStartTime callStartTime
+     * @param externalCallType externalCallType
+     * @param externalURL externalURL
+     * @param responseCode responseCode
      */
     @ApiStatus.Internal
     public ExternalCallData(Long callDuration, Long callEndTime, Long callStartTime, String externalCallType, String externalURL, String responseCode) {

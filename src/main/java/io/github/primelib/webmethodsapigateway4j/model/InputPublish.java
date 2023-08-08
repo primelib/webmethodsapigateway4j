@@ -59,9 +59,9 @@ public class InputPublish {
      * Constructs a validated instance of {@link InputPublish}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputPublish(Consumer)} instead.
-     * @param communities var.name
-     * @param endpoints var.name
-     * @param portalGatewayId var.name
+     * @param communities communities
+     * @param endpoints endpoints
+     * @param portalGatewayId portalGatewayId
      */
     @ApiStatus.Internal
     public InputPublish(List<String> communities, List<String> endpoints, String portalGatewayId) {

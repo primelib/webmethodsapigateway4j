@@ -50,7 +50,7 @@ public class ApprovalPutResponse {
      * Constructs a validated instance of {@link ApprovalPutResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ApprovalPutResponse(Consumer)} instead.
-     * @param status var.name
+     * @param status status
      */
     @ApiStatus.Internal
     public ApprovalPutResponse(String status) {

@@ -108,14 +108,14 @@ public class ApprovalConfiguration {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ApprovalConfiguration(Consumer)} instead.
      * @param approvalMode Only possible value is anyone. This implies that, any one user associated with the approvers team can approve or reject the requests. The requester need not wait for the approval of each approver in the approvers group.
-     * @param approvedEmailConfiguration var.name
+     * @param approvedEmailConfiguration approvedEmailConfiguration
      * @param approversGroupId Approvers Accessprofile Identifier. Whoever belongs to the selected team will be considered as Approvers
      * @param autoApproval The created request will be auto-approved when the requester is a valid approver and the value is true. Default value is true.
      * @param eventType Event Type: Any of 'createApplication', 'updateApplication', 'registerApplication', 'subscribePackage' and 'changeOwner'
      * @param id Unique identifier of a Approval Configuration. Any of 'createApplication', 'updateApplication', 'registerApplication', 'subscribePackage' and 'changeOwner'
-     * @param initiateApprovalRequestEmailConfiguration var.name
+     * @param initiateApprovalRequestEmailConfiguration initiateApprovalRequestEmailConfiguration
      * @param isEnabled true/false. true value enforces approvals for the mentioned eventtype
-     * @param rejectedEmailConfiguration var.name
+     * @param rejectedEmailConfiguration rejectedEmailConfiguration
      * @param teamApprovers The asset specific team approvers will be the approvers when the value is true. Default value is false.
      */
     @ApiStatus.Internal

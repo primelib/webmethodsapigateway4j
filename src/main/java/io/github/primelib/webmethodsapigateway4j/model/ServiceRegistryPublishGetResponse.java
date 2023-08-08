@@ -50,7 +50,7 @@ public class ServiceRegistryPublishGetResponse {
      * Constructs a validated instance of {@link ServiceRegistryPublishGetResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServiceRegistryPublishGetResponse(Consumer)} instead.
-     * @param publishInfo var.name
+     * @param publishInfo publishInfo
      */
     @ApiStatus.Internal
     public ServiceRegistryPublishGetResponse(PublishPayload publishInfo) {

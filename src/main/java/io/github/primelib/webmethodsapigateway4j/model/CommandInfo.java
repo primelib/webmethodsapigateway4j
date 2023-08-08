@@ -54,8 +54,8 @@ public class CommandInfo {
      * Constructs a validated instance of {@link CommandInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CommandInfo(Consumer)} instead.
-     * @param commandClass var.name
-     * @param commandName var.name
+     * @param commandClass commandClass
+     * @param commandName commandName
      */
     @ApiStatus.Internal
     public CommandInfo(String commandClass, String commandName) {

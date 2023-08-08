@@ -90,12 +90,12 @@ public class PolicyAction {
      * Constructs a validated instance of {@link PolicyAction}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyAction(Consumer)} instead.
-     * @param active var.name
+     * @param active active
      * @param descriptions List of policy action description with corresponding locale information
      * @param id Policy Action ID
      * @param names List of policy action names with corresponding locale information
      * @param parameters This is the list of values that are configured for this policy actions
-     * @param stageKey var.name
+     * @param stageKey stageKey
      * @param templateKey Template key of the policy actions
      */
     @ApiStatus.Internal

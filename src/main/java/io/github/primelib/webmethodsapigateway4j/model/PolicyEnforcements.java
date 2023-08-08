@@ -58,7 +58,7 @@ public class PolicyEnforcements {
      * Constructs a validated instance of {@link PolicyEnforcements}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyEnforcements(Consumer)} instead.
-     * @param enforcements var.name
+     * @param enforcements enforcements
      * @param stageKey Policy stage. User can refer resource /policyStages to get the list stages can be added here
      */
     @ApiStatus.Internal

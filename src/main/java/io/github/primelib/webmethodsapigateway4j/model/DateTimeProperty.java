@@ -50,7 +50,7 @@ public class DateTimeProperty extends Property {
      * Constructs a validated instance of {@link DateTimeProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DateTimeProperty(Consumer)} instead.
-     * @param _enum var.name
+     * @param _enum _enum
      */
     @ApiStatus.Internal
     public DateTimeProperty(List<Object> _enum) {

@@ -57,7 +57,7 @@ public class Approver {
      * Constructs a validated instance of {@link Approver}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Approver(Consumer)} instead.
-     * @param id var.name
+     * @param id id
      * @param name Email of the approver
      */
     @ApiStatus.Internal

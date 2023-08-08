@@ -136,10 +136,10 @@ public class PolicyActionParameterTemplate {
      * @param isArray This property infers whether this policy action parameter can be an array
      * @param isRequired This property infers if it is added to a policy enforcement then it is mandate to provide value for this policy action parameter
      * @param names Policy action parameter template name
-     * @param parameterTemplatesReference var.name
-     * @param policyParaeterTemplates var.name
-     * @param possibleValues var.name
-     * @param requiredChildParameterKeys var.name
+     * @param parameterTemplatesReference parameterTemplatesReference
+     * @param policyParaeterTemplates policyParaeterTemplates
+     * @param possibleValues possibleValues
+     * @param requiredChildParameterKeys requiredChildParameterKeys
      * @param templateKey Unique id for policy action parameter
      * @param type Policy Action parameter data type.
      */

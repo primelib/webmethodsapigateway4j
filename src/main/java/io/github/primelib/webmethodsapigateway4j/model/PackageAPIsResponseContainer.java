@@ -51,7 +51,7 @@ public class PackageAPIsResponseContainer {
      * Constructs a validated instance of {@link PackageAPIsResponseContainer}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PackageAPIsResponseContainer(Consumer)} instead.
-     * @param packageResponse var.name
+     * @param packageResponse packageResponse
      */
     @ApiStatus.Internal
     public PackageAPIsResponseContainer(List<PackageAPIModel> packageResponse) {

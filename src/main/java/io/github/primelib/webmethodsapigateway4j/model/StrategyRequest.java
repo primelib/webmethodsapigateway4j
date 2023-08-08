@@ -105,12 +105,12 @@ public class StrategyRequest {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #StrategyRequest(Consumer)} instead.
      * @param authServerAlias The name of the authorization server alias
      * @param clientId The client ID for the strategy. This should be provided when the dynamic client registration is not used to generate the credentials for the strategy.
-     * @param clientRegistration var.name
-     * @param dcrConfig var.name
+     * @param clientRegistration clientRegistration
+     * @param dcrConfig dcrConfig
      * @param description The description of the strategy.
      * @param id A unique ID for the strategy
      * @param name The name of the strategy
-     * @param primaryNode var.name
+     * @param primaryNode primaryNode
      * @param type The type of the strategy
      */
     @ApiStatus.Internal

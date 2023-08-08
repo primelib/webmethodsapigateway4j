@@ -86,10 +86,10 @@ public class Response {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Response(Consumer)} instead.
      * @param content A map containing descriptions of potential response payloads. The key is a media type or media type range and the value describes it
      * @param description A short description of the response
-     * @param get$ref var.name
+     * @param get$ref get$ref
      * @param headersV3 Maps a header name to its definition. RFC7230 states header names are case insensitive. If a response header is defined with the name "Content-Type", it SHALL be ignored
      * @param links A map of operations links that can be followed from the response. The key of the map is a short name for the link, following the naming constraints of the names for Component Objects.
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Response(Map<String, MediaType> content, String description, String get$ref, Map<String, Header> headersV3, Map<String, Link> links, Map<String, Object> vendorExtensions) {

@@ -71,8 +71,8 @@ public class MediaType {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MediaType(Consumer)} instead.
      * @param example Example of the media type. The example object SHOULD be in the correct format as specified by the media type. The example field is mutually exclusive of the examples field. Furthermore, if referencing a schema which contains an example, the example value SHALL override the example provided by the schema
      * @param examples Examples of the media type. Each example object SHOULD match the media type and specified schema if present. The examples field is mutually exclusive of the example field. Furthermore, if referencing a schema which contains an example, the examples value SHALL override the example provided by the schema
-     * @param schema var.name
-     * @param vendorExtensions var.name
+     * @param schema schema
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public MediaType(Object example, Map<String, Example> examples, ParameterSchema schema, Map<String, Object> vendorExtensions) {

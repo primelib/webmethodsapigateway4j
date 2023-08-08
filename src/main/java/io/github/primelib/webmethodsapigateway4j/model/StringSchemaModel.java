@@ -49,7 +49,7 @@ public class StringSchemaModel extends Model {
      * Constructs a validated instance of {@link StringSchemaModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #StringSchemaModel(Consumer)} instead.
-     * @param schema var.name
+     * @param schema schema
      */
     @ApiStatus.Internal
     public StringSchemaModel(String schema) {

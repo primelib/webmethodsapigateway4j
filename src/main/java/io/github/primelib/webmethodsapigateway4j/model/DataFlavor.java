@@ -111,22 +111,22 @@ public class DataFlavor {
      * Constructs a validated instance of {@link DataFlavor}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DataFlavor(Consumer)} instead.
-     * @param defaultRepresentationClassAsString var.name
-     * @param flavorJavaFileListType var.name
-     * @param flavorRemoteObjectType var.name
-     * @param flavorSerializedObjectType var.name
-     * @param flavorTextType var.name
-     * @param humanPresentableName var.name
-     * @param mimeType var.name
-     * @param mimeTypeSerializedObject var.name
-     * @param primaryType var.name
-     * @param representationClassByteBuffer var.name
-     * @param representationClassCharBuffer var.name
-     * @param representationClassInputStream var.name
-     * @param representationClassReader var.name
-     * @param representationClassRemote var.name
-     * @param representationClassSerializable var.name
-     * @param subType var.name
+     * @param defaultRepresentationClassAsString defaultRepresentationClassAsString
+     * @param flavorJavaFileListType flavorJavaFileListType
+     * @param flavorRemoteObjectType flavorRemoteObjectType
+     * @param flavorSerializedObjectType flavorSerializedObjectType
+     * @param flavorTextType flavorTextType
+     * @param humanPresentableName humanPresentableName
+     * @param mimeType mimeType
+     * @param mimeTypeSerializedObject mimeTypeSerializedObject
+     * @param primaryType primaryType
+     * @param representationClassByteBuffer representationClassByteBuffer
+     * @param representationClassCharBuffer representationClassCharBuffer
+     * @param representationClassInputStream representationClassInputStream
+     * @param representationClassReader representationClassReader
+     * @param representationClassRemote representationClassRemote
+     * @param representationClassSerializable representationClassSerializable
+     * @param subType subType
      */
     @ApiStatus.Internal
     public DataFlavor(String defaultRepresentationClassAsString, Boolean flavorJavaFileListType, Boolean flavorRemoteObjectType, Boolean flavorSerializedObjectType, Boolean flavorTextType, String humanPresentableName, String mimeType, Boolean mimeTypeSerializedObject, String primaryType, Boolean representationClassByteBuffer, Boolean representationClassCharBuffer, Boolean representationClassInputStream, Boolean representationClassReader, Boolean representationClassRemote, Boolean representationClassSerializable, String subType) {

@@ -98,10 +98,10 @@ public class Scope {
      * @param name Name of the oauth2 scope
      * @param applicableAPITypes This contains the list of API types on which the global policy can be applied. For now only REST and SOAP API types are allowed.
      * @param logicalConnector The field is used to perform the logical operation between the scope condition. It will be valid only if we specify scope condition. The default value for this field is AND
-     * @param scopeConditions var.name
-     * @param getoAuth2ScopeName var.name
-     * @param mashedUpAPI var.name
-     * @param policies var.name
+     * @param scopeConditions scopeConditions
+     * @param getoAuth2ScopeName getoAuth2ScopeName
+     * @param mashedUpAPI mashedUpAPI
+     * @param policies policies
      */
     @ApiStatus.Internal
     public Scope(String description, String name, List<ApplicableAPITypesEnum> applicableAPITypes, LogicalConnectorEnum logicalConnector, List<ScopeCondition> scopeConditions, String getoAuth2ScopeName, Boolean mashedUpAPI, List<String> policies) {

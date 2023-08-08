@@ -59,9 +59,9 @@ public class SecuritySchemeDescriptor {
      * Constructs a validated instance of {@link SecuritySchemeDescriptor}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SecuritySchemeDescriptor(Consumer)} instead.
-     * @param headers var.name
-     * @param queryParameters var.name
-     * @param responses var.name
+     * @param headers headers
+     * @param queryParameters queryParameters
+     * @param responses responses
      */
     @ApiStatus.Internal
     public SecuritySchemeDescriptor(Map<String, Object> headers, Map<String, Object> queryParameters, Map<String, Object> responses) {

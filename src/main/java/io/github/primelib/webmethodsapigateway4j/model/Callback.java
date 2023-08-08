@@ -63,8 +63,8 @@ public class Callback {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Callback(Consumer)} instead.
      * @param callbacksMap A Path Item Object used to define a callback request and expected responses
-     * @param get$ref var.name
-     * @param vendorExtensions var.name
+     * @param get$ref get$ref
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Callback(Map<String, Path> callbacksMap, String get$ref, Map<String, Object> vendorExtensions) {

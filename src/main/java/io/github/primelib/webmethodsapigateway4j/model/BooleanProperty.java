@@ -50,7 +50,7 @@ public class BooleanProperty extends Property {
      * Constructs a validated instance of {@link BooleanProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #BooleanProperty(Consumer)} instead.
-     * @param _enum var.name
+     * @param _enum _enum
      */
     @ApiStatus.Internal
     public BooleanProperty(List<Boolean> _enum) {

@@ -54,8 +54,8 @@ public class AccessMode {
      * Constructs a validated instance of {@link AccessMode}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AccessMode(Consumer)} instead.
-     * @param accessModeSevices var.name
-     * @param accessModeType var.name
+     * @param accessModeSevices accessModeSevices
+     * @param accessModeType accessModeType
      */
     @ApiStatus.Internal
     public AccessMode(AccessModeServices accessModeSevices, AccessModeType accessModeType) {

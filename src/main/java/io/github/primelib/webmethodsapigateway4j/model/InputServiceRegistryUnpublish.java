@@ -58,7 +58,7 @@ public class InputServiceRegistryUnpublish {
      * Constructs a validated instance of {@link InputServiceRegistryUnpublish}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputServiceRegistryUnpublish(Consumer)} instead.
-     * @param unpublishInfo var.name
+     * @param unpublishInfo unpublishInfo
      * @param unpublishInfos This contains the unpublish information for multiple APIs. Required when publishing more than one API from one or more service registries.
      */
     @ApiStatus.Internal

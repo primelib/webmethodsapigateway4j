@@ -83,7 +83,7 @@ public class PolicyDetails {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyDetails(Consumer)} instead.
      * @param policyScope Policy Scope of the conflicting policy.
-     * @param names var.name
+     * @param names names
      * @param policyActionsIds List of IDs of conflicting policy enforcement of this policy
      * @param policyId Id of the conflicting policy.
      * @param stageKey Stage key of the conflicting policy enforcement of this policy

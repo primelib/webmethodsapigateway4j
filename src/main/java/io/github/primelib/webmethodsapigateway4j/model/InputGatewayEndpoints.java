@@ -50,7 +50,7 @@ public class InputGatewayEndpoints {
      * Constructs a validated instance of {@link InputGatewayEndpoints}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputGatewayEndpoints(Consumer)} instead.
-     * @param gatewayEndpoints var.name
+     * @param gatewayEndpoints gatewayEndpoints
      */
     @ApiStatus.Internal
     public InputGatewayEndpoints(InputForGatewayEndpoints gatewayEndpoints) {

@@ -86,12 +86,12 @@ public class GqlInputValueDefinition {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlInputValueDefinition(Consumer)} instead.
      * @param comments List of comments
-     * @param defaultValue var.name
-     * @param description var.name
+     * @param defaultValue defaultValue
+     * @param description description
      * @param directives List of directives
-     * @param directivesByName var.name
+     * @param directivesByName directivesByName
      * @param name Name of the input value definition
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public GqlInputValueDefinition(List<GqlComment> comments, GqlValue defaultValue, GqlDescription description, List<GqlDirective> directives, Map<String, GqlDirective> directivesByName, String name, GqlType type) {

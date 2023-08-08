@@ -152,7 +152,7 @@ public class KeyStore {
      * @param keyStoreDescription The description for the keystore.
      * @param keyStoreName The name of the keystore. It cannot contain spaces or special characters. The name of the key store must be unique across all the keystores created in API Gateway.
      * @param keyStorePassword The keystore password that is defined at the time of keystore creation using a keystore utility.
-     * @param keyStoreProvider var.name
+     * @param keyStoreProvider keyStoreProvider
      * @param keyStoreType The certificate file format of the keystore.
      * @param message The error or warning or success message from persisting the keystore in API Gateway. If there are failures in loading a keystore or a key alias, then the reasons for the failures are indicated by this message.
      * @param nullPKpasswds Comma separated list of boolean values (false/true) indicating whether the particular alias has a password or not in the same order as the aliases specified in pkAliasesList. For each key alias, true indicates that the key alias does not have a password and false indicates that it does have a password.

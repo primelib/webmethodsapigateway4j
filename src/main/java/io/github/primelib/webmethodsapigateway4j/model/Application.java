@@ -181,7 +181,7 @@ public class Application {
      * Constructs a validated instance of {@link Application}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Application(Consumer)} instead.
-     * @param accessTokens var.name
+     * @param accessTokens accessTokens
      * @param applicationID unique identifier of an application
      * @param authStrategyIds Contains a list of JWT/Oauth/OpenID authentication strategy ids associated to the application
      * @param contactEmails list of email contacts
@@ -197,11 +197,11 @@ public class Application {
      * @param name name of the application
      * @param owner owner of the application
      * @param ownerType The application's owner type can be user or a team. By default, its the user who created the application.
-     * @param primaryNode var.name
-     * @param shell var.name
+     * @param primaryNode primaryNode
+     * @param shell shell
      * @param siteURLs list of all site URLs
-     * @param subscription var.name
-     * @param version var.name
+     * @param subscription subscription
+     * @param version version
      */
     @ApiStatus.Internal
     public Application(ApplicationToken accessTokens, String applicationID, Set<String> authStrategyIds, List<String> contactEmails, String creationDate, Map<String, Object> customFields, String description, String iconbyteArray, List<ApplicationIdentifier> identifiers, Boolean isSuspended, List<String> jsOrigins, String lastModified, Long lastUpdated, String name, String owner, String ownerType, Node primaryNode, Boolean shell, List<String> siteURLs, Boolean subscription, String version) {

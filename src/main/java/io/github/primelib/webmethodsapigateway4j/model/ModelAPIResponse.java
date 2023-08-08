@@ -102,19 +102,19 @@ public class ModelAPIResponse {
      * Constructs a validated instance of {@link ModelAPIResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ModelAPIResponse(Consumer)} instead.
-     * @param api var.name
-     * @param apiId var.name
-     * @param errorReason var.name
-     * @param gatewayEndPointList var.name
-     * @param gatewayEndPoints var.name
-     * @param microgatewayEndPoints var.name
-     * @param portalGatewayDataEntries var.name
-     * @param pubSOAPFlavor var.name
-     * @param reason var.name
-     * @param responseStatus var.name
-     * @param restrictViewAsset var.name
-     * @param rootFileLocation var.name
-     * @param teams var.name
+     * @param api api
+     * @param apiId apiId
+     * @param errorReason errorReason
+     * @param gatewayEndPointList gatewayEndPointList
+     * @param gatewayEndPoints gatewayEndPoints
+     * @param microgatewayEndPoints microgatewayEndPoints
+     * @param portalGatewayDataEntries portalGatewayDataEntries
+     * @param pubSOAPFlavor pubSOAPFlavor
+     * @param reason reason
+     * @param responseStatus responseStatus
+     * @param restrictViewAsset restrictViewAsset
+     * @param rootFileLocation rootFileLocation
+     * @param teams teams
      */
     @ApiStatus.Internal
     public ModelAPIResponse(GatewayAPI api, String apiId, String errorReason, List<APIResponseGatewayEndpoint> gatewayEndPointList, List<String> gatewayEndPoints, List<String> microgatewayEndPoints, Object portalGatewayDataEntries, String pubSOAPFlavor, Object reason, ResponseStatusEnum responseStatus, Boolean restrictViewAsset, String rootFileLocation, List<Team> teams) {

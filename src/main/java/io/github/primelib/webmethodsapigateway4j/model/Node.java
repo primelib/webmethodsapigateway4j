@@ -54,8 +54,8 @@ public class Node {
      * Constructs a validated instance of {@link Node}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Node(Consumer)} instead.
-     * @param hostId var.name
-     * @param replica var.name
+     * @param hostId hostId
+     * @param replica replica
      */
     @ApiStatus.Internal
     public Node(String hostId, Integer replica) {

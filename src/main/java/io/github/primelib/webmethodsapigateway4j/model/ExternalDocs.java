@@ -67,7 +67,7 @@ public class ExternalDocs {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ExternalDocs(Consumer)} instead.
      * @param description A short description of the target documentation
      * @param url The URL for the target documentation
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public ExternalDocs(String description, String url, Map<String, Object> vendorExtensions) {

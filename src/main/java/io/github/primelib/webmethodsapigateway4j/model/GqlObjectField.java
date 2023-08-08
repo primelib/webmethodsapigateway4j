@@ -67,7 +67,7 @@ public class GqlObjectField {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlObjectField(Consumer)} instead.
      * @param comments List of comments
      * @param name Name of the object field
-     * @param value var.name
+     * @param value value
      */
     @ApiStatus.Internal
     public GqlObjectField(List<GqlComment> comments, String name, GqlValue value) {

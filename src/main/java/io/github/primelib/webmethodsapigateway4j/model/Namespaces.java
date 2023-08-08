@@ -54,8 +54,8 @@ public class Namespaces {
      * Constructs a validated instance of {@link Namespaces}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Namespaces(Consumer)} instead.
-     * @param prefix var.name
-     * @param uri var.name
+     * @param prefix prefix
+     * @param uri uri
      */
     @ApiStatus.Internal
     public Namespaces(String prefix, String uri) {

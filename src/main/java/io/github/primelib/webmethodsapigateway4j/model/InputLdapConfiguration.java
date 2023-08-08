@@ -50,7 +50,7 @@ public class InputLdapConfiguration {
      * Constructs a validated instance of {@link InputLdapConfiguration}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputLdapConfiguration(Consumer)} instead.
-     * @param ldapConfig var.name
+     * @param ldapConfig ldapConfig
      */
     @ApiStatus.Internal
     public InputLdapConfiguration(LDAPConfiguration ldapConfig) {

@@ -104,14 +104,14 @@ public class RestAPI extends API {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RestAPI(Consumer)} instead.
      * @param apiTags A list of API level tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier
-     * @param components var.name
+     * @param components components
      * @param externalDocs Additional external documentation
-     * @param info var.name
+     * @param info info
      * @param paths The available paths and operations for the API
      * @param servers An array of Server Objects, which provide connectivity information to a target server
      * @param serviceRegistryDisplayName The name of the API in service registry when the API is published to a service registry.
      * @param tags A list of tags with additional metadata
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public RestAPI(List<String> apiTags, Components components, List<ExternalDocs> externalDocs, Info info, Map<String, Path> paths, List<Server> servers, String serviceRegistryDisplayName, List<Tag> tags, Map<String, Object> vendorExtensions) {

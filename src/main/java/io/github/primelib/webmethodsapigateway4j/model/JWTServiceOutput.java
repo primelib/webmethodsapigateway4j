@@ -64,7 +64,7 @@ public class JWTServiceOutput {
      * Constructs a validated instance of {@link JWTServiceOutput}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #JWTServiceOutput(Consumer)} instead.
-     * @param accessToken var.name
+     * @param accessToken accessToken
      * @param expiresIn token expiry
      * @param tokenType type of this token
      */

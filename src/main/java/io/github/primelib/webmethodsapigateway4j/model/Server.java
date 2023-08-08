@@ -75,7 +75,7 @@ public class Server {
      * @param description An optional string describing the host designated by the URL
      * @param url A URL to the target host. This URL supports Server Variables and MAY be relative, to indicate that the host location is relative to the location where the OpenAPI document is being served. Variable substitutions will be made when a variable is named in {brackets}
      * @param variables A map between a variable name and its value. The value is used for substitution in the server's URL template
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Server(String description, String url, Map<String, ServerVariable> variables, Map<String, Object> vendorExtensions) {

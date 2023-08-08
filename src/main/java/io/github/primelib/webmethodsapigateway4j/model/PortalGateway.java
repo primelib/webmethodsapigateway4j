@@ -117,14 +117,14 @@ public class PortalGateway {
      * Constructs a validated instance of {@link PortalGateway}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PortalGateway(Consumer)} instead.
-     * @param externalPortal var.name
+     * @param externalPortal externalPortal
      * @param gatewayDescription Description of API Portal.
      * @param gatewayName Name of the API Portal.
      * @param gatewayPassword API Gateway password for provided username used by API Portal to access API Gateway.
      * @param gatewayURL Integration Server URL of the API Gateway.
      * @param gatewayUsername API Gateway administrative privileged username used by API Portal to access API Gateway.
      * @param id API Portal configuration object ID in API Gateway.
-     * @param published var.name
+     * @param published published
      * @param refId Specifies API Gateway reference ID in API Portal. This is used to identify the API Gateway in API Portal.
      * @param stageName Specifies the current stage name of the Gateway
      * @param version Specifies API Portal configuration version.

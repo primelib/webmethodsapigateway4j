@@ -123,7 +123,7 @@ public class Components {
      * @param responses An object to hold reusable response objects
      * @param schemas An object to hold reusable schema objects
      * @param securitySchemes An object to hold reusable securityScheme objects
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Components(Map<String, Callback> callbacks, Map<String, Example> examples, Map<String, Header> headers, Map<String, Link> links, Map<String, Parameter> parameters, Map<String, RequestBody> requestBodies, Map<String, Response> responses, Map<String, ParameterSchema> schemas, Map<String, SecurityScheme> securitySchemes, Map<String, Object> vendorExtensions) {

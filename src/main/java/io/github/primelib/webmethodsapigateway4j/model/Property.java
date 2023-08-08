@@ -99,19 +99,19 @@ public class Property {
      * Constructs a validated instance of {@link Property}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Property(Consumer)} instead.
-     * @param access var.name
-     * @param allowEmptyValue var.name
-     * @param description var.name
-     * @param example var.name
-     * @param format var.name
-     * @param name var.name
-     * @param position var.name
-     * @param readOnly var.name
-     * @param required var.name
-     * @param title var.name
-     * @param type var.name
-     * @param vendorExtensions var.name
-     * @param xml var.name
+     * @param access access
+     * @param allowEmptyValue allowEmptyValue
+     * @param description description
+     * @param example example
+     * @param format format
+     * @param name name
+     * @param position position
+     * @param readOnly readOnly
+     * @param required required
+     * @param title title
+     * @param type type
+     * @param vendorExtensions vendorExtensions
+     * @param xml xml
      */
     @ApiStatus.Internal
     public Property(String access, Boolean allowEmptyValue, String description, Object example, String format, String name, Integer position, Boolean readOnly, Boolean required, String title, String type, Map<String, Object> vendorExtensions, Xml xml) {

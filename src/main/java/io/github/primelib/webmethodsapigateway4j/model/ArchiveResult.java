@@ -70,12 +70,12 @@ public class ArchiveResult {
      * Constructs a validated instance of {@link ArchiveResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ArchiveResult(Consumer)} instead.
-     * @param dependencyFailed var.name
-     * @param explanation var.name
-     * @param importedOK var.name
-     * @param name var.name
-     * @param overwritten var.name
-     * @param warning var.name
+     * @param dependencyFailed dependencyFailed
+     * @param explanation explanation
+     * @param importedOK importedOK
+     * @param name name
+     * @param overwritten overwritten
+     * @param warning warning
      */
     @ApiStatus.Internal
     public ArchiveResult(Boolean dependencyFailed, String explanation, Boolean importedOK, String name, Boolean overwritten, Boolean warning) {

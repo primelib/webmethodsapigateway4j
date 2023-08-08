@@ -67,7 +67,7 @@ public class GqlArgument {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlArgument(Consumer)} instead.
      * @param comments List of comments
      * @param name Name of the argument
-     * @param value var.name
+     * @param value value
      */
     @ApiStatus.Internal
     public GqlArgument(List<GqlComment> comments, String name, GqlValue value) {

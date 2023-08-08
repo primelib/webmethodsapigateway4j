@@ -263,18 +263,18 @@ public class ParameterSchema {
      * Constructs a validated instance of {@link ParameterSchema}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ParameterSchema(Consumer)} instead.
-     * @param additionalProperties var.name
-     * @param additionalPropertiesAsBoolean var.name
+     * @param additionalProperties additionalProperties
+     * @param additionalPropertiesAsBoolean additionalPropertiesAsBoolean
      * @param _default The default value represents what would be assumed by the consumer of the input as the value of the schema if one is not provided. Unlike JSON Schema, the value MUST conform to the defined type for the Schema Object defined at the same level. For example, if type is string, then default can be "foo" but cannot be 1
      * @param deprecated Specifies that a schema is deprecated and SHOULD be transitioned out of usage. Default value is false
      * @param description Provide a more lengthy explanation about the purpose of the data described by the schema
-     * @param _enum var.name
+     * @param _enum _enum
      * @param example A free-form property to include an example of an instance for this schema. To represent examples that cannot be naturally represented in JSON or YAML, a string value can be used to contain the example with escaping where necessary
      * @param exclusiveMaximum Indicate whether maximum are exclusive of the value
      * @param exclusiveMinimum Indicate whether minimum are exclusive of the value
-     * @param externalDocs var.name
+     * @param externalDocs externalDocs
      * @param format The format keyword allows for basic semantic validation on certain kinds of string values that are commonly used
-     * @param get$ref var.name
+     * @param get$ref get$ref
      * @param maxItems The maximum length of the array can be specified
      * @param maxLength The maximum length of a string can be constrained using the minLength
      * @param maxProperties The maximum number of properties on an object can be restricted
@@ -285,7 +285,7 @@ public class ParameterSchema {
      * @param minimum Lower limit in the ranges of numbers
      * @param multipleOf Numbers can be restricted to a multiple of a given number, using the multipleOf keyword. It may be set to any positive number.
      * @param name User defined name for the property
-     * @param not var.name
+     * @param not not
      * @param nullable Allows sending a null value for the defined schema. Default value is false
      * @param pattern The pattern keyword is used to restrict a string to a particular regular expression. The regular expression syntax is the one defined in JavaScript (ECMA 262 specifically)
      * @param properties The properties (key-value pairs) on an object are defined using the properties keyword. The value of properties is an object, where each key is the name of a property and each value is of type schema used to validate that property
@@ -294,9 +294,9 @@ public class ParameterSchema {
      * @param title User defined title for the property
      * @param type It specifies the data type for a schema
      * @param uniqueItems A schema can ensure that each of the items in an array is unique. Simply set the uniqueItems keyword to true
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      * @param writeOnly Relevant only for Schema "properties" definitions. Declares the property as "write only". Therefore, it MAY be sent as part of a request but SHOULD NOT be sent as part of the response. If the property is marked as writeOnly being true and is in the required list, the required will take effect on the request only. A property MUST NOT be marked as both readOnly and writeOnly being true. Default value is false
-     * @param xml var.name
+     * @param xml xml
      */
     @ApiStatus.Internal
     public ParameterSchema(ParameterSchema additionalProperties, Boolean additionalPropertiesAsBoolean, Object _default, Boolean deprecated, String description, List<Object> _enum, Object example, Boolean exclusiveMaximum, Boolean exclusiveMinimum, ExternalDocs externalDocs, String format, String get$ref, Integer maxItems, Integer maxLength, Integer maxProperties, BigDecimal maximum, Integer minItems, Integer minLength, Integer minProperties, BigDecimal minimum, BigDecimal multipleOf, String name, ParameterSchema not, Boolean nullable, String pattern, Map<String, ParameterSchema> properties, Boolean readOnly, List<String> required, String title, String type, Boolean uniqueItems, Map<String, Object> vendorExtensions, Boolean writeOnly, Xml xml) {

@@ -60,9 +60,9 @@ public class RefModel extends Model {
      * Constructs a validated instance of {@link RefModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RefModel(Consumer)} instead.
-     * @param get$ref var.name
-     * @param refFormat var.name
-     * @param simpleRef var.name
+     * @param get$ref get$ref
+     * @param refFormat refFormat
+     * @param simpleRef simpleRef
      */
     @ApiStatus.Internal
     public RefModel(String get$ref, RefFormatEnum refFormat, String simpleRef) {

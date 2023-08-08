@@ -74,13 +74,13 @@ public class OneOfStrategyModel {
      * Constructs a validated instance of {@link OneOfStrategyModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OneOfStrategyModel(Consumer)} instead.
-     * @param JWT_HSA var.name
-     * @param JWT_RSA var.name
-     * @param OAUTH2 var.name
-     * @param OAUTH2_LOCAL_HSA var.name
-     * @param OAUTH2_LOCAL_RSA var.name
-     * @param OPENID_CONNECT_HSA var.name
-     * @param OPENID_CONNECT_RSA var.name
+     * @param JWT_HSA JWT_HSA
+     * @param JWT_RSA JWT_RSA
+     * @param OAUTH2 OAUTH2
+     * @param OAUTH2_LOCAL_HSA OAUTH2_LOCAL_HSA
+     * @param OAUTH2_LOCAL_RSA OAUTH2_LOCAL_RSA
+     * @param OPENID_CONNECT_HSA OPENID_CONNECT_HSA
+     * @param OPENID_CONNECT_RSA OPENID_CONNECT_RSA
      */
     @ApiStatus.Internal
     public OneOfStrategyModel(JWTHSAuthStrategy JWT_HSA, JWTRSAuthStrategy JWT_RSA, OAuth2RemoteIntrospectionAuthStrategy OAUTH2, OpenIDConnectHSAuthStrategy OAUTH2_LOCAL_HSA, OpenIDConnectRSAuthStrategy OAUTH2_LOCAL_RSA, OAuth2LocalHSIntrospectionStrategy OPENID_CONNECT_HSA, OAuth2LocalRSIntrospectionStrategy OPENID_CONNECT_RSA) {

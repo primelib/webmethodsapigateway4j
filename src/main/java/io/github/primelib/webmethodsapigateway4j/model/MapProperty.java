@@ -58,9 +58,9 @@ public class MapProperty extends Property {
      * Constructs a validated instance of {@link MapProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MapProperty(Consumer)} instead.
-     * @param additionalProperties var.name
-     * @param maxProperties var.name
-     * @param minProperties var.name
+     * @param additionalProperties additionalProperties
+     * @param maxProperties maxProperties
+     * @param minProperties minProperties
      */
     @ApiStatus.Internal
     public MapProperty(Property additionalProperties, Integer maxProperties, Integer minProperties) {

@@ -49,7 +49,7 @@ public class BooleanSchema extends ParameterSchema {
      * Constructs a validated instance of {@link BooleanSchema}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #BooleanSchema(Consumer)} instead.
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public BooleanSchema(String type) {

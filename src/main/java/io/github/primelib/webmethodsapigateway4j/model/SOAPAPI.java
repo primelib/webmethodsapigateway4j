@@ -109,19 +109,19 @@ public class SOAPAPI extends API {
      * Constructs a validated instance of {@link SOAPAPI}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPAPI(Consumer)} instead.
-     * @param algorithmSuite var.name
+     * @param algorithmSuite algorithmSuite
      * @param apiTags A list of API level tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier
-     * @param baseWsdlUri var.name
-     * @param isRESTInvokeEnabled var.name
-     * @param nativeUri var.name
-     * @param operationPolicies var.name
-     * @param operationsInfo var.name
-     * @param rootFileFolder var.name
-     * @param serviceName var.name
+     * @param baseWsdlUri baseWsdlUri
+     * @param isRESTInvokeEnabled isRESTInvokeEnabled
+     * @param nativeUri nativeUri
+     * @param operationPolicies operationPolicies
+     * @param operationsInfo operationsInfo
+     * @param rootFileFolder rootFileFolder
+     * @param serviceName serviceName
      * @param serviceRegistryDisplayName The name of the API in service registry when the API is published to a service registry.
-     * @param soapToRestConfigurations var.name
+     * @param soapToRestConfigurations soapToRestConfigurations
      * @param tags A list of tags with additional metadata
-     * @param wsdl var.name
+     * @param wsdl wsdl
      */
     @ApiStatus.Internal
     public SOAPAPI(String algorithmSuite, List<String> apiTags, String baseWsdlUri, Boolean isRESTInvokeEnabled, Set<String> nativeUri, Map<String, String> operationPolicies, Set<SOAPOperation> operationsInfo, String rootFileFolder, String serviceName, String serviceRegistryDisplayName, SOAPToRestConfigurations soapToRestConfigurations, List<Tag> tags, String wsdl) {

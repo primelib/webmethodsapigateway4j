@@ -144,7 +144,7 @@ public class ModelPackage {
      * Constructs a validated instance of {@link ModelPackage}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ModelPackage(Consumer)} instead.
-     * @param active var.name
+     * @param active active
      * @param apiIds List of api ids needs to be associated to package. It can be either provided during the package creation or separately using package update call
      * @param creationDate The creation date of package in milli seconds
      * @param customFields This can be used to store additional information needed for a package

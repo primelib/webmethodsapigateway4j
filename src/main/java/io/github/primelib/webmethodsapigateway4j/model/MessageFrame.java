@@ -65,10 +65,10 @@ public class MessageFrame {
      * Constructs a validated instance of {@link MessageFrame}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MessageFrame(Consumer)} instead.
-     * @param messageDescription var.name
-     * @param messagePayload var.name
-     * @param origin var.name
-     * @param type var.name
+     * @param messageDescription messageDescription
+     * @param messagePayload messagePayload
+     * @param origin origin
+     * @param type type
      */
     @ApiStatus.Internal
     public MessageFrame(String messageDescription, String messagePayload, OriginEnum origin, TypeEnum type) {

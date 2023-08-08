@@ -78,7 +78,7 @@ public class MigrationConfig {
      * @param action The type of migration action to be performed
      * @param indicesType The type of indices to be reindexed for reindex action
      * @param properties Migration properties for reindex action. Default values are taken from migration.properties file. Any value passed in here would overwrite the default value.
-     * @param sourceElasticsearch var.name
+     * @param sourceElasticsearch sourceElasticsearch
      */
     @ApiStatus.Internal
     public MigrationConfig(ActionEnum action, IndicesTypeEnum indicesType, Map<String, String> properties, ElasticsearchConfig sourceElasticsearch) {

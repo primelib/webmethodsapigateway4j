@@ -66,11 +66,11 @@ public class Endpoint {
      * Constructs a validated instance of {@link Endpoint}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Endpoint(Consumer)} instead.
-     * @param alias var.name
-     * @param connectionTimeoutDuration var.name
-     * @param optimizationTechnique var.name
-     * @param passSecurityHeaders var.name
-     * @param uri var.name
+     * @param alias alias
+     * @param connectionTimeoutDuration connectionTimeoutDuration
+     * @param optimizationTechnique optimizationTechnique
+     * @param passSecurityHeaders passSecurityHeaders
+     * @param uri uri
      */
     @ApiStatus.Internal
     public Endpoint(Boolean alias, Integer connectionTimeoutDuration, String optimizationTechnique, Boolean passSecurityHeaders, String uri) {

@@ -74,7 +74,7 @@ public class ServiceOutput {
      * @param accessToken generated access token
      * @param expiresIn token expiry
      * @param scopes scopes for which the access token is issued
-     * @param tokenType var.name
+     * @param tokenType tokenType
      */
     @ApiStatus.Internal
     public ServiceOutput(String accessToken, Long expiresIn, String scopes, String tokenType) {

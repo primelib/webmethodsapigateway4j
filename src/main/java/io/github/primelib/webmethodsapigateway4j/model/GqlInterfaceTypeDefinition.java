@@ -90,11 +90,11 @@ public class GqlInterfaceTypeDefinition {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlInterfaceTypeDefinition(Consumer)} instead.
      * @param comments List of comments
      * @param directives List of directives
-     * @param directivesByName var.name
+     * @param directivesByName directivesByName
      * @param name Name of the interface type definition
-     * @param description var.name
+     * @param description description
      * @param fieldDefinitions List of field definitions
-     * @param _implements var.name
+     * @param _implements _implements
      */
     @ApiStatus.Internal
     public GqlInterfaceTypeDefinition(List<GqlComment> comments, List<GqlDirective> directives, Map<String, GqlDirective> directivesByName, String name, GqlDescription description, List<GqlFieldDefinition> fieldDefinitions, List<GqlType> _implements) {

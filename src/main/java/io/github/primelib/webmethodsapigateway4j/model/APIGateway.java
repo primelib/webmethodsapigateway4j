@@ -62,10 +62,10 @@ public class APIGateway {
      * Constructs a validated instance of {@link APIGateway}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIGateway(Consumer)} instead.
-     * @param apIManagement var.name
-     * @param applicationManagement var.name
-     * @param policyManagementGateway var.name
-     * @param policyManagementThreatProtection var.name
+     * @param apIManagement apIManagement
+     * @param applicationManagement applicationManagement
+     * @param policyManagementGateway policyManagementGateway
+     * @param policyManagementThreatProtection policyManagementThreatProtection
      */
     @ApiStatus.Internal
     public APIGateway(String apIManagement, String applicationManagement, String policyManagementGateway, String policyManagementThreatProtection) {

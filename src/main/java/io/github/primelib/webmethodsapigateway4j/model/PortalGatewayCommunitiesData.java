@@ -57,7 +57,7 @@ public class PortalGatewayCommunitiesData {
      * Constructs a validated instance of {@link PortalGatewayCommunitiesData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PortalGatewayCommunitiesData(Consumer)} instead.
-     * @param communities var.name
+     * @param communities communities
      * @param provider The API Portal destination configuration name
      */
     @ApiStatus.Internal

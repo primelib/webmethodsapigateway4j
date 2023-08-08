@@ -135,14 +135,14 @@ public class PolicyActionTemplate {
      * @param applicableServiceTypes Policy enforcement only applicable for the list of service type specified here
      * @param canAppliedAtResourceMethodLevel This property infers that the policy action can be applied at resource/operation or method level.
      * @param dependentActions Dependent list of policy enforcements. This policy enforcement can't be added with out the specified list of policy enforcement templates
-     * @param dependentActionsConnector var.name
+     * @param dependentActionsConnector dependentActionsConnector
      * @param descriptions Description for the policy enforcement
      * @param mutuallyExclusiveActions The list contains the mutually exclusive policy enforcements with this policy enforcement
      * @param names Name of the policy enforcement along with the corresponding locale information
      * @param occurrence Allowed occurrence for the respective policy enforcement.   1. Once - Policy enforcement can be added only once on the respective stage.   2. Multiple - Policy enforcement can be added multiple times on the respective stage.
-     * @param order var.name
-     * @param parameterTemplates var.name
-     * @param requiredParametersKeys var.name
+     * @param order order
+     * @param parameterTemplates parameterTemplates
+     * @param requiredParametersKeys requiredParametersKeys
      * @param stageSpecific Some policy enforcement can be added in multiple stages. This property specify it needs to be processed based on the stage it added.
      * @param templateKey A unique id  for this policy enforcement
      */

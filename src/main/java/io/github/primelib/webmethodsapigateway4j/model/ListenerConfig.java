@@ -82,7 +82,7 @@ public class ListenerConfig {
      * @param insecureTrustManager Use insecure trust manager, to support self signed certificates
      * @param keyAlias Key alias to be used for the GRPC Channel
      * @param keyStoreAlias Key store alias to be used for the GRPC Channel
-     * @param listener var.name
+     * @param listener listener
      * @param trustStoreAlias Truststore alias to be used for the GRPC Channel
      */
     @ApiStatus.Internal

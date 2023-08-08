@@ -66,11 +66,11 @@ public class StringProperty extends Property {
      * Constructs a validated instance of {@link StringProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #StringProperty(Consumer)} instead.
-     * @param _default var.name
-     * @param _enum var.name
-     * @param maxLength var.name
-     * @param minLength var.name
-     * @param pattern var.name
+     * @param _default _default
+     * @param _enum _enum
+     * @param maxLength maxLength
+     * @param minLength minLength
+     * @param pattern pattern
      */
     @ApiStatus.Internal
     public StringProperty(String _default, List<String> _enum, Integer maxLength, Integer minLength, String pattern) {

@@ -83,10 +83,10 @@ public class SOAPMessageSecurityAlias extends Alias {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPMessageSecurityAlias(Consumer)} instead.
      * @param authMode Mode of authentication
      * @param authType Type of authentication that needs to be used
-     * @param kerberosCredentials var.name
+     * @param kerberosCredentials kerberosCredentials
      * @param samlIssuerConfig Saml issuer configuration name
-     * @param signAndEncryptConfig var.name
-     * @param wssCredentials var.name
+     * @param signAndEncryptConfig signAndEncryptConfig
+     * @param wssCredentials wssCredentials
      */
     @ApiStatus.Internal
     public SOAPMessageSecurityAlias(AuthModeEnum authMode, AuthTypeEnum authType, KerberosCredentials kerberosCredentials, String samlIssuerConfig, SignAndEncryptConfig signAndEncryptConfig, WssCredentials wssCredentials) {

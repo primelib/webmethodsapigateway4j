@@ -50,7 +50,7 @@ public class ObjectProperty extends Property {
      * Constructs a validated instance of {@link ObjectProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ObjectProperty(Consumer)} instead.
-     * @param properties var.name
+     * @param properties properties
      */
     @ApiStatus.Internal
     public ObjectProperty(Map<String, Property> properties) {

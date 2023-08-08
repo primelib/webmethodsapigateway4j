@@ -90,7 +90,7 @@ public class Xml {
      * @param name Replaces the name of the element/attribute used for the described schema property. When defined within items, it will affect the name of the individual XML elements within the list. When defined alongside type being array (outside the items), it will affect the wrapping element and only if wrapped is true. If wrapped is false, it will be ignored
      * @param namespace The URI of the namespace definition
      * @param prefix The prefix to be used for the name
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      * @param wrapped MAY be used only for an array definition. Signifies whether the array is wrapped (for example, &amp;lt;books&amp;gt;&amp;lt;book/&amp;gt;&amp;lt;book/&amp;gt;&amp;lt;/books&amp;gt;) or unwrapped (&amp;lt;book/&amp;gt;&amp;lt;book/&amp;gt;). Default value is false
      */
     @ApiStatus.Internal

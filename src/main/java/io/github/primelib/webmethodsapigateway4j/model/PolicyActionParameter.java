@@ -76,10 +76,10 @@ public class PolicyActionParameter {
      * Constructs a validated instance of {@link PolicyActionParameter}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyActionParameter(Consumer)} instead.
-     * @param extendedProperties var.name
+     * @param extendedProperties extendedProperties
      * @param parameters If this policy action parameter is complex type then array of policy action parameter will be the value for this parameter template key
      * @param templateKey parameter template key.
-     * @param type var.name
+     * @param type type
      * @param values array of values for this parameter template key
      */
     @ApiStatus.Internal

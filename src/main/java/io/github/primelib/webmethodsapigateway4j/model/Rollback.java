@@ -107,7 +107,7 @@ public class Rollback {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Rollback(Consumer)} instead.
      * @param description Description for the rollback
-     * @param id var.name
+     * @param id id
      * @param lastRollbackTime The time at which the asset promotion was rolled back
      * @param name Name for the rollback
      * @param promotedBy User who initiated the promotion

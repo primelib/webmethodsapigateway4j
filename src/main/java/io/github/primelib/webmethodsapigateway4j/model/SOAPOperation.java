@@ -100,19 +100,19 @@ public class SOAPOperation {
      * Constructs a validated instance of {@link SOAPOperation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPOperation(Consumer)} instead.
-     * @param bindings var.name
-     * @param defined var.name
-     * @param enabled var.name
-     * @param headers var.name
-     * @param isRESTInvokeEnabled var.name
-     * @param mockedConditionsBasedCustomResponsesList var.name
-     * @param mockedResponses var.name
-     * @param name var.name
-     * @param namespace var.name
-     * @param restEnabledPath var.name
-     * @param scopes var.name
-     * @param soapAction var.name
-     * @param tags var.name
+     * @param bindings bindings
+     * @param defined defined
+     * @param enabled enabled
+     * @param headers headers
+     * @param isRESTInvokeEnabled isRESTInvokeEnabled
+     * @param mockedConditionsBasedCustomResponsesList mockedConditionsBasedCustomResponsesList
+     * @param mockedResponses mockedResponses
+     * @param name name
+     * @param namespace namespace
+     * @param restEnabledPath restEnabledPath
+     * @param scopes scopes
+     * @param soapAction soapAction
+     * @param tags tags
      */
     @ApiStatus.Internal
     public SOAPOperation(List<SOAPBinding> bindings, Boolean defined, Boolean enabled, List<String> headers, Boolean isRESTInvokeEnabled, List<MockedConditionsBasedCustomResponse> mockedConditionsBasedCustomResponsesList, Map<String, MockedResponse> mockedResponses, String name, String namespace, RestEnabledPath restEnabledPath, List<String> scopes, String soapAction, List<String> tags) {

@@ -65,10 +65,10 @@ public class APIResponseCreate {
      * Constructs a validated instance of {@link APIResponseCreate}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseCreate(Consumer)} instead.
-     * @param api var.name
-     * @param apiId var.name
-     * @param errorReason var.name
-     * @param responseStatus var.name
+     * @param api api
+     * @param apiId apiId
+     * @param errorReason errorReason
+     * @param responseStatus responseStatus
      */
     @ApiStatus.Internal
     public APIResponseCreate(GatewayAPI api, String apiId, String errorReason, ResponseStatusEnum responseStatus) {

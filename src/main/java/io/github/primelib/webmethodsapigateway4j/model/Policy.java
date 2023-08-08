@@ -109,16 +109,16 @@ public class Policy {
      * Constructs a validated instance of {@link Policy}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Policy(Consumer)} instead.
-     * @param active var.name
+     * @param active active
      * @param descriptions This contains list of description for the policy  with corresponding locale information.
-     * @param global var.name
+     * @param global global
      * @param id Policy ID
      * @param names This contains list of names for the policy with corresponding locale information.
      * @param parameters This basic details of a threat protection rule such as rule name, description, rule action, custom error message etc.will be stored in this property.
      * @param policyEnforcements This property contains list of policy (runtime) enforcement id grouped based on the stages.
      * @param policyScope This property is used to refer the scope of the policy.
-     * @param scope var.name
-     * @param systemPolicy var.name
+     * @param scope scope
+     * @param systemPolicy systemPolicy
      */
     @ApiStatus.Internal
     public Policy(Boolean active, List<InternationalizedString> descriptions, Boolean global, String id, List<InternationalizedString> names, List<PolicyActionParameter> parameters, List<PolicyEnforcements> policyEnforcements, PolicyScopeEnum policyScope, Scope scope, Boolean systemPolicy) {

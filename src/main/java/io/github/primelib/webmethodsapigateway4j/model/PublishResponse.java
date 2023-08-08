@@ -82,7 +82,7 @@ public class PublishResponse {
      * @param apiId API id of the API published.
      * @param apiName API name of the API published.
      * @param apiVersion API version of the API published.
-     * @param integrationServerPublishResponses var.name
+     * @param integrationServerPublishResponses integrationServerPublishResponses
      * @param serviceRegistryPublishResponses Contains publish status of the API for each service registry in the request.
      */
     @ApiStatus.Internal

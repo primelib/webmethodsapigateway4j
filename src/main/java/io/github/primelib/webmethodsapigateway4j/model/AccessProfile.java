@@ -99,9 +99,9 @@ public class AccessProfile {
      * @param id AccessProfile ID
      * @param includeTeamAdminsAsApprovers When the property is set to true, all the team administrators becomes approvers. The default value is false
      * @param name name of the accessprofile
-     * @param privilege var.name
-     * @param teamAdmin var.name
-     * @param teamApprovers var.name
+     * @param privilege privilege
+     * @param teamAdmin teamAdmin
+     * @param teamApprovers teamApprovers
      */
     @ApiStatus.Internal
     public AccessProfile(String description, List<String> groupIds, String id, Boolean includeTeamAdminsAsApprovers, String name, BitSet privilege, TeamAdmin teamAdmin, TeamApprovers teamApprovers) {

@@ -115,14 +115,14 @@ public class APIResponseGetAPIs {
      * Constructs a validated instance of {@link APIResponseGetAPIs}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGetAPIs(Consumer)} instead.
-     * @param active var.name
-     * @param apiId var.name
+     * @param active active
+     * @param apiId apiId
      * @param apiName API Name
      * @param apiVersion API Version
-     * @param errorReason var.name
+     * @param errorReason errorReason
      * @param id API Id
      * @param publishedPortals Published portals of an API
-     * @param responseStatus var.name
+     * @param responseStatus responseStatus
      * @param systemVersion System version of an API
      * @param teams Contains teams belonging to an API.
      * @param type API Type

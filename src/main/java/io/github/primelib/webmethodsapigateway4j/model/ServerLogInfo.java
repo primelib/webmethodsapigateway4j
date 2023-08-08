@@ -50,7 +50,7 @@ public class ServerLogInfo extends TraceInfo {
      * Constructs a validated instance of {@link ServerLogInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServerLogInfo(Consumer)} instead.
-     * @param logs var.name
+     * @param logs logs
      */
     @ApiStatus.Internal
     public ServerLogInfo(List<String> logs) {

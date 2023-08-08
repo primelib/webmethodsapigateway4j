@@ -64,10 +64,10 @@ public class GqlTypeDefinition {
      * Constructs a validated instance of {@link GqlTypeDefinition}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlTypeDefinition(Consumer)} instead.
-     * @param comments var.name
-     * @param directives var.name
-     * @param directivesByName var.name
-     * @param name var.name
+     * @param comments comments
+     * @param directives directives
+     * @param directivesByName directivesByName
+     * @param name name
      */
     @ApiStatus.Internal
     public GqlTypeDefinition(List<GqlComment> comments, List<GqlDirective> directives, Map<String, GqlDirective> directivesByName, String name) {

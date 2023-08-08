@@ -54,8 +54,8 @@ public class ExtendedProperties {
      * Constructs a validated instance of {@link ExtendedProperties}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ExtendedProperties(Consumer)} instead.
-     * @param key var.name
-     * @param value var.name
+     * @param key key
+     * @param value value
      */
     @ApiStatus.Internal
     public ExtendedProperties(String key, String value) {

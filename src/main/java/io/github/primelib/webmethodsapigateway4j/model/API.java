@@ -80,14 +80,14 @@ public class API {
      * Constructs a validated instance of {@link API}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #API(Consumer)} instead.
-     * @param apiTags var.name
-     * @param description var.name
-     * @param serviceRegistryDisplayName var.name
-     * @param tags var.name
-     * @param title var.name
-     * @param type var.name
-     * @param uri var.name
-     * @param version var.name
+     * @param apiTags apiTags
+     * @param description description
+     * @param serviceRegistryDisplayName serviceRegistryDisplayName
+     * @param tags tags
+     * @param title title
+     * @param type type
+     * @param uri uri
+     * @param version version
      */
     @ApiStatus.Internal
     public API(List<String> apiTags, String description, String serviceRegistryDisplayName, List<Tag> tags, String title, String type, Set<String> uri, String version) {

@@ -66,11 +66,11 @@ public class LicenseDetail {
      * Constructs a validated instance of {@link LicenseDetail}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LicenseDetail(Consumer)} instead.
-     * @param apIGateway var.name
-     * @param salesInformation var.name
-     * @param integrationServer var.name
-     * @param licenseInformation var.name
-     * @param productInformation var.name
+     * @param apIGateway apIGateway
+     * @param salesInformation salesInformation
+     * @param integrationServer integrationServer
+     * @param licenseInformation licenseInformation
+     * @param productInformation productInformation
      */
     @ApiStatus.Internal
     public LicenseDetail(APIGateway apIGateway, SalesInformation salesInformation, IntegrationServer integrationServer, LicenseInformation licenseInformation, ProductInformation productInformation) {

@@ -74,12 +74,12 @@ public class APIResponseGetAPI {
      * Constructs a validated instance of {@link APIResponseGetAPI}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGetAPI(Consumer)} instead.
-     * @param api var.name
-     * @param apiId var.name
-     * @param errorReason var.name
-     * @param gatewayEndPoints var.name
-     * @param responseStatus var.name
-     * @param versions var.name
+     * @param api api
+     * @param apiId apiId
+     * @param errorReason errorReason
+     * @param gatewayEndPoints gatewayEndPoints
+     * @param responseStatus responseStatus
+     * @param versions versions
      */
     @ApiStatus.Internal
     public APIResponseGetAPI(GatewayAPI api, String apiId, String errorReason, List<String> gatewayEndPoints, ResponseStatusEnum responseStatus, List<Version> versions) {

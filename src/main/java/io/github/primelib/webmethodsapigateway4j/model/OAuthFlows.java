@@ -67,11 +67,11 @@ public class OAuthFlows {
      * Constructs a validated instance of {@link OAuthFlows}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OAuthFlows(Consumer)} instead.
-     * @param authorizationCode var.name
-     * @param clientCredentials var.name
-     * @param implicit var.name
-     * @param password var.name
-     * @param vendorExtensions var.name
+     * @param authorizationCode authorizationCode
+     * @param clientCredentials clientCredentials
+     * @param implicit implicit
+     * @param password password
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public OAuthFlows(OAuth2Definition authorizationCode, OAuth2Definition clientCredentials, OAuth2Definition implicit, OAuth2Definition password, Map<String, Object> vendorExtensions) {

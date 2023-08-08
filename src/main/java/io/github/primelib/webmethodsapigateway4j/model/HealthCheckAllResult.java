@@ -58,9 +58,9 @@ public class HealthCheckAllResult {
      * Constructs a validated instance of {@link HealthCheckAllResult}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HealthCheckAllResult(Consumer)} instead.
-     * @param admin var.name
-     * @param engine var.name
-     * @param external var.name
+     * @param admin admin
+     * @param engine engine
+     * @param external external
      */
     @ApiStatus.Internal
     public HealthCheckAllResult(HealthCheckAdminResult admin, HealthCheckEngineResult engine, HealthCheckExternalResult external) {

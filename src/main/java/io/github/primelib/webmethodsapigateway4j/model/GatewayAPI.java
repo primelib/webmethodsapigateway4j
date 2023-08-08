@@ -188,40 +188,40 @@ public class GatewayAPI {
      * Constructs a validated instance of {@link GatewayAPI}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GatewayAPI(Consumer)} instead.
-     * @param apiDefinition var.name
-     * @param apiDescription var.name
-     * @param apiDocuments var.name
-     * @param apiEndpointPrefix var.name
-     * @param apiGroups var.name
-     * @param apiName var.name
-     * @param apiVersion var.name
-     * @param appMeshEndpoints var.name
-     * @param centraSiteURL var.name
-     * @param creationDate var.name
-     * @param deployments var.name
-     * @param gatewayEndpoints var.name
-     * @param id var.name
-     * @param isActive var.name
-     * @param k8sIdentifiers var.name
-     * @param lastModified var.name
-     * @param maturityState var.name
-     * @param microgatewayEndpoints var.name
-     * @param mockService var.name
-     * @param nativeEndpoint var.name
-     * @param nextVersion var.name
-     * @param oauth2ScopeName var.name
-     * @param owner var.name
-     * @param policies var.name
-     * @param portalApiItemIdentifier var.name
-     * @param prevVersion var.name
-     * @param provider var.name
-     * @param publishedPortals var.name
-     * @param publishedToRegistry var.name
-     * @param rootFileName var.name
-     * @param scopes var.name
-     * @param systemVersion var.name
-     * @param tracingEnabled var.name
-     * @param type var.name
+     * @param apiDefinition apiDefinition
+     * @param apiDescription apiDescription
+     * @param apiDocuments apiDocuments
+     * @param apiEndpointPrefix apiEndpointPrefix
+     * @param apiGroups apiGroups
+     * @param apiName apiName
+     * @param apiVersion apiVersion
+     * @param appMeshEndpoints appMeshEndpoints
+     * @param centraSiteURL centraSiteURL
+     * @param creationDate creationDate
+     * @param deployments deployments
+     * @param gatewayEndpoints gatewayEndpoints
+     * @param id id
+     * @param isActive isActive
+     * @param k8sIdentifiers k8sIdentifiers
+     * @param lastModified lastModified
+     * @param maturityState maturityState
+     * @param microgatewayEndpoints microgatewayEndpoints
+     * @param mockService mockService
+     * @param nativeEndpoint nativeEndpoint
+     * @param nextVersion nextVersion
+     * @param oauth2ScopeName oauth2ScopeName
+     * @param owner owner
+     * @param policies policies
+     * @param portalApiItemIdentifier portalApiItemIdentifier
+     * @param prevVersion prevVersion
+     * @param provider provider
+     * @param publishedPortals publishedPortals
+     * @param publishedToRegistry publishedToRegistry
+     * @param rootFileName rootFileName
+     * @param scopes scopes
+     * @param systemVersion systemVersion
+     * @param tracingEnabled tracingEnabled
+     * @param type type
      */
     @ApiStatus.Internal
     public GatewayAPI(API apiDefinition, String apiDescription, List<String> apiDocuments, String apiEndpointPrefix, List<String> apiGroups, String apiName, String apiVersion, List<String> appMeshEndpoints, String centraSiteURL, String creationDate, List<DeploymentsEnum> deployments, Map<String, String> gatewayEndpoints, String id, Boolean isActive, Map<String, String> k8sIdentifiers, String lastModified, String maturityState, List<EndpointInfo> microgatewayEndpoints, MockService mockService, Set<Endpoint> nativeEndpoint, String nextVersion, String oauth2ScopeName, String owner, List<String> policies, String portalApiItemIdentifier, String prevVersion, String provider, List<String> publishedPortals, Boolean publishedToRegistry, String rootFileName, List<Scope> scopes, Integer systemVersion, Boolean tracingEnabled, String type) {

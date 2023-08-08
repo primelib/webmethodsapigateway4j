@@ -68,11 +68,11 @@ public class EntityType {
      * Constructs a validated instance of {@link EntityType}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EntityType(Consumer)} instead.
-     * @param getmIDs var.name
-     * @param methods var.name
-     * @param navigationProperties var.name
-     * @param properties var.name
-     * @param props var.name
+     * @param getmIDs getmIDs
+     * @param methods methods
+     * @param navigationProperties navigationProperties
+     * @param properties properties
+     * @param props props
      */
     @ApiStatus.Internal
     public EntityType(List<String> getmIDs, Map<String, MethodParameters> methods, Map<String, EntitySet> navigationProperties, Map<String, Object> properties, List<String> props) {

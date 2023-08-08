@@ -70,9 +70,9 @@ public class Tag {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Tag(Consumer)} instead.
      * @param description A short description for the tag
-     * @param externalDocs var.name
+     * @param externalDocs externalDocs
      * @param name The name of the tag
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Tag(String description, ExternalDocs externalDocs, String name, Map<String, Object> vendorExtensions) {

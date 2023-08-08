@@ -66,7 +66,7 @@ public class Enforcement {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Enforcement(Consumer)} instead.
      * @param enforcementObjectId Policy enforcement id
      * @param order enforcement order
-     * @param parentPolicyId var.name
+     * @param parentPolicyId parentPolicyId
      */
     @ApiStatus.Internal
     public Enforcement(String enforcementObjectId, String order, String parentPolicyId) {

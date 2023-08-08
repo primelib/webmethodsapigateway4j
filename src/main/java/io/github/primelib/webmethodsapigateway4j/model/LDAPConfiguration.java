@@ -81,7 +81,7 @@ public class LDAPConfiguration {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #LDAPConfiguration(Consumer)} instead.
      * @param cacheSize The maximum number of LDAP users Integration Server can keep in memory in the user cache. The default is 10.
      * @param cacheTTL The number of minutes an LDAP user's credentials (userid and password) can remain in the credential cache before being purged. The default is 60 minutes.
-     * @param cdsRunning var.name
+     * @param cdsRunning cdsRunning
      * @param ldapDirectoryList List of LDAP directories. This field is applicable when LDAP provider is chosen.
      * @param provider Choose the authentication provider. Possible values are 'local' and 'LDAP' 
      */

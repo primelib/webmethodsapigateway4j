@@ -54,8 +54,8 @@ public class Version {
      * Constructs a validated instance of {@link Version}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Version(Consumer)} instead.
-     * @param apiId var.name
-     * @param versionNumber var.name
+     * @param apiId apiId
+     * @param versionNumber versionNumber
      */
     @ApiStatus.Internal
     public Version(String apiId, String versionNumber) {

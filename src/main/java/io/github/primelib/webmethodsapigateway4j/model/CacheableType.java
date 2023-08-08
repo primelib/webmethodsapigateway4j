@@ -50,7 +50,7 @@ public class CacheableType {
      * Constructs a validated instance of {@link CacheableType}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CacheableType(Consumer)} instead.
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public CacheableType(String type) {

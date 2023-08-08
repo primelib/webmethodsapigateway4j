@@ -58,9 +58,9 @@ public class ComposedProperty extends Property {
      * Constructs a validated instance of {@link ComposedProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ComposedProperty(Consumer)} instead.
-     * @param allOf var.name
-     * @param anyOf var.name
-     * @param oneOf var.name
+     * @param allOf allOf
+     * @param anyOf anyOf
+     * @param oneOf oneOf
      */
     @ApiStatus.Internal
     public ComposedProperty(List<Property> allOf, List<Property> anyOf, List<Property> oneOf) {

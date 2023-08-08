@@ -80,11 +80,11 @@ public class GatewayCacheConfig {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GatewayCacheConfig(Consumer)} instead.
      * @param autoScale Specifies whether to auto scale caching dynamically
-     * @param cacheName var.name
+     * @param cacheName cacheName
      * @param cacheSizeInPercent Specifies the caching size in percentage
-     * @param cacheableType var.name
+     * @param cacheableType cacheableType
      * @param collectStatistics Specifies whether to collect statistics for the caching
-     * @param recordCount var.name
+     * @param recordCount recordCount
      */
     @ApiStatus.Internal
     public GatewayCacheConfig(Boolean autoScale, String cacheName, Integer cacheSizeInPercent, CacheableType cacheableType, Boolean collectStatistics, Integer recordCount) {

@@ -77,8 +77,8 @@ public class OAuth2Endpoint {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OAuth2Endpoint(Consumer)} instead.
      * @param endpoint Client registration endpoint in the authorization server
-     * @param headers var.name
-     * @param https var.name
+     * @param headers headers
+     * @param https https
      * @param keyAlias The key alias is the private key that is used sign the request sent to the authorization server
      * @param keyStoreAlias Specify the keystore that needs to be used by API Gateway while sending the request to the authorization server. A keystore is a repository of private key and its corresponding public certificate
      */

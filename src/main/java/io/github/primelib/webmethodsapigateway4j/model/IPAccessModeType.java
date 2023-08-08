@@ -50,7 +50,7 @@ public class IPAccessModeType {
      * Constructs a validated instance of {@link IPAccessModeType}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IPAccessModeType(Consumer)} instead.
-     * @param ipAccessType var.name
+     * @param ipAccessType ipAccessType
      */
     @ApiStatus.Internal
     public IPAccessModeType(String ipAccessType) {

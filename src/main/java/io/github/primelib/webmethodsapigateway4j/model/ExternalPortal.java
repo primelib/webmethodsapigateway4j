@@ -82,7 +82,7 @@ public class ExternalPortal {
      * @param endpointTenant API Portal tenant name.
      * @param endpointURL API Portal endpoint URL.
      * @param endpointUsername API Portal username used by API Gateway to communicate.
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public ExternalPortal(String endpointPassword, String endpointTenant, String endpointURL, String endpointUsername, String type) {

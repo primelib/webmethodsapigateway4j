@@ -50,7 +50,7 @@ public class PolicyActionWrapper {
      * Constructs a validated instance of {@link PolicyActionWrapper}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyActionWrapper(Consumer)} instead.
-     * @param policyAction var.name
+     * @param policyAction policyAction
      */
     @ApiStatus.Internal
     public PolicyActionWrapper(PolicyAction policyAction) {

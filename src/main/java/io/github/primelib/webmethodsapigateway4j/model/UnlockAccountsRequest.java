@@ -50,7 +50,7 @@ public class UnlockAccountsRequest {
      * Constructs a validated instance of {@link UnlockAccountsRequest}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #UnlockAccountsRequest(Consumer)} instead.
-     * @param unLockAccounts var.name
+     * @param unLockAccounts unLockAccounts
      */
     @ApiStatus.Internal
     public UnlockAccountsRequest(UnlockAccounts unLockAccounts) {

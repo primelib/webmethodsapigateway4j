@@ -50,7 +50,7 @@ public class PackageResponseContainer {
      * Constructs a validated instance of {@link PackageResponseContainer}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PackageResponseContainer(Consumer)} instead.
-     * @param packageResponse var.name
+     * @param packageResponse packageResponse
      */
     @ApiStatus.Internal
     public PackageResponseContainer(PackagePlanResponse packageResponse) {

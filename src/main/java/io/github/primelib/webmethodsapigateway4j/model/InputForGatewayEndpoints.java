@@ -58,9 +58,9 @@ public class InputForGatewayEndpoints {
      * Constructs a validated instance of {@link InputForGatewayEndpoints}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputForGatewayEndpoints(Consumer)} instead.
-     * @param add var.name
-     * @param remove var.name
-     * @param update var.name
+     * @param add add
+     * @param remove remove
+     * @param update update
      */
     @ApiStatus.Internal
     public InputForGatewayEndpoints(InputForAddGatewayEndpoint add, InputForRemoveGatewayEndpoint remove, InputForUpdateGatewayEndpoint update) {

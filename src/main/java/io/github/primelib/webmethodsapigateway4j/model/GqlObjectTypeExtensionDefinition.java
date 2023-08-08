@@ -89,11 +89,11 @@ public class GqlObjectTypeExtensionDefinition {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlObjectTypeExtensionDefinition(Consumer)} instead.
      * @param comments List of comments
-     * @param description var.name
+     * @param description description
      * @param directives List of directives
-     * @param directivesByName var.name
+     * @param directivesByName directivesByName
      * @param fieldDefinitions List of field definitions
-     * @param _implements var.name
+     * @param _implements _implements
      * @param name Name of the object type definition
      */
     @ApiStatus.Internal

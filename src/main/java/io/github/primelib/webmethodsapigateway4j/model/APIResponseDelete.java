@@ -61,9 +61,9 @@ public class APIResponseDelete {
      * Constructs a validated instance of {@link APIResponseDelete}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseDelete(Consumer)} instead.
-     * @param apiId var.name
-     * @param errorReason var.name
-     * @param responseStatus var.name
+     * @param apiId apiId
+     * @param errorReason errorReason
+     * @param responseStatus responseStatus
      */
     @ApiStatus.Internal
     public APIResponseDelete(String apiId, String errorReason, ResponseStatusEnum responseStatus) {

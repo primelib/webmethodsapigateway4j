@@ -66,7 +66,7 @@ public class PublishPayload {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PublishPayload(Consumer)} instead.
      * @param apiId API id for the API to be published. This field is required. The API will be published to the service registry with the value configured in 'Service registry display name' field of the API
-     * @param integrationServerPublishInfo var.name
+     * @param integrationServerPublishInfo integrationServerPublishInfo
      * @param serviceRegistryPublishInfo List of service registry publish information for the API. Each element of the list contains the publish information of the API for one service registry.
      */
     @ApiStatus.Internal

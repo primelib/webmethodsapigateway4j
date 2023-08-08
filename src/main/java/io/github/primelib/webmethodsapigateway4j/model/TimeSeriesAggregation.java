@@ -60,7 +60,7 @@ public class TimeSeriesAggregation extends IAggregation {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TimeSeriesAggregation(Consumer)} instead.
      * @param interval Interval of the time series in aggregation.
-     * @param intervalTypeAsString var.name
+     * @param intervalTypeAsString intervalTypeAsString
      */
     @ApiStatus.Internal
     public TimeSeriesAggregation(IntervalEnum interval, String intervalTypeAsString) {

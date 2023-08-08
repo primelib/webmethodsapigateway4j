@@ -58,9 +58,9 @@ public class SOAPToRestConfigurations {
      * Constructs a validated instance of {@link SOAPToRestConfigurations}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPToRestConfigurations(Consumer)} instead.
-     * @param removeRootElement var.name
-     * @param useDefaultElements var.name
-     * @param useSchemaForTransformation var.name
+     * @param removeRootElement removeRootElement
+     * @param useDefaultElements useDefaultElements
+     * @param useSchemaForTransformation useSchemaForTransformation
      */
     @ApiStatus.Internal
     public SOAPToRestConfigurations(Boolean removeRootElement, Boolean useDefaultElements, Boolean useSchemaForTransformation) {

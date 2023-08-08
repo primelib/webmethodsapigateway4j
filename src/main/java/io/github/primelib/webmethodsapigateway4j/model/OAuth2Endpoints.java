@@ -59,9 +59,9 @@ public class OAuth2Endpoints {
      * Constructs a validated instance of {@link OAuth2Endpoints}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OAuth2Endpoints(Consumer)} instead.
-     * @param endpoints var.name
-     * @param keyAlias var.name
-     * @param keyStoreAlias var.name
+     * @param endpoints endpoints
+     * @param keyAlias keyAlias
+     * @param keyStoreAlias keyStoreAlias
      */
     @ApiStatus.Internal
     public OAuth2Endpoints(Map<String, OAuth2Endpoint> endpoints, String keyAlias, String keyStoreAlias) {

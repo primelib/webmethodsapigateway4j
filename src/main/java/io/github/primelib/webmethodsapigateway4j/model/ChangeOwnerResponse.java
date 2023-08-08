@@ -62,9 +62,9 @@ public class ChangeOwnerResponse {
      * Constructs a validated instance of {@link ChangeOwnerResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ChangeOwnerResponse(Consumer)} instead.
-     * @param matchingAssets var.name
-     * @param message var.name
-     * @param status var.name
+     * @param matchingAssets matchingAssets
+     * @param message message
+     * @param status status
      */
     @ApiStatus.Internal
     public ChangeOwnerResponse(Map<String, Object> matchingAssets, String message, StatusEnum status) {

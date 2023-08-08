@@ -55,8 +55,8 @@ public class ScopeInformation {
      * Constructs a validated instance of {@link ScopeInformation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ScopeInformation(Consumer)} instead.
-     * @param resourcePath var.name
-     * @param supportedOperations var.name
+     * @param resourcePath resourcePath
+     * @param supportedOperations supportedOperations
      */
     @ApiStatus.Internal
     public ScopeInformation(String resourcePath, List<String> supportedOperations) {

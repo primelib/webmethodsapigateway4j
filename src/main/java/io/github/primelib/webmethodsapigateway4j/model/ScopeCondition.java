@@ -65,9 +65,9 @@ public class ScopeCondition {
      * Constructs a validated instance of {@link ScopeCondition}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ScopeCondition(Consumer)} instead.
-     * @param attributes var.name
+     * @param attributes attributes
      * @param filterType This property is used to define the type of filter we will be using to define attributes. The allowed values are apis, httpMethod, tags. If API type is specified we can specify the fields of API such as apiName, apiDescription, apiVersion. If httpMethod specified we can specify the httpMethods(GET/POST/PUT/DELETE/POST) of the resource to filter the resource. This filter type is used for REST APIs only. If tag type is specified we can specify the field tags in API to filter api using tags. This is also only applicable for REST APIs.
-     * @param logicalConnector var.name
+     * @param logicalConnector logicalConnector
      */
     @ApiStatus.Internal
     public ScopeCondition(List<Attribute> attributes, FilterTypeEnum filterType, LogicalConnectorEnum logicalConnector) {

@@ -79,8 +79,8 @@ public class HTTPTransportSecurityAlias extends Alias {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #HTTPTransportSecurityAlias(Consumer)} instead.
      * @param authMode Mode of authentication that needs to be used
      * @param authType type of authentication you want to use while communicating with the native API
-     * @param httpAuthCredentials var.name
-     * @param kerberosCredentials var.name
+     * @param httpAuthCredentials httpAuthCredentials
+     * @param kerberosCredentials kerberosCredentials
      * @param oauth2Token Specify a base64 encoded OAuth2 token that is used for authentication
      */
     @ApiStatus.Internal

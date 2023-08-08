@@ -85,9 +85,9 @@ public class GqlEnumTypeExtensionDefinition {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlEnumTypeExtensionDefinition(Consumer)} instead.
      * @param comments List of comments
-     * @param description var.name
+     * @param description description
      * @param directives List of directives
-     * @param directivesByName var.name
+     * @param directivesByName directivesByName
      * @param enumValueDefinitions List of enum value definition
      * @param name Name of the enum type definition
      */

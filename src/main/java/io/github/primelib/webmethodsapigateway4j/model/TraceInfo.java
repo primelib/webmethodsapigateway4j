@@ -50,7 +50,7 @@ public class TraceInfo {
      * Constructs a validated instance of {@link TraceInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #TraceInfo(Consumer)} instead.
-     * @param infoType var.name
+     * @param infoType infoType
      */
     @ApiStatus.Internal
     public TraceInfo(String infoType) {

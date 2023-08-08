@@ -369,17 +369,17 @@ public class TransactionEvent {
      * @param applicationIp IP address of the application for the current request
      * @param applicationName Application name
      * @param cachedResponse Boolean value to indicate whether the response is served from cache
-     * @param callbackRequest var.name
+     * @param callbackRequest callbackRequest
      * @param consumerIp IP address of the consumer for the current request
      * @param correlationID Correlation ID used in the logging
      * @param creationDate Creation time of the transaction.
      * @param customFields Custom fields to be added.
      * @param errorOrigin Information of error orgination
-     * @param eventType var.name
+     * @param eventType eventType
      * @param externalCalls Details of external calls made
      * @param gatewayTime Time taken by the API Gateway for processing the request
      * @param httpMethod Name of the method
-     * @param id var.name
+     * @param id id
      * @param messagePayload Payload of a Websocket message
      * @param messageType Websocket message type
      * @param nativeHttpMethod Finally resolved HTTP method of native endpoint call
@@ -403,8 +403,8 @@ public class TransactionEvent {
      * @param responseHeaders Outgoing response headers
      * @param serverID Information about APIGW servername and port
      * @param sessionId Unique Id of the session
-     * @param sourceGateway var.name
-     * @param sourceGatewayDetails var.name
+     * @param sourceGateway sourceGateway
+     * @param sourceGatewayDetails sourceGatewayDetails
      * @param sourceGatewayNode The node which processed the request, in a multi node gateway
      * @param status Status of the request
      * @param totalDataSize Total size of the payload

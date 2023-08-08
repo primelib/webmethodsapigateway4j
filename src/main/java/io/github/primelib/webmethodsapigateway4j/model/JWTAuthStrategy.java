@@ -89,12 +89,12 @@ public class JWTAuthStrategy {
      * Constructs a validated instance of {@link JWTAuthStrategy}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #JWTAuthStrategy(Consumer)} instead.
-     * @param audience var.name
+     * @param audience audience
      * @param authServerAlias The name of the authorization server alias
-     * @param description var.name
+     * @param description description
      * @param id A unique ID for the strategy
      * @param name The name of the strategy
-     * @param primaryNode var.name
+     * @param primaryNode primaryNode
      * @param type The type of the strategy
      */
     @ApiStatus.Internal

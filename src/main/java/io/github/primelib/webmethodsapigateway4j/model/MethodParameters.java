@@ -59,9 +59,9 @@ public class MethodParameters {
      * Constructs a validated instance of {@link MethodParameters}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MethodParameters(Consumer)} instead.
-     * @param enabled var.name
-     * @param parameters var.name
-     * @param returnType var.name
+     * @param enabled enabled
+     * @param parameters parameters
+     * @param returnType returnType
      */
     @ApiStatus.Internal
     public MethodParameters(Boolean enabled, Map<String, String> parameters, String returnType) {

@@ -60,9 +60,9 @@ public class RefProperty extends Property {
      * Constructs a validated instance of {@link RefProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RefProperty(Consumer)} instead.
-     * @param get$ref var.name
-     * @param refFormat var.name
-     * @param simpleRef var.name
+     * @param get$ref get$ref
+     * @param refFormat refFormat
+     * @param simpleRef simpleRef
      */
     @ApiStatus.Internal
     public RefProperty(String get$ref, RefFormatEnum refFormat, String simpleRef) {

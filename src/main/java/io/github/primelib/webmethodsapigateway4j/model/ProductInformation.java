@@ -90,17 +90,17 @@ public class ProductInformation {
      * Constructs a validated instance of {@link ProductInformation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ProductInformation(Consumer)} instead.
-     * @param expirationDate var.name
-     * @param higherLevPosNr var.name
-     * @param higherLevProdCode var.name
-     * @param higherLevProdName var.name
-     * @param operatingSystem var.name
-     * @param productCode var.name
-     * @param productID var.name
-     * @param productName var.name
-     * @param productVersion var.name
-     * @param renewalDate var.name
-     * @param usage var.name
+     * @param expirationDate expirationDate
+     * @param higherLevPosNr higherLevPosNr
+     * @param higherLevProdCode higherLevProdCode
+     * @param higherLevProdName higherLevProdName
+     * @param operatingSystem operatingSystem
+     * @param productCode productCode
+     * @param productID productID
+     * @param productName productName
+     * @param productVersion productVersion
+     * @param renewalDate renewalDate
+     * @param usage usage
      */
     @ApiStatus.Internal
     public ProductInformation(String expirationDate, String higherLevPosNr, String higherLevProdCode, String higherLevProdName, String operatingSystem, String productCode, String productID, String productName, String productVersion, String renewalDate, String usage) {

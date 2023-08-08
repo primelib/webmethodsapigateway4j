@@ -75,7 +75,7 @@ public class GqlOperationTypeDefinition {
      * @param comments List of comments
      * @param enabled Flag to specify if this field is enabled or not
      * @param name Name of the operation type definition
-     * @param typeName var.name
+     * @param typeName typeName
      */
     @ApiStatus.Internal
     public GqlOperationTypeDefinition(List<GqlComment> comments, Boolean enabled, String name, GqlTypeName typeName) {

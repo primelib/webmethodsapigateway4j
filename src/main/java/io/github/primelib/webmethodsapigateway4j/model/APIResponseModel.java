@@ -60,7 +60,7 @@ public class APIResponseModel {
      * Constructs a validated instance of {@link APIResponseModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseModel(Consumer)} instead.
-     * @param api var.name
+     * @param api api
      * @param responseStatus Response status
      */
     @ApiStatus.Internal

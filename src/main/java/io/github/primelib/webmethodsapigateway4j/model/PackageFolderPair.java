@@ -63,10 +63,10 @@ public class PackageFolderPair {
      * Constructs a validated instance of {@link PackageFolderPair}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PackageFolderPair(Consumer)} instead.
-     * @param apiDescriptorNSNameMap var.name
-     * @param folderName var.name
-     * @param markedAsDeleted var.name
-     * @param packageName var.name
+     * @param apiDescriptorNSNameMap apiDescriptorNSNameMap
+     * @param folderName folderName
+     * @param markedAsDeleted markedAsDeleted
+     * @param packageName packageName
      */
     @ApiStatus.Internal
     public PackageFolderPair(Map<String, String> apiDescriptorNSNameMap, String folderName, Boolean markedAsDeleted, String packageName) {

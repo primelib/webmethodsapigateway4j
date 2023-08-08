@@ -55,8 +55,8 @@ public class Xpath {
      * Constructs a validated instance of {@link Xpath}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Xpath(Consumer)} instead.
-     * @param namespaces var.name
-     * @param xpath var.name
+     * @param namespaces namespaces
+     * @param xpath xpath
      */
     @ApiStatus.Internal
     public Xpath(List<Namespaces> namespaces, String xpath) {

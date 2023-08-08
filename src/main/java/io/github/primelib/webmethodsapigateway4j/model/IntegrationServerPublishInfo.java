@@ -115,20 +115,20 @@ public class IntegrationServerPublishInfo {
      * Constructs a validated instance of {@link IntegrationServerPublishInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IntegrationServerPublishInfo(Consumer)} instead.
-     * @param apiName var.name
-     * @param contentModelComplianceForWSDL var.name
-     * @param enableMTOM var.name
-     * @param enforceWSICompliance var.name
+     * @param apiName apiName
+     * @param contentModelComplianceForWSDL contentModelComplianceForWSDL
+     * @param enableMTOM enableMTOM
+     * @param enforceWSICompliance enforceWSICompliance
      * @param folderName Name of the folder under the package (mentioned on 'packageName' property) in which the API to be published. This field is required.
-     * @param importSwaggerBasedOnTags var.name
+     * @param importSwaggerBasedOnTags importSwaggerBasedOnTags
      * @param integrationServerId Uddi key of the integration server created in API Gateway. This field is required.
-     * @param integrationServerName var.name
-     * @param packageAndFolders var.name
+     * @param integrationServerName integrationServerName
+     * @param packageAndFolders packageAndFolders
      * @param packageName Name of the package in the integration server in which the API to be published. This field is required.
-     * @param skipCustomScalarTypes var.name
-     * @param status var.name
-     * @param updateNativeEndpointsOfAPI var.name
-     * @param validateSchemaWithXerces var.name
+     * @param skipCustomScalarTypes skipCustomScalarTypes
+     * @param status status
+     * @param updateNativeEndpointsOfAPI updateNativeEndpointsOfAPI
+     * @param validateSchemaWithXerces validateSchemaWithXerces
      */
     @ApiStatus.Internal
     public IntegrationServerPublishInfo(String apiName, String contentModelComplianceForWSDL, Boolean enableMTOM, Boolean enforceWSICompliance, String folderName, Boolean importSwaggerBasedOnTags, String integrationServerId, String integrationServerName, List<PackageFolderPair> packageAndFolders, String packageName, Boolean skipCustomScalarTypes, StatusEnum status, Boolean updateNativeEndpointsOfAPI, Boolean validateSchemaWithXerces) {

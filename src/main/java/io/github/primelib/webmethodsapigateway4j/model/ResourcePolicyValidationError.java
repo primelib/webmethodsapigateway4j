@@ -84,10 +84,10 @@ public class ResourcePolicyValidationError {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ResourcePolicyValidationError(Consumer)} instead.
      * @param conflictingPolicies Map of conflicting policy ids and its respective details
-     * @param error var.name
+     * @param error error
      * @param errorMessage Policy enforcement validation error message
      * @param method Applicable for REST Services only. This will contain the HTTP method of the resource which is having policy enforcement validation error
-     * @param policyDetails var.name
+     * @param policyDetails policyDetails
      * @param resource Resource/Operation name which is having the policy enforcement validation error
      */
     @ApiStatus.Internal

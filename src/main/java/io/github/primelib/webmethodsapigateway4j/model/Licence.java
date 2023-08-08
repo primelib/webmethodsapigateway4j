@@ -67,7 +67,7 @@ public class Licence {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Licence(Consumer)} instead.
      * @param name The license name used for the API
      * @param url A URL to the license used for the API
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Licence(String name, String url, Map<String, Object> vendorExtensions) {

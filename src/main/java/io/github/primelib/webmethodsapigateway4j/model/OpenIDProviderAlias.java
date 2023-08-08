@@ -125,25 +125,25 @@ public class OpenIDProviderAlias extends Alias {
      * Constructs a validated instance of {@link OpenIDProviderAlias}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OpenIDProviderAlias(Consumer)} instead.
-     * @param authorizationEndpoint var.name
-     * @param clientId var.name
-     * @param clientSecret var.name
-     * @param includeUserinfoClaims var.name
-     * @param issuer var.name
-     * @param jwksUri var.name
-     * @param maxAge var.name
-     * @param openIDDisplayValue var.name
-     * @param openIDGrantType var.name
-     * @param openIDResponseType var.name
-     * @param openIDScopes var.name
-     * @param openIDTokenEndpointAuthMode var.name
-     * @param prompt var.name
-     * @param redirectionEndpointHost var.name
-     * @param redirectionEndpointPort var.name
-     * @param tokenEndpoint var.name
-     * @param trustStoreAlias var.name
-     * @param uiLocales var.name
-     * @param userinfoEndpoint var.name
+     * @param authorizationEndpoint authorizationEndpoint
+     * @param clientId clientId
+     * @param clientSecret clientSecret
+     * @param includeUserinfoClaims includeUserinfoClaims
+     * @param issuer issuer
+     * @param jwksUri jwksUri
+     * @param maxAge maxAge
+     * @param openIDDisplayValue openIDDisplayValue
+     * @param openIDGrantType openIDGrantType
+     * @param openIDResponseType openIDResponseType
+     * @param openIDScopes openIDScopes
+     * @param openIDTokenEndpointAuthMode openIDTokenEndpointAuthMode
+     * @param prompt prompt
+     * @param redirectionEndpointHost redirectionEndpointHost
+     * @param redirectionEndpointPort redirectionEndpointPort
+     * @param tokenEndpoint tokenEndpoint
+     * @param trustStoreAlias trustStoreAlias
+     * @param uiLocales uiLocales
+     * @param userinfoEndpoint userinfoEndpoint
      */
     @ApiStatus.Internal
     public OpenIDProviderAlias(String authorizationEndpoint, String clientId, String clientSecret, Boolean includeUserinfoClaims, String issuer, String jwksUri, String maxAge, OpenIDDisplayValueEnum openIDDisplayValue, OpenIDGrantTypeEnum openIDGrantType, OpenIDResponseTypeEnum openIDResponseType, List<String> openIDScopes, OpenIDTokenEndpointAuthModeEnum openIDTokenEndpointAuthMode, PromptEnum prompt, String redirectionEndpointHost, String redirectionEndpointPort, String tokenEndpoint, String trustStoreAlias, String uiLocales, String userinfoEndpoint) {

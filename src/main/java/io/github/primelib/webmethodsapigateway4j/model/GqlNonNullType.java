@@ -59,7 +59,7 @@ public class GqlNonNullType {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlNonNullType(Consumer)} instead.
      * @param comments List of comments
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public GqlNonNullType(List<GqlComment> comments, GqlType type) {

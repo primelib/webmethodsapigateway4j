@@ -55,8 +55,8 @@ public class MockedConditionsBasedCustomResponse {
      * Constructs a validated instance of {@link MockedConditionsBasedCustomResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MockedConditionsBasedCustomResponse(Consumer)} instead.
-     * @param mockedConditionList var.name
-     * @param mockedResponse var.name
+     * @param mockedConditionList mockedConditionList
+     * @param mockedResponse mockedResponse
      */
     @ApiStatus.Internal
     public MockedConditionsBasedCustomResponse(List<MockedCondition> mockedConditionList, MockedResponse mockedResponse) {

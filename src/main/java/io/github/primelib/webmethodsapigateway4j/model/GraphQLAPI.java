@@ -81,7 +81,7 @@ public class GraphQLAPI extends API {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GraphQLAPI(Consumer)} instead.
      * @param apiTags A list of API level tags for API documentation control. Tags can be used for logical grouping of operations by resources or any other qualifier
      * @param nativeEndpoints Native endpoints
-     * @param sdlDefinitions var.name
+     * @param sdlDefinitions sdlDefinitions
      * @param serviceRegistryDisplayName The name of the API in service registry when the API is published to a service registry.
      * @param tags A list of tags with additional metadata
      */

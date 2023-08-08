@@ -51,7 +51,7 @@ public class GqlType {
      * Constructs a validated instance of {@link GqlType}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlType(Consumer)} instead.
-     * @param comments var.name
+     * @param comments comments
      */
     @ApiStatus.Internal
     public GqlType(List<GqlComment> comments) {

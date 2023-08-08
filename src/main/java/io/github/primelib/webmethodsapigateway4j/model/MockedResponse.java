@@ -59,9 +59,9 @@ public class MockedResponse {
      * Constructs a validated instance of {@link MockedResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MockedResponse(Consumer)} instead.
-     * @param responseBody var.name
-     * @param responseHeaders var.name
-     * @param statusCode var.name
+     * @param responseBody responseBody
+     * @param responseHeaders responseHeaders
+     * @param statusCode statusCode
      */
     @ApiStatus.Internal
     public MockedResponse(Map<String, Object> responseBody, Map<String, Object> responseHeaders, String statusCode) {

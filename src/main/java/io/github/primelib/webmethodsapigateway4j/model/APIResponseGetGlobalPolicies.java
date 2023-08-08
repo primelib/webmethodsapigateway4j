@@ -51,7 +51,7 @@ public class APIResponseGetGlobalPolicies {
      * Constructs a validated instance of {@link APIResponseGetGlobalPolicies}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGetGlobalPolicies(Consumer)} instead.
-     * @param globalPolicies var.name
+     * @param globalPolicies globalPolicies
      */
     @ApiStatus.Internal
     public APIResponseGetGlobalPolicies(List<String> globalPolicies) {

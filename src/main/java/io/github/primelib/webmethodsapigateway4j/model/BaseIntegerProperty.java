@@ -66,11 +66,11 @@ public class BaseIntegerProperty extends Property {
      * Constructs a validated instance of {@link BaseIntegerProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #BaseIntegerProperty(Consumer)} instead.
-     * @param exclusiveMaximum var.name
-     * @param exclusiveMinimum var.name
-     * @param maximum var.name
-     * @param minimum var.name
-     * @param multipleOf var.name
+     * @param exclusiveMaximum exclusiveMaximum
+     * @param exclusiveMinimum exclusiveMinimum
+     * @param maximum maximum
+     * @param minimum minimum
+     * @param multipleOf multipleOf
      */
     @ApiStatus.Internal
     public BaseIntegerProperty(Boolean exclusiveMaximum, Boolean exclusiveMinimum, BigDecimal maximum, BigDecimal minimum, BigDecimal multipleOf) {

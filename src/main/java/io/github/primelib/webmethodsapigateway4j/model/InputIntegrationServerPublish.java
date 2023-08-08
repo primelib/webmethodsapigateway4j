@@ -58,7 +58,7 @@ public class InputIntegrationServerPublish {
      * Constructs a validated instance of {@link InputIntegrationServerPublish}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputIntegrationServerPublish(Consumer)} instead.
-     * @param publishInfo var.name
+     * @param publishInfo publishInfo
      * @param publishInfos This contains the publish information for multiple APIs. Required when publishing more than one API to one or more integration servers.
      */
     @ApiStatus.Internal

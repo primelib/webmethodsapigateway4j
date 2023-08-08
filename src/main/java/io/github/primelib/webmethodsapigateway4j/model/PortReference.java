@@ -54,8 +54,8 @@ public class PortReference {
      * Constructs a validated instance of {@link PortReference}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PortReference(Consumer)} instead.
-     * @param listenerKey var.name
-     * @param pkg var.name
+     * @param listenerKey listenerKey
+     * @param pkg pkg
      */
     @ApiStatus.Internal
     public PortReference(String listenerKey, String pkg) {

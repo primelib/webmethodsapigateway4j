@@ -98,18 +98,18 @@ public class ODataAPI extends API {
      * Constructs a validated instance of {@link ODataAPI}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ODataAPI(Consumer)} instead.
-     * @param actionImports var.name
-     * @param actions var.name
-     * @param entitySets var.name
-     * @param entityTypes var.name
-     * @param functionImports var.name
-     * @param functions var.name
-     * @param metaDataDocument var.name
-     * @param odataVersion var.name
-     * @param serviceDocument var.name
+     * @param actionImports actionImports
+     * @param actions actions
+     * @param entitySets entitySets
+     * @param entityTypes entityTypes
+     * @param functionImports functionImports
+     * @param functions functions
+     * @param metaDataDocument metaDataDocument
+     * @param odataVersion odataVersion
+     * @param serviceDocument serviceDocument
      * @param serviceRegistryDisplayName The name of the API in service registry when the API is published to a service registry.
-     * @param serviceRoot var.name
-     * @param singletons var.name
+     * @param serviceRoot serviceRoot
+     * @param singletons singletons
      */
     @ApiStatus.Internal
     public ODataAPI(Map<String, ActionImport> actionImports, Map<String, EntityType> actions, Map<String, EntitySet> entitySets, Map<String, EntityType> entityTypes, Map<String, FunctionImport> functionImports, Map<String, EntityType> functions, String metaDataDocument, String odataVersion, String serviceDocument, String serviceRegistryDisplayName, String serviceRoot, Map<String, EntitySet> singletons) {

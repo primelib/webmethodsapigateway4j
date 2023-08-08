@@ -57,7 +57,7 @@ import com.fasterxml.jackson.annotation.JsonValue;
 public class PathParameter {
 
     @JsonProperty("_enum")
-    protected List<String> _enum;
+    protected List<String> __enum;
 
     /**
      * Sets the ability to pass empty-valued parameters. This is valid only for query parameters and allows sending a parameter with an empty value
@@ -162,11 +162,11 @@ public class PathParameter {
      * Constructs a validated instance of {@link PathParameter}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PathParameter(Consumer)} instead.
-     * @param _enum var.name
+     * @param __enum __enum
      * @param allowEmptyValue Sets the ability to pass empty-valued parameters. This is valid only for query parameters and allows sending a parameter with an empty value
      * @param allowReserved Determines whether the parameter value SHOULD allow reserved characters, as defined by RFC3986 :/?#[]@!$&amp;'()*+,;= to be included without percent-encoding. This property only applies to parameters with an in value of query. The default value is false
      * @param content A map containing the representations for the parameter. The key is the media type and the value describes it. The map MUST only contain one entry
-     * @param _default var.name
+     * @param _default _default
      * @param deprecated Determines whether this parameter is mandatory. If the parameter location is "path", this property is REQUIRED and its value MUST be true. Otherwise, the property MAY be included and its default value is false
      * @param description A brief description of the parameter. This could contain examples of use
      * @param examples Examples of the media type. Each example SHOULD contain a value in the correct format as specified in the parameter encoding. The examples field is mutually exclusive of the example field. Furthermore, if referencing a schema which contains an example, the examples value SHALL override the example provided by the schema
@@ -175,15 +175,15 @@ public class PathParameter {
      * @param get$ref The available paths and operations for the API
      * @param in The location of the parameter. Possible values are "query", "header", "path" or "cookie"
      * @param name The name of the parameter. Parameter names are case sensitive
-     * @param parameterSchema var.name
+     * @param parameterSchema parameterSchema
      * @param required Determines whether this parameter is mandatory. If the parameter location is "path", this property is REQUIRED and its value MUST be true. Otherwise, the property MAY be included and its default value is false
      * @param style Describes how the parameter value will be serialized depending on the type of the parameter value. Default values (based on value of in): for query - form; for path - simple; for header - simple; for cookie - form
-     * @param vendorExtensions var.name
-     * @param xpath var.name
+     * @param vendorExtensions vendorExtensions
+     * @param xpath xpath
      */
     @ApiStatus.Internal
-    public PathParameter(List<String> _enum, Boolean allowEmptyValue, Boolean allowReserved, Map<String, MediaType> content, String _default, Boolean deprecated, String description, Map<String, Example> examples, Boolean explode, Object extendedExample, String get$ref, String in, String name, ParameterSchema parameterSchema, Boolean required, StyleEnum style, Map<String, Object> vendorExtensions, Xpath xpath) {
-        this._enum = _enum;
+    public PathParameter(List<String> __enum, Boolean allowEmptyValue, Boolean allowReserved, Map<String, MediaType> content, String _default, Boolean deprecated, String description, Map<String, Example> examples, Boolean explode, Object extendedExample, String get$ref, String in, String name, ParameterSchema parameterSchema, Boolean required, StyleEnum style, Map<String, Object> vendorExtensions, Xpath xpath) {
+        this.__enum = __enum;
         this.allowEmptyValue = allowEmptyValue;
         this.allowReserved = allowReserved;
         this.content = content;

@@ -60,9 +60,9 @@ public class EntitySet {
      * Constructs a validated instance of {@link EntitySet}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #EntitySet(Consumer)} instead.
-     * @param enabled var.name
-     * @param entityType var.name
-     * @param parameters var.name
+     * @param enabled enabled
+     * @param entityType entityType
+     * @param parameters parameters
      */
     @ApiStatus.Internal
     public EntitySet(Boolean enabled, String entityType, Map<String, List<String>> parameters) {

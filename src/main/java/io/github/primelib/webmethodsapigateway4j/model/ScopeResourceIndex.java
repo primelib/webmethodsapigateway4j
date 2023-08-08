@@ -55,8 +55,8 @@ public class ScopeResourceIndex {
      * Constructs a validated instance of {@link ScopeResourceIndex}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ScopeResourceIndex(Consumer)} instead.
-     * @param references var.name
-     * @param scope var.name
+     * @param references references
+     * @param scope scope
      */
     @ApiStatus.Internal
     public ScopeResourceIndex(List<ScopeInformation> references, Scope scope) {

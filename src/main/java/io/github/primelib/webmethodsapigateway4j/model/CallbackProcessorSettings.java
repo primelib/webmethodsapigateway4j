@@ -50,7 +50,7 @@ public class CallbackProcessorSettings {
      * Constructs a validated instance of {@link CallbackProcessorSettings}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #CallbackProcessorSettings(Consumer)} instead.
-     * @param configuration var.name
+     * @param configuration configuration
      */
     @ApiStatus.Internal
     public CallbackProcessorSettings(APICallbackSettings configuration) {

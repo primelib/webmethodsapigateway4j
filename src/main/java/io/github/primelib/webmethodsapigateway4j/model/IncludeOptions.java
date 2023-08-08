@@ -127,20 +127,20 @@ public class IncludeOptions {
      * Constructs a validated instance of {@link IncludeOptions}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IncludeOptions(Consumer)} instead.
-     * @param includeAccessProfiles var.name
+     * @param includeAccessProfiles includeAccessProfiles
      * @param includeAll Include all dependent assets for all asset type specified
      * @param includeApis Include API as dependent asset for asset type specified if applicable
      * @param includeApplications Include application as dependent asset for asset type specified if applicable
      * @param includeDocuments Include documents as dependent asset for asset type specified if applicable
-     * @param includeGatewayScopes var.name
+     * @param includeGatewayScopes includeGatewayScopes
      * @param includeGroups Include groups as dependent asset for asset type specified if applicable
      * @param includeRegisteredApplications Include registered application as dependent asset for asset type specified if applicable
      * @param includeSubscriptions Include subscriptions for the asset type specified if applicable
-     * @param includeTruststores var.name
+     * @param includeTruststores includeTruststores
      * @param includeUsers Include users as dependent asset for asset type specified if applicable
-     * @param promotedGroupsList var.name
-     * @param promotedUsersList var.name
-     * @param promotion var.name
+     * @param promotedGroupsList promotedGroupsList
+     * @param promotedUsersList promotedUsersList
+     * @param promotion promotion
      */
     @ApiStatus.Internal
     public IncludeOptions(Boolean includeAccessProfiles, Boolean includeAll, Boolean includeApis, Boolean includeApplications, Boolean includeDocuments, Boolean includeGatewayScopes, Boolean includeGroups, Boolean includeRegisteredApplications, Boolean includeSubscriptions, Boolean includeTruststores, Boolean includeUsers, List<String> promotedGroupsList, List<String> promotedUsersList, Boolean promotion) {

@@ -78,14 +78,14 @@ public class PackageAPIModel {
      * Constructs a validated instance of {@link PackageAPIModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PackageAPIModel(Consumer)} instead.
-     * @param apiDescription var.name
-     * @param apiName var.name
-     * @param apiVersion var.name
-     * @param icon var.name
-     * @param id var.name
-     * @param isActive var.name
-     * @param systemVersion var.name
-     * @param type var.name
+     * @param apiDescription apiDescription
+     * @param apiName apiName
+     * @param apiVersion apiVersion
+     * @param icon icon
+     * @param id id
+     * @param isActive isActive
+     * @param systemVersion systemVersion
+     * @param type type
      */
     @ApiStatus.Internal
     public PackageAPIModel(String apiDescription, String apiName, String apiVersion, String icon, String id, Boolean isActive, Long systemVersion, String type) {

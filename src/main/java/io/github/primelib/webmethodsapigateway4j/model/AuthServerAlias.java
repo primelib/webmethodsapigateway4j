@@ -108,16 +108,16 @@ public class AuthServerAlias extends Alias {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AuthServerAlias(Consumer)} instead.
      * @param authServerType Type of the authorization server
-     * @param dcrEndpoint var.name
-     * @param localIntrospectionConfig var.name
-     * @param metadata var.name
+     * @param dcrEndpoint dcrEndpoint
+     * @param localIntrospectionConfig localIntrospectionConfig
+     * @param metadata metadata
      * @param providerName Name of the provider which was created using ClientMetadataMapping alias, used in the Dynamic client registration
-     * @param remoteISConfig var.name
-     * @param remoteIntrospectionConfig var.name
+     * @param remoteISConfig remoteISConfig
+     * @param remoteIntrospectionConfig remoteIntrospectionConfig
      * @param scopes List of scopes available in the authorization server
-     * @param sslConfig var.name
+     * @param sslConfig sslConfig
      * @param supportedGrantTypes List of grant types supported by the authorization server
-     * @param tokenGeneratorConfig var.name
+     * @param tokenGeneratorConfig tokenGeneratorConfig
      */
     @ApiStatus.Internal
     public AuthServerAlias(AuthServerTypeEnum authServerType, DynamicClientRegistrationEndpoint dcrEndpoint, LocalIntrospectionConfig localIntrospectionConfig, Metadata metadata, String providerName, RemoteISConfig remoteISConfig, RemoteIntrospectionConfig remoteIntrospectionConfig, Set<Scope> scopes, SSLConfig sslConfig, List<String> supportedGrantTypes, TokenGeneratorConfig tokenGeneratorConfig) {

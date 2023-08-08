@@ -61,10 +61,10 @@ public class ThirdPartyOAuth2Alias extends Alias {
      * Constructs a validated instance of {@link ThirdPartyOAuth2Alias}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ThirdPartyOAuth2Alias(Consumer)} instead.
-     * @param authInfo var.name
-     * @param endpointDetails var.name
-     * @param metadata var.name
-     * @param providerName var.name
+     * @param authInfo authInfo
+     * @param endpointDetails endpointDetails
+     * @param metadata metadata
+     * @param providerName providerName
      */
     @ApiStatus.Internal
     public ThirdPartyOAuth2Alias(Object authInfo, OAuth2Endpoints endpointDetails, Metadata metadata, String providerName) {

@@ -68,11 +68,11 @@ public class WebsocketAPI extends API {
      * Constructs a validated instance of {@link WebsocketAPI}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #WebsocketAPI(Consumer)} instead.
-     * @param externalDocs var.name
-     * @param messages var.name
-     * @param nativeUri var.name
-     * @param parameters var.name
-     * @param supportedSubProtocols var.name
+     * @param externalDocs externalDocs
+     * @param messages messages
+     * @param nativeUri nativeUri
+     * @param parameters parameters
+     * @param supportedSubProtocols supportedSubProtocols
      */
     @ApiStatus.Internal
     public WebsocketAPI(List<ExternalDocs> externalDocs, List<MessageFrame> messages, Set<String> nativeUri, Map<String, AbstractParameter> parameters, List<String> supportedSubProtocols) {

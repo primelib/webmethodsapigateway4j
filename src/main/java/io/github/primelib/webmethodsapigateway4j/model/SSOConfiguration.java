@@ -146,7 +146,7 @@ public class SSOConfiguration {
      * Constructs a validated instance of {@link SSOConfiguration}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SSOConfiguration(Consumer)} instead.
-     * @param groupMapping var.name
+     * @param groupMapping groupMapping
      * @param idpFilename Specifies the file name of identity provider metadata.
      * @param idpMetadataContent Specifies base64 encoded file content of identity provider metadata.
      * @param idpUrl Specifies the identity provider metadata URL.
@@ -160,7 +160,7 @@ public class SSOConfiguration {
      * @param samlSignkeyAlias Specifies the key alias to be used for signing.
      * @param samlSpId Specifies the service provider entity ID.
      * @param useSSOLoginByDefault Specifies whether SSO login page is redirected by default.
-     * @param userProfileMapping var.name
+     * @param userProfileMapping userProfileMapping
      */
     @ApiStatus.Internal
     public SSOConfiguration(GroupMapping groupMapping, String idpFilename, String idpMetadataContent, String idpUrl, String keystoreAlias, String samlAssertionSigned, String samlAuthreqSigned, String samlDefaultkeyAlias, String samlEnabled, String samlEncrypkeyAlias, String samlRedirect, String samlSignkeyAlias, String samlSpId, String useSSOLoginByDefault, UserProfileMapping userProfileMapping) {

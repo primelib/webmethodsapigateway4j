@@ -112,19 +112,19 @@ public class ISConfigurationAlias extends Alias {
      * Constructs a validated instance of {@link ISConfigurationAlias}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ISConfigurationAlias(Consumer)} instead.
-     * @param contentModelComplianceForWSDL var.name
-     * @param enableMTOM var.name
-     * @param enforceWSICompliance var.name
-     * @param folderName var.name
-     * @param importSwaggerBasedOnTags var.name
+     * @param contentModelComplianceForWSDL contentModelComplianceForWSDL
+     * @param enableMTOM enableMTOM
+     * @param enforceWSICompliance enforceWSICompliance
+     * @param folderName folderName
+     * @param importSwaggerBasedOnTags importSwaggerBasedOnTags
      * @param keyAlias The alias of the private key that is stored in the keystore specified by the keystore alias. The Key alias field contains a list of the available aliases in the selected keystore. If there are no configured keystores, this field is empty
      * @param keystoreAlias The Keystore alias field contains a list of the available keystore aliases in API Gateway. If there are no configured keystore aliases, this field lists the default Integration Server keystore, DEFAULT_IS_KEYSTORE .
-     * @param packageName var.name
+     * @param packageName packageName
      * @param password A valid password of the Integration Server user identified by the attribute Username
-     * @param skipCustomScalarTypes var.name
-     * @param url var.name
+     * @param skipCustomScalarTypes skipCustomScalarTypes
+     * @param url url
      * @param username The username of a registered Integration Server user who has the functional privilege to create the service
-     * @param validateSchemaWithXerces var.name
+     * @param validateSchemaWithXerces validateSchemaWithXerces
      */
     @ApiStatus.Internal
     public ISConfigurationAlias(ContentModelComplianceForWSDLEnum contentModelComplianceForWSDL, Boolean enableMTOM, Boolean enforceWSICompliance, String folderName, Boolean importSwaggerBasedOnTags, String keyAlias, String keystoreAlias, String packageName, String password, Boolean skipCustomScalarTypes, String url, String username, Boolean validateSchemaWithXerces) {

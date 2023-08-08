@@ -58,9 +58,9 @@ public class RuleExpression {
      * Constructs a validated instance of {@link RuleExpression}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RuleExpression(Consumer)} instead.
-     * @param attributeName var.name
-     * @param attributeValue var.name
-     * @param operator var.name
+     * @param attributeName attributeName
+     * @param attributeValue attributeValue
+     * @param operator operator
      */
     @ApiStatus.Internal
     public RuleExpression(String attributeName, String attributeValue, String operator) {

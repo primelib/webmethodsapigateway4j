@@ -51,7 +51,7 @@ public class PlanGetAllResponse {
      * Constructs a validated instance of {@link PlanGetAllResponse}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PlanGetAllResponse(Consumer)} instead.
-     * @param planResponse var.name
+     * @param planResponse planResponse
      */
     @ApiStatus.Internal
     public PlanGetAllResponse(List<Plan> planResponse) {

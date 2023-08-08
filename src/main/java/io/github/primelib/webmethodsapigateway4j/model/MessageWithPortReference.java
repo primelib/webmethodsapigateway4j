@@ -58,9 +58,9 @@ public class MessageWithPortReference {
      * Constructs a validated instance of {@link MessageWithPortReference}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MessageWithPortReference(Consumer)} instead.
-     * @param listenerKey var.name
-     * @param pkg var.name
-     * @param message var.name
+     * @param listenerKey listenerKey
+     * @param pkg pkg
+     * @param message message
      */
     @ApiStatus.Internal
     public MessageWithPortReference(String listenerKey, String pkg, String message) {

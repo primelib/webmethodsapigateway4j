@@ -79,14 +79,14 @@ public class Model {
      * Constructs a validated instance of {@link Model}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Model(Consumer)} instead.
-     * @param description var.name
-     * @param example var.name
-     * @param externalDocs var.name
-     * @param properties var.name
-     * @param reference var.name
-     * @param title var.name
-     * @param type var.name
-     * @param vendorExtensions var.name
+     * @param description description
+     * @param example example
+     * @param externalDocs externalDocs
+     * @param properties properties
+     * @param reference reference
+     * @param title title
+     * @param type type
+     * @param vendorExtensions vendorExtensions
      */
     @ApiStatus.Internal
     public Model(String description, Object example, ExternalDocs externalDocs, Map<String, Object> properties, String reference, String title, String type, Map<String, Object> vendorExtensions) {

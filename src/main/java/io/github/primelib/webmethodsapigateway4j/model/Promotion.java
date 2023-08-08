@@ -133,11 +133,11 @@ public class Promotion {
      * Constructs a validated instance of {@link Promotion}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Promotion(Consumer)} instead.
-     * @param creationTime var.name
+     * @param creationTime creationTime
      * @param description Description for the promotion
      * @param destinationStages List of target stages (specified by stage ids) that you want to promote the assets
      * @param errorReason Reason for the promotion if it's failed
-     * @param id var.name
+     * @param id id
      * @param includeApis Include the APIs associated with the applications during the promotion of applications
      * @param includeApplications Include the applications associated with the APIs during the promotion of APIs
      * @param includeSubscriptions Include the subscriptions associated with the packages during the promotion of packages

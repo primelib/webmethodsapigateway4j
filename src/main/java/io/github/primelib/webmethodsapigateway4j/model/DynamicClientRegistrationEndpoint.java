@@ -54,8 +54,8 @@ public class DynamicClientRegistrationEndpoint {
      * Constructs a validated instance of {@link DynamicClientRegistrationEndpoint}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DynamicClientRegistrationEndpoint(Consumer)} instead.
-     * @param authInfo var.name
-     * @param clientRegistrationEndpoint var.name
+     * @param authInfo authInfo
+     * @param clientRegistrationEndpoint clientRegistrationEndpoint
      */
     @ApiStatus.Internal
     public DynamicClientRegistrationEndpoint(Object authInfo, OAuth2Endpoint clientRegistrationEndpoint) {

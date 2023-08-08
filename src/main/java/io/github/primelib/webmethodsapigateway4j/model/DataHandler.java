@@ -83,15 +83,15 @@ public class DataHandler {
      * Constructs a validated instance of {@link DataHandler}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #DataHandler(Consumer)} instead.
-     * @param allCommands var.name
-     * @param content var.name
-     * @param contentType var.name
-     * @param dataSource var.name
-     * @param inputStream var.name
-     * @param name var.name
-     * @param outputStream var.name
-     * @param preferredCommands var.name
-     * @param transferDataFlavors var.name
+     * @param allCommands allCommands
+     * @param content content
+     * @param contentType contentType
+     * @param dataSource dataSource
+     * @param inputStream inputStream
+     * @param name name
+     * @param outputStream outputStream
+     * @param preferredCommands preferredCommands
+     * @param transferDataFlavors transferDataFlavors
      */
     @ApiStatus.Internal
     public DataHandler(List<CommandInfo> allCommands, Object content, String contentType, DataSource dataSource, Object inputStream, String name, Object outputStream, List<CommandInfo> preferredCommands, List<DataFlavor> transferDataFlavors) {

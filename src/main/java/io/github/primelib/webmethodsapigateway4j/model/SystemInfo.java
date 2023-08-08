@@ -74,13 +74,13 @@ public class SystemInfo {
      * Constructs a validated instance of {@link SystemInfo}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SystemInfo(Consumer)} instead.
-     * @param cpUCores var.name
-     * @param cpUType var.name
-     * @param hwMemoryGB var.name
-     * @param hostname var.name
-     * @param osName var.name
-     * @param osRelease var.name
-     * @param osServicePack var.name
+     * @param cpUCores cpUCores
+     * @param cpUType cpUType
+     * @param hwMemoryGB hwMemoryGB
+     * @param hostname hostname
+     * @param osName osName
+     * @param osRelease osRelease
+     * @param osServicePack osServicePack
      */
     @ApiStatus.Internal
     public SystemInfo(String cpUCores, String cpUType, String hwMemoryGB, String hostname, String osName, String osRelease, String osServicePack) {

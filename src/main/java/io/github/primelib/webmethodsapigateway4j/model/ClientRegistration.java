@@ -211,16 +211,16 @@ public class ClientRegistration {
      * @param clScopes The scopes associated with this client
      * @param clientCredentialsAllowed Option to choose Client Credentials grant type
      * @param clientId The client id
-     * @param clientSecret var.name
+     * @param clientSecret clientSecret
      * @param enabled Is the client enabled?
      * @param implicitAllowed Option to choose Implicit grant type
      * @param name The client name
      * @param notes Notes on the client
      * @param pkceType OAuth client level options to apply PKCE security, for the public clients using authorization code grant type. Applicable only for local auth server.
-     * @param primaryNode var.name
+     * @param primaryNode primaryNode
      * @param redirectUris List of redirect urls allowed for this client
      * @param resourceOwnerAllowed Option to choose Resource Owner grant type
-     * @param shell var.name
+     * @param shell shell
      * @param tokenLifetime Token life time
      * @param tokenRefreshLimit The number of times token can be refreshed
      * @param type specifies whether the client is either public or confidential client

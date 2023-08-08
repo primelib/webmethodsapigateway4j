@@ -82,7 +82,7 @@ public class PolicyActionOrder {
      * Constructs a validated instance of {@link PolicyActionOrder}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PolicyActionOrder(Consumer)} instead.
-     * @param isCustomOrderSupported var.name
+     * @param isCustomOrderSupported isCustomOrderSupported
      * @param orderPosition Order of the policy enforcement.   1. First - policy enforcement needs to be added in its respective stage.   2. Last - policy enforcement needs to be added as last in its respective stage.   3. Before First occurrence - Policy needs to be added before the first occurrence of policyTemplateIds specified.   4. After last occurrence - Policy needs to be added after last occurrence of policyTemplateIds specified
      * @param policyTemplateIDs List of policy template ids needed to process the order before first occurrence and after last occurrence
      * @param sequence Sequence of the policy enforcement.  1. insequence - Stages or policies marked with this sequence will be executed when the request comes to API Gateway and before the request dispatched to native service.   2. outsequence - Stages or policies marked with this sequence will be executed when the request goes out of API Gateway to the invoker.   3. faultsequence - Stages or policies marked with this sequence will be executed when native service return any error

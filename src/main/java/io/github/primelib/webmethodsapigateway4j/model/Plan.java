@@ -146,7 +146,7 @@ public class Plan {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Plan(Consumer)} instead.
      * @param license License of the plan
      * @param terms Terms of the plan usage as descriptive string
-     * @param cost var.name
+     * @param cost cost
      * @param creationDate The creation date of plan in milli seconds
      * @param customFields This can be used to store additional information needed for a plan
      * @param description Description of the plan
@@ -155,8 +155,8 @@ public class Plan {
      * @param modifiedDate The modified date of plan in milli seconds. This will be updated for plan on update.
      * @param name Name of the plan
      * @param policies Policy that holds the rate limit throttling policy actions. It will created automatically. It can contain zero or more throttling policy action as rate limit policy
-     * @param _protected var.name
-     * @param quota var.name
+     * @param _protected _protected
+     * @param quota quota
      * @param tags List of tags of the plan
      * @param version Version of the plan
      */

@@ -90,17 +90,17 @@ public class IntegrationServer {
      * Constructs a validated instance of {@link IntegrationServer}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IntegrationServer(Consumer)} instead.
-     * @param adapterRuntime var.name
-     * @param clustering var.name
-     * @param concurrentSessions var.name
-     * @param distributedCache var.name
-     * @param enterpriseGateway var.name
-     * @param guaranteedDelivery var.name
-     * @param productCode var.name
-     * @param productVersion var.name
-     * @param publishSubscribe var.name
-     * @param remoteInvoke var.name
-     * @param securityAuditing var.name
+     * @param adapterRuntime adapterRuntime
+     * @param clustering clustering
+     * @param concurrentSessions concurrentSessions
+     * @param distributedCache distributedCache
+     * @param enterpriseGateway enterpriseGateway
+     * @param guaranteedDelivery guaranteedDelivery
+     * @param productCode productCode
+     * @param productVersion productVersion
+     * @param publishSubscribe publishSubscribe
+     * @param remoteInvoke remoteInvoke
+     * @param securityAuditing securityAuditing
      */
     @ApiStatus.Internal
     public IntegrationServer(String adapterRuntime, String clustering, String concurrentSessions, String distributedCache, String enterpriseGateway, String guaranteedDelivery, String productCode, String productVersion, String publishSubscribe, String remoteInvoke, String securityAuditing) {

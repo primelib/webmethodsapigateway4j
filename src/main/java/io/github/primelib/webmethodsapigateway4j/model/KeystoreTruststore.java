@@ -74,13 +74,13 @@ public class KeystoreTruststore {
      * Constructs a validated instance of {@link KeystoreTruststore}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #KeystoreTruststore(Consumer)} instead.
-     * @param configId var.name
-     * @param keystoreName var.name
-     * @param outboundKeyAlias var.name
-     * @param outboundKeystoreName var.name
-     * @param outboundTruststoreName var.name
-     * @param signingAlias var.name
-     * @param truststoreName var.name
+     * @param configId configId
+     * @param keystoreName keystoreName
+     * @param outboundKeyAlias outboundKeyAlias
+     * @param outboundKeystoreName outboundKeystoreName
+     * @param outboundTruststoreName outboundTruststoreName
+     * @param signingAlias signingAlias
+     * @param truststoreName truststoreName
      */
     @ApiStatus.Internal
     public KeystoreTruststore(String configId, String keystoreName, String outboundKeyAlias, String outboundKeystoreName, String outboundTruststoreName, String signingAlias, String truststoreName) {

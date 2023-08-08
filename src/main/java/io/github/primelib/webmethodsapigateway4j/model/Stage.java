@@ -100,7 +100,7 @@ public class Stage {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Stage(Consumer)} instead.
      * @param description Description for the stage
-     * @param id var.name
+     * @param id id
      * @param keyAlias The alias of the private key that is stored in the keystore specified by the keystore alias. The Key alias field contains a list of the available aliases in the selected keystore. If there are no configured keystores, this field is empty
      * @param keystoreAlias The alias of the keystore containing the private key that is used for performing asset promotion from one (source) stage to another (target) stage. The Keystore alias field contains a list of the available keystore aliases in API Gateway. If there are no configured keystore aliases, this field lists the default Integration Server keystore, DEFAULT_IS_KEYSTORE .
      * @param name Unique name for the stage

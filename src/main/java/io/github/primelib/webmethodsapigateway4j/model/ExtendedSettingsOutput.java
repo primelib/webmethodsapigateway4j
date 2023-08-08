@@ -54,8 +54,8 @@ public class ExtendedSettingsOutput {
      * Constructs a validated instance of {@link ExtendedSettingsOutput}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ExtendedSettingsOutput(Consumer)} instead.
-     * @param allSettings var.name
-     * @param preferredSettings var.name
+     * @param allSettings allSettings
+     * @param preferredSettings preferredSettings
      */
     @ApiStatus.Internal
     public ExtendedSettingsOutput(Settings allSettings, Settings preferredSettings) {

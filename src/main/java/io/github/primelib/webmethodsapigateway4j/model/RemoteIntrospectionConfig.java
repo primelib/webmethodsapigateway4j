@@ -72,7 +72,7 @@ public class RemoteIntrospectionConfig {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #RemoteIntrospectionConfig(Consumer)} instead.
      * @param clientId ClientId of a client in the authorization server
-     * @param clientSecret var.name
+     * @param clientSecret clientSecret
      * @param introspectionEndpoint Endpoint of the authorization server to do the introspection
      * @param user A user in the API Gateway under whom the introspection endpoint is invoked
      */

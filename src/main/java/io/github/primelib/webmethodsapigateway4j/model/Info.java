@@ -87,12 +87,12 @@ public class Info {
      * Constructs a validated instance of {@link Info}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Info(Consumer)} instead.
-     * @param contact var.name
+     * @param contact contact
      * @param description A short description of the application
-     * @param license var.name
+     * @param license license
      * @param termsOfService A URL to the Terms of Service for the API
      * @param title The title of the application
-     * @param vendorExtensions var.name
+     * @param vendorExtensions vendorExtensions
      * @param version Version of the API
      */
     @ApiStatus.Internal

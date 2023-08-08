@@ -122,7 +122,7 @@ public class GqlSDLDefinitions {
      * @param objectTypeExtensions GraphQL extended object type definitions
      * @param scalarTypeExtensions GraphQL extended scalar type definitions
      * @param scalarTypes GraphQL scalar type definitions
-     * @param schemaDefinition var.name
+     * @param schemaDefinition schemaDefinition
      * @param types GraphQL type definitions such as Object type, Union, Interface, etc
      * @param unionTypeExtensions GraphQL extended union type definitions
      */

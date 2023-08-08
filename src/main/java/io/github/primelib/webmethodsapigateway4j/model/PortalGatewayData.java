@@ -63,8 +63,8 @@ public class PortalGatewayData {
      * Constructs a validated instance of {@link PortalGatewayData}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #PortalGatewayData(Consumer)} instead.
-     * @param gatewayEndpointsList var.name
-     * @param microgatewayEndpointsList var.name
+     * @param gatewayEndpointsList gatewayEndpointsList
+     * @param microgatewayEndpointsList microgatewayEndpointsList
      * @param portalCommunities List of API Portal communities to which APIs should be published.
      */
     @ApiStatus.Internal

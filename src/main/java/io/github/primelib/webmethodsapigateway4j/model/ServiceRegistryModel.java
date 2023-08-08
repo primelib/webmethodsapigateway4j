@@ -140,15 +140,15 @@ public class ServiceRegistryModel extends Alias {
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ServiceRegistryModel(Consumer)} instead.
      * @param connectionTimeout The time interval (in seconds) after which a connection attempt times out while communicating with service registry
      * @param customHeaders Custom headers that needs be sent while communicating with the service registry
-     * @param deRegistrationInfo var.name
-     * @param discoveryInfo var.name
+     * @param deRegistrationInfo deRegistrationInfo
+     * @param discoveryInfo discoveryInfo
      * @param endpointURI Endpoint that is used to communicate with the service registry
      * @param heartBeatInterval APIGateway will ping the service registry on the configured interval for every API
      * @param keyAlias The key alias is the private key that is used for signing when using SSL communication with the Service Registry.
      * @param keystoreAlias A keystore is a repository of private key. This keystore contains the private key used for the SSL communication with the Service Registry. For information on how to configure the keystore aliases, refer API Gateway Administration swagger
      * @param password Base64 encoded password that is used in the Basic authentication when communicating with the service registry
      * @param readTimeout The time interval (in seconds) after which a socket read attempt times out while communicating with service registry
-     * @param registrationInfo var.name
+     * @param registrationInfo registrationInfo
      * @param serviceRegistryType It contains the information about the type of service registry
      * @param trustStoreAlias A truststore is a repository of public keys. This truststore contains the public key of the Service Registry used for the SSL communication with the Service Registry. For information on how to configure the truststore aliases, refer API Gateway Administration swagger
      * @param username Username that is used in the Basic authentication when communicating with the service registry

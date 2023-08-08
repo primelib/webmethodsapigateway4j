@@ -114,7 +114,7 @@ public class TraceLog {
      * @param spanId The constructed span ID that is used to sequence the spans in order.
      * @param startDate The epoch start timestamp of the span in milliseconds.
      * @param startTime The epoch start time of the span in nanoseconds.
-     * @param trace var.name
+     * @param trace trace
      */
     @ApiStatus.Internal
     public TraceLog(Long endDate, Long endTime, String originalSpanId, String parentId, String prevSpanId, String spanId, Long startDate, Long startTime, TraceInfo trace) {

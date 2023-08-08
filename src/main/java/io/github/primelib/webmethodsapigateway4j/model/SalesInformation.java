@@ -78,14 +78,14 @@ public class SalesInformation {
      * Constructs a validated instance of {@link SalesInformation}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SalesInformation(Consumer)} instead.
-     * @param autoCallHome var.name
-     * @param contractDetails var.name
-     * @param contractPosNumber var.name
-     * @param customerID var.name
-     * @param customerName var.name
-     * @param licenseKey var.name
-     * @param licenseTypeDetails var.name
-     * @param serialNumber var.name
+     * @param autoCallHome autoCallHome
+     * @param contractDetails contractDetails
+     * @param contractPosNumber contractPosNumber
+     * @param customerID customerID
+     * @param customerName customerName
+     * @param licenseKey licenseKey
+     * @param licenseTypeDetails licenseTypeDetails
+     * @param serialNumber serialNumber
      */
     @ApiStatus.Internal
     public SalesInformation(String autoCallHome, String contractDetails, String contractPosNumber, String customerID, String customerName, String licenseKey, String licenseTypeDetails, String serialNumber) {

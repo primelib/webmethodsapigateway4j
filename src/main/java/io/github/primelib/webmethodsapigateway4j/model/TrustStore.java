@@ -147,7 +147,7 @@ public class TrustStore {
      * @param keyStoreLocation The location where the truststore is saved in API Gateway.
      * @param keyStoreName The name of the truststore. It cannot contain spaces or special characters.
      * @param keyStorePassword The truststore password that is defined at the time of truststore creation using a keystore utility.
-     * @param keyStoreProvider var.name
+     * @param keyStoreProvider keyStoreProvider
      * @param keyStoreType The certificate file format of the truststore.
      * @param message The warning message if any. Applies only if isWarning = true
      * @param uploadFileName The name of the truststore file that will be used to save the truststore internally in API Gateway.

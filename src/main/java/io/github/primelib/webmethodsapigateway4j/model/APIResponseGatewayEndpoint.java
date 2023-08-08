@@ -70,11 +70,11 @@ public class APIResponseGatewayEndpoint {
      * Constructs a validated instance of {@link APIResponseGatewayEndpoint}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #APIResponseGatewayEndpoint(Consumer)} instead.
-     * @param endpoint var.name
-     * @param endpointDisplayName var.name
-     * @param endpointName var.name
-     * @param endpointType var.name
-     * @param endpointUrls var.name
+     * @param endpoint endpoint
+     * @param endpointDisplayName endpointDisplayName
+     * @param endpointName endpointName
+     * @param endpointType endpointType
+     * @param endpointUrls endpointUrls
      */
     @ApiStatus.Internal
     public APIResponseGatewayEndpoint(String endpoint, String endpointDisplayName, String endpointName, EndpointTypeEnum endpointType, List<String> endpointUrls) {

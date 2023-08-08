@@ -58,9 +58,9 @@ public class ErrorProcessing {
      * Constructs a validated instance of {@link ErrorProcessing}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ErrorProcessing(Consumer)} instead.
-     * @param defaultErrorMessage var.name
-     * @param fallbackErrorMessage var.name
-     * @param sendNativeProviderFault var.name
+     * @param defaultErrorMessage defaultErrorMessage
+     * @param fallbackErrorMessage fallbackErrorMessage
+     * @param sendNativeProviderFault sendNativeProviderFault
      */
     @ApiStatus.Internal
     public ErrorProcessing(String defaultErrorMessage, String fallbackErrorMessage, String sendNativeProviderFault) {

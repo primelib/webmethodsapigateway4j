@@ -58,9 +58,9 @@ public class GatewaySecret {
      * Constructs a validated instance of {@link GatewaySecret}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GatewaySecret(Consumer)} instead.
-     * @param cachedSecret var.name
-     * @param secret var.name
-     * @param xrayview var.name
+     * @param cachedSecret cachedSecret
+     * @param secret secret
+     * @param xrayview xrayview
      */
     @ApiStatus.Internal
     public GatewaySecret(String cachedSecret, String secret, String xrayview) {

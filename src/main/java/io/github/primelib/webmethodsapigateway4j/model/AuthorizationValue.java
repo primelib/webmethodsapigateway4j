@@ -62,10 +62,10 @@ public class AuthorizationValue {
      * Constructs a validated instance of {@link AuthorizationValue}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #AuthorizationValue(Consumer)} instead.
-     * @param keyName var.name
-     * @param type var.name
-     * @param urlMatcher var.name
-     * @param value var.name
+     * @param keyName keyName
+     * @param type type
+     * @param urlMatcher urlMatcher
+     * @param value value
      */
     @ApiStatus.Internal
     public AuthorizationValue(String keyName, String type, Object urlMatcher, String value) {

@@ -96,13 +96,13 @@ public class GqlFieldDefinition {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #GqlFieldDefinition(Consumer)} instead.
      * @param comments List of comments
-     * @param description var.name
+     * @param description description
      * @param directives List of directives
-     * @param directivesByName var.name
+     * @param directivesByName directivesByName
      * @param enabled Flag to specify if this field is enabled or not
      * @param inputValueDefinitions List of input value type definitions
      * @param name Name of the field definition
-     * @param type var.name
+     * @param type type
      */
     @ApiStatus.Internal
     public GqlFieldDefinition(List<GqlComment> comments, GqlDescription description, List<GqlDirective> directives, Map<String, GqlDirective> directivesByName, Boolean enabled, List<GqlInputValueDefinition> inputValueDefinitions, String name, GqlType type) {

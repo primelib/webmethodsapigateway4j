@@ -55,8 +55,8 @@ public class SOAPInterface {
      * Constructs a validated instance of {@link SOAPInterface}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #SOAPInterface(Consumer)} instead.
-     * @param name var.name
-     * @param operations var.name
+     * @param name name
+     * @param operations operations
      */
     @ApiStatus.Internal
     public SOAPInterface(String name, List<SOAPOperation> operations) {

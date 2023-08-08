@@ -53,8 +53,8 @@ public class ArraySchema extends ParameterSchema {
      * Constructs a validated instance of {@link ArraySchema}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ArraySchema(Consumer)} instead.
-     * @param items var.name
-     * @param type var.name
+     * @param items items
+     * @param type type
      */
     @ApiStatus.Internal
     public ArraySchema(ParameterSchema items, String type) {

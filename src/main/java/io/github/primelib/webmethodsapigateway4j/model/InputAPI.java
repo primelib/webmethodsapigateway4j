@@ -96,15 +96,15 @@ public class InputAPI {
      * Constructs a validated instance of {@link InputAPI}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #InputAPI(Consumer)} instead.
-     * @param apiDefinition var.name
-     * @param apiDescription var.name
-     * @param apiName var.name
-     * @param apiVersion var.name
-     * @param authorizationValue var.name
-     * @param maturityState var.name
+     * @param apiDefinition apiDefinition
+     * @param apiDescription apiDescription
+     * @param apiName apiName
+     * @param apiVersion apiVersion
+     * @param authorizationValue authorizationValue
+     * @param maturityState maturityState
      * @param rootFileName Required when creating an API by importing protected URL
      * @param teams Contains teams to which the API must be assigned.
-     * @param type var.name
+     * @param type type
      * @param url Required when creating an API by importing URL
      */
     @ApiStatus.Internal

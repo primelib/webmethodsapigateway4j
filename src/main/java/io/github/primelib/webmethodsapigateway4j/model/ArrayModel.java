@@ -57,9 +57,9 @@ public class ArrayModel extends Model {
      * Constructs a validated instance of {@link ArrayModel}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #ArrayModel(Consumer)} instead.
-     * @param items var.name
-     * @param maxItems var.name
-     * @param minItems var.name
+     * @param items items
+     * @param maxItems maxItems
+     * @param minItems minItems
      */
     @ApiStatus.Internal
     public ArrayModel(Property items, Integer maxItems, Integer minItems) {

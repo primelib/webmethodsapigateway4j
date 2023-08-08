@@ -54,8 +54,8 @@ public class FunctionImport {
      * Constructs a validated instance of {@link FunctionImport}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #FunctionImport(Consumer)} instead.
-     * @param enabled var.name
-     * @param function var.name
+     * @param enabled enabled
+     * @param function function
      */
     @ApiStatus.Internal
     public FunctionImport(Boolean enabled, String function) {

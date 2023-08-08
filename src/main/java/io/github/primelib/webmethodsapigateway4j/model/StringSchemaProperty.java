@@ -49,7 +49,7 @@ public class StringSchemaProperty extends Property {
      * Constructs a validated instance of {@link StringSchemaProperty}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #StringSchemaProperty(Consumer)} instead.
-     * @param schema var.name
+     * @param schema schema
      */
     @ApiStatus.Internal
     public StringSchemaProperty(String schema) {

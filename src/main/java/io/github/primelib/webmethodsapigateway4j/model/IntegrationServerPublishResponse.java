@@ -88,8 +88,8 @@ public class IntegrationServerPublishResponse {
      * @param description Represents the status of the publish operation of the API to the service registry eg: Publish successful, Publish failed, etc
      * @param failureReason Provides the reason for the failure when the publish operation is not successful
      * @param integrationServerId Id i.e, UDDI key of the service registry
-     * @param integrationServerName var.name
-     * @param status var.name
+     * @param integrationServerName integrationServerName
+     * @param status status
      * @param success Represents whether the publish of API to the service registry is success. Possible values: true/false
      */
     @ApiStatus.Internal

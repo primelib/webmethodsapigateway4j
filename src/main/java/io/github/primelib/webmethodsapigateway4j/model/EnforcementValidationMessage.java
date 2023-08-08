@@ -83,7 +83,7 @@ public class EnforcementValidationMessage {
      * @param apiName Name of the API which is having the policy enforcement violation
      * @param apiType Type of the API which is having the policy enforcement violation
      * @param apiVersion Version of the API which is having the policy enforcement violation
-     * @param errorOnResource var.name
+     * @param errorOnResource errorOnResource
      */
     @ApiStatus.Internal
     public EnforcementValidationMessage(String apiId, String apiName, String apiType, String apiVersion, List<ResourcePolicyValidationError> errorOnResource) {

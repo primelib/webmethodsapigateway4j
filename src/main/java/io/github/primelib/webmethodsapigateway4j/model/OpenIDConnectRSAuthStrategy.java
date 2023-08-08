@@ -105,16 +105,16 @@ public class OpenIDConnectRSAuthStrategy {
      * Constructs a validated instance of {@link OpenIDConnectRSAuthStrategy}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #OpenIDConnectRSAuthStrategy(Consumer)} instead.
-     * @param audience var.name
+     * @param audience audience
      * @param authServerAlias The name of the authorization server alias
-     * @param clientId var.name
-     * @param clientRegistration var.name
-     * @param dcrConfig var.name
-     * @param description var.name
+     * @param clientId clientId
+     * @param clientRegistration clientRegistration
+     * @param dcrConfig dcrConfig
+     * @param description description
      * @param id A unique ID for the strategy
-     * @param jwtAuthStrategy var.name
+     * @param jwtAuthStrategy jwtAuthStrategy
      * @param name The name of the strategy
-     * @param primaryNode var.name
+     * @param primaryNode primaryNode
      * @param type The type of the strategy
      */
     @ApiStatus.Internal
