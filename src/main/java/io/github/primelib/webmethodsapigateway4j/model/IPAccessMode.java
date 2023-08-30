@@ -29,18 +29,18 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @JsonPropertyOrder({
-    "ipAccessModeType",
-    "ipAccessModeHostsList"
+    "ipAccessModeHostsList",
+    "ipAccessModeType"
 })
 @JsonTypeName("IPAccessMode")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class IPAccessMode {
 
-    @JsonProperty("ipAccessModeType")
-    protected IPAccessModeType ipAccessModeType;
-
     @JsonProperty("ipAccessModeHostsList")
     protected IPAccessModeHostsList ipAccessModeHostsList;
+
+    @JsonProperty("ipAccessModeType")
+    protected IPAccessModeType ipAccessModeType;
 
     /**
      * Constructs a validated instance of {@link IPAccessMode}.
@@ -55,13 +55,13 @@ public class IPAccessMode {
      * Constructs a validated instance of {@link IPAccessMode}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #IPAccessMode(Consumer)} instead.
-     * @param ipAccessModeType ipAccessModeType
      * @param ipAccessModeHostsList ipAccessModeHostsList
+     * @param ipAccessModeType ipAccessModeType
      */
     @ApiStatus.Internal
-    public IPAccessMode(IPAccessModeType ipAccessModeType, IPAccessModeHostsList ipAccessModeHostsList) {
-        this.ipAccessModeType = ipAccessModeType;
+    public IPAccessMode(IPAccessModeHostsList ipAccessModeHostsList, IPAccessModeType ipAccessModeType) {
         this.ipAccessModeHostsList = ipAccessModeHostsList;
+        this.ipAccessModeType = ipAccessModeType;
     }
 
 }
