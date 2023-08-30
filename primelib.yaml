@@ -1,0 +1,52 @@
+modules:
+  # source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices
+  - name: webmethodsapigateway
+    dir: .
+    spec_file: openapi.json
+    spec_sources:
+      - name: openapi.admin.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAdministration.json
+      - name: openapi.alias.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAlias.json
+      - name: openapi.application.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayApplication.json
+      - name: openapi.approval.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayApprovalManagement.json
+      - name: openapi.archive.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayArchive.json
+      - name: openapi.availability.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAvailability.json
+      - name: openapi.data.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayDataManagement.json
+      - name: openapi.document.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayDocumentManagement.json
+      - name: openapi.internal.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayInternalService.json
+      - name: openapi.monetization.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayMonetizationSwagger.json
+      - name: openapi.policy.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPolicyManagement.json
+      - name: openapi.port.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPortManagement.json
+      - name: openapi.promotion.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPromotionManagement.json
+      - name: openapi.public.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPublicServices.json
+      - name: openapi.search.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewaySearch.json
+      - name: openapi.server.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayServerInfoSwagger.json
+      - name: openapi.service.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayServiceManagement.json
+      - name: openapi.transactional.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayTransactionalEvent.json
+      - name: openapi.user.json
+        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayUserManagementSwagger.json
+    spec_script: |
+      jq '.info.title="API Gateway"' "$1" | sponge "$1" # overwrite name
+      jq '.info.description="webMethods API Gateway is the core run time component in webMethods API Management platform and it enables organizations to secure, manage and monitor their API programs."' "$1" | sponge "$1" # overwrite description
+      jq 'del(.definitions.BasicAuth, .definitions.ClientCredentialsAuth, .definitions.NoAuth, .definitions.RefreshTokenAuth, .definitions.TokenAuth)' "$1" | sponge "$1"
+      jq '.paths."/apis/{apiId}/applications".get.operationId="getApiApplications"' "$1" | sponge "$1"
+      # bad names
+      jq '(.definitions.ParameterSchema = .definitions.Schema) | del(.definitions.Schema)' "$1" | sponge "$1"
+      jq 'walk(if type == "string" and . == "#/definitions/Schema" then "#/definitions/ParameterSchema" else . end)' "$1" | sponge "$1"
