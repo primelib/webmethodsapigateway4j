@@ -29,8 +29,8 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 @Builder
 @JsonPropertyOrder({
     "listenerKey",
-    "pkg",
-    "message"
+    "message",
+    "pkg"
 })
 @JsonTypeName("MessageWithPortReference")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
@@ -39,11 +39,11 @@ public class MessageWithPortReference {
     @JsonProperty("listenerKey")
     protected String listenerKey;
 
-    @JsonProperty("pkg")
-    protected String pkg;
-
     @JsonProperty("message")
     protected String message;
+
+    @JsonProperty("pkg")
+    protected String pkg;
 
     /**
      * Constructs a validated instance of {@link MessageWithPortReference}.
@@ -59,14 +59,14 @@ public class MessageWithPortReference {
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #MessageWithPortReference(Consumer)} instead.
      * @param listenerKey listenerKey
-     * @param pkg pkg
      * @param message message
+     * @param pkg pkg
      */
     @ApiStatus.Internal
-    public MessageWithPortReference(String listenerKey, String pkg, String message) {
+    public MessageWithPortReference(String listenerKey, String message, String pkg) {
         this.listenerKey = listenerKey;
-        this.pkg = pkg;
         this.message = message;
+        this.pkg = pkg;
     }
 
 }

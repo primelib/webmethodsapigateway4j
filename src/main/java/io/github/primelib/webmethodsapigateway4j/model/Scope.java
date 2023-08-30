@@ -32,30 +32,18 @@ import com.fasterxml.jackson.annotation.JsonValue;
 @NoArgsConstructor(access = AccessLevel.PROTECTED, force = true)
 @Builder
 @JsonPropertyOrder({
-    "description",
-    "name",
     "applicableAPITypes",
-    "logicalConnector",
-    "scopeConditions",
+    "description",
     "getoAuth2ScopeName",
+    "logicalConnector",
     "mashedUpAPI",
-    "policies"
+    "name",
+    "policies",
+    "scopeConditions"
 })
 @JsonTypeName("Scope")
 @Generated(value = "io.github.primelib.primecodegen.javafeign.JavaFeignGenerator")
 public class Scope {
-
-    /**
-     * Description of the oauth2 scope
-     */
-    @JsonProperty("description")
-    protected String description;
-
-    /**
-     * Name of the oauth2 scope
-     */
-    @JsonProperty("name")
-    protected String name;
 
     /**
      * This contains the list of API types on which the global policy can be applied. For now only REST and SOAP API types are allowed.
@@ -64,22 +52,34 @@ public class Scope {
     protected List<ApplicableAPITypesEnum> applicableAPITypes;
 
     /**
+     * Description of the oauth2 scope
+     */
+    @JsonProperty("description")
+    protected String description;
+
+    @JsonProperty("getoAuth2ScopeName")
+    protected String getoAuth2ScopeName;
+
+    /**
      * The field is used to perform the logical operation between the scope condition. It will be valid only if we specify scope condition. The default value for this field is AND
      */
     @JsonProperty("logicalConnector")
     protected LogicalConnectorEnum logicalConnector;
 
-    @JsonProperty("scopeConditions")
-    protected List<ScopeCondition> scopeConditions;
-
-    @JsonProperty("getoAuth2ScopeName")
-    protected String getoAuth2ScopeName;
-
     @JsonProperty("mashedUpAPI")
     protected Boolean mashedUpAPI;
 
+    /**
+     * Name of the oauth2 scope
+     */
+    @JsonProperty("name")
+    protected String name;
+
     @JsonProperty("policies")
     protected List<String> policies;
+
+    @JsonProperty("scopeConditions")
+    protected List<ScopeCondition> scopeConditions;
 
     /**
      * Constructs a validated instance of {@link Scope}.
@@ -94,25 +94,25 @@ public class Scope {
      * Constructs a validated instance of {@link Scope}.
      * <p>
      * NOTE: This constructor is not considered stable and may change if the model is updated. Consider using {@link #Scope(Consumer)} instead.
-     * @param description Description of the oauth2 scope
-     * @param name Name of the oauth2 scope
      * @param applicableAPITypes This contains the list of API types on which the global policy can be applied. For now only REST and SOAP API types are allowed.
-     * @param logicalConnector The field is used to perform the logical operation between the scope condition. It will be valid only if we specify scope condition. The default value for this field is AND
-     * @param scopeConditions scopeConditions
+     * @param description Description of the oauth2 scope
      * @param getoAuth2ScopeName getoAuth2ScopeName
+     * @param logicalConnector The field is used to perform the logical operation between the scope condition. It will be valid only if we specify scope condition. The default value for this field is AND
      * @param mashedUpAPI mashedUpAPI
+     * @param name Name of the oauth2 scope
      * @param policies policies
+     * @param scopeConditions scopeConditions
      */
     @ApiStatus.Internal
-    public Scope(String description, String name, List<ApplicableAPITypesEnum> applicableAPITypes, LogicalConnectorEnum logicalConnector, List<ScopeCondition> scopeConditions, String getoAuth2ScopeName, Boolean mashedUpAPI, List<String> policies) {
-        this.description = description;
-        this.name = name;
+    public Scope(List<ApplicableAPITypesEnum> applicableAPITypes, String description, String getoAuth2ScopeName, LogicalConnectorEnum logicalConnector, Boolean mashedUpAPI, String name, List<String> policies, List<ScopeCondition> scopeConditions) {
         this.applicableAPITypes = applicableAPITypes;
-        this.logicalConnector = logicalConnector;
-        this.scopeConditions = scopeConditions;
+        this.description = description;
         this.getoAuth2ScopeName = getoAuth2ScopeName;
+        this.logicalConnector = logicalConnector;
         this.mashedUpAPI = mashedUpAPI;
+        this.name = name;
         this.policies = policies;
+        this.scopeConditions = scopeConditions;
     }
 
     /**
