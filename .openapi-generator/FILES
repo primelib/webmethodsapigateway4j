@@ -33,7 +33,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/AccessModeType.jav
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AccessProfile.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AccessTokensTypeModel.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AccountLockSettings.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/ActionImport.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Alias.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AnalyticsDataStoreDestination.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Application.java
@@ -83,7 +82,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/CorrelationIDInfo.
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Cost.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/CreateAPIRequest.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/CreateKeystoreRequest.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/CreateTruststoreRequest.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Credentials.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DataFlavor.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DataHandler.java
@@ -91,7 +89,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/DataSource.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DateTimeProperty.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DecimalProperty.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DenyByIPForFailedAuthConfig.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/Destination.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Document.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DocumentResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DynamicClientRegistrationConfig.java
@@ -103,7 +100,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/EmailDestination.j
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Endpoint.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/EndpointAlias.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/EndpointInfo.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/Endpoints.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Enforcement.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/EnforcementValidationError.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/EnforcementValidationMessage.java
@@ -172,6 +168,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/Header.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/HeaderParameter.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/HealthCheckAdminResult.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/HealthCheckAllResult.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/HealthCheckEngineResult.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/HealthCheckExternalResult.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/IAggregation.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/IPAccessMode.java
@@ -190,6 +187,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputForGatewayEnd
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputForRemoveGatewayEndpoint.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputForUpdateGatewayEndpoint.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputGatewayEndpoints.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputIntegrationServerPublish.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputLdapConfiguration.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputPublish.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/InputServiceRegistryPublish.java
@@ -207,7 +205,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/JNDIProviderAlias.
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWT.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTAuthStrategy.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTHSAuthStrategy.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTRSAuthStrategy.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTServiceInput.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTServiceOutput.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/KerberosCredentials.java
@@ -315,6 +312,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/ProxyBypass.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PublishPayload.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PublishResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/QueryParameter.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/QuiesceMode.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Quota.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RefModel.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RefParameter.java
@@ -324,6 +322,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/RemoteIntrospectio
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RemotePortConfig.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RequestBody.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ResourcePolicyValidationError.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/Response.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RestAPI.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RestEnabledPath.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Rollback.java
@@ -346,7 +345,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/ScopeInformation.j
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ScopeResourceIndex.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SearchContext.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SearchField.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/SearchRange.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SecurityScheme.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SecuritySchemeDescriptor.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Server.java
@@ -459,7 +457,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateURLALiasOpera
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateUserOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateVersionOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateWebhookOperationSpec.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateWebserviceEndpointOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeactivateAPIOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeactivateGlobalPolicyByPolicyIDOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeactivatePackageByPackageIdOperationSpec.java
@@ -509,7 +506,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DisableThreatProtec
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DisableTracingOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DoRollbackOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DownloadAPITransactionOperationSpec.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DownloadProviderSpecificationOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/EnableJMSConnectionOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/EnableJMSTriggerOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/EnableMockAPIOperationSpec.java
