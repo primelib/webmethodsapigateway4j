@@ -11,7 +11,7 @@ projectConfiguration {
     artifactGroupId.set("io.github.primelib")
     artifactId.set("webmethodsapigateway4j")
     artifactDisplayName.set("webmethodsapigateway4j")
-    artifactDescription.set("A Java Wrapper for the WebMethods APIGateway REST API")
+    artifactDescription.set("Java Client for the WebMethods API Gateway.")
 
     pom = { pom ->
         pom.url.set("https://github.com/primelib/webmethodsapigateway4j")
@@ -30,9 +30,9 @@ projectConfiguration {
         }
         pom.licenses {
             license {
-                name.set("MIT")
+                name.set("MIT License")
                 distribution.set("repo")
-                url.set("https://github.com/primelib/webmethodsapigateway4j/blob/main/LICENSE")
+                url.set("https://raw.githubusercontent.com/primelib/webmethodsapigateway4j/main/LICENSE")
             }
         }
         pom.scm {
