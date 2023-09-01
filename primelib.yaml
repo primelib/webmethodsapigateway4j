@@ -50,3 +50,15 @@ modules:
       # bad names
       jq '(.definitions.ParameterSchema = .definitions.Schema) | del(.definitions.Schema)' "$1" | sponge "$1"
       jq 'walk(if type == "string" and . == "#/definitions/Schema" then "#/definitions/ParameterSchema" else . end)' "$1" | sponge "$1"
+    config:
+      generatorName: prime-client-java-feign
+      invokerPackage: io.github.primelib.webmethodsapigateway4j
+      apiPackage: io.github.primelib.webmethodsapigateway4j.api
+      modelPackage: io.github.primelib.webmethodsapigateway4j.model
+      enablePostProcessFile: true
+      additionalProperties:
+        projectArtifactGroupId: io.github.primelib
+        projectArtifactId: webmethodsapigateway4j
+        projectMaintainerId: PhilippHeuer
+        projectMaintainerName: Philipp Heuer
+        projectMaintainerEMail: git@philippheuer.me
