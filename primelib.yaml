@@ -1,8 +1,8 @@
+release: true
 modules:
   # source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices
-  - name: webmethodsapigateway
-    dir: .
-    spec_file: openapi.json
+  - spec_file: openapi.json
+    spec_format: openapi
     spec_sources:
       - name: openapi.admin.json
         url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAdministration.json
