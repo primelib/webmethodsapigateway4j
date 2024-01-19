@@ -5,7 +5,6 @@ gradle/wrapper/gradle-wrapper.properties
 gradlew
 gradlew.bat
 renovate.json
-settings.gradle.kts
 src/main/java/io/github/primelib/webmethodsapigateway4j/APIGatewayFactory.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/APIGatewayFactorySpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/api/APIGatewayApi.java
@@ -19,7 +18,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/APICallbackSetting
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIGateway.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIPortal.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIResponseCreate.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIResponseDelete.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIResponseGatewayEndpoint.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIResponseGetAPI.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/APIResponseGetAPIs.java
@@ -52,7 +50,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/ArrayModel.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ArrayProperty.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ArraySchema.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AssertionConfiguration.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/AssetObject.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Attribute.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AuditLogDestination.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/AuthServerAlias.java
@@ -68,8 +65,11 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/CSSNMPDestination.
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/CacheableType.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Callback.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/CallbackProcessorSettings.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/ChangeOwnerRequest.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/ChangeOwnerResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ClientMetadataMapping.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ClientRegistration.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/ClusterInfo.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/CommandInfo.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Components.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ComposedModel.java
@@ -94,6 +94,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/Document.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DocumentResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DynamicClientRegistrationConfig.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/DynamicClientRegistrationEndpoint.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/ElasticsearchConfig.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ElasticsearchDestination.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/EmailConfiguration.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/EmailDestination.java
@@ -132,7 +133,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlDescription.jav
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlDirective.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlDirectiveDefinition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlDirectiveLocation.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlEnumTypeExtensionDefinition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlEnumValue.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlEnumValueDefinition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlFieldDefinition.java
@@ -154,7 +154,8 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlScalarTypeDefin
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlScalarTypeExtensionDefinition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlSchemaDefinition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlStringValue.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlTypeDefinition.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlType.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlTypeName.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlUnionTypeExtensionDefinition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlValue.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/GqlVariableReference.java
@@ -203,6 +204,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/JMSTrigger.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JNDIProviderAlias.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWT.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTAuthStrategy.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTHSAuthStrategy.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTRSAuthStrategy.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTServiceInput.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/JWTServiceOutput.java
@@ -230,7 +232,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/MasterPasswordRese
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/MasterPasswordUpdate.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/MasterPasswordUpdateResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/MediaType.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/MessageFrame.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/MessageWithPortReference.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Metadata.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/MethodParameters.java
@@ -284,6 +285,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/Path.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PathParameter.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Plan.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PlanGetAllResponse.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/PlanGetResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PlanResponseContainer.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Policy.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PolicyAction.java
@@ -297,7 +299,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/PolicyEnforcementS
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PolicyEnforcements.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Port.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PortReference.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/PortalCommunities.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PortalGateway.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PortalGatewayCommunitiesData.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/PortalGatewayData.java
@@ -318,6 +319,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/RefProperty.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RemoteISConfig.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RemoteIntrospectionConfig.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RemotePortConfig.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/model/RequestBody.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ResourcePolicyValidationError.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Response.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/RestAPI.java
@@ -340,7 +342,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/Scope.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ScopeCondition.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ScopeInformation.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ScopeResourceIndex.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/SearchContext.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SearchField.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SearchRange.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/SecurityScheme.java
@@ -357,7 +358,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/ServiceRegistryPub
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ServiceRegistryPublishInfo.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ServiceRegistryPublishPutResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ServiceRegistryPublishResponse.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/ServiceRegistryUnpublishPutResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/ServiceRegistryUnpublishResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Settings.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Shutdown.java
@@ -390,13 +390,11 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/model/URLAliasSettings.j
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/URLAliasesGetResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UnlockAccounts.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UnlockAccountsRequest.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/UnpublishInfo.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UnpublishResponse.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UpdateAPIRequest.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UpdateKeystoreAliasesRequest.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UpdateTruststoreRequest.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Usage.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/model/User.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/UserProfileMapping.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Version.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/model/Webhook.java
@@ -425,6 +423,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/ChangeOwnerOperatio
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/ChangeTeamOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CheckConflictForGlobalPolicyOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/ConfigureNodesOperationSpec.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CountByTypeOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateAPIOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateAPIPortalConfigurationOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/CreateAccessModeOperationSpec.java
@@ -476,7 +475,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeleteGroupOperatio
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeleteJMSConnectionOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeleteJNDIOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeleteKeystoreOperationSpec.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeleteOAuthScopeOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeleteOutboundProxyOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeletePackageByIdOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/DeletePlanByIdOperationSpec.java
@@ -522,7 +520,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAccessProfileOpe
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAccessTokenEndpointsOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAliasOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAllPolicyActionsOperationSpec.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAllRuleOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAllSubscriptionUsageOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetAllSubscriptionsOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/GetApiApplicationsOperationSpec.java
@@ -608,6 +605,7 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveAnalyticsDataSt
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveAuditLogAsDestinationOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveCentraSiteCommunicationAsDestinationOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveCentraSiteSNMPAsDestinationOperationSpec.java
+src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveCustomContentTypesOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveDatabaseAsDestinationOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveDenyByIPForFailedAuthConfigOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/SaveDigitalEventsAsDestinationOperationSpec.java
@@ -637,7 +635,6 @@ src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UnLockUserAccountsO
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UnPublishPackageByPackageIdOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UnpublishAPIOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UnpublishFromServiceRegistryOperationSpec.java
-src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UpdateAPIOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UpdateAPIPortalConfigurationOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UpdateAccessModeOperationSpec.java
 src/main/java/io/github/primelib/webmethodsapigateway4j/spec/UpdateAccessProfileOperationSpec.java
