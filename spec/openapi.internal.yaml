@@ -1,0 +1,117 @@
+openapi: 3.0.1
+info:
+  title: "API Gateway Internal Service"
+  description: "Services in this category work on identified application.  API Gateway will first try to identify the application based on identifiers such as API Key, OAuth token, ip address etc (as defined in the Application) and then executes the API for that application."
+  version: "11.0"
+servers:
+  - url: "http://localhost:5555/{gateway}"
+paths:
+  "/security/exchangeIDToken":
+    post:
+      description: "Generate an access token for the given ID Token"
+      operationId: "exchangeIDToken"
+      requestBody:
+        description: "This parameter describes the request payload of an application that is to be created in API Gateway."
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/InternalServiceInput'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the access token has been successfully generated."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/InternalServiceOutput'
+              example: "{\n    \"accessToken\": \"eyJraWQiOiJzc29zIiwiYWxnIjoiUlMyNTYifQ.eyJzY3AiOlsiaW52ZW50b3J5Il0sInVpZCI6IjExNDkyODAyNjk0ODQxOTM1NzgzNyIsInN1YiI6IjQwNzQwODcxODE5Mi5hcHBzLmdvb2dsZXVzZXJjb250ZW50LmNvbSIsImF1ZCI6InRpbWV0cmF2ZWxzIiwiYXpwIjoiODAzYjdmMTYtNDVjNi00YjFjLWJlMjYtNGRhMDUzZDQwNjQwIiwiaXNzIjoidGVzdC1nYXRld2F5LWlzc3VlciIsImV4cCI6MTU0Mzk5NjExNCwiaWF0IjoxNTQzOTkyNTE1LCJqdGkiOiIzZGQ5M2FmOC0yMWVmLTQyMDYtYTBiNy01MTg2NDUxMTM0YWYifQ.Dty2iLk_DJRZLU0CYhb7Opp_sINP7yRVkgAvafYGrSzDEeWiOXDv_jSO93iQV4TCdU20R5WjypC0HY_xd05VkqozFP0I5irZGYqmVnm8rFonzLXmHBx6JZZdm4Xq-Bq2rTSe08QjOGhd5Xa00FlX2c8-SjYfx3p2wtbBjm2-wsgCqLNCc8m_42VRXpukcpuliZr8dRlrqBU7hUfPHpe-xbn6rsmYPhiS9c9Lau3VK83h2uaj6A6nwq1E2qbG23F9eboZrpjvrSg431ZlPE-jRVy9vNX6n7eIiSLruFwlNwyKnOSuTelzYz__m5mdILaEVTjwjidgI2e-ctdR-4jQWA\",\n    \"expiresIn\": 3600,\n    \"scopes\": \"inventory\",\n    \"tokenType\": \"Bearer\"\n}"
+        "400":
+          description: "This status code indicates that access token cannot be generated due to the reason specified in the response"
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+      x-codegen-request-body-name: "body"
+      tags:
+        - InternalService
+  "/security/getJsonWebToken":
+    post:
+      description: "Generate JWT token with custom claims supplied in the request"
+      operationId: "getJsonWebToken-New"
+      requestBody:
+        description: "This parameter describes the request payload of an application that is to be created in API Gateway."
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/InternalJWTServiceInput'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that a JWT has been successfully created."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/InternalJWTServiceOutput'
+              example: "{\n    \"expiresIn\": 600,\n    \"tokenType\": \"Bearer\",\n    \"accessToken\": \"eyJraWQiOiJzc29zIiwiYWxnIjoiUlMyNTYifQ.eyJzdWIiOiI4MDNiN2YxNi00NWM2LTRiMWMtYmUyNi00ZGEwNTNkNDA2NDAiLCJhdWQiOiJzd2FnZ2VyLWRvYy1hcHAiLCJpc3MiOiJ0ZXN0LWdhdGV3YXktaXNzdWVyIiwiaXNBZG1pbiI6dHJ1ZSwiZXhwIjoxNTQzOTkyMDQ1LCJmaXJzdF9uYW1lIjoiQm9iIiwiaWF0IjoxNTQzOTkxNDQ1fQ.FfV4XxEbsrCgpJCZ1GOLbnRYilvCkFfsLMcm00Xxt4ujNcNY7j-_dUjQSxgn7B1njnQ3obEVe-5UkgYBT8cnnrrJtEjjjfSiY40VECrdqm1QopCx04I71hz2qWhxKphSgk6KkZVioyqme0U5LO9JAu-kw1s1IBPmRWa3iBobWAbugnw8tz5J6T3LiwWVj32dvVtJmc9boq3fkndHmRTcQuk9V6uwArUXxU78v5P92SVjZOyQRGex46FOGqPjNauCkAOno8a3oA5qjIGeFJcQ6eOddFdPc1iZ6SwCCBpAbR_qF1LbPHtG0EXE8buI_rTS2zJBn2_d9cjFkLvL3HBYxQ\"\n}"
+        "400":
+          description: "This status code indicates that jwt cannot be generated due to the reason specified in the response"
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+      x-codegen-request-body-name: "body"
+      tags:
+        - InternalService
+components:
+  schemas:
+    InternalJWTServiceInput:
+      type: "object"
+      properties:
+        "claimsSet":
+          type: "object"
+          additionalProperties:
+            type: "object"
+          description: "key value pairs in the form of json map"
+    InternalJWTServiceOutput:
+      type: "object"
+      properties:
+        "accessToken":
+          type: "string"
+        "expiresIn":
+          type: "integer"
+          description: "token expiry"
+          format: "int64"
+        "tokenType":
+          type: "string"
+          description: "type of this token"
+    InternalServiceInput:
+      type: "object"
+      properties:
+        "expiry":
+          type: "integer"
+          description: "preferred expiry of the access token"
+          format: "int64"
+        "gatewayScopes":
+          type: "array"
+          description: "array of gateway scopes"
+          items:
+            type: "string"
+        "idToken":
+          type: "string"
+          description: "id token"
+    InternalServiceOutput:
+      type: "object"
+      properties:
+        "accessToken":
+          type: "string"
+          description: "generated access token"
+        "expiresIn":
+          type: "integer"
+          description: "token expiry"
+          format: "int64"
+        "scopes":
+          type: "string"
+          description: "scopes for which the access token is issued"
+        "tokenType":
+          type: "string"
+  securitySchemes:
+    "Basic":
+      type: "http"
+      description: "API Gateway Administrator"
+      scheme: "basic"

@@ -1,0 +1,271 @@
+openapi: 3.0.1
+info:
+  title: "API Gateway Data Management Service"
+  description: "Data sync management services. Services to configure different datacenters and activate/switch between different modes of deployment"
+  version: "11.0"
+servers:
+  - url: "http://localhost:5555/{gateway}"
+paths:
+  "/dataspace":
+    get:
+      description: "This method returns the cross dc configuration associated with the datacenter."
+      operationId: "getDataspaceConfiguration"
+      responses:
+        "200":
+          description: "This status code indicates that the datacenter configuration is retrieved successfully."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+              example: "{\n    \"listener\": {\n        \"listener\": {\n            \"nodeName\": \"b005a1dd-2e11-4ca7-8727-d28a20e1f44e\",\n            \"host\": \"192.168.56.101\",\n            \"port\": 4444\n        },\n        \"insecureTrustManager\": false\n    },\n    \"listener.active\": {\n        \"listener\": {\n            \"nodeName\": \"b005a1dd-2e11-4ca7-8727-d28a20e1f44e\",\n            \"host\": \"192.168.56.101\",\n            \"port\": 4444\n        },\n        \"insecureTrustManager\": false\n    },\n    \"ring\": [\n        {\n            \"nodeName\": \"4f669f26-f4b0-49dc-a294-e822187a7350\",\n            \"host\": \"192.168.56.102\",\n            \"port\": 4444\n        }\n    ],\n    \"ring.active\": [\n        {\n            \"nodeName\": \"4f669f26-f4b0-49dc-a294-e822187a7350\",\n            \"host\": \"192.168.56.102\",\n            \"port\": 4444\n        }\n    ],\n    \"mode\": \"STANDBY\"\n}"
+        "401":
+          description: "This status code indicates that the user is not a valid API Gateway user for retrieving the datacenter configuration."
+      security:
+        - Basic: []
+      tags:
+        - DataManagement
+  "/dataspace/activate":
+    put:
+      description: "The method is used to activate the datacenter configuration in API Gateway."
+      operationId: "activateDC"
+      requestBody:
+        description: "Mode to activate"
+        content:
+          "application/json":
+            schema:
+              type: "string"
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the activate has been successful in API Gateway."
+          content:
+            "application/json":
+              schema:
+                type: "string"
+                enum:
+                  - "STANDALONE"
+                  - "STANDBY"
+                  - "ACTIVE_RING"
+                  - "BROADCAST"
+              example: "{\n    \"mode\": \"STANDBY\",\n    \"acknowledged\": true\n}"
+        "400":
+          description: "This status code indicates that the the user sends an empty or invalid JSON payload."
+        "401":
+          description: "This status code indicates that the user did not provide any user credential or the user is not authorized to activate the datacenter."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DataManagement
+  "/dataspace/activateAll":
+    put:
+      description: "The method is used to activate all the datacenters configuration in API Gateway."
+      operationId: "activateNodes"
+      requestBody:
+        description: "Activate all nodes"
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DataMgmtConfigurePayload'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the activate has been successful in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtConfigurePayload'
+              example: "{\n    \"mode\": \"STANDBY\",\n    \"local\": {\n        \"host\": \"192.168.56.101\",\n        \"syncPort\": 4444\n    },\n    \"remotes\": [\n        {\n            \"host\": \"192.168.56.102\",\n            \"syncPort\": 4444,\n            \"port\": 5556,\n            \"isHttps\": true,\n            \"userName\": \"Administrator\",\n            \"password\": \"manage\"\n        }\n    ]\n   }"
+        "400":
+          description: "This status code indicates that the the user sends an empty or invalid JSON payload."
+        "401":
+          description: "This status code indicates that the user did not provide any user credential or the user is not authorized to activate the datacenter."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DataManagement
+  "/dataspace/configure":
+    put:
+      description: "The method is used to configure the datacenters in API Gateway."
+      operationId: "configureNodes"
+      requestBody:
+        description: "Dataspace configuration payload"
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DataMgmtConfigurePayload'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the configure has been successful in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtConfigurePayload'
+              example: "{\n    \"local\": {\n        \"host\": \"192.168.56.101\",\n        \"syncPort\": 4444\n    },\n    \"remotes\": [{\n        \"host\": \"192.168.56.102\",\n        \"syncPort\": 4444,\n        \"port\": 5556,\n        \"isHttps\": true,\n        \"userName\": \"Administrator\",\n        \"password\": \"manage\"\n    }]\n}"
+        "400":
+          description: "This status code indicates that the the user sends an empty or invalid JSON payload."
+        "401":
+          description: "This status code indicates that the user did not provide any user credential or the user is not authorized to configure the datacenter."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DataManagement
+  "/dataspace/listener":
+    get:
+      description: "This method returns the grpc listener configuration associated with the datacenter."
+      operationId: "getListenerConfiguration"
+      responses:
+        "200":
+          description: "This status code indicates that the datacenter configuration is retrieved successfully."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtListenerConfig'
+              example: "{\n    \"listener\": {\n        \"listener\": {\n            \"nodeName\": \"b005a1dd-2e11-4ca7-8727-d28a20e1f44e\",\n            \"host\": \"192.168.56.101\",\n            \"port\": 4444\n        },\n        \"insecureTrustManager\": false\n    }\n}"
+        "401":
+          description: "This status code indicates that the user is not a valid API Gateway user for retrieving the datacenter configuration."
+      security:
+        - Basic: []
+      tags:
+        - DataManagement
+    put:
+      description: "The method is used to configure the listener in the datacenter in API Gateway."
+      operationId: "updateListenerConfiguration"
+      requestBody:
+        description: "Listener configuration payload"
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DataMgmtListenerConfig'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the listener configuration has been successful in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtListenerConfig'
+              example: "{\n    \"listener\": {\n        \"listener\": {\n            \"nodeName\": \"b005a1dd-2e11-4ca7-8727-d28a20e1f44e\",\n            \"host\": \"192.168.56.101\",\n            \"port\": 4444\n        },\n        \"insecureTrustManager\": false\n    }\n}"
+        "400":
+          description: "This status code indicates that the the user sends an empty or invalid JSON payload."
+        "401":
+          description: "This status code indicates that the user did not provide any user credential or the user is not authorized to configure the datacenter."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DataManagement
+  "/dataspace/ring":
+    get:
+      description: "This method returns the remotes (other datacenters) configuration associated with the datacenter."
+      operationId: "getRingConfiguration"
+      responses:
+        "200":
+          description: "This status code indicates that the datacenter configuration is retrieved successfully."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+              example: "{\n        \"ring\": [\n        {\n            \"nodeName\": \"4f669f26-f4b0-49dc-a294-e822187a7350\",\n            \"host\": \"192.168.56.102\",\n            \"port\": 4444\n        }\n    ]\n}"
+        "401":
+          description: "This status code indicates that the user is not a valid API Gateway user for retrieving the datacenter configuration."
+      security:
+        - Basic: []
+      tags:
+        - DataManagement
+    put:
+      description: "The method is used to configure the other datacenter connectivity information in API Gateway."
+      operationId: "updateRingConfiguration"
+      requestBody:
+        description: "Ring configuration payload"
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the datacenter configuration update has been successful in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+              example: "{\n    \"ring\": [\n        {\n            \"nodeName\": \"4f669f26-f4b0-49dc-a294-e822187a7350\",\n            \"host\": \"192.168.56.102\",\n            \"port\": 4444\n        }\n    ]\n}"
+        "400":
+          description: "This status code indicates that the the user sends an empty or invalid JSON payload."
+        "401":
+          description: "This status code indicates that the user did not provide any user credential or the user is not authorized to update the configuration of the datacenter."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DataManagement
+    patch:
+      description: "The method is used to update the patch configuration in the datacenter in API Gateway."
+      operationId: "appendRingConfiguration"
+      requestBody:
+        description: "Ring configuration payload"
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the update of datacenter configuration has been successful in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+              example: "{\n    \"ring\": [\n        {\n            \"nodeName\": \"4f669f26-f4b0-49dc-a294-e822187a7350\",\n            \"host\": \"192.168.56.102\",\n            \"port\": 4444\n        }\n    ]\n}"
+        "400":
+          description: "This status code indicates that the the user sends an empty or invalid JSON payload."
+        "401":
+          description: "This status code indicates that the user did not provide any user credential or the user is not authorized to update the configuration of the datacenter."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DataManagement
+components:
+  schemas:
+    DataMgmtConfigurePayload:
+      type: "object"
+    DataMgmtListenerConfig:
+      type: "object"
+      properties:
+        "insecureTrustManager":
+          type: "boolean"
+          description: "Use insecure trust manager, to support self signed certificates"
+        "keyAlias":
+          type: "string"
+          description: "Key alias to be used for the GRPC Channel"
+        "keyStoreAlias":
+          type: "string"
+          description: "Key store alias to be used for the GRPC Channel"
+        "listener":
+          $ref: '#/components/schemas/DataMgmtRemotePortConfig'
+        "trustStoreAlias":
+          type: "string"
+          description: "Truststore alias to be used for the GRPC Channel"
+    DataMgmtRemotePortConfig:
+      type: "object"
+      properties:
+        "host":
+          type: "string"
+          description: "Host name or ip address"
+        "nodeName":
+          type: "string"
+          description: "An uuid to uniquely identify a node/cluster"
+        "port":
+          type: "integer"
+          description: "GRPC port number"
+          format: "int32"
+  securitySchemes:
+    "Basic":
+      type: "http"
+      description: "API Gateway Administrator"
+      scheme: "basic"

@@ -1,0 +1,215 @@
+openapi: 3.0.1
+info:
+  title: "API Gateway Document Management Service"
+  description: "API Gateway Document Management Service allows you to store/manage the Documents associated to API in the API Gateway. Any user with the 'Manage APIs' functional privilege can manage the documents in the API Gateway. By default, the users who are part of either API-Gateway-Providers or API-Gateway-Administrators groups will have this privilege.\n\nAny document can be stored and attached to any of these APIs types - REST APIs, SOAP APIs, WebSocket APIs and OData APIs. "
+  version: "11.0"
+servers:
+  - url: "http://localhost:5555/rest/apigateway"
+paths:
+  "/documents":
+    post:
+      operationId: "storeDocument"
+      requestBody:
+        description: "The request payload to store the document in API Gateway."
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DocumentMgmtDocument'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the given document has been stored successfully in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DocumentMgmtDocumentResponse'
+              example: "{\r\n\t\"id\": \"be9147a8-6e53-4472-b1bd-16337a84d314\"\r\n}"
+        "400":
+          description: "This status code indicates invalid request or bad input."
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+        "404":
+          description: "This status code indicates that the requested resource is not found."
+        "405":
+          description: "This status code indicates that the requested HTTP method is not supported for the resource."
+        "500":
+          description: "This status code indicates an error occurred while storing the given document in API Gateway."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DocumentManagement
+  "/documents/{documentId}":
+    get:
+      description: "Retrieves the requested document from API Gateway"
+      operationId: "getDocument"
+      parameters:
+        - name: "documentId"
+          in: "path"
+          description: "The unique identifier of the document for retrieving from API Gateway."
+          required: true
+          schema:
+            type: "string"
+          example: "353bd366-47d4-4703-aecf-9cb40cdcc864"
+      responses:
+        "200":
+          description: "This status code indicates that the given document has been retrieved successfully from API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DocumentMgmtDocument'
+              example: "{\r\n\t\"documents\": [{\r\n\t\t\"id\": \"c98c7290-bc68-4da3-a39e-545c714e75bc\",\r\n\t\t\"fileName\": \"SamplePowerpoint.pptx\",\r\n\t\t\"displayName\": \"How to upload documents to the store?\",\r\n\t\t\"fileContent\": \"data:application/vnd.openxmlformats-officedocument.presentationml.presentation;base64,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\"\r\n\t}]\r\n}"
+        "400":
+          description: "This status code indicates invalid request or bad input."
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+        "404":
+          description: "This status code indicates that the requested resource is not found."
+        "405":
+          description: "This status code indicates that the requested HTTP method is not supported for the resource."
+        "500":
+          description: "This status code indicates an error occurred while retrieving the given document from API Gateway."
+      security:
+        - Basic: []
+      tags:
+        - DocumentManagement
+    put:
+      operationId: "updateDocumentContent"
+      parameters:
+        - name: "documentId"
+          in: "path"
+          description: "The unique identifier of the document to update"
+          required: true
+          schema:
+            type: "string"
+          example: "353bd366-47d4-4703-aecf-9cb40cdcc864"
+      requestBody:
+        description: "The request payload to update the document in API Gateway."
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DocumentMgmtDocument'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the given document has been updated successfully in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DocumentMgmtDocumentResponse'
+              example: "{\r\n\t\"id\": \"be9147a8-6e53-4472-b1bd-16337a84d314\"\r\n}"
+        "400":
+          description: "This status code indicates invalid request or bad input."
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+        "404":
+          description: "This status code indicates that the requested resource is not found."
+        "405":
+          description: "This status code indicates that the requested HTTP method is not supported for the resource."
+        "500":
+          description: "This status code indicates an error occurred while updating the given document in API Gateway."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DocumentManagement
+    delete:
+      description: "Deletes the stored document from API Gateway"
+      operationId: "deleteDocument"
+      parameters:
+        - name: "documentId"
+          in: "path"
+          description: "Id of the document for deletion"
+          required: true
+          schema:
+            type: "string"
+          example: "353bd366-47d4-4703-aecf-9cb40cdcc864"
+      responses:
+        "200":
+          description: "This status code indicates that the given document has been deleted successfully from API Gateway."
+        "400":
+          description: "This status code indicates invalid request or bad input."
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+        "404":
+          description: "This status code indicates that the requested resource is not found."
+        "405":
+          description: "This status code indicates that the requested HTTP method is not supported for the resource."
+        "500":
+          description: "This status code indicates an error occurred while deleting the given document from API Gateway."
+      security:
+        - Basic: []
+      tags:
+        - DocumentManagement
+    patch:
+      operationId: "patchDocument"
+      parameters:
+        - name: "documentId"
+          in: "path"
+          description: "The unique identifier of the document to be patched."
+          required: true
+          schema:
+            type: "string"
+          example: "353bd366-47d4-4703-aecf-9cb40cdcc864"
+      requestBody:
+        description: "The request payload to patch the document in API Gateway."
+        content:
+          "application/json":
+            schema:
+              $ref: '#/components/schemas/DocumentMgmtDocument'
+        required: true
+      responses:
+        "200":
+          description: "This status code indicates that the given document has been patched successfully in API Gateway."
+          content:
+            "application/json":
+              schema:
+                $ref: '#/components/schemas/DocumentMgmtDocumentResponse'
+              example: "{\r\n\t\"id\": \"be9147a8-6e53-4472-b1bd-16337a84d314\"\r\n}"
+        "400":
+          description: "This status code indicates invalid request or bad input."
+        "401":
+          description: "This status code indicates that either user didn't provide right credentials or user doesn't have required privileges to access this API."
+        "404":
+          description: "This status code indicates that the requested resource is not found."
+        "405":
+          description: "This status code indicates that the requested HTTP method is not supported for the resource."
+        "500":
+          description: "This status code indicates an error occurred while patching the given document in API Gateway."
+      security:
+        - Basic: []
+      x-codegen-request-body-name: "body"
+      tags:
+        - DocumentManagement
+components:
+  schemas:
+    DocumentMgmtDocument:
+      type: "object"
+      properties:
+        "displayName":
+          type: "string"
+          description: "The display name of the attached document."
+        "fileContent":
+          type: "string"
+          description: "The complete file content in data URL format."
+        "fileName":
+          type: "string"
+          description: "The original name of the file uploaded to API Gateway."
+        "id":
+          type: "string"
+          description: "The unique identifier of the document as stored in API Gateway."
+          readOnly: true
+      description: "This model is used to store any document in API Gateway."
+    DocumentMgmtDocumentResponse:
+      type: "object"
+      properties:
+        "id":
+          type: "string"
+          description: "The unique identifier of the document as stored in API Gateway."
+          readOnly: true
+      description: "This defines the response for documents."
+  securitySchemes:
+    "Basic":
+      type: "http"
+      description: "API Gateway Administrator and API Gateway provider"
+      scheme: "basic"

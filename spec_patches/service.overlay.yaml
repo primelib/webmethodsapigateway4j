@@ -1,0 +1,35 @@
+overlay: 1.0.0
+info:
+  title: API Gateway Service Management Overlay
+  version: 1.0.0
+  description: |
+    This overlay resolves issues with the officially provided OpenAPI specification for the WebMethods API Gateway.
+actions:
+  # Add missing properties to APIResponseGetAPIs
+  - target: $.components.schemas.APIResponseGetAPIs.properties
+    update:
+      isActive:
+        type: boolean
+        description: Indicates whether the API is active.
+        readOnly: true
+      tracingEnabled:
+        type: boolean
+        description: Indicates whether tracing is enabled for the API.
+        readOnly: true
+  - target: $.components.schemas.APIResponseGetAPIs.properties.active
+    remove: true
+  # Duplicate operationIds
+  - target: $.paths["/apis/{apiId}/applications"].get
+    update:
+      operationId: getApplicationsByAPI
+  # Add wrapper around APIResponseGetAPI - /apis/{apiId}
+  - target: $.components.schemas
+    update:
+      APIResponseGetAPIWrapper:
+        type: object
+        properties:
+          apiResponse:
+            $ref: "#/components/schemas/APIResponseGetAPI"
+  - target: $.paths["/apis/{apiId}"].get.responses["200"].content["application/json"].schema
+    update:
+      $ref: "#/components/schemas/APIResponseGetAPIWrapper"

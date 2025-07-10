@@ -1,60 +1,37 @@
-# *WebMethodsAPIGateway4J*
+# *webMethods APIGateway Client*
 
-[![Maven Central](https://img.shields.io/maven-central/v/io.github.primelib/webmethodsapigateway4j)](https://central.sonatype.com/artifact/io.github.primelib/webmethodsapigateway4j)
-[![javadoc](https://javadoc.io/badge2/io.github.primelib/webmethodsapigateway4j/javadoc.svg)](https://javadoc.io/doc/io.github.primelib/webmethodsapigateway4j)
+The webMethods API Gateway, originally developed by Software AG and now part of IBM, enables you to securely expose your APIs
+to third-party developers, partners, and other consumers for use in web, mobile, and Internet of Things (IoT) applications.
 
-> A java client for the WebMethods API Gateway REST API.
+- [IBM webMethods API Management](https://www.ibm.com/products/webmethods-api-management)
 
-## Installation
+## API Specification
 
-```gradle
-implementation("io.github.primelib:webmethodsapigateway4j:<latestVersion>")
-```
+This repository includes API specifications from the following sources:
 
-[Click to view instructions for other build tools](https://central.sonatype.com/artifact/io.github.primelib/webmethodsapigateway4j).
+- [WebMethods API Gateway](https://github.com/ibm-wm-transition/webmethods-api-gateway)
+- [WebMethods Developer Portal](https://developers.webmethods.io/portal/apis)
 
-## Usage
+## Libraries
 
-*Consumer Specification Approach*
+> **⚠️ Unofficial**
+> 
+> This repository and the generated SDKs are unofficial and are not maintained, endorsed, or sponsored by IBM, Software AG, or any other original API providers.
+> Use at your own risk. Consult the official API documentation and terms of service of each provider before integrating.
 
-```java
-APIGatewayConsumerApi client = APIGatewayFactory.create(spec -> {
-    spec.api(APIGatewayConsumerApi.class);
-    spec.baseUrl("http://localhost:5555/rest/apigateway");
-    spec.basicAuth(auth -> {
-        auth.username("admin");
-        auth.password("manage");
-    });
-});
-
-APIResponsesModel apis = client.getAPIs(spec -> {
-    spec.from(0);
-    spec.size(100);
-});
-```
-
-*Parameter Approach*
-
-```java
-APIGatewayApi client = APIGatewayFactory.create(spec -> {
-    spec.api(APIGatewayApi.class);
-    spec.baseUrl("http://localhost:5555/rest/apigateway");
-    spec.basicAuth(auth -> {
-        auth.username("admin");
-        auth.password("manage");
-    });
-});
-
-APIResponsesModel apis = client.getAPIs(null, 0, 100);
-```
-
-**_NOTE:_** The  `Parameter Approach` can break if the API changes. The `Consumer Specification Approach` is more resilient to API changes.
-
-## Links
-
-- [Documentation](https://primelib.github.io)
-- [Contribute](https://primelib.github.io/contribution/)
+- [Go](sdk/go/README.md)
+- [Java](sdk/java/README.md)
 
 ## License
 
-Released under the [MIT License](./LICENSE).
+### API Specifications License
+
+API specifications are included for development and code generation purposes only.
+
+- Copyright and ownership of each API specification remain with the respective original rights holders.
+- Inclusion of these specifications in this repository does **not** imply any affiliation, endorsement, or sponsorship by the respective companies.
+- Please consult the terms of service or license provided by each API owner before using these specifications or integrating with their APIs.
+
+### Code License
+
+The generated code in this repository (`/sdk`) is licensed under the [MIT License](./LICENSE).

@@ -1,64 +1,212 @@
-release: true
-modules:
-  # source: https://github.com/SoftwareAG/webmethods-api-gateway/tree/master/apigatewayservices
-  - spec_file: openapi.json
-    spec_format: openapi
-    spec_sources:
-      - name: openapi.admin.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAdministration.json
-      - name: openapi.alias.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAlias.json
-      - name: openapi.application.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayApplication.json
-      - name: openapi.approval.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayApprovalManagement.json
-      - name: openapi.archive.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayArchive.json
-      - name: openapi.availability.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayAvailability.json
-      - name: openapi.data.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayDataManagement.json
-      - name: openapi.document.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayDocumentManagement.json
-      - name: openapi.internal.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayInternalService.json
-      - name: openapi.monetization.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayMonetizationSwagger.json
-      - name: openapi.policy.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPolicyManagement.json
-      - name: openapi.port.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPortManagement.json
-      - name: openapi.promotion.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPromotionManagement.json
-      - name: openapi.public.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayPublicServices.json
-      - name: openapi.search.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewaySearch.json
-      - name: openapi.server.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayServerInfoSwagger.json
-      - name: openapi.service.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayServiceManagement.json
-      - name: openapi.transactional.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayTransactionalEvent.json
-      - name: openapi.user.json
-        url: https://raw.githubusercontent.com/SoftwareAG/webmethods-api-gateway/master/apigatewayservices/APIGatewayUserManagementSwagger.json
-    spec_script: |
-      jq '.info.title="API Gateway"' "$1" | sponge "$1" # overwrite name
-      jq '.info.description="webMethods API Gateway is the core run time component in webMethods API Management platform and it enables organizations to secure, manage and monitor their API programs."' "$1" | sponge "$1" # overwrite description
-      jq 'del(.definitions.BasicAuth, .definitions.ClientCredentialsAuth, .definitions.NoAuth, .definitions.RefreshTokenAuth, .definitions.TokenAuth)' "$1" | sponge "$1"
-      jq '.paths."/apis/{apiId}/applications".get.operationId="getApiApplications"' "$1" | sponge "$1"
-      # bad names
-      jq '(.definitions.ParameterSchema = .definitions.Schema) | del(.definitions.Schema)' "$1" | sponge "$1"
-      jq 'walk(if type == "string" and . == "#/definitions/Schema" then "#/definitions/ParameterSchema" else . end)' "$1" | sponge "$1"
-    config:
-      generatorName: prime-client-java-feign
-      invokerPackage: io.github.primelib.webmethodsapigateway4j
-      apiPackage: io.github.primelib.webmethodsapigateway4j.api
-      modelPackage: io.github.primelib.webmethodsapigateway4j.model
-      enablePostProcessFile: true
-      additionalProperties:
-        projectArtifactGroupId: io.github.primelib
-        projectArtifactId: webmethodsapigateway4j
-        projectMaintainerId: PhilippHeuer
-        projectMaintainerName: Philipp Heuer
-        projectMaintainerEMail: git@philippheuer.me
+# yaml-language-server: $schema=https://raw.githubusercontent.com/primelib/primecodegen/main/configschema/primelib-v1.json
+output: sdk
+
+repository:
+  name: WebMethods API Gateway Client
+  description: Unofficial API client generated from the WebMethods API Gateway OpenAPI specification.
+  url: https://github.com/primelib/webmethods-api-gateway-client
+  licenseName: MIT
+  licenseURL: https://github.com/primelib/webmethods-api-gateway-client/blob/main/LICENSE
+
+maintainers:
+  - id: PhilippHeuer
+    name: Philipp Heuer
+    email: git@philippheuer.de
+
+spec:
+  file: openapi.yaml
+  type: openapi3
+  sourcesDir: spec
+  sources:
+    - file: openapi.admin.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayAdministration.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Admin
+        - id: set-operation-tag
+          config:
+            tag: Administration
+    - file: openapi.alias.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayAlias.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Alias
+        - id: set-operation-tag
+          config:
+            tag: Alias
+    - file: openapi.application.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayApplication.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Application
+        - id: set-operation-tag
+          config:
+            tag: Application
+    - file: openapi.approval.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayApprovalManagement.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: ApprovalMgmt
+        - id: set-operation-tag
+          config:
+            tag: ApprovalManagement
+    - file: openapi.archive.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayArchive.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Archive
+        - id: set-operation-tag
+          config:
+            tag: Archive
+    - file: openapi.availability.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayAvailability.json
+      type: swagger2
+      patches:
+        - id: add-path-prefix
+          config:
+            prefix: /health
+        - id: set-operation-tag
+          config:
+            tag: Availability
+    - file: openapi.data.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayDataManagement.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: DataMgmt
+        - id: set-operation-tag
+          config:
+            tag: DataManagement
+    - file: openapi.document.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayDocumentManagement.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: DocumentMgmt
+        - id: set-operation-tag
+          config:
+            tag: DocumentManagement
+    - file: openapi.internal.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayInternalService.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Internal
+        - id: set-operation-tag
+          config:
+            tag: InternalService
+    - file: openapi.monetization.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayMonetizationSwagger.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Monetization
+        - id: set-operation-tag
+          config:
+            tag: Monetization
+    - file: openapi.policy.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayPolicyManagement.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: PolicyMgmt
+        - id: set-operation-tag
+          config:
+            tag: PolicyManagement
+    - file: openapi.port.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayPortManagement.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: PortMgmt
+        - id: set-operation-tag
+          config:
+            tag: PortManagement
+    - file: openapi.promotion.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayPromotionManagement.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: PromotionMgmt
+        - id: set-operation-tag
+          config:
+            tag: PromotionManagement
+    - file: openapi.search.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewaySearch.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: Search
+        - id: set-operation-tag
+          config:
+            tag: Search
+    - file: openapi.server.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayServerInfoSwagger.json
+      type: swagger2
+      patches:
+        - id: set-operation-tag
+          config:
+            tag: ServerInfo
+    - file: openapi.service.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayServiceManagement.json
+      type: swagger2
+      patches:
+        - type: openapi-overlay
+          file: spec_patches/service.overlay.yaml
+        - id: add-component-schema-prefix
+          config:
+            prefix: ServiceMgmt
+        - id: set-operation-tag
+          config:
+            tag: ServiceManagement
+    - file: openapi.transactional.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayTransactionalEvent.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: TransactionMgmt
+        - id: set-operation-tag
+          config:
+            tag: TransactionManagement
+    - file: openapi.user.yaml
+      url: https://raw.githubusercontent.com/ibm-wm-transition/webmethods-api-gateway/master/apigatewayservices/APIGatewayUserManagementSwagger.json
+      type: swagger2
+      patches:
+        - id: add-component-schema-prefix
+          config:
+            prefix: UserMgmt
+        - id: set-operation-tag
+          config:
+            tag: UserManagement
+  patches:
+    - id: prune-invalid-paths
+    - id: generate-missing-operation-id
+    - id: flatten-components
+    - id: fix-missing-schema-title
+
+presets:
+  java:
+    enabled: true
+    groupId: io.github.primelib
+    artifactId: webmethodsapigateway4j
+  go:
+    enabled: true
